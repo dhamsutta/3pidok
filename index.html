@@ -29,15 +29,39 @@
     </div>
 
  <!-- บาลี-->
-<section class="dictionary-box">
-  <h2>🔍 ค้นคำบาลีแปลไทย</h2>
+<h2>🔍 ค้นคำบาลีแปลไทย</h2>
+<button onclick="togglePali()">เปิด/ปิด พจนานุกรม</button>
+
+<div id="pali-frame" style="display:none; margin-top:1em;">
   <iframe 
     src="https://dhammasutta.github.io/dhamma-dictionary/" 
     width="100%" 
     height="600" 
-    frameborder="0">
+    frameborder="0"
+    style="border:1px solid #ccc; border-radius:8px;">
   </iframe>
-</section>
+</div>
+
+<script>
+function togglePali() {
+  const frame = document.getElementById('pali-frame');
+  frame.style.display = frame.style.display === 'none' ? 'block' : 'none';
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
   <!-- ปุ่ม -->
 <table class="image-grid">
