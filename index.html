@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ธรรมสุตตะ | พระไตรปิฎกเพื่อชีวิต</title>
+  <title>ธรรมสุตตะ | ศึกษาพระธรรมตามพระไตรปิฎก</title>
   <meta name="description" content="คลังธรรมะออนไลน์ พระไตรปิฎก วินัยสงฆ์ ธรรมบท พุทธวจนะ เรียบง่ายแต่ครบถ้วน" />
   <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์" />
   <meta name="author" content="ธรรมสุตตะ" />
@@ -13,57 +13,62 @@
 </head>
 <body>
 
-<header class="site-header">
-  <a href="/" class="logo-link">
-    <img src="/assets/images/logo.png" alt="" class="site-logo">
-  </a>
-</header>
+  <!-- ส่วนหัว -->
+  <header class="site-header">
+    <a href="/" class="logo-link">
+      <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+    </a>
+  </header>
 
-<div class="quote-box">
-  <strong>พุทธพจน์วันนี้:</strong>
-  <span id="random-quote">กำลังโหลด...</span>
-</div>
+  <main>
 
-<!-- ค้นหา -->
-<div class="gcse-search"></div>
+    <!-- พุทธพจน์ -->
+    <div class="quote-box">
+      <strong>พุทธพจน์วันนี้:</strong>
+      <span id="random-quote">กำลังโหลด...</span>
+    </div>
 
-<!-- เมนูหลัก -->
-<h2>เมนูหลัก</h2>
-<ul>
-  <li><a href="/wiki/">📖 ธรรมะสารบัญ (Wiki)</a></li>
-  <li><a href="/posts/">📝 บทความทั้งหมด</a></li>
-  <li><a href="/tags/">🔖 แท็ก</a></li>
-  <li><a href="/search/">🔍 ค้นหา</a></li>
-</ul>
+    <!-- กล่องค้นหา -->
+    <div class="gcse-search"></div>
 
-<!-- แนะนำ -->
-<h2>แนะนำ</h2>
-<ul>
-  <li><a href="/ปาราชิก.html">ปาราชิก ๔ – วินัยสงฆ์เบื้องต้น</a></li>
-  <li><a href="/ธรรมบท.html">ธรรมบท – พุทธวจนะจากพระไตรปิฎก</a></li>
-</ul>
+    <!-- เมนูหลัก -->
+    <h2>เมนูหลัก</h2>
+    <ul>
+      <li><a href="/wiki/">📖 ธรรมะสารบัญ (Wiki)</a></li>
+      <li><a href="/categories/">📝 บทความทั้งหมด</a></li>
+      <li><a href="/tags/">🔖 แท็ก</a></li>
+      <li><a href="/search/">🔍 ค้นหา</a></li>
+    </ul>
 
-<!-- footer -->
-<footer>
-  <p>&copy; 2025 ธรรมสุตตะ</p>
-</footer>
+    <!-- แนะนำ -->
+    <h2>แนะนำ</h2>
+    <ul>
+      <li><a href="/ปาราชิก.html">ปาราชิก ๔ – วินัยสงฆ์เบื้องต้น</a></li>
+      <li><a href="/ธรรมบท.html">ธรรมบท – พุทธวจนะจากพระไตรปิฎก</a></li>
+    </ul>
 
-<!-- พุทธพจน์แบบสุ่ม -->
-<script>
-  fetch('/assets/data/quotes.json')
-    .then(res => res.json())
-    .then(data => {
-      const quote = data[Math.floor(Math.random() * data.length)];
-      document.getElementById('random-quote').innerHTML =
-        quote.quote + "<br><small>" + quote.source + "</small>";
-    })
-    .catch(() => {
-      document.getElementById('random-quote').innerText = "โหลดไม่สำเร็จ";
-    });
-</script>
+  </main>
 
-<!-- Google Custom Search -->
-<script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
+  <footer>
+    <p>&copy; 2025 ธรรมสุตตะ</p>
+  </footer>
+
+  <!-- พุทธพจน์แบบสุ่ม -->
+  <script>
+    fetch('/assets/data/quotes.json')
+      .then(res => res.json())
+      .then(data => {
+        const quote = data[Math.floor(Math.random() * data.length)];
+        document.getElementById('random-quote').innerHTML =
+          quote.quote + "<br><small>" + quote.source + "</small>";
+      })
+      .catch(() => {
+        document.getElementById('random-quote').innerText = "โหลดไม่สำเร็จ";
+      });
+  </script>
+
+  <!-- Google Custom Search -->
+  <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
 
 </body>
 </html>
