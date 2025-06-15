@@ -100,7 +100,7 @@ footer {
 }
 
 .site-logo {
-  height: 200px; /* ✅ ขยายโลโก้ */
+  height: 128px; /* ✅ ขยายโลโก้ */
   width: auto;
   display: block;
 }
