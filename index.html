@@ -35,33 +35,7 @@
   <div id="paliResult"></div>
 </section>
 
-<script>
-let paliDict = [];
 
-fetch('/assets/data/pali.json')
-  .then(res => res.json())
-  .then(data => {
-    paliDict = data;
-  })
-  .catch(() => {
-    document.getElementById('paliResult').innerText = "❌ โหลดคำแปลไม่สำเร็จ";
-  });
-
-function lookupPali() {
-  const input = document.getElementById('paliInput').value.trim().toLowerCase();
-  const resultBox = document.getElementById('paliResult');
-
-  if (!input) {
-    resultBox.innerHTML = '';
-    return;
-  }
-
-  const matches = paliDict.filter(entry =>
-    entry.headword.toLowerCase().includes(input)
-  );
-
-  if (matches.length === 0) {
-    resultBox.innerHTML = `❌ ไม่พบ
 
 
     
@@ -132,7 +106,33 @@ function lookupPali() {
   </script>
 <!-- สคริปบาลี-->
 
+<script>
+let paliDict = [];
 
+fetch('/assets/data/pali.json')
+  .then(res => res.json())
+  .then(data => {
+    paliDict = data;
+  })
+  .catch(() => {
+    document.getElementById('paliResult').innerText = "❌ โหลดคำแปลไม่สำเร็จ";
+  });
+
+function lookupPali() {
+  const input = document.getElementById('paliInput').value.trim().toLowerCase();
+  const resultBox = document.getElementById('paliResult');
+
+  if (!input) {
+    resultBox.innerHTML = '';
+    return;
+  }
+
+  const matches = paliDict.filter(entry =>
+    entry.headword.toLowerCase().includes(input)
+  );
+
+  if (matches.length === 0) {
+    resultBox.innerHTML = `❌ ไม่พบ
 
 
 
