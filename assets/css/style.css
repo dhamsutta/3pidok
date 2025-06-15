@@ -129,30 +129,25 @@ table.image-grid div {
 }
 
 .dictionary-box {
-  background-color: #fffef9;
-  border: 1px solid #eee;
-  border-radius: 8px;
+  background: #fff9e9;
   padding: 1em;
   margin: 2em 0;
-  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+  border: 1px solid #e0d4ba;
+  border-radius: 8px;
 }
 
-#pali-frame iframe {
+.dictionary-box input {
   width: 100%;
-  max-width: 100%;
-  border-radius: 8px;
+  padding: 0.6em;
+  font-size: 1em;
+  margin-bottom: 0.8em;
   border: 1px solid #ccc;
+  border-radius: 4px;
 }
-button {
-  background-color: #c8a76a;
-  color: #fff;
-  border: none;
-  padding: 0.5em 1em;
-  border-radius: 6px;
-  cursor: pointer;
-}
-button:hover {
-  background-color: #b08a50;
+
+#paliResult p {
+  margin: 0.5em 0;
+  line-height: 1.6;
 }
 
 
