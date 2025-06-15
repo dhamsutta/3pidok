@@ -106,7 +106,7 @@ footer {
 @media (max-width: 600px) {
   body {
     font-size: 16px;
-    padding: 0 1em;
+    padding: 0 0.5em;
   }
 
   h1 {
