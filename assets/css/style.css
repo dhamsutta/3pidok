@@ -102,6 +102,46 @@ footer {
   text-align: center;
 }
 
+table.image-grid {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 2em 0;
+}
+
+table.image-grid td {
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+table.image-grid img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto 0.3em;
+}
+
+table.image-grid div {
+  font-size: 0.95em;
+  color: #444;
+}
+
+/* มือถือให้แสดงเป็น 2 คอลัมน์ */
+@media (max-width: 600px) {
+  table.image-grid td {
+    display: inline-block;
+    width: 48%;
+    box-sizing: border-box;
+  }
+
+  table.image-grid tr {
+    display: block;
+  }
+}
+
+
 /* ปรับสำหรับมือถือ */
 @media (max-width: 600px) {
   body {
