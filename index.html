@@ -2,58 +2,63 @@
 <html lang="th">
 <head>
   <meta charset="UTF-8" />
-  <title>ธรรมสุตตะ</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="assets/css/main.css" />
+
+  <title>ธรรมสุตตะ | รวมคำสอนจากพระไตรปิฎก</title>
+  <meta name="description" content="คลังธรรมะออนไลน์ ศึกษาพระไตรปิฎก วินัยสงฆ์ ธรรมบท พุทธวจนะ แบบเรียบง่ายและเข้าถึงได้" />
+  <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, วินัยสงฆ์, ธรรมบท, พุทธวจนะ" />
+  <meta name="author" content="ธรรมสุตตะ" />
+
+  <link rel="stylesheet" href="/assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
-  <script src="assets/js/quotes.js" defer></script>
 </head>
-<body class="is-preload">
+<body>
 
-  <div id="wrapper">
-    <section id="intro" class="main style1">
-      <div class="container">
-        <header class="major">
-          <h1>ธรรมสุตตะ</h1>
-          <p>คลังธรรมะออนไลน์ เพื่อชีวิตที่มีสติและปัญญา</p>
-        </header>
-        <footer>
-          <ul class="actions special">
-            <li><a href="wiki/index.html" class="button">📖 เข้าสู่สารบัญธรรม</a></li>
-            <li><a href="posts/index.html" class="button">📰 บทความล่าสุด</a></li>
-          </ul>
-        </footer>
-      </div>
-    </section>
+  <header>
+    <h1>ธรรมสุตตะ</h1>
+    <p><strong>คลังธรรมะออนไลน์</strong> เพื่อชีวิตที่มีสติและปัญญา</p>
+    <hr />
+  </header>
 
-    <section class="main style2">
-      <div class="container">
-        <header class="major">
-          <h2>พุทธพจน์ประจำวัน</h2>
-        </header>
-        <div id="random-quote" class="content">
-          <p>กำลังโหลด...</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="main style3 special">
-      <div class="container">
-        <header class="major">
-          <h2>เกี่ยวกับเว็บไซต์</h2>
-        </header>
-        <p>รวบรวมพระธรรมจากพระไตรปิฎก, ธรรมวินัย, และพุทธวจน เพื่อให้เข้าถึงง่าย เข้าใจง่าย และนำไปใช้ได้จริง</p>
-      </div>
-    </section>
-
-    <footer id="footer">
-      <ul class="copyright">
-        <li>&copy; ธรรมสุตตะ</li>
-        <li>พัฒนาโดยคุณ</li>
-      </ul>
-    </footer>
+  <div class="quote-box">
+    <strong>พุทธพจน์วันนี้:</strong>
+    <span id="random-quote">กำลังโหลด...</span>
   </div>
 
+  <main>
+    <h2>📖 เมนูหลัก</h2>
+    <ul>
+      <li><a href="/wiki/">🗂️ ธรรมะสารบัญ (Wiki)</a></li>
+      <li><a href="/posts/">📝 บทความทั้งหมด</a></li>
+      <li><a href="/tags/">🔖 แท็กธรรมะ</a></li>
+      <li><a href="/search/">🔍 ค้นหาเนื้อหา</a></li>
+    </ul>
+
+    <h2>🔥 แนะนำ</h2>
+    <ul>
+      <li><a href="/ปาราชิก.html">ปาราชิก ๔ – วินัยสงฆ์เบื้องต้น</a></li>
+      <li><a href="/ธรรมบท.html">ธรรมบท – คำสอนจากพระไตรปิฎก</a></li>
+      <li><a href="/อริยสัจ4.html">อริยสัจ ๔ – หัวใจพระพุทธศาสนา</a></li>
+    </ul>
+  </main>
+
+  <footer>
+    <hr />
+    <p>&copy; 2025 ธรรมสุตตะ | พัฒนาเพื่อการศึกษาเท่านั้น</p>
+  </footer>
+
+  <!-- ✅ Script พุทธพจน์ (ถ้ามี quotes.json + quotes.js) -->
+  <script>
+    fetch('/assets/data/quotes.json')
+      .then(res => res.json())
+      .then(data => {
+        const quote = data[Math.floor(Math.random() * data.length)];
+        document.getElementById('random-quote').innerHTML =
+          quote.quote + "<br><small>" + quote.source + "</small>";
+      })
+      .catch(() => {
+        document.getElementById('random-quote').innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
+      });
+  </script>
 </body>
 </html>
-
