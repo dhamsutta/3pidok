@@ -35,6 +35,28 @@
   <div id="paliResult" class="result-box"></div>
 </section>
 
+<script>
+  let paliDict = {};
+
+  // โหลด JSON
+  fetch('/assets/data/pali.json')
+    .then(res => res.json())
+    .then(data => {
+      paliDict = data;
+    })
+    .catch(() => {
+      document.getElementById('paliResult').innerText = "⚠️ โหลดคำแปลไม่สำเร็จ";
+    });
+
+  // ฟังก์ชันค้นหา
+  function lookupPali() {
+    const word = document.getElementById('paliInput').value.trim();
+    const result = paliDict[word];
+    document.getElementById('paliResult').innerHTML = result
+      ? `<strong>${word}</strong>: ${result}`
+      : word ? `❌ ไม่พบคำว่า "<strong>${word}</strong>"` : '';
+  }
+</script>
 
 
     
@@ -104,28 +126,6 @@
       });
   </script>
 <!-- สคริปบาลี-->
-<script>
-  let paliDict = {};
-
-  // โหลด JSON
-  fetch('/assets/data/pali.json')
-    .then(res => res.json())
-    .then(data => {
-      paliDict = data;
-    })
-    .catch(() => {
-      document.getElementById('paliResult').innerText = "⚠️ โหลดคำแปลไม่สำเร็จ";
-    });
-
-  // ฟังก์ชันค้นหา
-  function lookupPali() {
-    const word = document.getElementById('paliInput').value.trim();
-    const result = paliDict[word];
-    document.getElementById('paliResult').innerHTML = result
-      ? `<strong>${word}</strong>: ${result}`
-      : word ? `❌ ไม่พบคำว่า "<strong>${word}</strong>"` : '';
-  }
-</script>
 
 
 
