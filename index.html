@@ -29,11 +29,9 @@
     </div>
 
  <!-- บาลี-->
-<section class="dictionary-box">
-  <h2>🔍 ค้นคำแปลบาลี</h2>
-  <input type="text" id="paliInput" placeholder="" oninput="lookupPali()" />
-  <div id="paliResult"></div>
-</section>
+<h2>🔍 ค้นคำบาลี</h2>
+<input type="text" id="paliInput" placeholder="" />
+<div id="paliResult"></div>
 
 
 
@@ -104,6 +102,15 @@
         document.getElementById('random-quote').innerText = "โหลดไม่สำเร็จ";
       });
   </script>
+
+
+
+
+  <!-- Google Custom Search -->
+  <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
+
+
+
 <!-- สคริปบาลี-->
 
 <script>
@@ -115,11 +122,11 @@ fetch('/assets/data/pali.json')
     paliDict = data;
   })
   .catch(() => {
-    document.getElementById('paliResult').innerText = "❌ โหลดคำแปลไม่สำเร็จ";
+    document.getElementById('paliResult').innerText = "❌ โหลดไม่สำเร็จ";
   });
 
-function lookupPali() {
-  const input = document.getElementById('paliInput').value.trim().toLowerCase();
+document.getElementById('paliInput').addEventListener('input', function () {
+  const input = this.value.trim().toLowerCase();
   const resultBox = document.getElementById('paliResult');
 
   if (!input) {
@@ -131,16 +138,13 @@ function lookupPali() {
     entry.headword.toLowerCase().includes(input)
   );
 
-  if (matches.length === 0) {
-    resultBox.innerHTML = `❌ ไม่พบ
+  resultBox.innerHTML = matches.length
+    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+    : `❌ ไม่พบคำว่า "<strong>${input}</strong>"`;
+});
+</script>
 
 
 
-
-
-  
-
-  <!-- Google Custom Search -->
-  <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
 </body>
 </html>
