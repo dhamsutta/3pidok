@@ -30,33 +30,38 @@
 
  <!-- บาลี-->
 <section class="dictionary-box">
-  <h2>🔍 ค้นคำบาลี</h2>
-  <input type="text" id="paliInput" placeholder="พิมพ์คำบาลี..." oninput="lookupPali()" />
-  <div id="paliResult" class="result-box"></div>
+  <h2>🔍 ค้นคำบาลี (แสดงหลายรายการ)</h2>
+  <input type="text" id="paliInput" placeholder="พิมพ์คำบาลี เช่น dhamma" oninput="lookupPali()" />
+  <div id="paliResult"></div>
 </section>
 
 <script>
-  let paliDict = {};
+let paliDict = [];
 
-  // โหลด JSON
-  fetch('/assets/data/pali.json')
-    .then(res => res.json())
-    .then(data => {
-      paliDict = data;
-    })
-    .catch(() => {
-      document.getElementById('paliResult').innerText = "⚠️ โหลดคำแปลไม่สำเร็จ";
-    });
+fetch('/assets/data/pali.json')
+  .then(res => res.json())
+  .then(data => {
+    paliDict = data;
+  })
+  .catch(() => {
+    document.getElementById('paliResult').innerText = "❌ โหลดคำแปลไม่สำเร็จ";
+  });
 
-  // ฟังก์ชันค้นหา
-  function lookupPali() {
-    const word = document.getElementById('paliInput').value.trim();
-    const result = paliDict[word];
-    document.getElementById('paliResult').innerHTML = result
-      ? `<strong>${word}</strong>: ${result}`
-      : word ? `❌ ไม่พบคำว่า "<strong>${word}</strong>"` : '';
+function lookupPali() {
+  const input = document.getElementById('paliInput').value.trim().toLowerCase();
+  const resultBox = document.getElementById('paliResult');
+
+  if (!input) {
+    resultBox.innerHTML = '';
+    return;
   }
-</script>
+
+  const matches = paliDict.filter(entry =>
+    entry.headword.toLowerCase().includes(input)
+  );
+
+  if (matches.length === 0) {
+    resultBox.innerHTML = `❌ ไม่พบ
 
 
     
