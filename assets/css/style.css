@@ -1,4 +1,4 @@
-/* ฟอนต์ไทย */
+/* ฟอนต์ไทย และโครงสร้างพื้นฐาน */
 body {
   font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
   font-size: 17px;
@@ -10,7 +10,7 @@ body {
   padding: 0 1.5em;
 }
 
-/* Reset ทุก element หลักให้ไม่มี padding/margin */
+/* รีเซ็ต margin/padding ทุกองค์ประกอบหลัก */
 body, h1, h2, h3, p, div, header, main, footer {
   margin: 0;
   padding: 0;
@@ -20,26 +20,33 @@ body, h1, h2, h3, p, div, header, main, footer {
   box-sizing: border-box;
 }
 
-/* Heading */
+/* ส่วนหัวเรื่อง */
 h1, h2, h3 {
   color: #5a4a2f;
   font-weight: 600;
 }
 
-h1 { font-size: 2em; }
-h2 { font-size: 1.4em; }
-h3 { font-size: 1.2em; }
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.4em;
+}
+h3 {
+  font-size: 1.2em;
+}
 
 /* ลิงก์ */
 a {
   color: #8c6215;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
 
-/* ภาพประกอบ */
+/* ภาพประกอบทั่วไป */
 img {
   max-width: 100%;
   height: auto;
@@ -48,7 +55,7 @@ img {
   display: block;
 }
 
-/* โลโก้ */
+/* ส่วนหัวโลโก้ */
 .site-header {
   display: block;
   background: none;
@@ -81,14 +88,13 @@ img {
   padding: 0;
 }
 
-/* main content */
+/* เนื้อหาหลัก */
 main {
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 3em;
+  max-width: 100%;
+  padding: 0;
 }
 
-/* footer */
+/* ส่วนท้าย */
 footer {
   margin: 1em 0;
   font-size: 0.9em;
@@ -96,12 +102,18 @@ footer {
   text-align: center;
 }
 
-/* responsive */
+/* ปรับสำหรับมือถือ */
 @media (max-width: 600px) {
   body {
     font-size: 16px;
+    padding: 0 1em;
   }
 
-  h1 { font-size: 1.6em; }
-  h2 { font-size: 1.3em; }
+  h1 {
+    font-size: 1.6em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
 }
