@@ -83,9 +83,9 @@ img {
 
 /* main content */
 main {
-  max-width: 720px;
+  max-width: 600px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 3em;
 }
 
 /* footer */
