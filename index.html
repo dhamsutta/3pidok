@@ -33,30 +33,6 @@
 <input type="text" id="paliInput" placeholder="พิมพ์คำบาลี..." oninput="lookupPali()" />
 <div id="paliResult"></div>
 
-<script>
-  let paliDict = {};
-
-  fetch('/assets/data/pali.json')
-    .then(res => res.json())
-    .then(data => {
-      paliDict = data;
-      console.log('โหลดสำเร็จ:', data); // 👈 ตรวจผล
-    })
-    .catch((err) => {
-      console.error('❌ โหลดไม่สำเร็จ:', err);
-      document.getElementById('paliResult').innerText = 'ไม่สามารถโหลดคำแปลได้';
-    });
-
-  function lookupPali() {
-    const word = document.getElementById('paliInput').value.trim();
-    const result = paliDict[word];
-    document.getElementById('paliResult').innerHTML = result
-      ? `<strong>${word}</strong>: ${result}`
-      : word ? `❌ ไม่พบคำว่า "${word}"` : '';
-  }
-</script>
-
-
   <!-- ปุ่ม -->
 <table class="image-grid">
   <tr>
@@ -122,8 +98,32 @@
       });
   </script>
 
+
+
+<script>
+  let paliDict = {};
+
+  fetch('/assets/data/pali.json')
+    .then(res => res.json())
+    .then(data => {
+      paliDict = data;
+      console.log('โหลดสำเร็จ:', data); // 👈 ตรวจผล
+    })
+    .catch((err) => {
+      console.error('❌ โหลดไม่สำเร็จ:', err);
+      document.getElementById('paliResult').innerText = 'ไม่สามารถโหลดคำแปลได้';
+    });
+
+  function lookupPali() {
+    const word = document.getElementById('paliInput').value.trim();
+    const result = paliDict[word];
+    document.getElementById('paliResult').innerHTML = result
+      ? `<strong>${word}</strong>: ${result}`
+      : word ? `❌ ไม่พบคำว่า "${word}"` : '';
+  }
+</script>
+
   <!-- Google Custom Search -->
   <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
-
 </body>
 </html>
