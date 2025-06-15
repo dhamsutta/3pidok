@@ -128,6 +128,20 @@ table.image-grid div {
   color: #444;
 }
 
+.dictionary-box {
+  background-color: #fffef9;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1em;
+  margin: 2em 0;
+  box-shadow: 0 0 5px rgba(0,0,0,0.05);
+}
+
+
+
+
+
+
 /* มือถือให้แสดงเป็น 2 คอลัมน์ */
 @media (max-width: 600px) {
   table.image-grid td {
