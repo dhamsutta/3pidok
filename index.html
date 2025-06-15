@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>ธรรมสุตตะ | ศึกษาธรรมตามพระไตรปิฎก</title>
-  <meta name="description" content="คลังธรรมะออนไลน์ ศึกษาพระไตรปิฎก วินัยสงฆ์ ธรรมบท พุทธวจนะ แบบเรียบง่ายและเข้าถึงได้" />
-  <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, วินัยสงฆ์, ธรรมบท, พุทธวจนะ" />
+  <title>ธรรมสุตตะ | พระไตรปิฎกเพื่อชีวิต</title>
+  <meta name="description" content="คลังธรรมะออนไลน์ พระไตรปิฎก วินัยสงฆ์ ธรรมบท พุทธวจนะ เรียบง่ายแต่ครบถ้วน" />
+  <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์" />
   <meta name="author" content="ธรรมสุตตะ" />
-
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
 </head>
@@ -16,60 +14,55 @@
 
 <header class="site-header">
   <a href="/" class="logo-link">
-    <img src="/assets/images/logo2.gif" alt="" class="site-logo">
+    <img src="/assets/images/logo.png" alt="" class="site-logo">
   </a>
 </header>
 
-   
-  <div class="quote-box">
-    <strong>พุทธพจน์วันนี้:</strong>
-    <span id="random-quote">กำลังโหลด...</span>
-  </div>
+<div class="quote-box">
+  <strong>พุทธพจน์วันนี้:</strong>
+  <span id="random-quote">กำลังโหลด...</span>
+</div>
 
-  <main>
-<!-- ✅ Google Custom Search -->
-    <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
-    <div class="gcse-search"></div>
+<!-- ค้นหา -->
+<div class="gcse-search"></div>
 
-    
-    <h2>📖 เมนูหลัก</h2>
-    <ul>
-      <li><a href="/wiki/">🗂️ ธรรมะสารบัญ (Wiki)</a></li>
-      <li><a href="/posts/">📝 บทความทั้งหมด</a></li>
-      <li><a href="/tags/">🔖 แท็กธรรมะ</a></li>
-      <li><a href="/search/">🔍 ค้นหาเนื้อหา</a></li>
-    </ul>
+<!-- เมนูหลัก -->
+<h2>เมนูหลัก</h2>
+<ul>
+  <li><a href="/wiki/">📖 ธรรมะสารบัญ (Wiki)</a></li>
+  <li><a href="/posts/">📝 บทความทั้งหมด</a></li>
+  <li><a href="/tags/">🔖 แท็ก</a></li>
+  <li><a href="/search/">🔍 ค้นหา</a></li>
+</ul>
 
-    <h2>🔥 แนะนำ</h2>
-    <ul>
-      <li><a href="/ปาราชิก.html">ปาราชิก ๔ – วินัยสงฆ์เบื้องต้น</a></li>
-      <li><a href="/ธรรมบท.html">ธรรมบท – คำสอนจากพระไตรปิฎก</a></li>
-      <li><a href="/อริยสัจ4.html">อริยสัจ ๔ – หัวใจพระพุทธศาสนา</a></li>
-    </ul>
-  </main>
+<!-- แนะนำ -->
+<h2>แนะนำ</h2>
+<ul>
+  <li><a href="/ปาราชิก.html">ปาราชิก ๔ – วินัยสงฆ์เบื้องต้น</a></li>
+  <li><a href="/ธรรมบท.html">ธรรมบท – พุทธวจนะจากพระไตรปิฎก</a></li>
+</ul>
 
-  <footer>
-    <hr />
-    <p>&copy; 2025 ธรรมสุตตะ | พัฒนาเพื่อการศึกษาเท่านั้น</p>
-  </footer>
+<!-- footer -->
+<footer>
+  <p>&copy; 2025 ธรรมสุตตะ</p>
+</footer>
 
-  <!-- ✅ Script พุทธพจน์ (ถ้ามี quotes.json + quotes.js) -->
-  <script>
-    fetch('/assets/data/quotes.json')
-      .then(res => res.json())
-      .then(data => {
-        const quote = data[Math.floor(Math.random() * data.length)];
-        document.getElementById('random-quote').innerHTML =
-          quote.quote + "<br><small>" + quote.source + "</small>";
-      })
-      .catch(() => {
-        document.getElementById('random-quote').innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
-      });
-  </script>
+<!-- พุทธพจน์แบบสุ่ม -->
+<script>
+  fetch('/assets/data/quotes.json')
+    .then(res => res.json())
+    .then(data => {
+      const quote = data[Math.floor(Math.random() * data.length)];
+      document.getElementById('random-quote').innerHTML =
+        quote.quote + "<br><small>" + quote.source + "</small>";
+    })
+    .catch(() => {
+      document.getElementById('random-quote').innerText = "โหลดไม่สำเร็จ";
+    });
+</script>
 
-  <footer>
-    <hr />
-    <p style="text-align:center;">&copy; 2025 ธรรมสุตตะ | ค้นหาธรรมะโดย Google</p>
-  </footer>
+<!-- Google Custom Search -->
+<script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
+
 </body>
 </html>
