@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+<link rel="stylesheet" href="/assets/css/style.css">
+
+  <!-- ✅ เปลี่ยนตรงนี้สำหรับ SEO
+คำแนะนำเพิ่มเติม:
+ตั้งชื่อสั้น + มีความหมาย เช่น:ปาราชิก.html ✅
+ปาราชิก-4.html ✅
+สิกขาบทที่1.html ✅
+หลีกเลี่ยง: บทที่_1_พระวินัย_1.html ❌
+อย่าลืมใช้ <title> + <meta> ให้ตรงกับ keyword เดียวกันใน URL
+ -->
+  <title>ปาราชิก ๔ | ธรรมสุตตะ</title>
+  <meta name="description" content="ศึกษาพระวินัยปาราชิก ๔ ตามพระไตรปิฎก สำหรับผู้ศึกษาธรรมอย่างลึกซึ้ง" />
+  <meta name="keywords" content="ธรรมะ, ปาราชิก, วินัยสงฆ์, พระไตรปิฎก, พุทธวจนะ" />
+  <meta name="author" content="ธรรมสุตตะ" />
+
+  <!-- ✅ Structured Data (SEO) การใส่ Structured Data (schema.org) 
+เป็นเทคนิค SEO ที่ใช้ บอก Google อย่างชัดเจน ว่าเว็บเพจของคุณเกี่ยวกับอะไร —
+ เพื่อให้มันแสดงผล สวยขึ้น และ เข้าใจง่ายขึ้น เวลาอยู่ในผลการค้นหา
+-->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "ปาราชิก ๔",
+    "description": "ศึกษาพระวินัยปาราชิก ๔ ตามพระไตรปิฎก",
+    "datePublished": "2025-06-15",
+    "author": {
+      "@type": "Person",
+      "name": "ธรรมสุตตะ"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "ธรรมสุตตะ",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://dhamma-sutta.com/assets/images/logo.png"
+      }
+    }
+  }
+  </script>
+
+  <!-- ✅ Open Graph (สำหรับ Facebook, LINE) -->
+  <meta property="og:title" content="ปาราชิก ๔ | ธรรมสุตตะ">
+  <meta property="og:description" content="ศึกษาพระวินัยปาราชิก ๔ จากพระไตรปิฎก">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://dhamma-sutta.com/ปาราชิก.html">
+  <meta property="og:image" content="https://dhamma-sutta.com/assets/images/chapter3-2.jpg">
+
+  <!-- ✅ CSS -->
+  <link rel="stylesheet" href="/assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <header>
+    <h1>ปาราชิก ๔</h1>
+    <p><small>เผยแพร่เมื่อ: 15 มิถุนายน 2568</small></p>
+    <hr />
+  </header>
+
+  <main>
+    <!-- ✅ เนื้อหาหลัก -->
+
+<h2>🔍 แปลคำบาลี</h2>
+<input type="text" id="paliInput" placeholder="พิมพ์คำบาลี..." />
+<div id="paliResult"></div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let paliDict = {};
+
+    // โหลดไฟล์ JSON
+    fetch('/assets/data/pali.json')
+      .then(res => {
+        if (!res.ok) throw new Error('โหลดไม่สำเร็จ');
+        return res.json();
+      })
+      .then(data => {
+        paliDict = data;
+
+        // ตรวจจับการพิมพ์
+        const input = document.getElementById('paliInput');
+        input.addEventListener('input', function () {
+          const word = input.value.trim().toLowerCase();
+          const result = paliDict[word];
+          const display = document.getElementById('paliResult');
+          display.innerHTML = result
+            ? `<strong>${word}</strong>: ${result}`
+            : word ? `❌ ไม่พบคำว่า "${word}"` : '';
+        });
+      })
+      .catch(err => {
+        console.error(err);
+        document.getElementById('paliResult').innerText = '❌ ไม่สามารถโหลดคำแปลได้';
+      });
+  });
+</script>
+
+
+
+
+
+
+
+
+    <h2>บทนำ</h2>
+    <p>ปาราชิก คือ สิกขาบทร้ายแรงที่สุดในวินัยสงฆ์ ผู้ใดละเมิดย่อมต้องพ้นจากความเป็นพระภิกษุ...</p>
+
+    <h2>สิกขาบทที่ 1</h2>
+    <p>... (ใส่เนื้อหาแต่ละข้อ) ...</p>
+
+    <img src="/assets/images/chapter3-2.jpg" alt="ภาพประกอบ ปาราชิก" style="max-width:100%; border-radius:8px; margin:1em 0;" />
+
+    <h2>อ้างอิงจากพระไตรปิฎก</h2>
+    <p>อ้างอิงจาก ขุททกนิกาย ธัมมปทคาถา และวินัยปิฎก มหาวิภังค์...</p>
+  </main>
+
+  <footer>
+    <hr />
+    <p style="text-align:center;">&copy; 2025 ธรรมสุตตะ</p>
+  </footer>
+
+</body>
+</html>
