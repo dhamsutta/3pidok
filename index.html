@@ -28,6 +28,37 @@
       <span id="random-quote">กำลังโหลด...</span>
     </div>
 
+ <!-- บาลี-->
+<h2>🔍 แปลคำบาลี</h2>
+<input type="text" id="paliInput" placeholder="พิมพ์คำบาลี..." oninput="lookupPali()" />
+<div id="paliResult"></div>
+
+<script>
+  let paliDict = {};
+
+  // โหลดคำแปลจาก JSON
+  fetch('/assets/data/pali.json')
+    .then(res => res.json())
+    .then(data => paliDict = data)
+    .catch(() => {
+      document.getElementById('paliResult').innerText = 'ไม่สามารถโหลดคำแปลได้';
+    });
+
+  // ฟังก์ชันค้นหา
+  function lookupPali() {
+    const word = document.getElementById('paliInput').value.trim();
+    const result = paliDict[word];
+    document.getElementById('paliResult').innerHTML = result
+      ? `<strong>${word}</strong>: ${result}`
+      : word ? `❌ ไม่พบคำว่า "${word}"` : '';
+  }
+</script>
+
+
+
+
+    
+
     <!-- กล่องค้นหา -->
     <div class="gcse-search"></div>
 
