@@ -36,15 +36,17 @@
 <script>
   let paliDict = {};
 
-  // โหลดคำแปลจาก JSON
   fetch('/assets/data/pali.json')
     .then(res => res.json())
-    .then(data => paliDict = data)
-    .catch(() => {
+    .then(data => {
+      paliDict = data;
+      console.log('โหลดสำเร็จ:', data); // 👈 ตรวจผล
+    })
+    .catch((err) => {
+      console.error('❌ โหลดไม่สำเร็จ:', err);
       document.getElementById('paliResult').innerText = 'ไม่สามารถโหลดคำแปลได้';
     });
 
-  // ฟังก์ชันค้นหา
   function lookupPali() {
     const word = document.getElementById('paliInput').value.trim();
     const result = paliDict[word];
@@ -53,7 +55,6 @@
       : word ? `❌ ไม่พบคำว่า "${word}"` : '';
   }
 </script>
-
 
 
 
