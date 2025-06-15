@@ -72,6 +72,26 @@ footer {
   font-size: 1.1em;
 }
 
+.search-section {
+  background-color: #f9f9f9;
+  padding: 1em;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin: 2em 0;
+}
+
+.search-section .quote-box {
+  margin-bottom: 1em;
+}
+
+
+
+
+
+
+
+
+
 /* ปรับปรุงให้เหมาะกับมือถือ */
 @media (max-width: 600px) {
   body {
