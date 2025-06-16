@@ -1,4 +1,3 @@
-
 /* =========================== */
 /* ฟอนต์หลัก และโครงสร้างพื้นฐาน */
 /* =========================== */
@@ -24,21 +23,37 @@ body {
   box-sizing: border-box;
 }
 
-body, h1, h2, h3, p, div, header, main, footer {
+body,
+h1,
+h2,
+h3,
+p,
+div,
+header,
+main,
+footer {
   margin: 0;
   padding: 0;
 }
 
 /* =========================== */
 /* ส่วนหัวเรื่อง */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   color: #5a4a2f;
   font-weight: 600;
 }
 
-h1 { font-size: 2em; }
-h2 { font-size: 1.4em; }
-h3 { font-size: 1.2em; }
+h1 {
+  font-size: 2em;
+}
+h2 {
+  font-size: 1.4em;
+}
+h3 {
+  font-size: 1.2em;
+}
 
 /* =========================== */
 /* ลิงก์ */
@@ -96,48 +111,26 @@ img {
   border-radius: 8px;
 }
 
+/* 💡 แก้ไขและรวมกฎสำหรับ input[type="text"] ทั้งหมด */
 input[type="text"] {
-  font: inherit;
-  padding: 2px;
-  border: 1px solid #666;
-  border-radius: 0;
-  background: #fff;
-  color: #000;
-
-  max-width: 400px;     /* 💡 เพิ่มขีดจำกัดความกว้าง */
-  width: 100%;           /* ให้ responsive */
-  box-sizing: border-box; /* ป้องกันล้น padding */
-  margin: 0 auto;        /* จัดกลาง */
-  display: block;
-}
-
-
-#paliResult p {
-  margin: 0.5em 0;
-  line-height: 1.6;
-}
-
-.dictionary-box input[type="text"] {
-  width: 100%;
-  max-width: 400px;     /* จำกัดความกว้างไม่ให้ยืดสุด */
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  box-sizing: border-box;
-  font: inherit;
+  font: inherit; /* ใช้ font ที่สืบทอดมา */
+  font-size: 1rem; /* กำหนดขนาดฟอนต์ให้คงที่ */
   padding: 2px 4px;
   border: 1px solid #666;
   border-radius: 0;
   background: #fff;
   color: #000;
+  width: 100%;      /* ทำให้ Responsive */
+  max-width: 400px; /* จำกัดความกว้างสูงสุดสำหรับ Desktop และหน้าจอใหญ่ */
+  box-sizing: border-box; /* รวม padding/border ในขนาดรวมของ Element */
+  display: block;   /* ทำให้ใช้ margin: auto ในการจัดกลางได้ */
+  margin: 0 auto;   /* จัดกลาง input ภายใน Parent */
 }
 
-
-
-
-
-
-
+#paliResult p {
+  margin: 0.5em 0;
+  line-height: 1.6;
+}
 
 /* =========================== */
 /* ปุ่ม 4 ไอคอน (button-grid) */
@@ -203,19 +196,6 @@ input[type="text"] {
   text-overflow: ellipsis;
   max-width: 100%;
 }
-
-input[type="text"] {
-  font: inherit;
-  font-size: 1rem;
-  padding: 2px 4px;
-  border: 1px solid #666;
-  border-radius: 0;
-  background: #fff;
-  color: #000;
-  width: 100%;
-  box-sizing: border-box;
-}
-
 
 /* =========================== */
 /* ส่วนท้าย */
