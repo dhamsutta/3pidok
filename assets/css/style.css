@@ -95,15 +95,17 @@ img {
   border: 1px solid #e0d4ba;
   border-radius: 8px;
 }
-.dictionary-box input,
+
 input[type="text"] {
-  width: 100%;
-  padding: 0.4em 0.6em;
-  font-size: 0.95em;
-  margin-bottom: 0.6em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  font: inherit;
+  padding: 2px;
+  border: 1px solid #666;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
 }
+
+
 #paliResult p {
   margin: 0.5em 0;
   line-height: 1.6;
