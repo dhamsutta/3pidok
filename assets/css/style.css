@@ -176,6 +176,23 @@ input[type="text"] {
   max-width: 100%;
 }
 
+input[type="text"] {
+  font: inherit;
+  font-size: 1rem;
+  padding: 2px 4px;
+  border: 1px solid #666;
+  border-radius: 0;
+  background: #fff;
+  color: #000;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
 /* =========================== */
 /* ส่วนท้าย */
 footer {
