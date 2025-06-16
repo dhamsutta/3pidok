@@ -38,7 +38,7 @@ h3 {
 
 /* ลิงก์ */
 a {
-  color: #8c6215;
+  color: #003adb;
   text-decoration: none;
 }
 
@@ -155,38 +155,27 @@ table.image-grid div {
   text-indent: 2em;
 }
 
-
-
-
-
-
-
-/* มือถือให้แสดงเป็น 2 คอลัมน์ */
-@media (max-width: 600px) {
-  table.image-grid td {
-    display: inline-block;
-    width: 48%;
-    box-sizing: border-box;
-  }
-
-  table.image-grid tr {
-    display: block;
-  }
+/* สำหรับมือถือ: padding พอดี */
+body {
+  padding: 1rem;
 }
 
-
-/* ปรับสำหรับมือถือ */
-@media (max-width: 600px) {
+/* สำหรับจอใหญ่ขึ้น: กำหนดความกว้างกลางหน้า */
+@media (min-width: 768px) {
   body {
-    font-size: 16px;
-    padding: 0 0.5em;
-  }
-
-  h1 {
-    font-size: 1.6em;
-  }
-
-  h2 {
-    font-size: 1.3em;
+    max-width: 768px;
+    margin: auto;
   }
 }
+
+@media (min-width: 1200px) {
+  body {
+    max-width: 960px;
+  }
+}
+
+
+
+
+
+
