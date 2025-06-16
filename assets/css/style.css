@@ -103,6 +103,12 @@ input[type="text"] {
   border-radius: 0;
   background: #fff;
   color: #000;
+
+  max-width: 400px;     /* 💡 เพิ่มขีดจำกัดความกว้าง */
+  width: 100%;           /* ให้ responsive */
+  box-sizing: border-box; /* ป้องกันล้น padding */
+  margin: 0 auto;        /* จัดกลาง */
+  display: block;
 }
 
 
