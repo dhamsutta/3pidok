@@ -1,46 +1,27 @@
-/* =========================== */
-/* ฟอนต์หลัก และโครงสร้างพื้นฐาน */
-/* =========================== */
+/* ฟอนต์ไทย และโครงสร้างพื้นฐาน */
 body {
   font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
   font-size: 17px;
   line-height: 1.6;
   color: #222;
   background-color: #fffdf8;
-  padding: 1rem;
-  margin: 0;
-}
-
-.container {
-  max-width: 960px;
+  max-width: 600px;
   margin: 0 auto;
+  padding: 0 0.5em;
 }
 
-/* รีเซ็ตพื้นฐาน */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-body,
-h1,
-h2,
-h3,
-p,
-div,
-header,
-main,
-footer {
+/* รีเซ็ต margin/padding ทุกองค์ประกอบหลัก */
+body, h1, h2, h3, p, div, header, main, footer {
   margin: 0;
   padding: 0;
 }
 
-/* =========================== */
+* {
+  box-sizing: border-box;
+}
+
 /* ส่วนหัวเรื่อง */
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   color: #5a4a2f;
   font-weight: 600;
 }
@@ -55,38 +36,42 @@ h3 {
   font-size: 1.2em;
 }
 
-/* =========================== */
 /* ลิงก์ */
 a {
   color: #003adb;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
 
-/* =========================== */
-/* รูปภาพทั่วไป */
+/* ภาพประกอบทั่วไป */
 img {
   max-width: 100%;
   height: auto;
+  border-radius: 0;
+  margin: 0;
   display: block;
 }
 
-/* =========================== */
-/* ส่วนโลโก้ */
+/* ส่วนหัวโลโก้ */
 .site-header {
   display: block;
+  background: none;
+  border-bottom: none;
 }
+
 .logo-link {
   display: inline-block;
 }
+
 .site-logo {
   height: 120px;
   width: auto;
+  display: block;
 }
 
-/* =========================== */
 /* กล่องพุทธพจน์ */
 .quote-box {
   background-color: #fffdf3;
@@ -94,111 +79,21 @@ img {
   font-style: italic;
   font-size: 1em;
   border-left: 4px solid #c8a76a;
-  margin-top: 1rem;
+  margin: 0;
 }
 
-/* =========================== */
 /* กล่องค้นหา */
 .gcse-search {
   margin: 0;
   padding: 0;
 }
-.dictionary-box {
-  background: #fff9e9;
-  padding: 1em;
-  margin: 2em 0; /* กลับมาเป็น margin: 2em 0; เพื่อให้ชิดซ้าย */
-  border: 1px solid #e0d4ba;
-  border-radius: 8px;
-  /* ไม่ต้องใส่ max-width ที่นี่ เพราะต้องการให้กล่องยืดเต็ม container และ input มี max-width ของตัวเอง */
-}
 
-/* 💡 แก้ไขกฎสำหรับ input[type="text"] */
-input[type="text"] {
-  font: inherit;
-  font-size: 1rem;
-  padding: 2px 4px;
-  border: 1px solid #666;
-  border-radius: 0;
-  background: #fff;
-  color: #000;
-  width: 100%;      /* ทำให้ Responsive */
-  max-width: 400px; /* จำกัดความกว้างสูงสุดไม่ให้เกิน 400px */
-  box-sizing: border-box;
-  display: block;   /* ยังคงเป็น block เพื่อให้ width/max-width ทำงานได้ */
-  margin: 0;        /* <-- สำคัญ: ตั้ง margin เป็น 0 เพื่อให้ชิดซ้ายใน parent */
-}
-
-#paliResult p {
-  margin: 0.5em 0;
-  line-height: 1.6;
-}
-
-/* =========================== */
-/* ปุ่ม 4 ไอคอน (button-grid) */
-.button-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
-  margin: 2rem auto;
-  max-width: 600px;
-  justify-items: center;
-}
-.button-grid a {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  background: #fffdf3;
-  border: 1px solid #e0d4ba;
-  border-radius: 8px;
-  padding: 0.8rem 0.5rem;
-  color: #222;
-  transition: background-color 0.2s ease;
-  width: 100%;
-  max-width: 100px;
-}
-.button-grid a:hover {
-  background-color: #f7f1d0;
-}
-.button-grid img {
-  width: 48px;
-  margin-bottom: 0.4rem;
-}
-.button-grid div {
-  font-size: 0.9rem;
-  white-space: nowrap;
-  text-align: center;
-}
-
-/* =========================== */
-/* ตารางภาพ (ใช้ในบทความเก่า) */
-.image-grid {
-  width: 100%;
-  table-layout: fixed;
-  border-spacing: 0;
-  margin: 2em 0;
-  text-align: center;
-}
-.image-grid td {
-  padding: 1rem;
-  vertical-align: top;
-}
-.image-grid img {
-  width: 80px;
-  height: auto;
-  border-radius: 6px;
-  margin: 0 auto 0.3em;
-}
-.image-grid div {
-  font-size: 0.95em;
-  color: #444;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* เนื้อหาหลัก */
+main {
   max-width: 100%;
+  padding: 0;
 }
 
-/* =========================== */
 /* ส่วนท้าย */
 footer {
   margin: 1em 0;
@@ -207,32 +102,74 @@ footer {
   text-align: center;
 }
 
-/* =========================== */
-/* เว้นวรรคย่อหน้า */
+table.image-grid {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+  margin: 2em 0;
+}
+
+table.image-grid td {
+  padding: 0.5em;
+  vertical-align: top;
+}
+
+table.image-grid img {
+  width: 100%;
+  max-width: 100px;
+  height: auto;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto 0.3em;
+}
+
+table.image-grid div {
+  font-size: 0.95em;
+  color: #444;
+}
+
+.dictionary-box {
+  background: #fff9e9;
+  padding: 1em;
+  margin: 2em 0;
+  border: 1px solid #e0d4ba;
+  border-radius: 8px;
+}
+
+.dictionary-box input {
+  width: 100%;
+  padding: 0.6em;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#paliResult p {
+  margin: 0.5em 0;
+  line-height: 1.6;
+}
+
+
 .indent {
   text-indent: 2em;
 }
 
-/* =========================== */
-/* Responsive */
-@media (max-width: 600px) {
-  .button-grid {
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 320px;
+/* สำหรับมือถือ: padding พอดี */
+body {
+  padding: 1rem;
+}
+
+/* สำหรับจอใหญ่ขึ้น: กำหนดความกว้างกลางหน้า */
+@media (min-width: 768px) {
+  body {
+    max-width: 768px;
+    margin: auto;
   }
-  .button-grid img {
-    width: 44px;
-  }
-  .button-grid div {
-    font-size: 0.85rem;
-  }
-  .image-grid td {
-    padding: 0.5rem;
-  }
-  .image-grid img {
-    width: 60px;
-  }
-  .image-grid div {
-    font-size: 0.85rem;
+}
+
+@media (min-width: 1200px) {
+  body {
+    max-width: 960px;
   }
 }
