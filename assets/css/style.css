@@ -160,6 +160,44 @@ body {
   padding: 1rem;
 }
 
+/* ให้ตารางยืดหยุ่นเต็มจอ */
+.image-grid {
+  width: 100%;
+  table-layout: fixed; /* ให้ cell เท่ากัน */
+  border-spacing: 0;
+}
+
+/* ปรับ <td> ให้มี padding และจัดกลาง */
+.image-grid td {
+  text-align: center;
+  padding: 1rem;
+  word-wrap: break-word;
+}
+
+/* ทำให้รูปภาพปรับขนาดได้ */
+.image-grid img {
+  width: 80px;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto 0.5rem;
+}
+
+/* ปรับข้อความไม่ให้ล้น และอยู่กลาง */
+.image-grid div {
+  font-size: 1rem;
+  white-space: nowrap; /* ไม่ตัดบรรทัด */
+  overflow: hidden;
+  text-overflow: ellipsis; /* ถ้ายาวจะใส่ ... */
+  max-width: 100%;
+}
+
+
+
+
+
+
+
 /* สำหรับจอใหญ่ขึ้น: กำหนดความกว้างกลางหน้า */
 @media (min-width: 768px) {
   body {
@@ -174,7 +212,20 @@ body {
   }
 }
 
+/* Responsive สำหรับมือถือ */
+@media (max-width: 600px) {
+  .image-grid td {
+    padding: 0.5rem;
+  }
 
+  .image-grid img {
+    width: 60px;
+  }
+
+  .image-grid div {
+    font-size: 0.85rem;
+  }
+}
 
 
 
