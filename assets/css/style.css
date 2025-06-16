@@ -166,6 +166,32 @@ table.image-grid div {
   text-indent: 2em;
 }
 
+
+/* จัดการโครงสร้าง */
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* สำหรับมือถือ: padding พอดี */
 body {
   padding: 1rem;
