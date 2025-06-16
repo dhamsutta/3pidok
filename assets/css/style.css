@@ -237,7 +237,43 @@ body {
   text-overflow: ellipsis;
 }
 
+.icon-button-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
 
+.icon-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100px;
+  padding: 0.5em;
+  text-align: center;
+  text-decoration: none;
+  background-color: transparent;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
+
+.icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.icon-button img {
+  width: 64px;
+  height: auto;
+  display: block;
+  margin-bottom: 0.3em;
+}
+
+.icon-button .label {
+  font-size: 0.95rem;
+  color: #333;
+  white-space: nowrap;
+}
 
 
 
