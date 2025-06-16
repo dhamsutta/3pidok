@@ -1,81 +1,77 @@
+
+/* =========================== */
+/* ฟอนต์หลัก และโครงสร้างพื้นฐาน */
+/* =========================== */
 body {
   font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
   font-size: 17px;
   line-height: 1.6;
   color: #222;
   background-color: #fffdf8;
-  padding: 0 0.5em;
+  padding: 1rem;
+  margin: 0;
 }
 
-/* เพิ่ม container สำหรับจำกัดความกว้างเนื้อหาทั่วไป */
 .container {
   max-width: 960px;
   margin: 0 auto;
 }
 
+/* รีเซ็ตพื้นฐาน */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
-/* รีเซ็ต margin/padding ทุกองค์ประกอบหลัก */
 body, h1, h2, h3, p, div, header, main, footer {
   margin: 0;
   padding: 0;
 }
 
-* {
-  box-sizing: border-box;
-}
-
+/* =========================== */
 /* ส่วนหัวเรื่อง */
 h1, h2, h3 {
   color: #5a4a2f;
   font-weight: 600;
 }
 
-h1 {
-  font-size: 2em;
-}
-h2 {
-  font-size: 1.4em;
-}
-h3 {
-  font-size: 1.2em;
-}
+h1 { font-size: 2em; }
+h2 { font-size: 1.4em; }
+h3 { font-size: 1.2em; }
 
+/* =========================== */
 /* ลิงก์ */
 a {
   color: #003adb;
   text-decoration: none;
 }
-
 a:hover {
   text-decoration: underline;
 }
 
-/* ภาพประกอบทั่วไป */
+/* =========================== */
+/* รูปภาพทั่วไป */
 img {
   max-width: 100%;
   height: auto;
-  border-radius: 0;
-  margin: 0;
   display: block;
 }
 
-/* ส่วนหัวโลโก้ */
+/* =========================== */
+/* ส่วนโลโก้ */
 .site-header {
   display: block;
-  background: none;
-  border-bottom: none;
 }
-
 .logo-link {
   display: inline-block;
 }
-
 .site-logo {
   height: 120px;
   width: auto;
-  display: block;
 }
 
+/* =========================== */
 /* กล่องพุทธพจน์ */
 .quote-box {
   background-color: #fffdf3;
@@ -83,21 +79,102 @@ img {
   font-style: italic;
   font-size: 1em;
   border-left: 4px solid #c8a76a;
-  margin: 0;
+  margin-top: 1rem;
 }
 
+/* =========================== */
 /* กล่องค้นหา */
 .gcse-search {
   margin: 0;
   padding: 0;
 }
-
-/* เนื้อหาหลัก */
-main {
-  max-width: 100%;
-  padding: 0;
+.dictionary-box {
+  background: #fff9e9;
+  padding: 1em;
+  margin: 2em 0;
+  border: 1px solid #e0d4ba;
+  border-radius: 8px;
+}
+.dictionary-box input,
+input[type="text"] {
+  width: 100%;
+  padding: 0.6em;
+  font-size: 1em;
+  margin-bottom: 0.8em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+#paliResult p {
+  margin: 0.5em 0;
+  line-height: 1.6;
 }
 
+/* =========================== */
+/* ปุ่ม 4 ไอคอน (button-grid) */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  justify-items: center;
+}
+.button-grid a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  background: #fffdf3;
+  border: 1px solid #e0d4ba;
+  border-radius: 8px;
+  padding: 0.8rem 0.5rem;
+  color: #222;
+  transition: background-color 0.2s ease;
+  width: 100%;
+  max-width: 100px;
+}
+.button-grid a:hover {
+  background-color: #f7f1d0;
+}
+.button-grid img {
+  width: 48px;
+  margin-bottom: 0.4rem;
+}
+.button-grid div {
+  font-size: 0.9rem;
+  white-space: nowrap;
+  text-align: center;
+}
+
+/* =========================== */
+/* ตารางภาพ (ใช้ในบทความเก่า) */
+.image-grid {
+  width: 100%;
+  table-layout: fixed;
+  border-spacing: 0;
+  margin: 2em 0;
+  text-align: center;
+}
+.image-grid td {
+  padding: 1rem;
+  vertical-align: top;
+}
+.image-grid img {
+  width: 80px;
+  height: auto;
+  border-radius: 6px;
+  margin: 0 auto 0.3em;
+}
+.image-grid div {
+  font-size: 0.95em;
+  color: #444;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* =========================== */
 /* ส่วนท้าย */
 footer {
   margin: 1em 0;
@@ -106,248 +183,32 @@ footer {
   text-align: center;
 }
 
-table.image-grid {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  margin: 2em 0;
-}
-
-table.image-grid td {
-  padding: 0.5em;
-  vertical-align: top;
-}
-
-table.image-grid img {
-  width: 100%;
-  max-width: 100px;
-  height: auto;
-  border-radius: 6px;
-  display: block;
-  margin: 0 auto 0.3em;
-}
-
-table.image-grid div {
-  font-size: 0.95em;
-  color: #444;
-}
-
-.dictionary-box {
-  background: #fff9e9;
-  padding: 1em;
-  margin: 2em 0;
-  border: 1px solid #e0d4ba;
-  border-radius: 8px;
-}
-
-.dictionary-box input {
-  width: 100%;
-  padding: 0.6em;
-  font-size: 1em;
-  margin-bottom: 0.8em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
-#paliResult p {
-  margin: 0.5em 0;
-  line-height: 1.6;
-}
-
-
+/* =========================== */
+/* เว้นวรรคย่อหน้า */
 .indent {
   text-indent: 2em;
 }
 
-/* สำหรับมือถือ: padding พอดี */
-body {
-  padding: 1rem;
-}
-
-/* ให้ตารางยืดหยุ่นเต็มจอ */
-.image-grid {
-  width: 100%;
-  table-layout: fixed; /* ให้ cell เท่ากัน */
-  border-spacing: 0;
-}
-
-/* ปรับ <td> ให้มี padding และจัดกลาง */
-.image-grid td {
-  text-align: center;
-  padding: 1rem;
-  word-wrap: break-word;
-}
-
-/* ทำให้รูปภาพปรับขนาดได้ */
-.image-grid img {
-  width: 80px;
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 0 auto 0.5rem;
-}
-
-/* ปรับข้อความไม่ให้ล้น และอยู่กลาง */
-.image-grid div {
-  font-size: 1rem;
-  white-space: nowrap; /* ไม่ตัดบรรทัด */
-  overflow: hidden;
-  text-overflow: ellipsis; /* ถ้ายาวจะใส่ ... */
-  max-width: 100%;
-}
-
-.card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.card {
-  min-width: 0; /* ป้องกันไม่ให้ card ขยายเกิน */
-}
-
-.card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  padding: 1rem;
-  text-decoration: none;
-  color: #333;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.card img {
-  width: 64px;
-  height: auto;
-  margin-bottom: 0.5rem;
-}
-
-.card .label {
-  font-size: 1rem;
-  font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.icon-button-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0;
-}
-
-.icon-button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100px;
-  padding: 0.5em;
-  text-align: center;
-  text-decoration: none;
-  background-color: transparent;
-  border-radius: 8px;
-  transition: background-color 0.2s ease;
-}
-
-.icon-button:hover {
-  background-color: rgba(0, 0, 0, 0.04);
-}
-
-.icon-button img {
-  width: 64px;
-  height: auto;
-  display: block;
-  margin-bottom: 0.3em;
-}
-
-.icon-button .label {
-  font-size: 0.95rem;
-  color: #333;
-  white-space: nowrap;
-}
-
-.button-row {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.button-row a {
-  width: 90px;
-  text-align: center;
-  text-decoration: none;
-  background: #fffdf3;
-  border: 1px solid #e0d4ba;
-  border-radius: 8px;
-  padding: 0.5rem;
-  font-size: 0.9rem;
-  color: #222;
-  transition: background-color 0.2s ease;
-}
-
-.button-row a:hover {
-  background-color: #f7f1d0;
-}
-
-.button-row img {
-  width: 48px;
-  height: auto;
-  margin-bottom: 0.4rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-
-
-
-
-
-
-
-
-
-
-/* สำหรับจอใหญ่ขึ้น: กำหนดความกว้างกลางหน้า */
-@media (min-width: 768px) {
-  body {
-    max-width: 768px;
-    margin: auto;
-  }
-}
-
-@media (min-width: 1200px) {
-  body {
-    max-width: 960px;
-  }
-}
-
-/* Responsive สำหรับมือถือ */
+/* =========================== */
+/* Responsive */
 @media (max-width: 600px) {
+  .button-grid {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 320px;
+  }
+  .button-grid img {
+    width: 44px;
+  }
+  .button-grid div {
+    font-size: 0.85rem;
+  }
   .image-grid td {
     padding: 0.5rem;
   }
-
   .image-grid img {
     width: 60px;
   }
-
   .image-grid div {
     font-size: 0.85rem;
   }
 }
-
-
-
-
