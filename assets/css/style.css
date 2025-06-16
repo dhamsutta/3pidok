@@ -1,5 +1,14 @@
 /* ฟอนต์ไทย และโครงสร้างพื้นฐาน */
 body {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+
+
+body {
   font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
   font-size: 17px;
   line-height: 1.6;
