@@ -180,6 +180,57 @@ table.image-grid div {
 }
 
 
+/* Wikipedia */
+
+/* Wiki Section Styling */
+.wiki-content h1,
+.wiki-content h2,
+.wiki-content h3 {
+  margin-top: 1.5rem;
+  color: #2c3e50;
+}
+
+.wiki-content p {
+  margin: 1rem 0;
+  line-height: 1.8;
+}
+
+.wiki-content ul {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.wiki-content li {
+  margin-bottom: 0.5rem;
+}
+
+.wiki-content a {
+  color: #006699;
+  text-decoration: none;
+  border-bottom: 1px dashed #ccc;
+}
+
+.wiki-content a:hover {
+  text-decoration: underline;
+  border-bottom: 1px solid #006699;
+}
+
+.wiki-content blockquote {
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: #f3f3f3;
+  border-left: 4px solid #999;
+  font-style: italic;
+  color: #444;
+}
+
+.wiki-content code {
+  background: #eee;
+  padding: 0.2em 0.4em;
+  font-family: monospace;
+  border-radius: 4px;
+}
+
 
 
 
