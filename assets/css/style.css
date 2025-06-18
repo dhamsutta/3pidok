@@ -1,353 +1,389 @@
-/* ฟอนต์ไทย และโครงสร้างพื้นฐาน */
-body {
-  max-width: 650px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-
-
-
-body {
-  font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #222;
-  background-color: #fffdf8;
-  max-width: 600px;
-  margin: 0 auto;
-  padding: 0 0.5em;
-}
-
 /* รีเซ็ต margin/padding ทุกองค์ประกอบหลัก */
 body, h1, h2, h3, p, div, header, main, footer {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* ฟอนต์ไทย และโครงสร้างพื้นฐานของ Body */
+body {
+    font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #222;
+    background-color: #fffdf8; /* สีพื้นหลังเว็บโดยรวม */
+    max-width: 600px; /* ความกว้างสูงสุดเริ่มต้นสำหรับเนื้อหา */
+    margin: 0 auto; /* จัดกึ่งกลาง */
+    padding: 0 0.5em; /* Padding ซ้ายขวาสำหรับเนื้อหา */
 }
 
 /* ส่วนหัวเรื่อง */
 h1, h2, h3 {
-  color: #5a4a2f;
-  font-weight: 600;
+    color: #5a4a2f;
+    font-weight: 600;
 }
 
 h1 {
-  font-size: 2em;
+    font-size: 2em;
 }
 h2 {
-  font-size: 1.4em;
+    font-size: 1.4em;
 }
 h3 {
-  font-size: 1.2em;
+    font-size: 1.2em;
 }
 
-/* ลิงก์ */
+/* ลิงก์ทั่วไป */
 a {
-  color: #003adb;
-  text-decoration: none;
+    color: #003adb;
+    text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+    text-decoration: underline;
 }
 
 /* ภาพประกอบทั่วไป */
 img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0;
-  margin: 0;
-  display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 0; /* คงไว้ตามที่คุณกำหนด */
+    margin: 0; /* คงไว้ตามที่คุณกำหนด */
+    display: block;
 }
 
-/* ส่วนหัวโลโก้ */
+/* ส่วนหัวโลโก้ (Header) */
 .site-header {
-  display: block;
-  background: none;
-  border-bottom: none;
+    display: block;
+    background: none;
+    border-bottom: none;
+    text-align: center; /* จัดให้โลโก้อยู่ตรงกลาง */
 }
 
 .logo-link {
-  display: inline-block;
+    display: inline-block;
 }
 
 .site-logo {
-  height: 120px;
-  width: auto;
-  display: block;
+    height: 120px;
+    width: auto;
+    display: block; /* ทำให้ img เป็น block เพื่อให้ margin auto ทำงาน */
+    margin: 0 auto; /* จัดกึ่งกลางโลโก้ */
 }
 
 /* กล่องพุทธพจน์ */
 .quote-box {
-  background-color: #fffdf3;
-  padding: 0.5em;
-  font-style: italic;
-  font-size: 1em;
-  border-left: 4px solid #c8a76a;
-  margin: 0;
+    background-color: #fffdf3;
+    padding: 0.5em;
+    font-style: italic;
+    font-size: 1em;
+    border-left: 4px solid #c8a76a;
+    margin: 1.5em 0; /* เพิ่ม margin บนล่างเพื่อให้มีระยะห่าง */
 }
 
-/* กล่องค้นหา */
+/* กล่องค้นหา Google Custom Search */
 .gcse-search {
-  margin: 0;
-  padding: 0;
+    margin: 1.5em 0; /* เพิ่ม margin บนล่าง */
+    padding: 0;
 }
 
 /* เนื้อหาหลัก */
 main {
-  max-width: 100%;
-  padding: 0;
+    max-width: 100%;
+    padding: 0;
 }
 
-/* ส่วนท้าย */
+/* ส่วนท้าย (Footer) */
 footer {
-  margin: 1em 0;
-  font-size: 0.9em;
-  color: #888;
-  text-align: center;
+    margin: 2em 0 1em; /* ปรับ margin บนให้ห่างจาก main */
+    font-size: 0.9em;
+    color: #888;
+    text-align: center;
 }
 
+/* ตารางปุ่มรูปภาพ (Image Grid) */
 table.image-grid {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  margin: 2em 0;
+    width: 100%;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 2em 0;
 }
 
 table.image-grid td {
-  padding: 0.5em;
-  vertical-align: top;
+    padding: 0.5em;
+    vertical-align: top;
 }
 
 table.image-grid img {
-  width: 100%;
-  max-width: 100px;
-  height: auto;
-  border-radius: 6px;
-  display: block;
-  margin: 0 auto 0.3em;
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    border-radius: 6px;
+    display: block;
+    margin: 0 auto 0.3em;
 }
 
 table.image-grid div {
-  font-size: 0.95em;
-  color: #444;
+    font-size: 0.95em;
+    color: #444;
 }
 
+/* กล่องอภิธานศัพท์ (Pali Dictionary) */
 .dictionary-box {
-  background: #fff9e9;
-  padding: 1.5em 1em;
-  min-height: 140px;
-  margin: 2em 0;
-  border: 1px solid #e0d4ba;
-  border-radius: 8px;
-
+    background: #fff9e9;
+    padding: 1.5em 1em;
+    min-height: 140px;
+    margin: 2em 0;
+    border: 1px solid #e0d4ba;
+    border-radius: 8px;
 }
 
 .dictionary-box input {
-  width: 100%;
-  padding: 0.6em;
-  font-size: 1em;
-  margin-bottom: 0.8em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+    width: 100%;
+    padding: 0.6em;
+    font-size: 1em;
+    margin-bottom: 0.8em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 #paliResult p {
-  margin: 0.5em 0;
-  line-height: 1.6;
+    margin: 0.5em 0;
+    line-height: 1.6;
 }
 
-
+/* การเยื้องข้อความ */
 .indent {
-  text-indent: 2em;
+    text-indent: 2em;
 }
 
-
-/* จัดการโครงสร้าง */
-
+/* จัดการโครงสร้าง Container */
 .container {
-  width: 100%;
-  max-width: 960px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  box-sizing: border-box;
+    width: 100%;
+    max-width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    box-sizing: border-box;
 }
 
-
-/* Wikipedia */
-
-/* Wiki Section Styling */
+/* Wikipedia Content Styling */
 .wiki-content h1,
 .wiki-content h2,
 .wiki-content h3 {
-  margin-top: 1.5rem;
-  color: #2c3e50;
+    margin-top: 1.5rem;
+    color: #2c3e50;
 }
 
 .wiki-content p {
-  margin: 1rem 0;
-  line-height: 1.8;
+    margin: 1rem 0;
+    line-height: 1.8;
 }
 
 .wiki-content ul {
-  padding-left: 1.5rem;
-  margin: 1rem 0;
+    padding-left: 1.5rem;
+    margin: 1rem 0;
 }
 
 .wiki-content li {
-  margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .wiki-content a {
-  color: #006699;
-  text-decoration: none;
-  border-bottom: 1px dashed #ccc;
+    color: #006699;
+    text-decoration: none;
+    border-bottom: 1px dashed #ccc;
 }
 
 .wiki-content a:hover {
-  text-decoration: underline;
-  border-bottom: 1px solid #006699;
+    text-decoration: underline;
+    border-bottom: 1px solid #006699;
 }
 
 .wiki-content blockquote {
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: #f3f3f3;
-  border-left: 4px solid #999;
-  font-style: italic;
-  color: #444;
+    margin: 1rem 0;
+    padding: 1rem;
+    background-color: #f3f3f3;
+    border-left: 4px solid #999;
+    font-style: italic;
+    color: #444;
 }
 
 .wiki-content code {
-  background: #eee;
-  padding: 0.2em 0.4em;
-  font-family: monospace;
-  border-radius: 4px;
+    background: #eee;
+    padding: 0.2em 0.4em;
+    font-family: monospace;
+    border-radius: 4px;
 }
 
+/* ปุ่มสไตล์ Win95 */
 .win95-button {
-  display: inline-block;
-  width: 120px;
-  padding: 8px;
-  margin: 10px;
-  text-align: center;
-  font-family: 'Tahoma', sans-serif;
-  font-size: 14px;
-  color: black;
-  background-color: #c0c0c0;
-  border: 2px solid #fff;
-  border-right-color: #404040;
-  border-bottom-color: #404040;
-  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #fff;
-  text-decoration: none;
+    display: inline-block;
+    width: 120px;
+    padding: 8px;
+    margin: 10px;
+    text-align: center;
+    font-family: 'Tahoma', sans-serif;
+    font-size: 14px;
+    color: black;
+    background-color: #c0c0c0;
+    border: 2px solid #fff;
+    border-right-color: #404040;
+    border-bottom-color: #404040;
+    box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #fff;
+    text-decoration: none;
+    transition: background-color 0.1s ease; /* เพิ่ม transition */
 }
 
 .win95-button img {
-  width: 48px;
-  height: auto;
-  display: block;
-  margin: 0 auto 6px;
+    width: 48px;
+    height: auto;
+    display: block;
+    margin: 0 auto 6px;
 }
 
 .win95-button:hover {
-  background-color: #dcdcdc;
-  box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
+    background-color: #dcdcdc;
+    box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
 }
 
-
+/* ปุ่ม Tag */
 .tag-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  margin: 0.5em 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 0.5em 0;
 }
 
 .tag-buttons a {
-  background: #e0f0d8;
-  color: #000;
-  font-weight: bold;
-  padding: 4px 8px;
-  text-decoration: none;
-  border: 2px outset #ccc;
-  font-family: Tahoma, sans-serif;
-  font-size: 14px;
+    background: #e0f0d8;
+    color: #000;
+    font-weight: bold;
+    padding: 4px 8px;
+    text-decoration: none;
+    border: 2px outset #ccc;
+    font-family: Tahoma, sans-serif;
+    font-size: 14px;
+    transition: background-color 0.1s ease; /* เพิ่ม transition */
 }
 
+.tag-buttons a:hover {
+    background-color: #d0e0c8; /* เปลี่ยนสีเมื่อ hover */
+}
+
+/* ปุ่มตำรา (Book Button) - หากใช้เป็นปุ่มเลือกแทน Dropdown */
 .book-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  margin: 1em 0;
-  font-family: Tahoma, sans-serif;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5em;
+    margin: 1em 0;
+    font-family: Tahoma, sans-serif;
 }
 
 .book-btn {
-  background: #e0e0e0;
-  border: 2px outset #ccc;
-  padding: 4px 10px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  color: #000;
+    background: #e0e0e0;
+    border: 2px outset #ccc;
+    padding: 4px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #000;
+    transition: background-color 0.1s ease; /* เพิ่ม transition */
 }
 
 .book-btn:hover {
-  background-color: #c0ffc0;
+    background-color: #c0ffc0;
 }
 
+/* กรอบแสดงข้อมูลตำรา (สำหรับ Book Information) */
+/*
+  ข้อสังเกต: คุณมีทั้ง .book-info และ .vb-output ที่ดูเหมือนทำหน้าที่คล้ายกัน
+  แต่มีสไตล์ต่างกัน (book-info ดูทันสมัยกว่า, vb-output ดูเป็น Win95)
+  ผมรวมสไตล์ที่เกี่ยวข้องกับ Win95 ไว้ที่ .vb-output
+  และคง .book-info ไว้ หากคุณมีแผนจะใช้ทั้งสองแบบ
+*/
 .book-info {
-  background-color: #ffffff;  /* ✅ เปลี่ยนเป็นสีขาว */
-  color: #000000;             /* ✅ ตัวอักษรสีดำ อ่านง่าย */
-  border: 2px inset #aaa;
-  padding: 0.8em;
-  margin-top: 1em;
-  border: 2px inset #808080;  /* ✅ ขอบสไตล์ย้อนยุค */
-  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080;
-  width: 100%;
-  max-width: 500px;
-  display: none;
-  font-size: 14px;
-  color: #222;
+    background-color: #ffffff; /* สีขาว */
+    color: #000000;             /* ตัวอักษรสีดำ */
+    border: 2px inset #808080;  /* ขอบสไตล์ย้อนยุค */
+    box-shadow: inset -1px -1px #fff, inset 1px 1px #808080;
+    padding: 0.8em;
+    margin-top: 1em;
+    width: 100%;
+    max-width: 500px;
+    display: none; /* ซ่อนไว้ก่อน */
+    font-size: 14px;
+    color: #222;
 }
 
 .book-info a {
-  display: inline-block;
-  margin-top: 0.5em;
-  color: #0000cc;
-  text-decoration: underline;
-  font-weight: bold;
+    display: inline-block;
+    margin-top: 0.5em;
+    color: #0000cc;
+    text-decoration: underline;
+    font-weight: bold;
 }
 
-
-
-
-
-
-
-
-
-
-/* สำหรับมือถือ: padding พอดี */
-body {
-  padding: 1rem;
+/* กรอบสไตล์ Win95 สำหรับ Output ทั่วไปและ dropdown (vb-frame, vb-output) */
+.vb-frame {
+    border: 2px solid #808080;
+    border-top-color: #fff;
+    border-left-color: #fff;
+    background-color: #E0E0E0;
+    padding: 1rem;
+    max-width: 700px; /* ปรับตามความเหมาะสม */
+    margin: 2rem auto; /* เพิ่ม margin บนล่าง */
+    box-shadow: inset -1px -1px #000, inset 1px 1px #fff;
 }
+
+.vb-frame label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: black; /* เพื่อให้เห็นชัดเจนบนพื้นหลังเทา */
+}
+
+.vb-frame select {
+    width: 100%;
+    padding: 0.4em;
+    font-size: 1rem;
+    border: 2px solid #999;
+    background-color: #fff;
+    color: #000;
+}
+
+.vb-output {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #FFFFCC; /* สีเหลืองอ่อนตามที่คุณต้องการ */
+    color: black; /* สีตัวอักษรเป็นสีดำ */
+    border: 2px inset #888;
+    min-height: 100px;
+    white-space: pre-line;
+    /* จัดกึ่งกลางสำหรับข้อความเริ่มต้น */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Media Queries สำหรับการตอบสนองต่อขนาดหน้าจอ */
+/* สำหรับมือถือ: padding พอดี (ตั้งค่าไปแล้วใน body ด้านบน) */
 
 /* สำหรับจอใหญ่ขึ้น: กำหนดความกว้างกลางหน้า */
 @media (min-width: 768px) {
-  body {
-    max-width: 768px;
-    margin: auto;
-  }
+    body {
+        max-width: 768px; /* ปรับความกว้างสูงสุดสำหรับจอ 768px ขึ้นไป */
+        padding: 1rem; /* เพิ่ม padding อีกครั้งสำหรับจอใหญ่ */
+    }
 }
 
-@media (min-width: 1200px) {
-  body {
-    max-width: 960px;
-  }
+@media (min-width: 1024px) { /* เพิ่ม breakpoint สำหรับจอ 1024px */
+    body {
+        max-width: 960px; /* ปรับความกว้างสูงสุดสำหรับจอ 1024px ขึ้นไป */
+    }
 }
