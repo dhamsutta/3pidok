@@ -302,10 +302,13 @@ table.image-grid div {
 }
 
 .book-info {
-  background: #f8fff0;
+  background-color: #ffffff;  /* ✅ เปลี่ยนเป็นสีขาว */
+  color: #000000;             /* ✅ ตัวอักษรสีดำ อ่านง่าย */
   border: 2px inset #aaa;
   padding: 0.8em;
   margin-top: 1em;
+  border: 2px inset #808080;  /* ✅ ขอบสไตล์ย้อนยุค */
+  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080;
   width: 100%;
   max-width: 500px;
   display: none;
