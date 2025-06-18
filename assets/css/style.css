@@ -84,11 +84,6 @@ img {
     margin: 1.5em 0;
 }
 
-/* กล่องค้นหา Google Custom Search */
-.gcse-search {
-    margin: 0; /* **เปลี่ยนตรงนี้! ลบ margin บน-ล่างออกเพื่อให้ชิดเหมือนเดิม** */
-    padding: 0;
-}
 
 /* เนื้อหาหลัก */
 main {
@@ -365,11 +360,6 @@ table.image-grid div {
     text-align: center;
 }
 
-.left-align,
-.left-align input,
-.left-align + #paliResult {
-    text-align: left;
-}
 
 
 
