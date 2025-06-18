@@ -231,7 +231,34 @@ table.image-grid div {
   border-radius: 4px;
 }
 
+.win95-button {
+  display: inline-block;
+  width: 120px;
+  padding: 8px;
+  margin: 10px;
+  text-align: center;
+  font-family: 'Tahoma', sans-serif;
+  font-size: 14px;
+  color: black;
+  background-color: #c0c0c0;
+  border: 2px solid #fff;
+  border-right-color: #404040;
+  border-bottom-color: #404040;
+  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #fff;
+  text-decoration: none;
+}
 
+.win95-button img {
+  width: 48px;
+  height: auto;
+  display: block;
+  margin: 0 auto 6px;
+}
+
+.win95-button:hover {
+  background-color: #dcdcdc;
+  box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
+}
 
 
 
