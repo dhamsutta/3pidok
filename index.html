@@ -1,140 +1,137 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ธรรมสุตตะ | ศึกษาพระธรรมตามพระไตรปิฎก</title>
-  <meta name="description" content="คลังธรรมะออนไลน์ พระไตรปิฎก วินัยสงฆ์ ธรรมบท พุทธวจนะ เรียบง่ายแต่ครบถ้วน" />
-  <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์" />
-  <meta name="author" content="ธรรมสุตตะ" />
-  <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ธรรมสุตตะ | ศึกษาพระธรรมตามพระไตรปิฎก</title>
+    <meta name="description" content="คลังธรรมะออนไลน์ พระไตรปิฎก วินัยสงฆ์ ธรรมบท พุทธวจนะ เรียบง่ายแต่ครบถ้วน" />
+    <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์" />
+    <meta name="author" content="ธรรมสุตตะ" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-  <!-- ส่วนหัว -->
-  <header class="site-header">
-    <a href="/" class="logo-link">
-      <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
-    </a>
-  </header>
+    <header class="site-header">
+        <a href="/" class="logo-link">
+            <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+        </a>
+    </header>
 
-  <main>
+    <main>
+        <div class="quote-box">
+            <h3>
+                <strong>พุทธพจน์วันนี้:</strong>
+                <span id="random-quote">กำลังโหลด...</span>
+            </h3>
+        </div>
 
-    <!-- พุทธพจน์ -->
-    <div class="quote-box"><H3>
-      <strong>พุทธพจน์วันนี้:</strong>
-      <span id="random-quote">กำลังโหลด...</span>
-   </H3> </div>
+        <h3><b>🔍 อภิธานศัพท์</b><br>
+            <input type="text" id="paliInput" placeholder="พิมพ์คำบาลีเพื่อค้นหา" />
+        </h3>
+        <div id="paliResult"></div>
 
- <!-- บาลี-->
-<H3><b>🔍 อภิธานศัพท์</b><br>
-<input type="text" id="paliInput" placeholder="" /></H3>
-<div id="paliResult"></div>
+        <table class="image-grid">
+            <tr>
+                <td>
+                    <a href="/pages/vinaya.html">
+                        <img src="/assets/images/buddha-icon.png" alt="พระวินัย">
+                        <div>พระวินัย</div>
+                    </a>
+                </td>
+                <td>
+                    <a href="/พระสูตร.html">
+                        <img src="/assets/images/dhammacakka-icon.png" alt="พระสูตร">
+                        <div>พระสูตร</div>
+                    </a>
+                </td>
+                <td>
+                    <a href="/พระอภิธรรม.html">
+                        <img src="/assets/images/bell-icon.png" alt="พระอภิธรรม">
+                        <div>พระอภิธมฺม</div>
+                    </a>
+                </td>
+                <td>
+                    <a href="/อรรถกถา.html">
+                        <img src="/assets/images/bodhi-icon.png" alt="อรรถกถา">
+                        <div>อรรถกถา</div>
+                    </a>
+                </td>
+            </tr>
+        </table>
 
+        <section class="book-info-section">
+            <h2 style="text-align: center; margin-top: 30px;">📚 ค้นหาและทำความเข้าใจตำรา</h2>
 
+            <div class="book-selection">
+                <label for="book-select">เลือกตำรา (ตัวย่อ):</label>
+                <select id="book-select">
+                    <option value="">-- โปรดเลือก --</option>
+                    </select>
+            </div>
 
+            <div id="description-box" class="description-box">
+                <h3 id="book-full-name"></h3>
+                <p id="book-description"></p>
+                <a id="book-link" href="#" target="_blank" style="display: none;">อ่านเพิ่มเติม</a>
+            </div>
+        </section>
 
-    
+    </main>
 
-  <!-- ปุ่ม -->
-<table class="image-grid">
-  <tr>
-    <td>
-      <a href="/pages/vinaya.html">
-        <img src="/assets/images/buddha-icon.png" alt="พระวินัย">
-        <div>พระวินัย</div>
-      </a>
-    </td>
-    <td>
-      <a href="/พระสูตร.html">
-        <img src="/assets/images/dhammacakka-icon.png" alt="พระสูตร">
-        <div>พระสูตร</div>
-      </a>
-    </td>
-    <td>
-      <a href="/พระอภิธรรม.html">
-        <img src="/assets/images/bell-icon.png" alt="พระอภิธรรม">
-        <div>พระอภิธมฺม</div>
-      </a>
-    </td>
-    <td>
-      <a href="/อรรถกถา.html">
-        <img src="/assets/images/bodhi-icon.png" alt="อรรถกถา">
-        <div>อรรถกถา</div>
-      </a>
-    </td>
-  </tr>
-</table>
-    <!-- เมนูหลัก -->
-   
+    <footer>
+        <p> ๒๕๖๑ ธรรมสุตตะ<br>
+            กราบขออภัยหากบางลิ้งค์ยังเสียหายจากที่เก่า<br> ต้องปรับปรุงทีละหน้าโดยยังไม่มีกำหนดเสร็จ</p>
+    </footer>
 
-    <!-- แนะนำ -->
-   
-  </main>
+    <script>
+        fetch('/assets/data/quotes.json')
+            .then(res => res.json())
+            .then(data => {
+                const quote = data[Math.floor(Math.random() * data.length)];
+                document.getElementById('random-quote').innerHTML =
+                    quote.quote + "<br><small>" + quote.source + "</small>";
+            })
+            .catch(() => {
+                document.getElementById('random-quote').innerText = "โหลดไม่สำเร็จ";
+            });
+    </script>
 
-  <footer>
-    <p> ๒๕๖๑ ธรรมสุตตะ<br>
-กราบขออภัยหากบางลิ้งค์ยังเสียหายจากที่เก่า<br> ต้องปรับปรุงทีละหน้าโดยยังไม่มีกำหนดเสร็จ</p>
-  </footer>
+    <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
 
-  <!-- พุทธพจน์แบบสุ่ม -->
-  <script>
-    fetch('/assets/data/quotes.json')
-      .then(res => res.json())
-      .then(data => {
-        const quote = data[Math.floor(Math.random() * data.length)];
-        document.getElementById('random-quote').innerHTML =
-          quote.quote + "<br><small>" + quote.source + "</small>";
-      })
-      .catch(() => {
-        document.getElementById('random-quote').innerText = "โหลดไม่สำเร็จ";
-      });
-  </script>
+    <script>
+        let paliDict = [];
 
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => {
+                paliDict = data;
+            })
+            .catch(() => {
+                document.getElementById('paliResult').innerText = "❌ โหลดไม่สำเร็จ";
+            });
 
+        document.getElementById('paliInput').addEventListener('input', function () {
+            const input = this.value.trim().toLowerCase();
+            const resultBox = document.getElementById('paliResult');
 
+            if (!input) {
+                resultBox.innerHTML = '';
+                return;
+            }
 
-  <!-- Google Custom Search -->
-  <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
+            const matches = paliDict.filter(entry =>
+                entry.headword.toLowerCase().includes(input)
+            );
 
+            resultBox.innerHTML = matches.length
+                ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                : `❌ ไม่พบคำว่า "<strong>${input}</strong>"`;
+        });
+    </script>
 
-
-<!-- สคริปบาลี-->
-
-<script>
-let paliDict = [];
-
-fetch('/assets/data/pali.json')
-  .then(res => res.json())
-  .then(data => {
-    paliDict = data;
-  })
-  .catch(() => {
-    document.getElementById('paliResult').innerText = "❌ โหลดไม่สำเร็จ";
-  });
-
-document.getElementById('paliInput').addEventListener('input', function () {
-  const input = this.value.trim().toLowerCase();
-  const resultBox = document.getElementById('paliResult');
-
-  if (!input) {
-    resultBox.innerHTML = '';
-    return;
-  }
-
-  const matches = paliDict.filter(entry =>
-    entry.headword.toLowerCase().includes(input)
-  );
-
-  resultBox.innerHTML = matches.length
-    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
-    : `❌ ไม่พบคำว่า "<strong>${input}</strong>"`;
-});
-</script>
-
-
+    <script src="/assets/js/book_info.js"></script>
 
 </body>
 </html>
