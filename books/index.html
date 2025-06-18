@@ -2,7 +2,14 @@
 <body>
 
 
-
+  <script>
+  function toggleInfo(id) {
+    const infoBoxes = document.querySelectorAll('.book-info');
+    infoBoxes.forEach(box => {
+      box.style.display = box.id === id ? 'block' : 'none';
+    });
+  }
+</script>
 
 <div class="book-grid">
   <button class="book-btn" onclick="toggleInfo('book1')">ขุ.พุทธ.</button>
@@ -33,14 +40,7 @@
 
 
 
-  <script>
-  function toggleInfo(id) {
-    const infoBoxes = document.querySelectorAll('.book-info');
-    infoBoxes.forEach(box => {
-      box.style.display = box.id === id ? 'block' : 'none';
-    });
-  }
-</script>
+
 
 </body>
 </html>
