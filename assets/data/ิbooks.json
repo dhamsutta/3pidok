@@ -1,0 +1,72 @@
+[
+  {
+    "id": "anguttara-a",
+    "label": "องฺ.อ.",
+    "name": "องฺคุตฺตรนิกาย อฏฺฐกถา (มโนรถปูรณี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย โดยอรรถกถาจารย์",
+    "link": "/texts/anguttara-a.html"
+  },
+  {
+    "id": "anguttara-atthaka",
+    "label": "องฺ.อฏฺฐก.",
+    "name": "องฺคุตฺตรนิกาย อฏฺฐกนิปาต",
+    "desc": "หมวดที่ประกอบด้วยพระสูตรที่มีธรรมะกลุ่มละ 8 ข้อ",
+    "link": "/texts/anguttara-atthaka.html"
+  },
+  {
+    "id": "anguttara-ekaka",
+    "label": "องฺ.เอก.",
+    "name": "องฺคุตฺตรนิกาย เอกนิปาต",
+    "desc": "หมวดที่รวมธรรมะที่จัดเป็นข้อเดียว",
+    "link": "/texts/anguttara-ekaka.html"
+  },
+  {
+    "id": "anguttara-ekadasaka",
+    "label": "อ.เอกาทสก.",
+    "name": "องฺคุตฺตรนิกาย เอกาทสกนิปาต",
+    "desc": "รวมพระสูตรที่กล่าวธรรมะหมวดละ 11 ข้อ",
+    "link": "/texts/anguttara-ekadasaka.html"
+  },
+  {
+    "id": "anguttara-catukka",
+    "label": "องฺ.จตุกฺก.",
+    "name": "องฺคุตฺตรนิกาย จตุกฺกนิปาต",
+    "desc": "หมวดธรรมะ 4 ข้อ เช่น อริยสัจ 4, สัมมาทิฏฐิ 4 เป็นต้น",
+    "link": "/texts/anguttara-catukka.html"
+  },
+  {
+    "id": "anguttara-chakka",
+    "label": "องฺ.ฉกฺก.",
+    "name": "องฺคุตฺตรนิกาย ฉกฺกนิปาต",
+    "desc": "หมวดที่มีพระสูตรแสดงธรรมะ 6 ข้อในแต่ละสูตร",
+    "link": "/texts/anguttara-chakka.html"
+  },
+  {
+    "id": "anguttara-tika",
+    "label": "องฺ.ติก.",
+    "name": "องฺคุตฺตรนิกาย ติกนิบาต",
+    "desc": "หมวดธรรมะ 3 ข้อ เช่น กาย วาจา ใจ หรือ สิกขา 3",
+    "link": "/texts/anguttara-tika.html"
+  },
+  {
+    "id": "anguttara-dasaka",
+    "label": "องฺ.ทสก.",
+    "name": "องฺคุตฺตรนิกาย ทสกนิปาต",
+    "desc": "หมวดธรรมะ 10 ข้อ เช่น พละ 10, วิสุทธิ 10",
+    "link": "/texts/anguttara-dasaka.html"
+  },
+  {
+    "id": "anguttara-duka",
+    "label": "องฺ.ทุก.",
+    "name": "องฺคุตฺตรนิกาย ทุกนิปาต",
+    "desc": "ธรรมะคู่ เช่น สองธรรมที่ตรงกันข้าม, สองข้อเปรียบเทียบ",
+    "link": "/texts/anguttara-duka.html"
+  },
+  {
+    "id": "anguttara-navaka",
+    "label": "องฺ.นวก.",
+    "name": "องฺคุตฺตรนิกาย นวกนิปาต",
+    "desc": "หมวดที่รวมธรรมะกลุ่มละ 9 ข้อ เช่น คุณธรรม 9 ประการ",
+    "link": "/texts/anguttara-navaka.html"
+  }
+]
