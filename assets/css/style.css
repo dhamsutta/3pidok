@@ -279,50 +279,6 @@ table.image-grid div {
   font-size: 14px;
 }
 
-.book-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  margin: 1em 0;
-  font-family: Tahoma, sans-serif;
-}
-
-.book-btn {
-  background: #e0e0e0;
-  border: 2px outset #ccc;
-  padding: 4px 10px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  color: #000;
-}
-
-.book-btn:hover {
-  background-color: #c0ffc0;
-}
-
-.book-info {
-  background: #f8fff0;
-  border: 2px inset #aaa;
-  padding: 0.8em;
-  margin-top: 1em;
-  width: 100%;
-  max-width: 500px;
-  display: none;
-  font-size: 14px;
-  color: #222;
-}
-
-.book-info a {
-  display: inline-block;
-  margin-top: 0.5em;
-  color: #0000cc;
-  text-decoration: underline;
-  font-weight: bold;
-}
-
-
-
 
 
 
