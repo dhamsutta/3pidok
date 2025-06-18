@@ -365,6 +365,20 @@ table.image-grid div {
     text-align: center;
 }
 
+.left-align,
+.left-align input,
+.left-align + #paliResult {
+    text-align: left;
+}
+
+
+
+
+
+
+
+
+
 /* Media Queries สำหรับการตอบสนองต่อขนาดหน้าจอ */
 @media (min-width: 768px) {
     body {
