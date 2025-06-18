@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ตัวอย่างกล่อง VB Style</title>
+  <style>
+    body {
+      font-family: "Tahoma", sans-serif;
+      background-color: #c0c0c0;
+      padding: 2rem;
+    }
+
+    .vb-groupbox {
+      border: 2px solid #808080;
+      background-color: #e0e0e0;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      position: relative;
+      width: 100%;
+      max-width: 500px;
+      box-shadow: inset 1px 1px white, inset -1px -1px #404040;
+    }
+
+    .vb-groupbox legend {
+      position: absolute;
+      top: -1em;
+      left: 1em;
+      background-color: #c0c0c0;
+      padding: 0 0.5em;
+      font-weight: bold;
+      font-size: 0.95rem;
+    }
+
+    .vb-groupbox-content {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+
+  <fieldset class="vb-groupbox">
+    <legend>ข้อมูลตำรา</legend>
+    <div class="vb-groupbox-content">
+      <strong>ขุ.พุทธ.</strong> = ขุททกนิกาย พุทธวงศ์<br>
+      ตำรานี้ว่าด้วยพระประวัติของพระพุทธเจ้าในอดีตและปัจจุบัน<br>
+      <a href="#">🔗 เปิดตำรา</a>
+    </div>
+  </fieldset>
+
+</body>
+</html>
