@@ -12,7 +12,7 @@ body, h1, h2, h3, p, div, header, main, footer {
 body {
     font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
     font-size: 17px;
-    line-height: 1.2; /* **ปรับตรงนี้ให้ชิดขึ้น!** */
+    line-height: 1.2; /* คงค่านี้ไว้ตามที่คุณชอบ */
     color: #222;
     background-color: #fffdf8; /* สีพื้นหลังเว็บโดยรวม */
     max-width: 600px; /* ความกว้างสูงสุดเริ่มต้นสำหรับเนื้อหา */
@@ -86,7 +86,7 @@ img {
 
 /* กล่องค้นหา Google Custom Search */
 .gcse-search {
-    margin: 1.5em 0;
+    margin: 0; /* **เปลี่ยนตรงนี้! ลบ margin บน-ล่างออกเพื่อให้ชิดเหมือนเดิม** */
     padding: 0;
 }
 
@@ -152,7 +152,7 @@ table.image-grid div {
 
 #paliResult p {
     margin: 0.5em 0;
-    line-height: 1.2; /* **ปรับตรงนี้ให้ชิดขึ้น!** */
+    line-height: 1.2;
 }
 
 /* การเยื้องข้อความ */
@@ -181,17 +181,17 @@ table.image-grid div {
 
 .wiki-content p {
     margin: 1rem 0;
-    line-height: 1.2; /* **ปรับตรงนี้ให้ชิดขึ้น!** */
+    line-height: 1.2;
 }
 
 .wiki-content ul {
     padding-left: 1.5rem;
     margin: 1rem 0;
-    line-height: 1.2; /* **เพิ่ม/ปรับตรงนี้ให้ชิดขึ้น!** */
+    line-height: 1.2;
 }
 
 .wiki-content li {
-    margin-bottom: 0.5rem; /* คง margin-bottom เพื่อให้แต่ละรายการไม่ติดกันจนเกินไป */
+    margin-bottom: 0.5rem;
 }
 
 .wiki-content a {
