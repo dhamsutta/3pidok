@@ -79,7 +79,7 @@
       data.forEach(book => {
         const option = document.createElement('option');
         option.value = book.id;
-        option.textContent = book.id + ' - ' + book.title;
+        option.textContent = `${book.label} - ${book.name}`;
         select.appendChild(option);
       });
     });
@@ -89,11 +89,11 @@
     const output = document.getElementById('bookOutput');
     if (selected) {
       output.innerHTML = `
-<b>${selected.id}</b><br>
-${selected.title}<br><br>
-${selected.description}<br><br>
-<a href="${selected.link}" class="book-link" target="_blank">🔗 ไปยังหน้า</a>
-      `;
+info.innerHTML = `
+  <b>${book.label}</b> - ${book.name}<br>
+  ${book.desc}<br>
+  <a href="${book.link}">🔗 ไปยังหน้า</a>
+`;
     } else {
       output.textContent = 'กรุณาเลือกตำราเพื่อดูรายละเอียด';
     }
