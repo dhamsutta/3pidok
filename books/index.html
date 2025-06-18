@@ -31,6 +31,17 @@
 </div>
 
 
+
+
+  <script>
+  function toggleInfo(id) {
+    const infoBoxes = document.querySelectorAll('.book-info');
+    infoBoxes.forEach(box => {
+      box.style.display = box.id === id ? 'block' : 'none';
+    });
+  }
+</script>
+
 </body>
 </html>
   
