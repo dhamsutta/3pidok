@@ -1,72 +1,534 @@
 [
   {
-    "id": "anguttara-a",
+    "id": "anguttaranikaya-atthakatha-manorathapurani",
     "label": "องฺ.อ.",
-    "name": "องฺคุตฺตรนิกาย อฏฺฐกถา (มโนรถปูรณี)",
-    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย โดยอรรถกถาจารย์",
-    "link": "/texts/anguttara-a.html"
+    "name": "องฺคุตฺตรนิกาย อฎฺฐกถา (มโนรถปูรณี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย อฏฺฐกถา (มโนรถปูรณี)",
+    "link": "/texts/anguttaranikaya-atthakatha-manorathapurani"
   },
   {
-    "id": "anguttara-atthaka",
+    "id": "anguttaranikaya-atthakanipata",
     "label": "องฺ.อฏฺฐก.",
     "name": "องฺคุตฺตรนิกาย อฏฺฐกนิปาต",
-    "desc": "หมวดที่ประกอบด้วยพระสูตรที่มีธรรมะกลุ่มละ 8 ข้อ",
-    "link": "/texts/anguttara-atthaka.html"
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย อฏฺฐกนิปาต",
+    "link": "/texts/anguttaranikaya-atthakanipata"
   },
   {
-    "id": "anguttara-ekaka",
+    "id": "anguttaranikaya-ekanipata",
     "label": "องฺ.เอก.",
     "name": "องฺคุตฺตรนิกาย เอกนิปาต",
-    "desc": "หมวดที่รวมธรรมะที่จัดเป็นข้อเดียว",
-    "link": "/texts/anguttara-ekaka.html"
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย เอกนิปาต",
+    "link": "/texts/anguttaranikaya-ekanipata"
   },
   {
-    "id": "anguttara-ekadasaka",
+    "id": "anguttaranikaya-ekadasakanipata",
     "label": "อ.เอกาทสก.",
     "name": "องฺคุตฺตรนิกาย เอกาทสกนิปาต",
-    "desc": "รวมพระสูตรที่กล่าวธรรมะหมวดละ 11 ข้อ",
-    "link": "/texts/anguttara-ekadasaka.html"
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย เอกาทสกนิปาต",
+    "link": "/texts/anguttaranikaya-ekadasakanipata"
   },
   {
-    "id": "anguttara-catukka",
-    "label": "องฺ.จตุกฺก.",
+    "id": "anguttaranikaya-catukkanipata",
+    "label": "องฺ. จตุกฺก.",
     "name": "องฺคุตฺตรนิกาย จตุกฺกนิปาต",
-    "desc": "หมวดธรรมะ 4 ข้อ เช่น อริยสัจ 4, สัมมาทิฏฐิ 4 เป็นต้น",
-    "link": "/texts/anguttara-catukka.html"
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย จตุกฺกนิปาต",
+    "link": "/texts/anguttaranikaya-catukkanipata"
   },
   {
-    "id": "anguttara-chakka",
+    "id": "anguttaranikaya-chakkanipata",
     "label": "องฺ.ฉกฺก.",
     "name": "องฺคุตฺตรนิกาย ฉกฺกนิปาต",
-    "desc": "หมวดที่มีพระสูตรแสดงธรรมะ 6 ข้อในแต่ละสูตร",
-    "link": "/texts/anguttara-chakka.html"
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย ฉกฺกนิปาต",
+    "link": "/texts/anguttaranikaya-chakkanipata"
   },
   {
-    "id": "anguttara-tika",
+    "id": "anguttaranikaya-tikanibata",
     "label": "องฺ.ติก.",
     "name": "องฺคุตฺตรนิกาย ติกนิบาต",
-    "desc": "หมวดธรรมะ 3 ข้อ เช่น กาย วาจา ใจ หรือ สิกขา 3",
-    "link": "/texts/anguttara-tika.html"
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย ติกนิบาต",
+    "link": "/texts/anguttaranikaya-tikanibata"
   },
   {
-    "id": "anguttara-dasaka",
+    "id": "anguttaranikaya-dasakanipata",
     "label": "องฺ.ทสก.",
     "name": "องฺคุตฺตรนิกาย ทสกนิปาต",
-    "desc": "หมวดธรรมะ 10 ข้อ เช่น พละ 10, วิสุทธิ 10",
-    "link": "/texts/anguttara-dasaka.html"
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย ทสกนิปาต",
+    "link": "/texts/anguttaranikaya-dasakanipata"
   },
   {
-    "id": "anguttara-duka",
+    "id": "anguttaranikaya-dukanipata",
     "label": "องฺ.ทุก.",
     "name": "องฺคุตฺตรนิกาย ทุกนิปาต",
-    "desc": "ธรรมะคู่ เช่น สองธรรมที่ตรงกันข้าม, สองข้อเปรียบเทียบ",
-    "link": "/texts/anguttara-duka.html"
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย ทุกนิปาต",
+    "link": "/texts/anguttaranikaya-dukanipata"
   },
   {
-    "id": "anguttara-navaka",
+    "id": "anguttaranikaya-nawakanipata",
     "label": "องฺ.นวก.",
     "name": "องฺคุตฺตรนิกาย นวกนิปาต",
-    "desc": "หมวดที่รวมธรรมะกลุ่มละ 9 ข้อ เช่น คุณธรรม 9 ประการ",
-    "link": "/texts/anguttara-navaka.html"
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย นวกนิปาต",
+    "link": "/texts/anguttaranikaya-nawakanipata"
+  },
+  {
+    "id": "anguttaranikaya-pancakanibata",
+    "label": "องฺ.ปญฺจก.",
+    "name": "องฺคุตฺตรนิกาย ปัญจกนิบาต",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย ปัญจกนิบาต",
+    "link": "/texts/anguttaranikaya-pancakanibata"
+  },
+  {
+    "id": "anguttaranikaya-sattakanipata",
+    "label": "องฺ.สตฺตก.",
+    "name": "องฺคุตฺตรนิกาย สตฺตกนิปาต",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในองฺคุตฺตรนิกาย สตฺตกนิปาต",
+    "link": "/texts/anguttaranikaya-sattakanipata"
+  },
+  {
+    "id": "upadana-atthakatha-visutthajanawilasini",
+    "label": "อป.อ.",
+    "name": "อุปทาน อฏฐกถา (วิสุทธชนวิลาสินี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอุปทาน อฏฐกถา (วิสุทธชนวิลาสินี)",
+    "link": "/texts/upadana-atthakatha-visutthajanawilasini"
+  },
+  {
+    "id": "abhidhammapitaka-kathavatthu",
+    "label": "อภิ.ก.",
+    "name": "อภิธมฺมปิฎก กถาวัตถุ",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอภิธมฺมปิฎก กถาวัตถุ",
+    "link": "/texts/abhidhammapitaka-kathavatthu"
+  },
+  {
+    "id": "abhidhammapitaka-thatukatha",
+    "label": "อภิ.ธา.",
+    "name": "อภิธมฺมปิฎก ธาตุกถา",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอภิธมฺมปิฎก ธาตุกถา",
+    "link": "/texts/abhidhammapitaka-thatukatha"
+  },
+  {
+    "id": "abhidhammapitaka-patthan",
+    "label": "อภิ.ป.",
+    "name": "อภิธมฺมปิฎก ปฏฺฐาน",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอภิธมฺมปิฎก ปฏฺฐาน",
+    "link": "/texts/abhidhammapitaka-patthan"
+  },
+  {
+    "id": "abhidhammapitaka-bukkhalapannatti",
+    "label": "อภิ.ปุ.",
+    "name": "อภิธมฺมปิฎก บุคคลปญฺญตฺติ",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอภิธมฺมปิฎก บุคคลปญฺญตฺติ",
+    "link": "/texts/abhidhammapitaka-bukkhalapannatti"
+  },
+  {
+    "id": "abhidhammapitaka-yamok",
+    "label": "อภิ.ยมก.",
+    "name": "อภิธมฺมปิฎก ยมก",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอภิธมฺมปิฎก ยมก",
+    "link": "/texts/abhidhammapitaka-yamok"
+  },
+  {
+    "id": "abhidhammapitaka-wibhang",
+    "label": "อภิ.วิ.",
+    "name": "อภิธมฺมปิฎก วิภงฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอภิธมฺมปิฎก วิภงฺค",
+    "link": "/texts/abhidhammapitaka-wibhang"
+  },
+  {
+    "id": "abhidhammapitaka-thammasangkhani",
+    "label": "อภิ.สํ.",
+    "name": "อภิธมฺมปิฎก ธมฺมสงฺคณี",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอภิธมฺมปิฎก ธมฺมสงฺคณี",
+    "link": "/texts/abhidhammapitaka-thammasangkhani"
+  },
+  {
+    "id": "ingtiwuttaka-atthakatha-paramatthatipani",
+    "label": "อิติ.อ.",
+    "name": "อิงติวุตตก อฏฐกถา (ปรมตฺถทีปนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอิงติวุตตก อฏฐกถา (ปรมตฺถทีปนี)",
+    "link": "/texts/ingtiwuttaka-atthakatha-paramatthatipani"
+  },
+  {
+    "id": "uthan-atthakatha-paramatthatipani",
+    "label": "อุ.อ.,อุทาน.อ.",
+    "name": "อุทาน อฏฺฐกถา (ปรมตฺถทีปนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอุทาน อฏฺฐกถา (ปรมตฺถทีปนี)",
+    "link": "/texts/uthan-atthakatha-paramatthatipani"
+  },
+  {
+    "id": "khutthakanikaya-apadana",
+    "label": "ขุ.อป.",
+    "name": "ขุทฺทกนิกาย อปทาน",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุทฺทกนิกาย อปทาน",
+    "link": "/texts/khutthakanikaya-apadana"
+  },
+  {
+    "id": "khutthakanikaya-itiwuttaka",
+    "label": "ขุ.อิติ.",
+    "name": "ขุททกนิกาย อิติวุตฺตก",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย อิติวุตฺตก",
+    "link": "/texts/khutthakanikaya-itiwuttaka"
+  },
+  {
+    "id": "khutthakanikaya-uthan",
+    "label": "ขุ.อุ.",
+    "name": "ขุททกนิกาย อุทาน",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย อุทาน",
+    "link": "/texts/khutthakanikaya-uthan"
+  },
+  {
+    "id": "khutthakanikaya-khutthakapatha",
+    "label": "ขุ.ขุ.",
+    "name": "ขุททกนิกาย ขุททกปาฐ",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย ขุททกปาฐ",
+    "link": "/texts/khutthakanikaya-khutthakapatha"
+  },
+  {
+    "id": "khutthakanikaya-cariyapitaka",
+    "label": "ขุ.จริยา",
+    "name": "ขุททกนิกาย จริยาปิฎก",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย จริยาปิฎก",
+    "link": "/texts/khutthakanikaya-cariyapitaka"
+  },
+  {
+    "id": "khutthakanikaya-culanitthes",
+    "label": "ขุ.จู.",
+    "name": "ขุททกนิกาย จูฬนิทเทส",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย จูฬนิทเทส",
+    "link": "/texts/khutthakanikaya-culanitthes"
+  },
+  {
+    "id": "khutthakanikaya-chatok",
+    "label": "ขุ.ชา.",
+    "name": "ขุททกนิกาย ชาตก",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย ชาตก",
+    "link": "/texts/khutthakanikaya-chatok"
+  },
+  {
+    "id": "khutthakanikaya-therakhatha",
+    "label": "ขุ.เถร.",
+    "name": "ขุททกนิกาย เถรคาถา",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย เถรคาถา",
+    "link": "/texts/khutthakanikaya-therakhatha"
+  },
+  {
+    "id": "khutthakanikaya-therikhatha",
+    "label": "ขุ.เถรี.",
+    "name": "ขุททกนิกาย เถรีคาถา",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย เถรีคาถา",
+    "link": "/texts/khutthakanikaya-therikhatha"
+  },
+  {
+    "id": "khutthakanikaya-thammapatha",
+    "label": "ขุ.ธ.",
+    "name": "ขุททกนิกาย ธมฺมปท",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย ธมฺมปท",
+    "link": "/texts/khutthakanikaya-thammapatha"
+  },
+  {
+    "id": "khutthakanikaya-patisamphithamakkha",
+    "label": "ขุ.ปฏิ",
+    "name": "ขุททกนิกาย ปฏิสัมภิทามคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย ปฏิสัมภิทามคฺค",
+    "link": "/texts/khutthakanikaya-patisamphithamakkha"
+  },
+  {
+    "id": "khutthakanikaya-petavatthu",
+    "label": "ขุ.เปต.",
+    "name": "ขุททกนิกาย เปตวตฺถุ",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย เปตวตฺถุ",
+    "link": "/texts/khutthakanikaya-petavatthu"
+  },
+  {
+    "id": "khutthakanikaya-phutthawangs",
+    "label": "ขุ.พุทธ.",
+    "name": "ขุททกนิกาย พุทธวํส",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย พุทธวํส",
+    "link": "/texts/khutthakanikaya-phutthawangs"
+  },
+  {
+    "id": "khutthakanikaya-mahanitthes",
+    "label": "ขุ.ม.,ขุ.มหา.",
+    "name": "ขุททกนิกาย มหานิทเทส",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย มหานิทเทส",
+    "link": "/texts/khutthakanikaya-mahanitthes"
+  },
+  {
+    "id": "khutthakanikaya-wimanavatthu",
+    "label": "ขุ.วิมาน.",
+    "name": "ขุททกนิกาย วิมานวตฺถุ",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย วิมานวตฺถุ",
+    "link": "/texts/khutthakanikaya-wimanavatthu"
+  },
+  {
+    "id": "khutthakanikaya-suttanipata",
+    "label": "ขุ.ส.",
+    "name": "ขุททกนิกาย สุตฺตนิปาต",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกนิกาย สุตฺตนิปาต",
+    "link": "/texts/khutthakanikaya-suttanipata"
+  },
+  {
+    "id": "khutthakapatha-atthakatha-paramatthachotika",
+    "label": "ขุททก.อ.",
+    "name": "ขุททกปาฐ อฏฐกถา (ปรมตฺถโชติกา)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในขุททกปาฐ อฏฐกถา (ปรมตฺถโชติกา)",
+    "link": "/texts/khutthakapatha-atthakatha-paramatthachotika"
+  },
+  {
+    "id": "cariyapitaka-atthakatha-paramatthatipani",
+    "label": "จริยา.อ.",
+    "name": "จริยาปิฎก อฏฐกถา (ปรมตฺถทีปนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในจริยาปิฎก อฏฐกถา (ปรมตฺถทีปนี)",
+    "link": "/texts/cariyapitaka-atthakatha-paramatthatipani"
+  },
+  {
+    "id": "chatakatthakatha",
+    "label": "ชา.อ.",
+    "name": "ชาตกฏฐกถา",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในชาตกฏฐกถา",
+    "link": "/texts/chatakatthakatha"
+  },
+  {
+    "id": "therakhatha-atthakatha-paramatthatipani",
+    "label": "เถร.อ.",
+    "name": "เถรคาถา อฏฐกถา (ปรมตฺถทีปนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในเถรคาถา อฏฐกถา (ปรมตฺถทีปนี)",
+    "link": "/texts/therakhatha-atthakatha-paramatthatipani"
+  },
+  {
+    "id": "therikhatha-atthakatha-paramatthatipani",
+    "label": "เถรี.อ.",
+    "name": "เถรีคาถา อฏฐกถา (ปรมตฺถทีปนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในเถรีคาถา อฏฐกถา (ปรมตฺถทีปนี)",
+    "link": "/texts/therikhatha-atthakatha-paramatthatipani"
+  },
+  {
+    "id": "tikanikaya-atthakatha-sumangkalawilasini",
+    "label": "ที.อ.",
+    "name": "ทีฆนิกาย อฏฺฐกถา (สุมงฺคลวิลาสินี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในทีฆนิกาย อฏฺฐกถา (สุมงฺคลวิลาสินี)",
+    "link": "/texts/tikanikaya-atthakatha-sumangkalawilasini"
+  },
+  {
+    "id": "tikanikaya-patikawakkha",
+    "label": "ที.ปา.",
+    "name": "ทีฆนิกาย ปาฏิกวคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในทีฆนิกาย ปาฏิกวคฺค",
+    "link": "/texts/tikanikaya-patikawakkha"
+  },
+  {
+    "id": "tikanikaya-mahawakkha",
+    "label": "ที.ม.",
+    "name": "ทีฆนิกาย มหาวคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในทีฆนิกาย มหาวคฺค",
+    "link": "/texts/tikanikaya-mahawakkha"
+  },
+  {
+    "id": "tikanikaya-silakkanthawakkha",
+    "label": "ที.สี.",
+    "name": "ทีฆนิกาย สีลกฺขนฺธวคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในทีฆนิกาย สีลกฺขนฺธวคฺค",
+    "link": "/texts/tikanikaya-silakkanthawakkha"
+  },
+  {
+    "id": "thammapathatthakatha",
+    "label": "ธ.อ.",
+    "name": "ธมฺมปทฏฺฐกถา",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในธมฺมปทฏฺฐกถา",
+    "link": "/texts/thammapathatthakatha"
+  },
+  {
+    "id": "nitthes-atthakatha-satthampapachchotika",
+    "label": "นิทฺ.อ.",
+    "name": "นิทฺเทส อฎฺฐกถา (สทฺธมฺมปชฺโชติกา)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในนิทฺเทส อฎฺฐกถา (สทฺธมฺมปชฺโชติกา)",
+    "link": "/texts/nitthes-atthakatha-satthampapachchotika"
+  },
+  {
+    "id": "pancapakaran-atthakatha-paramatthatipani",
+    "label": "ปญฺจ.อ.",
+    "name": "ปญฺจปกรณ อฎฺฐกถา (ปรมตฺถทีปนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในปญฺจปกรณ อฎฺฐกถา (ปรมตฺถทีปนี)",
+    "link": "/texts/pancapakaran-atthakatha-paramatthatipani"
+  },
+  {
+    "id": "patisamphithamakkha-atthakatha-satthampapakasini",
+    "label": "ปฎิสํ.อ.",
+    "name": "ปฏิสัมภิทามคฺค อฏฺฐกถา (สทฺธมฺมปกาสินี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในปฏิสัมภิทามคฺค อฏฺฐกถา (สทฺธมฺมปกาสินี)",
+    "link": "/texts/patisamphithamakkha-atthakatha-satthampapakasini"
+  },
+  {
+    "id": "petavatthu-atthakatha-paramatthatipani",
+    "label": "เปต.อ.",
+    "name": "เปตวตฺถุ อฎฺฐกถา (ปรมตฺถทีปนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในเปตวตฺถุ อฎฺฐกถา (ปรมตฺถทีปนี)",
+    "link": "/texts/petavatthu-atthakatha-paramatthatipani"
+  },
+  {
+    "id": "phutthawangs-atthakatha-matthuratthawilasini",
+    "label": "พุทธ.อ.",
+    "name": "พุทธวํส อฎฺฐกถา (มธุรตถวิลาสินี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในพุทธวํส อฎฺฐกถา (มธุรตถวิลาสินี)",
+    "link": "/texts/phutthawangs-atthakatha-matthuratthawilasini"
+  },
+  {
+    "id": "machchimmanikaya-atthakatha-papanchasuthani",
+    "label": "ม.อ.",
+    "name": "มชฺฌิมนิกาย อฎฺฐกถา (ปปญฺจสูทนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในมชฺฌิมนิกาย อฎฺฐกถา (ปปญฺจสูทนี)",
+    "link": "/texts/machchimmanikaya-atthakatha-papanchasuthani"
+  },
+  {
+    "id": "machchimmanikaya-uparippannasok",
+    "label": "ม.อุ.",
+    "name": "มชฺฌิมนิกาย อุปริปณฺณาสก",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในมชฺฌิมนิกาย อุปริปณฺณาสก",
+    "link": "/texts/machchimmanikaya-uparippannasok"
+  },
+  {
+    "id": "machchimmanikaya-machchimapannasok",
+    "label": "ม.ม.",
+    "name": "มชฺฌิมนิกาย มชฺฌิมปัณณาสก",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในมชฺฌิมนิกาย มชฺฌิมปัณณาสก",
+    "link": "/texts/machchimmanikaya-machchimapannasok"
+  },
+  {
+    "id": "machchimmanikaya-mulapannasok",
+    "label": "ม.มู.",
+    "name": "มชฺฌิมนิกาย มูลปณฺณาสก",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในมชฺฌิมนิกาย มูลปณฺณาสก",
+    "link": "/texts/machchimmanikaya-mulapannasok"
+  },
+  {
+    "id": "mangkalatthathipani",
+    "label": "มงฺคล.",
+    "name": "มงฺคลตฺถทีปนี",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในมงฺคลตฺถทีปนี",
+    "link": "/texts/mangkalatthathipani"
+  },
+  {
+    "id": "milinthapancha",
+    "label": "มิลินท.",
+    "name": "มิลินฺทปญฺหา",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในมิลินฺทปญฺหา",
+    "link": "/texts/milinthapancha"
+  },
+  {
+    "id": "winayapitaka",
+    "label": "วินย.",
+    "name": "วินัยปิฎก",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในวินัยปิฎก",
+    "link": "/texts/winayapitaka"
+  },
+  {
+    "id": "winay-atthakatha-samanthapasathika",
+    "label": "วินย.อ.",
+    "name": "วินย อฎฺฐกถา (สมนฺตปาสาทิกา)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในวินย อฎฺฐกถา (สมนฺตปาสาทิกา)",
+    "link": "/texts/winay-atthakatha-samanthapasathika"
+  },
+  {
+    "id": "winayatthakatha-tika-saratthatipani",
+    "label": "วินย.ฎีกา",
+    "name": "วินยฏฐกถา ฎีกา (สารตฺถทีปนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในวินยฏฐกถา ฎีกา (สารตฺถทีปนี)",
+    "link": "/texts/winayatthakatha-tika-saratthatipani"
+  },
+  {
+    "id": "wibhang-atthakatha-sammokhawinothani",
+    "label": "วิภงฺค.อ.",
+    "name": "วิภงฺค อฏฐกถา (สมฺโมหวิโนทนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในวิภงฺค อฏฐกถา (สมฺโมหวิโนทนี)",
+    "link": "/texts/wibhang-atthakatha-sammokhawinothani"
+  },
+  {
+    "id": "wimanawatthu-atthakatha-paramatthatipani",
+    "label": "วิมาน.อ.",
+    "name": "วิมานวตฺถุ อฎฺฐกถา (ปรมตฺถทีปนี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในวิมานวตฺถุ อฎฺฐกถา (ปรมตฺถทีปนี)",
+    "link": "/texts/wimanawatthu-atthakatha-paramatthatipani"
+  },
+  {
+    "id": "wisutthimakkha",
+    "label": "วิสุทฺธิ",
+    "name": "วิสุทธิมคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในวิสุทธิมคฺค",
+    "link": "/texts/wisutthimakkha"
+  },
+  {
+    "id": "wisutthimakkha-mahathika-paramatthamanjusa",
+    "label": "วิสุทธิฎีกา",
+    "name": "วิสุทธิมคฺค มหาฎีกา (ปรมตฺถมญชุสา)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในวิสุทธิมคฺค มหาฎีกา (ปรมตฺถมญชุสา)",
+    "link": "/texts/wisutthimakkha-mahathika-paramatthamanjusa"
+  },
+  {
+    "id": "sangkhani-atthakatha-atthasalini",
+    "label": "สงฺคณี อ.",
+    "name": "สงฺคณี อฎฺฐกถา (อฏฐสาลินี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในสงฺคณี อฎฺฐกถา (อฏฐสาลินี)",
+    "link": "/texts/sangkhani-atthakatha-atthasalini"
+  },
+  {
+    "id": "abhithammattasangkhah",
+    "label": "สงฺคห.",
+    "name": "อภิธมฺมตฺถสงฺคห",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอภิธมฺมตฺถสงฺคห",
+    "link": "/texts/abhithammattasangkhah"
+  },
+  {
+    "id": "abhithammattasangkhah-tika-abhithammattavibhawini",
+    "label": "สงฺคห.ฎีกา",
+    "name": "อภิธมฺมตฺถสงฺคห ฎีกา (อภิธมฺมตฺถวิภาวินี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในอภิธมฺมตฺถสงฺคห ฎีกา (อภิธมฺมตฺถวิภาวินี)",
+    "link": "/texts/abhithammattasangkhah-tika-abhithammattavibhawini"
+  },
+  {
+    "id": "samyuttanikaya-atthakatha-saratthapakasini",
+    "label": "สํ.อ.",
+    "name": "สํยุตฺตนิกาย อฏฺฐกถา (สารตฺถปกาสินี)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในสํยุตฺตนิกาย อฏฺฐกถา (สารตฺถปกาสินี)",
+    "link": "/texts/samyuttanikaya-atthakatha-saratthapakasini"
+  },
+  {
+    "id": "samyuttanikaya-khanthawarawakkha",
+    "label": "สํ.ข.",
+    "name": "สํยุตฺตนิกาย ขนฺธวารวคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในสํยุตฺตนิกาย ขนฺธวารวคฺค",
+    "link": "/texts/samyuttanikaya-khanthawarawakkha"
+  },
+  {
+    "id": "samyuttanikaya-nithanawakkha",
+    "label": "ส.นิ.",
+    "name": "สํยุตฺตนิกาย นิทานวคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในสํยุตฺตนิกาย นิทานวคฺค",
+    "link": "/texts/samyuttanikaya-nithanawakkha"
+  },
+  {
+    "id": "samyuttanikaya-mahawarawakkha",
+    "label": "ส.ม.",
+    "name": "สํยุตฺตนิกาย มหาวารวคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในสํยุตฺตนิกาย มหาวารวคฺค",
+    "link": "/texts/samyuttanikaya-mahawarawakkha"
+  },
+  {
+    "id": "samyuttanikaya-sakathawakkha",
+    "label": "ส.ส.",
+    "name": "สํยุตฺตนิกาย สคาถวคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในสํยุตฺตนิกาย สคาถวคฺค",
+    "link": "/texts/samyuttanikaya-sakathawakkha"
+  },
+  {
+    "id": "samyuttanikaya-salayatanawakkha",
+    "label": "สํ.สฬ.",
+    "name": "สํยุตฺตนิกาย สฬายตนวคฺค",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในสํยุตฺตนิกาย สฬายตนวคฺค",
+    "link": "/texts/samyuttanikaya-salayatanawakkha"
+  },
+  {
+    "id": "suttanipata-atthakatha-paramatthachotika",
+    "label": "สุตฺต.อ.",
+    "name": "สุตฺตนิปาต อฏฺฐกถา (ปรมตฺถโชติกา)",
+    "desc": "คำอธิบายเพิ่มเติมของพระสูตรในสุตฺตนิปาต อฏฺฐกถา (ปรมตฺถโชติกา)",
+    "link": "/texts/suttanipata-atthakatha-paramatthachotika"
   }
 ]
