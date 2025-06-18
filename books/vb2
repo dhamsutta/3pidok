@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>ตำรา | ธรรมสุตตะ</title>
+  <style>
+    body {
+      background-color: #c0c0c0;
+      font-family: Tahoma, sans-serif;
+      margin: 0;
+      padding: 2rem;
+    }
+
+    .window-frame {
+      display: flex;
+      border: 2px solid #808080;
+      box-shadow: inset -2px -2px #fff, inset 2px 2px #404040;
+      background-color: #dcdcdc;
+      max-width: 800px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    .sidebar {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-right: 1rem;
+    }
+
+    .sidebar button, .sidebar select {
+      font-size: 14px;
+      font-family: Tahoma, sans-serif;
+      padding: 0.3rem 0.8rem;
+      background: #e0e0e0;
+      border: 2px outset #fff;
+      box-shadow: inset -1px -1px #808080, inset 1px 1px #fff;
+      cursor: pointer;
+    }
+
+    .content-box {
+      flex: 1;
+      background-color: #ffffff;
+      border: 2px inset #808080;
+      padding: 1rem;
+    }
+
+    .content-box h2 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+
+    .content-box p {
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .content-box a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #0000cc;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="window-frame">
+    <div class="sidebar">
+      <select>
+        <option>Dropdown</option>
+        <option>ขุ.เถรี.อ.</option>
+        <option>ชา.อ.</option>
+      </select>
+      <button>เลือก</button>
+    </div>
+
+    <div class="content-box">
+      <h2>คัมภีร์พุทธวงศ์</h2>
+      <p>อธิบายประวัติความเป็นมาของพระพุทธเจ้าทั้ง ๒๕ พระองค์</p>
+      <a href="#">อ่านต่อ</a>
+    </div>
+  </div>
+             <div class="content-box">
+      <h2>คัมภีร์พุทธวงศ์2</h2>
+      <p>อธิบายประวัติความเป็นมาของพระพุทธเจ้าทั้ง ๒๕ พระองค์</p>
+      <a href="#">อ่านต่อ</a>
+    </div>
+  </div>
+               <div class="content-box">
+      <h2>คัมภีร์พุทธวงศ์3</h2>
+      <p>อธิบายประวัติความเป็นมาของพระพุทธเจ้าทั้ง ๒๕ พระองค์</p>
+      <a href="#">อ่านต่อ</a>
+    </div>
+  </div>
+
+</body>
+</html>
