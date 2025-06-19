@@ -1,11 +1,4 @@
 /* ฟอนต์ไทย และโครงสร้างพื้นฐาน */
-body {
-  max-width: 650px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-
 
 body {
   font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
@@ -260,22 +253,75 @@ table.image-grid div {
 }
 
 
+.tag-section {
+  border: 2px solid #000;
+  border-right-color: #fff;
+  border-bottom-color: #fff;
+  padding: 5px;
+  margin-bottom: 20px;
+  background-color: #C0C0C0; /* สีพื้นหลังของกรอบ */
+}
+
+.tag-header {
+  background-color: #000080; /* สีนํ้าเงินเข้มของแถบหัวข้อ */
+  color: #FFFFFF;
+  padding: 3px 8px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  border: 1px solid #000;
+  border-top-color: #000; /* ขอบบนสีดำ */
+  border-left-color: #000; /* ขอบซ้ายสีดำ */
+  border-right-color: #808080; /* ขอบขวาเทาเข้ม */
+  border-bottom-color: #808080; /* ขอบล่างเทาเข้ม */
+  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080; /* เงาด้านใน */
+  text-shadow: 1px 1px #000; /* เงาตัวอักษร */
+}
+
 .tag-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5em;
-  margin: 0.5em 0;
+  display: flex; /* ใช้ Flexbox เพื่อจัดเรียงปุ่ม */
+  flex-wrap: wrap; /* ให้ปุ่มขึ้นบรรทัดใหม่เมื่อไม่พอ */
+  gap: 8px; /* ระยะห่างระหว่างปุ่ม */
 }
 
 .tag-buttons a {
-  background: #e0f0d8;
-  color: #000;
-  font-weight: bold;
-  padding: 4px 8px;
+  /* สไตล์ปุ่มแบบ Windows 95 */
+  display: inline-block; /* ทำให้กำหนดความกว้าง/สูงได้ */
+  min-width: 80px; /* กำหนดความกว้างขั้นต่ำของปุ่ม */
+  height: 25px; /* กำหนดความสูงของปุ่มให้เท่ากัน */
+  padding: 2px 8px; /* ระยะห่างภายในปุ่ม */
+  text-align: center;
   text-decoration: none;
-  border: 2px outset #ccc;
-  font-family: Tahoma, sans-serif;
-  font-size: 14px;
+  color: #000000;
+  background-color: #C0C0C0; /* สีพื้นหลังปุ่ม */
+
+  /* สร้างขอบแบบ 3D ของ Windows 95 */
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff; /* top right bottom left */
+  box-shadow: inset -1px -1px #000; /* เงาด้านใน */
+  
+  /* จัดกึ่งกลางข้อความแนวตั้ง */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-buttons a:hover {
+  background-color: #D0D0D0; /* สีปุ่มเมื่อเมาส์ชี้ */
+  cursor: pointer;
+}
+
+.tag-buttons a:active {
+  /* สไตล์เมื่อคลิกปุ่ม (กดลงไป) */
+  border-color: #808080 #fff #fff #808080; /* สลับขอบให้ดูเหมือนปุ่มจมลง */
+  box-shadow: inset 1px 1px #000;
+  background-color: #B0B0B0;
+}
+
+/* ฟอนต์ Pixelated MS Sans Serif (ถ้าต้องการความ Retro มากๆ) */
+@font-face {
+  font-family: 'Pixelated MS Sans Serif';
+  src: url('path/to/MS-Sans-Serif-8pt-Regular.ttf') format('truetype'); /* คุณต้องหาไฟล์ฟอนต์ .ttf มาใส่ในโปรเจกต์ของคุณเอง */
+  /* หรือใช้ฟอนต์ระบบที่คล้ายกัน เช่น 'Arial' หรือ 'Verdana' */
 }
 
 
