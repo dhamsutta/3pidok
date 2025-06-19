@@ -262,8 +262,8 @@ table.image-grid div {
 }
 
 .tag-header {
-  background-color: #000080; /* น้ำเงินเข้ม */
-  color: #FFFFFF;
+  background-color: transparent; /* น้ำเงินเข้ม */
+  color: #000000;
   padding: 4px 10px;
   margin-bottom: 12px;
   font-weight: bold;
