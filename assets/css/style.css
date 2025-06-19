@@ -257,60 +257,60 @@ table.image-grid div {
   border: 2px solid #000;
   border-right-color: #fff;
   border-bottom-color: #fff;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 20px;
-  background-color: #C0C0C0; /* สีพื้นหลังของกรอบ (คงเดิม) */
+  background-color: #D4D0C8; /* สีเทานุ่มของ Win95 */
+  font-family: Tahoma, sans-serif;
 }
 
 .tag-header {
-  background-color: #000080; /* สีนํ้าเงินเข้มของแถบหัวข้อ (คงเดิม) */
-  color: #FFFFFF; /* ข้อความหัวข้อสีขาว (คงเดิม) */
-  padding: 3px 8px;
-  margin-bottom: 10px;
+  background-color: #000080; /* น้ำเงินเข้ม */
+  color: #FFFFFF;
+  padding: 4px 10px;
+  margin-bottom: 12px;
   font-weight: bold;
   border: 1px solid #000;
-  border-top-color: #000;
-  border-left-color: #000;
   border-right-color: #808080;
   border-bottom-color: #808080;
   box-shadow: inset -1px -1px #fff, inset 1px 1px #808080;
-  text-shadow: 1px 1px #000;
+  font-size: 14px;
 }
 
 .tag-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 10px;
 }
 
 .tag-buttons a {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-width: 80px;
-  height: 25px;
-  padding: 2px 8px;
+  height: 28px;
+  padding: 2px 10px;
   text-align: center;
   text-decoration: none;
-  color: #000000; /* ข้อความบนปุ่มสีดำ (คงเดิม) */
-  background-color: #E0E0E0; /* <--- เปลี่ยนสีพื้นหลังปุ่มให้สว่างขึ้นเล็กน้อย */
+  color: #000000;
+  background-color: #C0C0C0;
+  font-size: 13px;
+  font-family: Tahoma, sans-serif;
 
   border: 2px solid;
   border-color: #fff #808080 #808080 #fff;
   box-shadow: inset -1px -1px #000;
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  border-radius: 2px;
 }
 
 .tag-buttons a:hover {
-  background-color: #F0F0F0; /* ปรับสีเมื่อ hover ให้สว่างขึ้นตามพื้นหลังใหม่ */
+  background-color: #E0E0E0;
   cursor: pointer;
 }
 
 .tag-buttons a:active {
   border-color: #808080 #fff #fff #808080;
   box-shadow: inset 1px 1px #000;
-  background-color: #D0D0D0; /* ปรับสีเมื่อ active ให้เข้มขึ้นตามพื้นหลังใหม่ */
+  background-color: #B0B0B0;
 }
 
 /* ฟอนต์ Pixelated MS Sans Serif (ถ้าต้องการความ Retro มากๆ) */
