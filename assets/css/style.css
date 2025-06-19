@@ -254,12 +254,10 @@ table.image-grid div {
 
 
 .tag-section {
-  border: 2px solid #000;
-  border-right-color: #fff;
-  border-bottom-color: #fff;
+  border: none; /* ไม่มีกรอบรอบหมวด */
   padding: 10px;
   margin-bottom: 20px;
-  background-color: #D4D0C8; /* สีเทานุ่มของ Win95 */
+  background-color: transparent; /* โปร่งใส */
   font-family: Tahoma, sans-serif;
 }
 
