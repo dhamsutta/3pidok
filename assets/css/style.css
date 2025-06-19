@@ -259,40 +259,65 @@ table.image-grid div {
   border-bottom-color: #fff;
   padding: 5px;
   margin-bottom: 20px;
-  background-color: #C0C0C0; /* สีพื้นหลังของกรอบ */
+  background-color: #C0C0C0; /* สีพื้นหลังของกรอบ (คงเดิม) */
 }
 
 .tag-header {
-  background-color: #000080; /* สีนํ้าเงินเข้มของแถบหัวข้อ */
-  color: #FFFFFF;
+  background-color: #000080; /* สีนํ้าเงินเข้มของแถบหัวข้อ (คงเดิม) */
+  color: #FFFFFF; /* ข้อความหัวข้อสีขาว (คงเดิม) */
   padding: 3px 8px;
   margin-bottom: 10px;
   font-weight: bold;
   border: 1px solid #000;
-  border-top-color: #000; /* ขอบบนสีดำ */
-  border-left-color: #000; /* ขอบซ้ายสีดำ */
-  border-right-color: #808080; /* ขอบขวาเทาเข้ม */
-  border-bottom-color: #808080; /* ขอบล่างเทาเข้ม */
-  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080; /* เงาด้านใน */
-  text-shadow: 1px 1px #000; /* เงาตัวอักษร */
+  border-top-color: #000;
+  border-left-color: #000;
+  border-right-color: #808080;
+  border-bottom-color: #808080;
+  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080;
+  text-shadow: 1px 1px #000;
 }
 
 .tag-buttons {
-  display: flex; /* ใช้ Flexbox เพื่อจัดเรียงปุ่ม */
-  flex-wrap: wrap; /* ให้ปุ่มขึ้นบรรทัดใหม่เมื่อไม่พอ */
-  gap: 8px; /* ระยะห่างระหว่างปุ่ม */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .tag-buttons a {
-  /* สไตล์ปุ่มแบบ Windows 95 */
-  display: inline-block; /* ทำให้กำหนดความกว้าง/สูงได้ */
-  min-width: 80px; /* กำหนดความกว้างขั้นต่ำของปุ่ม */
-  height: 25px; /* กำหนดความสูงของปุ่มให้เท่ากัน */
-  padding: 2px 8px; /* ระยะห่างภายในปุ่ม */
+  display: inline-block;
+  min-width: 80px;
+  height: 25px;
+  padding: 2px 8px;
   text-align: center;
   text-decoration: none;
-  color: #000000;
-  background-color: #C0C0C0; /* สีพื้นหลังปุ่ม */
+  color: #000000; /* ข้อความบนปุ่มสีดำ (คงเดิม) */
+  background-color: #E0E0E0; /* <--- เปลี่ยนสีพื้นหลังปุ่มให้สว่างขึ้นเล็กน้อย */
+
+  border: 2px solid;
+  border-color: #fff #808080 #808080 #fff;
+  box-shadow: inset -1px -1px #000;
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tag-buttons a:hover {
+  background-color: #F0F0F0; /* ปรับสีเมื่อ hover ให้สว่างขึ้นตามพื้นหลังใหม่ */
+  cursor: pointer;
+}
+
+.tag-buttons a:active {
+  border-color: #808080 #fff #fff #808080;
+  box-shadow: inset 1px 1px #000;
+  background-color: #D0D0D0; /* ปรับสีเมื่อ active ให้เข้มขึ้นตามพื้นหลังใหม่ */
+}
+
+/* ฟอนต์ Pixelated MS Sans Serif (ถ้าต้องการความ Retro มากๆ) */
+@font-face {
+  font-family: 'Pixelated MS Sans Serif';
+  src: url('path/to/MS-Sans-Serif-8pt-Regular.ttf') format('truetype');
+}
 
   /* สร้างขอบแบบ 3D ของ Windows 95 */
   border: 2px solid;
