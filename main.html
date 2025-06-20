@@ -161,7 +161,77 @@
     </div>
 
     <script>
-        // JavaScript จะมาที่นี่
+        // ข้อมูลเมนูในรูปแบบ JSON
+    const menuData = [
+        { "id": "parajika", "title": "ปาราชิก ๔", "url": "parajika.html" },
+        { "id": "sangghadisesa", "title": "สังฆาทิเสส ๑๓", "url": "sangghadisesa.html" },
+        { "id": "aniyata", "title": "อนิยต ๒", "url": "aniyata.html" },
+        { "id": "nissaggiya-pachittiya", "title": "นิสสัคคิยปาจิตตีย์ ๓๐", "url": "nissaggiya-pachittiya.html" },
+        { "id": "pachittiya", "title": "ปาจิตตีย์ ๙๒", "url": "pachittiya.html" },
+        { "id": "patidesaniya", "title": "ปาฎิเทสนียะ ๔", "url": "patidesaniya.html" },
+        { "id": "sekhiyawat", "title": "เสขิยวัตร ๗๕", "url": "sekhiyawat.html" },
+        { "id": "adhikaranasamatha", "title": "อธิกรณสมถะ ๗", "url": "adhikaranasamatha.html" }
+    ];
+
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const desktopNavbar = document.getElementById('desktopNavbar');
+
+    // ฟังก์ชันสำหรับสร้างเมนูจากข้อมูล JSON
+    function createMenu(menuElement, data) {
+        menuElement.innerHTML = ''; // ล้างเมนูเดิมออกก่อน (เผื่อมีการเรียกซ้ำ)
+        data.forEach(item => {
+            const a = document.createElement('a');
+            a.href = item.url;
+            a.textContent = item.title;
+            // หากต้องการให้ลิงก์เปิดในแท็บใหม่สำหรับลิงก์ภายนอก
+            // if (item.url.startsWith('http')) {
+            //     a.target = '_blank';
+            // }
+            menuElement.appendChild(a);
+        });
+    }
+
+    // สร้างเมนูเมื่อโหลดหน้าเว็บ
+    // เหตุผลที่ใช้ DOMContentLoaded คือเพื่อให้แน่ใจว่า HTML ถูกโหลดครบถ้วนก่อนที่เราจะพยายามเข้าถึง element
+    document.addEventListener('DOMContentLoaded', () => {
+        createMenu(desktopNavbar, menuData);
+        createMenu(sidebarMenu, menuData);
+
+        // Event Listeners และ Responsive Logic
+        hamburgerIcon.addEventListener('click', () => {
+            sidebarMenu.classList.toggle('open');
+            hamburgerIcon.classList.toggle('open');
+        });
+
+        // ปิด sidebar เมื่อคลิกที่ลิงก์ใน sidebar (เพื่อให้เมนูปิดเมื่อคลิกแล้วเปลี่ยนหน้า)
+        const sidebarLinks = sidebarMenu.querySelectorAll('a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebarMenu.classList.remove('open');
+                hamburgerIcon.classList.remove('open');
+            });
+        });
+
+        // ปรับการแสดงผลเมนูตามขนาดหน้าจอ (เพื่อให้ navbar หรือ hamburger แสดงผล)
+        function adjustMenuVisibility() {
+            if (window.innerWidth <= 768) { // ขนาดหน้าจอสำหรับมือถือและแท็บเล็ต
+                desktopNavbar.style.display = 'none';
+                hamburgerIcon.style.display = 'flex'; // แสดง hamburger icon
+            } else { // ขนาดหน้าจอสำหรับเดสก์ท็อป
+                desktopNavbar.style.display = 'flex'; // แสดง navbar ปกติ
+                hamburgerIcon.style.display = 'none'; // ซ่อน hamburger icon
+                sidebarMenu.classList.remove('open'); // ตรวจสอบให้แน่ใจว่า sidebar ปิด
+                hamburgerIcon.classList.remove('open'); // ตรวจสอบให้แน่ใจว่า icon กลับเป็น 3 ขีด
+            }
+        }
+
+        // เรียกใช้ฟังก์ชันเมื่อโหลดหน้าเว็บครั้งแรก
+        adjustMenuVisibility();
+
+        // เรียกใช้ฟังก์ชันเมื่อขนาดหน้าจอเปลี่ยน
+        window.addEventListener('resize', adjustMenuVisibility);
+    });
     </script>
 
 </body>
