@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าหลัก - ศีล ภิกษุ</title>
+    <style>
+        body {
+        font-family: sans-serif;
+        margin: 0;
+        padding-top: 60px; /* ระยะห่างสำหรับเนื้อหาไม่ให้ทับเมนูบาร์ */
+    }
+
+    /* --- สไตล์สำหรับเมนูบาร์ปกติ (บนเดสก์ท็อป) --- */
+    .navbar {
+        display: flex;
+        justify-content: space-around;
+        background-color: #f0f0f0; /* สีเทาจางของพื้นหลังเมนูบาร์ */
+        padding: 5px 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    .navbar a {
+        flex: 1; /* ทำให้แต่ละปุ่มขยายเท่ากัน */
+        color: #333; /* สีตัวอักษรเข้มขึ้น */
+        background-color: #e0e0e0; /* สีเทาจางของปุ่ม */
+        margin: 0 5px;
+        padding: 10px 0;
+        text-decoration: none;
+        text-align: center;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .navbar a:first-child { margin-left: 10px; }
+    .navbar a:last-child { margin-right: 10px; }
+    .navbar a:hover {
+        background-color: #cccccc;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    }
+
+    /* --- สไตล์สำหรับ Hamburger Icon --- */
+    .hamburger-icon {
+        display: none; /* ซ่อนไว้ก่อนสำหรับ Desktop */
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
+        position: fixed;
+        top: 15px;
+        right: 20px;
+        z-index: 1001; /* ให้อยู่เหนือเมนู */
+        display: flex; /* จัดเรียงเส้น */
+        flex-direction: column; /* วางเส้นในแนวตั้ง */
+        justify-content: space-around; /* กระจายช่องว่างระหว่างเส้น */
+        background: none; /* ไม่มีพื้นหลัง */
+        border: none; /* ไม่มีขอบ */
+        padding: 0;
+    }
+
+    .hamburger-icon .bar {
+        width: 100%;
+        height: 3px;
+        background-color: #333; /* สีของเส้น */
+        border-radius: 2px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* --- สไตล์เมื่อเมนูเปิด (Active) --- */
+    /* ทำให้เส้นกลางหายไป และเส้นบน-ล่างหมุนเป็น X */
+    .hamburger-icon.open .bar:nth-child(2) {
+        opacity: 0; /* ซ่อนเส้นกลาง */
+    }
+
+    .hamburger-icon.open .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg); /* เลื่อนลงและหมุน */
+    }
+
+    .hamburger-icon.open .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg); /* เลื่อนขึ้นและหมุน */
+    }
+
+    /* --- สไตล์สำหรับ Sidebar Menu (เมื่อ Hamburger เปิด) --- */
+    .sidebar-menu {
+        height: 100%; /* เต็มความสูงหน้าจอ */
+        width: 0; /* ซ่อนไว้แต่แรก */
+        position: fixed;
+        z-index: 999; /* อยู่ใต้ icon แต่เหนือเนื้อหา */
+        top: 0;
+        left: 0;
+        background-color: #FFFAF0; /* สีพื้นหลังของเมนูที่เปิดออกมา */
+        overflow-x: hidden; /* ซ่อน scrollbar แนวนอน */
+        transition: 0.5s; /* ทำให้เปิด-ปิดนุ่มนวล */
+        padding-top: 60px; /* เผื่อที่ว่างด้านบน */
+        box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+        display: flex; /* ใช้ flexbox จัดเรียงรายการ */
+        flex-direction: column; /* จัดเรียงรายการในแนวตั้ง */
+    }
+
+    .sidebar-menu a {
+        padding: 2px 25px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #000000; /* สีตัวอักษรของเมนู */
+        display: block;
+        transition: 0.3s;
+        white-space: nowrap; /* ป้องกันข้อความขึ้นบรรทัดใหม่ */
+    }
+
+    .sidebar-menu a:hover {
+        color: #f1f1f1;
+        background-color: #575757;
+    }
+
+    /* --- Responsive Design: Hamburger Menu จะแสดงผลบนหน้าจอขนาดเล็ก --- */
+    @media (max-width: 768px) {
+        .navbar {
+            display: none; /* ซ่อน Navbar แบบเต็มเมื่อเป็นหน้าจอเล็ก */
+        }
+
+        .hamburger-icon {
+            display: flex; /* แสดง Hamburger Icon */
+        }
+
+        .sidebar-menu.open {
+            width: 250px; /* กำหนดความกว้างเมื่อเมนูเปิด */
+        }
+    }
+
+    /* ส่วนเนื้อหาหลัก (เพื่อให้เห็นว่าไม่ทับซ้อน) */
+    .main-content {
+        padding: 20px;
+    }
+    </style>
+</head>
+<body>
+
+    <button class="hamburger-icon" id="hamburgerIcon">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <nav class="sidebar-menu" id="sidebarMenu"></nav>
+
+    <div class="navbar" id="desktopNavbar"></div>
+
+    <div class="main-content">
+        <h1>ยินดีต้อนรับสู่หน้าหลัก!</h1>
+        <p>คุณสามารถคลิกที่เมนูด้านบน (หรือ Hamburger Menu บนมือถือ) เพื่อไปยังหมวดหมู่ศีลต่างๆ</p>
+        <p>ในหน้าหลักนี้ อาจจะเป็นบทนำ หรือสารบัญโดยรวม</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <p>เนื้อหาเพิ่มเติมสำหรับหน้าหลัก...</p>
+    </div>
+
+    <script>
+        // ข้อมูลเมนูในรูปแบบ JSON
+    // ข้อมูลเมนูในรูปแบบ JSON
+    const menuData = [
+        { "id": "parajika", "title": "ปาราชิก ๔", "url": "parajika.html" },
+        { "id": "sangghadisesa", "title": "สังฆาทิเสส ๑๓", "url": "sangghadisesa.html" },
+        { "id": "aniyata", "title": "อนิยต ๒", "url": "aniyata.html" },
+        { "id": "nissaggiya-pachittiya", "title": "นิสสัคคิยปาจิตตีย์ ๓๐", "url": "nissaggiya-pachittiya.html" },
+        { "id": "pachittiya", "title": "ปาจิตตีย์ ๙๒", "url": "pachittiya.html" },
+        { "id": "patidesaniya", "title": "ปาฎิเทสนียะ ๔", "url": "patidesaniya.html" },
+        { "id": "sekhiyawat", "title": "เสขิยวัตร ๗๕", "url": "sekhiyawat.html" },
+        { "id": "adhikaranasamatha", "title": "อธิกรณสมถะ ๗", "url": "adhikaranasamatha.html" }
+    ];
+
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const desktopNavbar = document.getElementById('desktopNavbar');
+
+    // ฟังก์ชันสำหรับสร้างเมนูจากข้อมูล JSON
+    function createMenu(menuElement, data) {
+        menuElement.innerHTML = '';
+        data.forEach(item => {
+            const a = document.createElement('a');
+            a.href = item.url;
+            a.textContent = item.title;
+            menuElement.appendChild(a);
+        });
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        createMenu(desktopNavbar, menuData);
+        createMenu(sidebarMenu, menuData);
+
+        // Event Listener สำหรับ Hamburger Icon (เหมือนเดิม)
+        hamburgerIcon.addEventListener('click', (event) => {
+            // ป้องกัน event propagation เพื่อไม่ให้ไปถึง document.body ทันที
+            event.stopPropagation();
+            sidebarMenu.classList.toggle('open');
+            hamburgerIcon.classList.toggle('open');
+        });
+
+        // ปิด sidebar เมื่อคลิกที่ลิงก์ใน sidebar (เหมือนเดิม)
+        const sidebarLinks = sidebarMenu.querySelectorAll('a');
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                sidebarMenu.classList.remove('open');
+                hamburgerIcon.classList.remove('open');
+            });
+        });
+
+        // *** โค้ดใหม่ที่เพิ่มเข้ามา: ปิดเมนูเมื่อคลิกนอกพื้นที่ Sidebar หรือ Hamburger Icon ***
+        document.body.addEventListener('click', (event) => {
+            // ตรวจสอบว่า Sidebar เปิดอยู่หรือไม่
+            if (sidebarMenu.classList.contains('open')) {
+                // ตรวจสอบว่าคลิกนั้นไม่ได้เกิดขึ้นภายใน Sidebar และไม่ได้เกิดขึ้นภายใน Hamburger Icon
+                if (!sidebarMenu.contains(event.target) && !hamburgerIcon.contains(event.target)) {
+                    sidebarMenu.classList.remove('open');
+                    hamburgerIcon.classList.remove('open');
+                }
+            }
+        });
+        // ********************************************************************************
+
+        function adjustMenuVisibility() {
+            if (window.innerWidth <= 768) {
+                desktopNavbar.style.display = 'none';
+                hamburgerIcon.style.display = 'flex';
+            } else {
+                desktopNavbar.style.display = 'flex';
+                hamburgerIcon.style.display = 'none';
+                sidebarMenu.classList.remove('open');
+                hamburgerIcon.classList.remove('open');
+            }
+        }
+
+        adjustMenuVisibility();
+        window.addEventListener('resize', adjustMenuVisibility);
+    });
+    </script>
+
+</body>
+</html>
