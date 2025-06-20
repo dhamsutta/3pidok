@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ธรรมสุตตะ | ศึกษาพระธรรมตามพระไตรปิฎก</title>
+    <meta name="description" content="คลังธรรมะออนไลน์ พระไตรปิฎก วินัยสงฆ์ ธรรมบท พุทธวจนะ เรียบง่ายแต่ครบถ้วน" />
+    <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์" />
+    <meta name="author" content="ธรรมสุตตะ" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
+
+    <style>
+        /* Global XP-like Base Styles */
+        body {
+            font-family: 'Sarabun', 'Segoe UI', 'Tahoma', 'Verdana', sans-serif; /* XP fonts fallback */
+            margin: 0;
+            padding-top: 60px; /* ระยะห่างสำหรับเนื้อหาไม่ให้ทับเมนูบาร์ */
+            background: #D9E8F4; /* Light blue-grey background, like XP */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Container for centralizing content */
+        .container {
+            max-width: 960px; /* Standard web width for better readability */
+            margin: 0 auto; /* Center the content */
+            padding: 20px;
+            box-sizing: border-box; /* Include padding in width */
+        }
+
+        /* Site Header */
+        .site-header {
+            background-color: #3A6EA5; /* XP Blue title bar-like */
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            position: relative; /* For hamburger icon positioning */
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Center logo by default */
+            z-index: 1000; /* Ensure it's above other content */
+        }
+
+        .site-header .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .site-header .site-logo {
+            height: 40px; /* Adjust logo size */
+            margin-right: 10px;
+        }
+
+        /* --- Navbar (Desktop) --- */
+        .navbar {
+            display: flex;
+            justify-content: center; /* Center the navbar items */
+            background-color: #E6EEF5; /* Lighter blue-grey for navbar */
+            padding: 5px 0;
+            position: sticky; /* Make it sticky below the header */
+            top: 60px; /* Adjust if header height changes */
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 999; /* Below header, above content */
+        }
+
+        .navbar a {
+            color: #1A3E6F; /* Darker blue text */
+            background-color: #C3DAF9; /* Light blue button */
+            margin: 0 5px;
+            padding: 8px 15px; /* Slightly smaller padding for desktop */
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px; /* Slightly rounded corners */
+            border: 1px solid #7B99D0; /* XP-like border */
+            box-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle shadow */
+            transition: background-color 0.2s ease, transform 0.1s ease;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            font-weight: 600;
+        }
+
+        .navbar a:hover {
+            background-color: #A9C6F3; /* Darker blue on hover */
+            transform: translateY(-1px); /* Slight lift */
+            box-shadow: 1px 2px 3px rgba(0,0,0,0.2);
+        }
+
+        /* Hamburger Icon (Mobile) */
+        .hamburger-icon {
+            display: none; /* Hidden by default */
+            cursor: pointer;
+            width: 30px;
+            height: 25px;
+            position: absolute; /* Position relative to .site-header */
+            top: 15px;
+            right: 20px;
+            z-index: 1001;
+            flex-direction: column;
+            justify-content: space-around;
+            background: none;
+            border: none;
+            padding: 0;
+        }
+
+        .hamburger-icon .bar {
+            width: 100%;
+            height: 3px;
+            background-color: white; /* White bars for contrast on blue header */
+            border-radius: 2px;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger-icon.open .bar:nth-child(2) { opacity: 0; }
+        .hamburger-icon.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+        .hamburger-icon.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+        /* Sidebar Menu (Mobile) */
+        .sidebar-menu {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            background-color: #E6EEF5; /* Lighter blue for sidebar */
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .sidebar-menu a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px; /* Slightly smaller for sidebar */
+            color: #1A3E6F;
+            display: block;
+            transition: 0.3s;
+            white-space: nowrap;
+            border-bottom: 1px solid #D1E1F1; /* Subtle separator */
+        }
+
+        .sidebar-menu a:hover {
+            color: white;
+            background-color: #3A6EA5; /* Darker blue on hover */
+        }
+        
+        /* Quote Box */
+        .quote-box {
+            background-color: #F0F8FF; /* Very light blue */
+            border: 1px solid #B0C4DE; /* Light blue border */
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 20px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            text-align: center; /* Center the quote */
+            font-style: italic;
+        }
+        
+        .quote-box h3 {
+            color: #1A3E6F; /* Dark blue heading */
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+        
+        .quote-box #random-quote {
+            font-size: 1.1em;
+            color: #333;
+        }
+        
+        .quote-box small {
+            display: block;
+            margin-top: 10px;
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        /* Pali Dictionary Section */
+        #paliInput {
+            width: 80%; /* Wider input */
+            max-width: 500px; /* Limit max width */
+            padding: 10px 15px;
+            border: 1px solid #7B99D0; /* XP-like border */
+            border-radius: 5px;
+            box-shadow: inset 1px 1px 2px rgba(0,0,0,0.1); /* Inset shadow for depth */
+            font-size: 1.1em; /* Larger font */
+            display: block; /* Make it a block element to center with margin auto */
+            margin: 15px auto; /* Center the input */
+        }
+
+        #paliInput::placeholder {
+            color: #888;
+        }
+        
+        #paliInput:focus {
+            outline: none;
+            border-color: #3A6EA5; /* XP blue focus color */
+            box-shadow: 0 0 5px rgba(58,110,165,0.5); /* Soft blue glow on focus */
+        }
+
+        #paliResult {
+            background-color: #FFFFFF; /* White background for results */
+            border: 1px solid #B0C4DE;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+            max-height: 300px; /* Limit height for scroll if many results */
+            overflow-y: auto; /* Enable scrolling for results */
+            text-align: left; /* Ensure text alignment is normal */
+        }
+
+        #paliResult p {
+            margin-bottom: 8px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #eee; /* Subtle separator */
+        }
+        #paliResult p:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        #paliResult strong {
+            color: #1A3E6F; /* Dark blue for headword */
+        }
+
+        /* Image Grid (Main Content Navigation) */
+        .image-grid {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            margin-bottom: 25px;
+            background-color: #F0F8FF; /* Light background for the grid */
+            border: 1px solid #B0C4DE;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .image-grid td {
+            width: 25%; /* Four columns */
+            padding: 15px;
+            text-align: center;
+            vertical-align: top;
+            border: 1px solid #D1E1F1; /* Subtle cell border */
+        }
+        
+        /* Remove top and left border for cells to create a grid-like look */
+        .image-grid td:first-child { border-left: none; }
+        .image-grid tr:first-child td { border-top: none; }
+        /* To create a grid, we want internal borders. Let's simplify */
+        .image-grid td {
+            border: none; /* Remove default table borders */
+            position: relative;
+        }
+        .image-grid td + td { border-left: 1px solid #D1E1F1; } /* Vertical lines */
+        .image-grid tr + tr td { border-top: 1px solid #D1E1F1; } /* Horizontal lines */
+
+
+        .image-grid a {
+            text-decoration: none;
+            color: #1A3E6F; /* Dark blue text for links */
+            display: block; /* Make the whole cell clickable */
+            padding: 10px; /* Padding inside the clickable area */
+            border-radius: 5px;
+            transition: background-color 0.2s ease, transform 0.1s ease;
+        }
+
+        .image-grid a:hover {
+            background-color: #E6EEF5; /* Lighter blue on hover */
+            transform: translateY(-2px);
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+        }
+
+        .image-grid img {
+            max-width: 80px; /* Adjust icon size */
+            height: auto;
+            margin-bottom: 10px;
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.1)); /* Soft shadow for icons */
+        }
+
+        .image-grid div {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        hr {
+            border: 0;
+            height: 1px;
+            background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0));
+            margin: 30px 0; /* Add more space around hr */
+        }
+
+        /* General Main Content */
+        .main-content {
+            background-color: #FFFFFF; /* White background for general content */
+            border: 1px solid #B0C4DE;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .main-content h2 {
+            color: #1A3E6F;
+            border-bottom: 1px solid #D1E1F1;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #3A6EA5;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
+            border-top-left-radius: 10px; /* XP-like bottom corners */
+            border-top-right-radius: 10px;
+        }
+
+        footer span {
+            color: #FFD700; /* Gold for warning text - similar to XP warnings */
+            font-weight: bold;
+        }
+
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 0; /* No fixed navbar on mobile, header acts as fixed part */
+            }
+
+            .site-header {
+                justify-content: space-between; /* Logo left, hamburger right */
+                padding: 10px 15px;
+                position: fixed; /* Make header fixed on mobile */
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+            }
+
+            .site-header .logo-link {
+                flex-grow: 1; /* Allow logo to take available space */
+                justify-content: flex-start; /* Align logo to the left */
+            }
+
+            .navbar {
+                display: none; /* Hide desktop navbar */
+            }
+
+            .hamburger-icon {
+                display: flex; /* Show hamburger icon */
+            }
+
+            .sidebar-menu.open {
+                width: 250px; /* Adjust sidebar width for mobile */
+            }
+
+            .image-grid td {
+                width: 50%; /* Two columns on smaller screens */
+                /* Reset borders for new grid layout on mobile */
+                border: none;
+                border-top: 1px solid #D1E1F1; /* Top border for all cells */
+            }
+            .image-grid tr:nth-child(odd) td:first-child { border-top: none; } /* No top border for first cell of odd rows */
+            .image-grid tr:nth-child(even) td:first-child { border-top: none; } /* No top border for first cell of even rows */
+
+            .image-grid td:nth-child(odd) { border-right: 1px solid #D1E1F1; } /* Vertical line for odd columns */
+            .image-grid td:last-child { border-right: none; } /* No right border for last column */
+        }
+
+        @media (max-width: 480px) {
+            .image-grid td {
+                width: 100%; /* Single column on very small screens */
+                border: none;
+                border-top: 1px solid #D1E1F1;
+            }
+            .image-grid tr:first-child td { border-top: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <a href="/" class="logo-link">
+            <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+        </a>
+        <button class="hamburger-icon" id="hamburgerIcon">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <div class="navbar" id="desktopNavbar">
+        <a href="parajika.html">ปาราชิก ๔</a>
+        <a href="sangghadisesa.html">สังฆาทิเสส ๑๓</a>
+        <a href="aniyata.html">อนิยต ๒</a>
+        <a href="nissaggiya-pachittiya.html">นิสสัคคิยปาจิตตีย์ ๓๐</a>
+        <a href="pachittiya.html">ปาจิตตีย์ ๙๒</a>
+        <a href="patidesaniya.html">ปาฎิเทสนียะ ๔</a>
+        <a href="sekhiyawat.html">เสขิยวัตร ๗๕</a>
+        <a href="adhikaranasamatha.html">อธิกรณสมถะ ๗</a>
+    </div>
+
+    <nav class="sidebar-menu" id="sidebarMenu">
+        <a href="parajika.html">ปาราชิก ๔</a>
+        <a href="sangghadisesa.html">สังฆาทิเสส ๑๓</a>
+        <a href="aniyata.html">อนิยต ๒</a>
+        <a href="nissaggiya-pachittiya.html">นิสสัคคิยปาจิตตีย์ ๓๐</a>
+        <a href="pachittiya.html">ปาจิตตีย์ ๙๒</a>
+        <a href="patidesaniya.html">ปาฎิเทสนียะ ๔</a>
+        <a href="sekhiyawat.html">เสขิยวัตร ๗๕</a>
+        <a href="adhikaranasamatha.html">อธิกรณสมถะ ๗</a>
+    </nav>
+
+
+    <main class="container"> <div class="quote-box">
+            <h3>
+                <strong>พุทธพจน์วันนี้:</strong>
+                <span id="random-quote">กำลังโหลด...</span>
+            </h3>
+        </div>
+
+        <h3 style="text-align: center; color: #1A3E6F; margin-top: 30px;"><b>🔍 อภิธานศัพท์</b></h3>
+        <input type="text" id="paliInput" placeholder="ค้นหาความหมาย" />
+        <div id="paliResult"></div>
+
+        <hr>
+
+        <table class="image-grid">
+            <tr>
+                <td>
+                    <a href="/pages/vinaya.html">
+                        <img src="/assets/images/buddha-icon.png" alt="พระวินัย">
+                        <div>พระวินัย</div>
+                    </a>
+                </td>
+                <td>
+                    <a href="/พระสูตร.html">
+                        <img src="/assets/images/dhammacakka-icon.png" alt="พระสูตร">
+                        <div>พระสูตร</div>
+                    </a>
+                </td>
+                <td>
+                    <a href="/พระอภิธรรม.html">
+                        <img src="/assets/images/bell-icon.png" alt="พระอภิธรรม">
+                        <div>พระอภิธมฺม</div>
+                    </a>
+                </td>
+                <td>
+                    <a href="/อรรถกถา.html">
+                        <img src="/assets/images/bodhi-icon.png" alt="อรรถกถา">
+                        <div>อรรถกถา</div>
+                    </a>
+                </td>
+            </tr>
+        </table>
+
+        <div class="main-content">
+            <h2>ยินดีต้อนรับสู่หน้าหลัก!</h2>
+            <p>คุณสามารถคลิกที่เมนูด้านบน (หรือ Hamburger Menu บนมือถือ) เพื่อไปยังหมวดหมู่ศีลต่างๆ</p>
+            <p>ในหน้าหลักนี้ อาจจะเป็นบทนำ หรือสารบัญโดยรวม</p>
+            <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <p>เนื้อหาเพิ่มเติมสำหรับหน้าหลัก...</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <p> ๒๕๖๑ ธรรมสุตตะ<br>
+            <span style="color: #FFD700;">กราบขออภัยหากบางลิ้งค์ยังเสียหายจากที่เก่า<br> ต้องแก้ไขทำใหม่ทีละหน้าโดยยังไม่มีกำหนดเสร็จ</p>
+        </span>
+    </footer>
+
+    <script>
+        fetch('/assets/data/quotes.json')
+            .then(res => res.json())
+            .then(data => {
+                const quote = data[Math.floor(Math.random() * data.length)];
+                document.getElementById('random-quote').innerHTML =
+                    quote.quote + "<br><small>" + quote.source + "</small>";
+            })
+            .catch(() => {
+                document.getElementById('random-quote').innerText = "โหลดไม่สำเร็จ";
+            });
+    </script>
+
+    <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
+
+    <script>
+        let paliDict = [];
+
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => {
+                paliDict = data;
+            })
+            .catch(() => {
+                document.getElementById('paliResult').innerText = "❌ โหลดไม่สำเร็จ";
+            });
+
+        document.getElementById('paliInput').addEventListener('input', function () {
+            const input = this.value.trim().toLowerCase();
+            const resultBox = document.getElementById('paliResult');
+
+            if (!input) {
+                resultBox.innerHTML = '';
+                return;
+            }
+
+            const matches = paliDict.filter(entry =>
+                entry.headword.toLowerCase().includes(input)
+            );
+
+            resultBox.innerHTML = matches.length
+                ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                : `❌ ไม่พบคำว่า "<strong>${input}</strong>"`;
+        });
+    </script>
+
+    <script>
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const desktopNavbar = document.getElementById('desktopNavbar');
+
+        // Check if elements exist before adding event listeners
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                sidebarMenu.classList.toggle('open');
+                hamburgerIcon.classList.toggle('open');
+            });
+        }
+        
+        // Close sidebar when clicking on a link within it
+        // This is good practice even if it navigates away,
+        // as it provides immediate feedback to the user.
+        const sidebarLinks = sidebarMenu ? sidebarMenu.querySelectorAll('a') : [];
+        sidebarLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (sidebarMenu) sidebarMenu.classList.remove('open');
+                if (hamburgerIcon) hamburgerIcon.classList.remove('open');
+            });
+        });
+
+        function adjustMenuVisibility() {
+            if (window.innerWidth <= 768) {
+                if (desktopNavbar) desktopNavbar.style.display = 'none';
+                if (hamburgerIcon) hamburgerIcon.style.display = 'flex';
+                // Remove padding-top from body on mobile if header is fixed
+                document.body.style.paddingTop = '0'; 
+            } else {
+                if (desktopNavbar) desktopNavbar.style.display = 'flex';
+                if (hamburgerIcon) hamburgerIcon.style.display = 'none';
+                if (sidebarMenu) sidebarMenu.classList.remove('open');
+                if (hamburgerIcon) hamburgerIcon.classList.remove('open');
+                // Add padding-top back to body on desktop because navbar is sticky
+                // (which behaves like fixed but keeps flow)
+                document.body.style.paddingTop = '60px'; 
+            }
+        }
+
+        adjustMenuVisibility();
+        window.addEventListener('resize', adjustMenuVisibility);
+    </script>
+
+</body>
+</html>
