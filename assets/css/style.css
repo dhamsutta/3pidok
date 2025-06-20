@@ -9,6 +9,9 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding: 0 0.5em;
+  display: flex; 
+  flex-direction: column;
+  min-height: 100vh
 }
 
 /* รีเซ็ต margin/padding ทุกองค์ประกอบหลัก */
@@ -339,6 +342,42 @@ table.image-grid div {
   box-shadow: inset 1px 1px #000;
   background-color: #B0B0B0;
 }
+.page-content {
+    display: flex; /* ทำให้เนื้อหาหลักของหน้าเป็น flex container */
+    flex-direction: column; /* จัดเรียงองค์ประกอบภายใน .page-content เป็นแนวตั้ง */
+    justify-content: center; /* จัดเรียงเนื้อหาภายใน .page-content ให้อยู่กึ่งกลางตามแนวตั้ง */
+    align-items: center; /* จัดเรียงเนื้อหาภายใน .page-content ให้อยู่กึ่งกลางตามแนวนอน */
+
+    flex-grow: 1; /* ทำให้ .page-content ขยายเต็มพื้นที่ที่เหลืออยู่ระหว่าง header และ footer */
+    width: 100%; /* กำหนดความกว้างเต็ม (สามารถปรับเป็นค่าคงที่หรือเปอร์เซ็นต์ได้) */
+    max-width: 960px; /* กำหนดความกว้างสูงสุดเพื่อไม่ให้กว้างเกินไปบนจอใหญ่ */
+    margin: 0 auto; /* จัด .page-content ให้อยู่กึ่งกลางเมื่อมี max-width */
+    padding: 20px; /* เพิ่ม padding รอบเนื้อหา (ปรับได้ตามต้องการ) */
+    box-sizing: border-box; /* ทำให้ padding และ border ไม่เพิ่มขนาดขององค์ประกอบ */
+}
+
+/* คุณอาจต้องปรับแต่ง Header และ Footer เล็กน้อยเพื่อให้เข้ากับ Flexbox บน Body */
+header, footer {
+    width: 100%; /* ให้ header และ footer กว้างเต็มจอ */
+    text-align: center; /* จัดข้อความใน header/footer ให้อยู่กึ่งกลาง (ถ้ามี) */
+    padding: 10px 0; /* เพิ่ม padding */
+    background-color: #f8f8f8; /* สีพื้นหลังตัวอย่าง */
+}
+
+/* ตัวอย่างการจัดข้อความหรือรูปภาพภายใน .page-content ให้ชิดซ้าย (ถ้าต้องการ) */
+.page-content h1,
+.page-content p {
+    text-align: left; /* สามารถบังคับให้ข้อความภายในกลับมาชิดซ้ายได้ */
+    width: 100%; /* กำหนดความกว้างเต็มเพื่อควบคุมการจัดวาง */
+    max-width: 800px; /* จำกัดความกว้างของข้อความเพื่อให้อ่านง่าย */
+}
+
+
+
+
+
+
+
 
 /* ฟอนต์ Pixelated MS Sans Serif (ถ้าต้องการความ Retro มากๆ) */
 @font-face {
