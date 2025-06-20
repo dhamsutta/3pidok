@@ -1,75 +1,80 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>พระวินัยปิฎก</title>
-  <style>
-    body {
-      font-family: sans-serif;
-    }
-    .tabs {
-      display: flex;
-      border-bottom: 2px solid #ccc;
-      overflow-x: auto;
-    }
-    .tab {
-      padding: 10px 16px;
-      cursor: pointer;
-      border: 1px solid #ccc;
-      border-bottom: none;
-      background: #f9f9f9;
-      margin-right: 4px;
-    }
-    .tab.active {
-      background: #fff;
-      font-weight: bold;
-      border-top: 2px solid #0077cc;
-    }
-    .tab-content {
-      border: 1px solid #ccc;
-      padding: 16px;
-      display: none;
-    }
-    .tab-content.active {
-      display: block;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เมนูศีล ภิกษุ</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding-top: 60px; /* เพื่อให้เนื้อหาไม่ทับเมนูบาร์ */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-around;
+            background-color: #333;
+            padding: 10px 0;
+            position: fixed; /* ทำให้เมนูบาร์ติดอยู่ด้านบน */
+            top: 0;
+            width: 100%;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            z-index: 1000; /* ทำให้เมนูบาร์อยู่ด้านบนสุด */
+        }
+
+        .navbar a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #575757;
+        }
+
+        /* สำหรับหน้าจอขนาดเล็ก อาจจะพิจารณาใช้ Flex-wrap หรือปรับขนาดฟอนต์ */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .navbar a {
+                flex: 1 1 auto; /* ทำให้ปุ่มขยายเต็มพื้นที่เมื่อมีพื้นที่น้อย */
+                margin: 5px; /* เพิ่มระยะห่างระหว่างปุ่ม */
+            }
+        }
+    </style>
 </head>
 <body>
 
-<h2>หมวดพระวินัยปิฎก</h2>
+    <div class="navbar">
+        <a href="#parajika">ปาราชิก ๔</a>
+        <a href="#sangghadisesa">สังฆาทิเสส ๑๓</a>
+        <a href="#aniyata">อนิยต ๒</a>
+        <a href="#nissaggiya-pachittiya">นิสสัคคิยปาจิตตีย์ ๓๐</a>
+        <a href="#pachittiya">ปาจิตตีย์ ๙๒</a>
+        <a href="#patidesaniya">ปาฎิเทสนียะ ๔</a>
+        <a href="#sekhiyawat">เสขิยวัตร ๗๕</a>
+        <a href="#adhikaranasamatha">อธิกรณสมถะ ๗</a>
+    </div>
 
-<div class="tabs">
-  <div class="tab active" onclick="showTab(0)">🔅 ปาราชิก ๔</div>
-  <div class="tab" onclick="showTab(1)">🔅 สังฆาทิเสส ๑๓</div>
-  <div class="tab" onclick="showTab(2)">🔅 อนิยต ๒</div>
-  <div class="tab" onclick="showTab(3)">🔅 นิสสัคคิยปาจิตตีย์ ๓๐</div>
-  <div class="tab" onclick="showTab(4)">🔅 ปาจิตตีย์ ๙๒</div>
-  <div class="tab" onclick="showTab(5)">🔅 ปาฎิเทสนียะ ๔</div>
-  <div class="tab" onclick="showTab(6)">🔅 เสขิยวัตร ๗๕</div>
-  <div class="tab" onclick="showTab(7)">🔅 อธิกรณสมถะ ๗</div>
-</div>
-
-<div class="tab-content active">เนื้อหาหมวด <strong>ปาราชิก ๔</strong></div>
-<div class="tab-content">เนื้อหาหมวด <strong>สังฆาทิเสส ๑๓</strong></div>
-<div class="tab-content">เนื้อหาหมวด <strong>อนิยต ๒</strong></div>
-<div class="tab-content">เนื้อหาหมวด <strong>นิสสัคคิยปาจิตตีย์ ๓๐</strong></div>
-<div class="tab-content">เนื้อหาหมวด <strong>ปาจิตตีย์ ๙๒</strong></div>
-<div class="tab-content">เนื้อหาหมวด <strong>ปาฏิเทสนียะ ๔</strong></div>
-<div class="tab-content">เนื้อหาหมวด <strong>เสขิยวัตร ๗๕</strong></div>
-<div class="tab-content">เนื้อหาหมวด <strong>อธิกรณสมถะ ๗</strong></div>
-
-<script>
-  function showTab(index) {
-    const tabs = document.querySelectorAll('.tab');
-    const contents = document.querySelectorAll('.tab-content');
-    tabs.forEach((tab, i) => {
-      tab.classList.toggle('active', i === index);
-      contents[i].classList.toggle('active', i === index);
-    });
-  }
-</script>
-v
+    <div style="padding: 20px;">
+        <h2>เนื้อหาของแต่ละหมวดศีล</h2>
+        <p id="parajika">นี่คือส่วนของ ปาราชิก ๔...</p>
+        <p id="sangghadisesa">นี่คือส่วนของ สังฆาทิเสส ๑๓...</p>
+        <p id="aniyata">นี่คือส่วนของ อนิยต ๒...</p>
+        <p id="nissaggiya-pachittiya">นี่คือส่วนของ นิสสัคคิยปาจิตตีย์ ๓๐...</p>
+        <p id="pachittiya">นี่คือส่วนของ ปาจิตตีย์ ๙๒...</p>
+        <p id="patidesaniya">นี่คือส่วนของ ปาฎิเทสนียะ ๔...</p>
+        <p id="sekhiyawat">นี่คือส่วนของ เสขิยวัตร ๗๕...</p>
+        <p id="adhikaranasamatha">นี่คือส่วนของ อธิกรณสมถะ ๗...</p>
+        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <p>เนื้อหาเพิ่มเติม...</p>
+    </div>
 
 </body>
 </html>
