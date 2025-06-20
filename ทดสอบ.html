@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>พระวินัยปิฎก</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .tabs {
+      display: flex;
+      border-bottom: 2px solid #ccc;
+      overflow-x: auto;
+    }
+    .tab {
+      padding: 10px 16px;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-bottom: none;
+      background: #f9f9f9;
+      margin-right: 4px;
+    }
+    .tab.active {
+      background: #fff;
+      font-weight: bold;
+      border-top: 2px solid #0077cc;
+    }
+    .tab-content {
+      border: 1px solid #ccc;
+      padding: 16px;
+      display: none;
+    }
+    .tab-content.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<h2>หมวดพระวินัยปิฎก</h2>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab(0)">🔅 ปาราชิก ๔</div>
+  <div class="tab" onclick="showTab(1)">🔅 สังฆาทิเสส ๑๓</div>
+  <div class="tab" onclick="showTab(2)">🔅 อนิยต ๒</div>
+  <div class="tab" onclick="showTab(3)">🔅 นิสสัคคิยปาจิตตีย์ ๓๐</div>
+  <div class="tab" onclick="showTab(4)">🔅 ปาจิตตีย์ ๙๒</div>
+  <div class="tab" onclick="showTab(5)">🔅 ปาฎิเทสนียะ ๔</div>
+  <div class="tab" onclick="showTab(6)">🔅 เสขิยวัตร ๗๕</div>
+  <div class="tab" onclick="showTab(7)">🔅 อธิกรณสมถะ ๗</div>
+</div>
+
+<div class="tab-content active">เนื้อหาหมวด <strong>ปาราชิก ๔</strong></div>
+<div class="tab-content">เนื้อหาหมวด <strong>สังฆาทิเสส ๑๓</strong></div>
+<div class="tab-content">เนื้อหาหมวด <strong>อนิยต ๒</strong></div>
+<div class="tab-content">เนื้อหาหมวด <strong>นิสสัคคิยปาจิตตีย์ ๓๐</strong></div>
+<div class="tab-content">เนื้อหาหมวด <strong>ปาจิตตีย์ ๙๒</strong></div>
+<div class="tab-content">เนื้อหาหมวด <strong>ปาฏิเทสนียะ ๔</strong></div>
+<div class="tab-content">เนื้อหาหมวด <strong>เสขิยวัตร ๗๕</strong></div>
+<div class="tab-content">เนื้อหาหมวด <strong>อธิกรณสมถะ ๗</strong></div>
+
+<script>
+  function showTab(index) {
+    const tabs = document.querySelectorAll('.tab');
+    const contents = document.querySelectorAll('.tab-content');
+    tabs.forEach((tab, i) => {
+      tab.classList.toggle('active', i === index);
+      contents[i].classList.toggle('active', i === index);
+    });
+  }
+</script>
+v
+
+</body>
+</html>
