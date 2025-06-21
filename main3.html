@@ -13,65 +13,62 @@
 
     <style>
         /* Global XP-like Base Styles */
-       body {
+        body {
         font-family: 'Sarabun', 'Segoe UI', 'Tahoma', 'Verdana', sans-serif;
-        margin: 0; /* ลบ margin เดิมออก */
-        padding: 0; /* ลบ padding เดิมออก */
         background: #D9E8F4;
         color: #333;
         line-height: 1.6;
 
-        /* **** ส่วนสำคัญสำหรับการจัดกึ่งกลางด้วย Flexbox **** */
+        /* **** คุณสมบัติ Flexbox ใหม่สำหรับ body **** */
+        margin: 0; /* ลบ margin เริ่มต้นของเบราว์เซอร์ */
+        padding: 0; /* ลบ padding เริ่มต้นของเบราว์เซอร์ */
         display: flex; /* ทำให้ body เป็น Flex Container */
-        flex-direction: column; /* จัดเรียงลูกๆ (header, main, footer) เป็นแนวตั้ง */
-        min-height: 100vh; /* ทำให้ body สูงเต็มหน้าจอเพื่อการจัดวางแนวตั้งที่สมบูรณ์ */
-        /* *********************************************** */
+        flex-direction: column; /* จัดเรียงลูกๆ (header, main, footer) ในแนวตั้ง */
+        min-height: 100vh; /* ทำให้ body สูงเต็มหน้าจอ เพื่อให้ footer อยู่ด้านล่างเสมอ */
+        /* ******************************************* */
+    }
+
+        /* Container for centralizing content */
+         /* Container for centralizing content */
+    .container { /* นี่คือ <main class="container"> ใน HTML ของคุณ */
+        max-width: 960px; /* กำหนดความกว้างสูงสุดของเนื้อหาหลัก */
+        margin: 0 auto; /* **** นี่คือส่วนสำคัญที่สุดในการจัดเนื้อหาให้อยู่กึ่งกลางแนวนอน **** */
+        padding: 20px; /* เพิ่ม padding รอบเนื้อหาด้านใน */
+        box-sizing: border-box; /* ทำให้ padding ไม่เพิ่มขนาดรวมขององค์ประกอบ */
+
+        /* Flexbox property เพื่อให้เนื้อหาหลักขยายเต็มพื้นที่ว่างแนวตั้งที่เหลือ */
+        flex-grow: 1;
     }
 
 
-        /* Container for centralizing content */
-        .container {
-            max-width: 960px; /* Standard web width for better readability */
-            margin: 0 auto; /* Center the content */
-            padding: 20px;
-            box-sizing: border-box; /* Include padding in width */
-            flex-grow: 1;
-        }
-
         /* Site Header */
-        .site-header {
-           background-color: #3A6EA5;
+        /* Site Header */
+    .site-header {
+        background-color: #3A6EA5;
         padding: 10px 20px;
         box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        position: relative;
+        position: relative; /* ไม่ได้ fix/sticky บน desktop */
         display: flex;
         align-items: center;
         justify-content: center;
         z-index: 1000;
-        /* คุณอาจต้องการให้ header กว้างเต็มจอเสมอ แม้เนื้อหาจะถูกจำกัด */
-        width: 100%;
-        /* ถ้าต้องการให้ header ลอยอยู่ด้านบนตลอดเวลาบน Desktop ด้วย */
-        /* position: fixed; */
-        /* top: 0; */
-        /* left: 0; */
+        width: 100%; /* ให้ header กว้างเต็มจอ */
     }
-    
     /* ... (โค้ด CSS ส่วนอื่นๆ ที่เหลือเหมือนเดิม) ... */
-        }
-
-        .site-header .logo-link {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            font-size: 24px;
-            font-weight: bold;
-        }
+         
+    .site-header .logo-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+    }
 
         .site-header .site-logo {
-            height: 150px; /* Adjust logo size */
-            margin-right: 10px;
-        }
+        height: 80px;
+        margin-left: 10px;
+    }
 
         /* --- Navbar (Desktop) --- */
         .navbar {
@@ -601,5 +598,67 @@
         window.addEventListener('resize', adjustMenuVisibility);
     </script>
 
+<script>
+    // ... (โค้ด JavaScript ส่วนอื่น ๆ ที่อยู่ด้านบน) ...
+
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const desktopNavbar = document.getElementById('desktopNavbar');
+    const mainContainer = document.querySelector('main.container'); // เพิ่มบรรทัดนี้
+
+    // Check if elements exist before adding event listeners
+    if (hamburgerIcon && sidebarMenu) {
+        hamburgerIcon.addEventListener('click', () => {
+            sidebarMenu.classList.toggle('open');
+            hamburgerIcon.classList.toggle('open');
+        });
+    }
+    
+    const sidebarLinks = sidebarMenu ? sidebarMenu.querySelectorAll('a') : [];
+    sidebarLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (sidebarMenu) sidebarMenu.classList.remove('open');
+            if (hamburgerIcon) hamburgerIcon.classList.remove('open');
+        });
+    });
+
+    function adjustMenuVisibility() {
+        if (window.innerWidth <= 768) {
+            if (desktopNavbar) desktopNavbar.style.display = 'none';
+            if (hamburgerIcon) hamburgerIcon.style.display = 'flex';
+            // บนมือถือ, main.container จะมี padding-top จัดการโดย CSS media query
+            // ไม่ต้อง set padding-top บน body หรือ main.container ที่นี่
+        } else {
+            if (desktopNavbar) desktopNavbar.style.display = 'flex';
+            if (hamburgerIcon) hamburgerIcon.style.display = 'none';
+            if (sidebarMenu) sidebarMenu.classList.remove('open');
+            if (hamburgerIcon) hamburgerIcon.classList.remove('open');
+            
+            // บน desktop, ถ้า navbar เป็น sticky และติดขอบบน (top: 0), 
+            // main.container อาจต้องมี padding-top เพื่อเลี่ยงการทับซ้อน
+            // แต่เนื่องจาก header และ navbar ไม่ได้ position: fixed ตลอดเวลา
+            // การจัดการ padding-top ใน CSS (@media query) น่าจะเพียงพอ
+            // ลบบรรทัดนี้ออก: document.body.style.paddingTop = '60px'; // หรือตั้งเป็น '0'
+            // ถ้าอยากให้เนื้อหาเริ่มต้นใต้ navbar พอดี ให้ main.container มี margin-top หรือ padding-top
+            // ขึ้นอยู่กับความสูงของ header + navbar
+            if (mainContainer) {
+                 // คำนวณความสูงรวมของ header และ navbar เพื่อกำหนด padding-top ให้ main.container
+                 // (สำหรับกรณี desktop ที่ต้องการให้เนื้อหาเริ่มต้นใต้ header/navbar พอดี)
+                 const headerHeight = document.querySelector('.site-header').offsetHeight;
+                 const navbarHeight = desktopNavbar ? desktopNavbar.offsetHeight : 0;
+                 mainContainer.style.paddingTop = (headerHeight + navbarHeight + 20) + 'px'; // +20px for extra space
+            }
+        }
+    }
+
+    adjustMenuVisibility();
+    window.addEventListener('resize', adjustMenuVisibility);
+</script>
+
+
+
+
+
+    
 </body>
 </html>
