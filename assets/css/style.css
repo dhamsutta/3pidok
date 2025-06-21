@@ -91,13 +91,15 @@ img {
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 750px;
   height: 100%;
   margin: 0 auto;
-  padding: 0 2px;
+  padding: 10 15px; /* เพิ่มระยะห่างซ้าย-ขวา */
+  box-sizing: border-box; /* ป้องกันล้น */
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;  /* ให้แสดงดีแม้หน้าจอแคบ */
 }
 
 .logo-link {
