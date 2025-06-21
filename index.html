@@ -2,125 +2,155 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ธรรมสุตตะ | ศึกษาพระธรรมตามพระไตรปิฎก</title>
     <meta name="description" content="คลังธรรมะออนไลน์ พระไตรปิฎก วินัยสงฆ์ ธรรมบท พุทธวจนะ เรียบง่ายแต่ครบถ้วน" />
     <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์" />
     <meta name="author" content="ธรรมสุตตะ" />
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
-</head>
+    <link rel="stylesheet" href="/assets/css/style.css" /> <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    </head>
 <body>
 
     <header class="site-header">
-        <a href="/" class="logo-link">
-            <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
-        </a>
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+                <span class="site-title">ธรรมสุตตะ</span>
+            </a>
+            <nav class="navbar" id="desktopNavbar">
+                <a href="/">หน้าแรก</a>
+                <a href=" /pages/vinaya.html">พระวินัย</a>
+                <a href=" /pages/sutta.html">พระสูตร</a>
+                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
+                <a href=" /pages/katha.html">อรรถกถา</a>
+                <a href=" /search/index.html">🔍ค้นหา</a>
+                </nav>
+            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
     </header>
 
-    <main>
-        <div class="quote-box">
-            <h3>
-                <strong>พุทธพจน์วันนี้:</strong>
-                <span id="random-quote">กำลังโหลด...</span>
-            </h3>
+    <nav class="sidebar-menu" id="sidebarMenu">
+        <a href="/">🏠หน้าแรก</a>
+        <a href="/pages/vinaya.html">🔹พระวินัย</a>
+        <a href="/pages/sutta.html">🔹พระสูตร</a>
+        <a href="/pages/abhidhamma.html">🔹พระอภิธรรม</a>
+        <a href="/pages/katha.html">🔹อรรถกถา</a>
+        <a href="/pages/pakinnaka.html">🔹ปกิณกะ</a>
+        <a href="adhikaranasamatha.html">🔍ค้นหาธรรมะ</a>
+    </nav>
+
+    <main class="container">
+        <section class="quote-box">
+            <h3><br>พุทธพจน์วันนี้</br></h3>
+            <p id="random-quote">กำลังโหลด...</p>
+        </section>
+
+        <section class="dictionary-section">
+            <h2>🔍 อภิธานศัพท์</h2><br>
+รวบรวมจาก: พจนานุกรมพุทธศาสตร์ สมเด็จพระพุทธโฆษาจารย์ (ป.อ. ปยุตฺโต),<br>
+โปรแกรม E-Tipitaka (Open source)
+
+            <input type="text" id="paliInput" placeholder="ค้นหาศัพท์บาลี..." />
+            <div id="paliResult"></div>
+        </section>
+
+        <hr class="separator">
+
+        <div class="content-grid">
+            <a href="/pages/vinaya.html" class="grid-item">
+                <img src="/assets/images/buddha-icon.png" alt="พระวินัย">
+                <span>พระวินัย</span>
+            </a>
+            <a href="/พระสูตร.html" class="grid-item">
+                <img src="/assets/images/dhammacakka-icon.png" alt="พระสูตร">
+                <span>พระสูตร</span>
+            </a>
+            <a href="/พระอภิธรรม.html" class="grid-item">
+                <img src="/assets/images/bell-icon.png" alt="พระอภิธรรม">
+                <span>พระอภิธัมม</span>
+            </a>
+            <a href="/อรรถกถา.html" class="grid-item">
+                <img src="/assets/images/bodhi-icon.png" alt="อรรถกถา">
+                <span>อรรถกถา</span>
+            </a>
         </div>
 
-        <h3><b>🔍 อภิธานศัพท์</b><br>
-            <input type="text" id="paliInput" placeholder="ค้นหาความหมาย" />
-        </h3>
-        <div id="paliResult"></div>
-        
-        
-        <hr>
-
-        <table class="image-grid">
-            <tr>
-                <td>
-                    <a href="/pages/vinaya.html">
-                        <img src="/assets/images/buddha-icon.png" alt="พระวินัย">
-                        <div>พระวินัย</div>
-                    </a>
-                </td>
-                <td>
-                    <a href="/พระสูตร.html">
-                        <img src="/assets/images/dhammacakka-icon.png" alt="พระสูตร">
-                        <div>พระสูตร</div>
-                    </a>
-                </td>
-                <td>
-                    <a href="/พระอภิธรรม.html">
-                        <img src="/assets/images/bell-icon.png" alt="พระอภิธรรม">
-                        <div>พระอภิธมฺม</div>
-                    </a>
-                </td>
-                <td>
-                    <a href="/อรรถกถา.html">
-                        <img src="/assets/images/bodhi-icon.png" alt="อรรถกถา">
-                        <div>อรรถกถา</div>
-                    </a>
-                </td>
-            </tr>
-        </table>
-<hr>
-       
-
+        <div class="main-content">
+            <h2>ยินดีต้อนรับ</h2>
+            <p>เว็บไซต์ธรรมสุตตะเป็นแหล่งรวบรวมคำสอนในพระพุทธศาสนาจากพระไตรปิฎก เพื่อให้ผู้ที่สนใจได้ศึกษาค้นคว้าหลักธรรมคำสอนได้อย่างสะดวกและครบถ้วน</p>
+            <p>คุณสามารถเลือกศึกษาจากหมวดหมู่ต่างๆ เช่น พระวินัย พระสูตร พระอภิธรรม หรือค้นหาความหมายของศัพท์บาลีที่สนใจได้จากพจนานุกรม</p>
+        </div>
     </main>
 
-    <footer>
-        <p> ๒๕๖๑ ธรรมสุตตะ<br>
-            <span style="color: #990000;">กราบขออภัยหากบางลิ้งค์ยังเสียหายจากที่เก่า<br> ต้องแก้ไขทำใหม่ทีละหน้าโดยยังไม่มีกำหนดเสร็จ</p>
-</span>
+    <footer class="site-footer">
+        <p>© ๒๕๖๑ - ปัจจุบัน, ธรรมสุตตะ</p>
+        <p class="warning-text">กราบขออภัยหากบางส่วนของเว็บไซต์ยังอยู่ในระหว่างการพัฒนาและปรับปรุง</p>
     </footer>
 
     <script>
+        // Script สำหรับ Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContainer = document.querySelector('main.container');
+
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+        
+        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
         fetch('/assets/data/quotes.json')
             .then(res => res.json())
             .then(data => {
                 const quote = data[Math.floor(Math.random() * data.length)];
-                document.getElementById('random-quote').innerHTML =
-                    quote.quote + "<br><small>" + quote.source + "</small>";
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
+                }
             })
             .catch(() => {
-                document.getElementById('random-quote').innerText = "โหลดไม่สำเร็จ";
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
+                }
             });
-    </script>
 
-    <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
-
-    <script>
         let paliDict = [];
-
         fetch('/assets/data/pali.json')
             .then(res => res.json())
-            .then(data => {
-                paliDict = data;
-            })
+            .then(data => { paliDict = data; })
             .catch(() => {
-                document.getElementById('paliResult').innerText = "❌ โหลดไม่สำเร็จ";
+                const paliResult = document.getElementById('paliResult');
+                if(paliResult) {
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
+                }
             });
 
-        document.getElementById('paliInput').addEventListener('input', function () {
-            const input = this.value.trim().toLowerCase();
-            const resultBox = document.getElementById('paliResult');
-
-            if (!input) {
-                resultBox.innerHTML = '';
-                return;
-            }
-
-            const matches = paliDict.filter(entry =>
-                entry.headword.toLowerCase().includes(input)
-            );
-
-            resultBox.innerHTML = matches.length
-                ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
-                : `❌ ไม่พบคำว่า "<strong>${input}</strong>"`;
-        });
+        const paliInput = document.getElementById('paliInput');
+        if (paliInput) {
+            paliInput.addEventListener('input', function () {
+                const input = this.value.trim().toLowerCase();
+                const resultBox = document.getElementById('paliResult');
+                if (!input) {
+                    resultBox.innerHTML = '';
+                    resultBox.style.display = 'none';
+                    return;
+                }
+                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = matches.length
+                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
+            });
+        }
     </script>
-
-   
-
 </body>
 </html>
