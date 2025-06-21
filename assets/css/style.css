@@ -3,20 +3,20 @@
   --font-family-base: 'Sarabun', 'Segoe UI', 'Tahoma', sans-serif;
 
   /* พื้นหลังและกล่อง */
-  --bg-color: #f4f4f2;        /* พื้นหลังสว่างนวล ไม่จ้า */
-  --card-bg-color: #ffffff;   /* กล่องข้อความขาวสะอาด */
-  
+  --bg-color: #f4f4f2;
+  --card-bg-color: #ffffff;
+
   /* สีข้อความ */
-  --primary-text-color: #000000;      /* ตัวอักษรหลัก = ดำสนิท */
-  --secondary-text-color: #555555;    /* ตัวอักษรรอง = เทาเข้ม */
+  --primary-text-color: #000000;
+  --secondary-text-color: #555555;
 
   /* ลิงก์ */
-  --accent-color: #0000ee;         /* ลิงก์ = น้ำเงินมาตรฐาน */
-  --accent-hover-color: #551a8b;   /* ลิงก์เมื่อ hover = ม่วงตามมาตรฐาน */
+  --accent-color: #0000ee;
+  --accent-hover-color: #551a8b;
 
   /* Header และ Footer */
-  --header-bg-color: #e6e6e6;   /* เทาอ่อนนิ่ง ๆ */
-  --footer-bg-color: #e0e0e0;   /* เทาอ่อนอีกนิด */
+  --header-bg-color: #e6e6e6;
+  --footer-bg-color: #e0e0e0;
 
   /* เส้นขอบและเงา */
   --border-color: #cccccc;
@@ -29,131 +29,130 @@
 
 /* --- 2. Global Styles --- */
 *, *::before, *::after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: var(--font-family-base);
-    background-color: var(--bg-color);
-    color: var(--primary-text-color);
-    line-height: 1.7;
-    margin: 0;
-    padding-top: var(--header-height); /* เว้นที่สำหรับ Fixed Header */
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  font-family: var(--font-family-base);
+  background-color: var(--bg-color);
+  color: var(--primary-text-color);
+  line-height: 1.4;
+  margin: 0;
+  padding-top: var(--header-height);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 .container {
-    width: 100%;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 1.5px;
-    flex-grow: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 2px;
+  flex-grow: 1;
 }
 
 h1, h2, h3 {
-    color: var(--primary-text-color);
-    font-weight: 600;
+  color: var(--primary-text-color);
+  font-weight: 600;
+  margin: 0;
 }
 
 a {
-    color: var(--accent-color);
-    text-decoration: none;
-    transition: color 0.2s ease-in-out;
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
 }
 
 a:hover {
-    color: var(--accent-hover-color);
+  color: var(--accent-hover-color);
 }
 
 img {
-    max-width: 100%;
-    height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 /* --- 3. Header และ Navigation --- */
 .site-header {
-    background-color: var(--header-bg-color);
-    border-bottom: 1px solid var(--border-color);
-    box-shadow: var(--shadow);
-    height: var(--header-height);
-    width: 100%;
-    position: fixed; /* ทำให้ Header อยู่กับที่ */
-    top: 0;
-    left: 0;
-    z-index: 1000;
+  background-color: var(--header-bg-color);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: var(--shadow);
+  height: var(--header-height);
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
 }
 
 .header-container {
-    max-width: 1200px; /* ทำให้ container ของ header กว้างกว่าเนื้อหาเล็กน้อย */
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 1px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo-link {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .site-logo {
-    height: 80px;
+  height: 70px;
 }
 
 .site-title {
-    font-size: 22px;
-    font-weight: 600;
-    color: var(--primary-text-color);
-    display: none; /* ซ่อนชื่อเว็บในตอนแรก */
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-text-color);
+  display: none;
 }
 
-/* Desktop Navbar */
 .navbar {
-    display: none; /* ซ่อนใน mobile, แสดงใน desktop */
-    gap: 10px;
+  display: none;
+  gap: 8px;
 }
 
 .navbar a {
-    padding: 8px 16px;
-    font-weight: 500;
-    border-radius: var(--border-radius);
-    transition: background-color 0.2s ease, color 0.2s ease;
+  padding: 6px 12px;
+  font-weight: 500;
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .navbar a:hover {
-    background-color: var(--bg-color);
-    color: var(--accent-hover-color);
+  background-color: var(--bg-color);
+  color: var(--accent-hover-color);
 }
 
-/* Hamburger & Sidebar (Mobile) */
 .hamburger-icon {
-    display: flex; /* แสดงบน mobile */
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 25px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 30px;
+  height: 25px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
 }
 
 .hamburger-icon .bar {
-    width: 100%;
-    height: 3px;
-    background-color: var(--primary-text-color);
-    border-radius: 2px;
-    transition: all 0.3s ease-in-out;
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-text-color);
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
 }
 
 .hamburger-icon.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
@@ -161,217 +160,198 @@ img {
 .hamburger-icon.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 .sidebar-menu {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    background-color: #FFF;
-    overflow-x: hidden;
-    transition: width 0.4s ease;
-    padding-top: calc(var(--header-height) + 20px);
-    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  overflow-x: hidden;
+  transition: width 0.4s ease;
+  padding-top: calc(var(--header-height) + 10px);
+  box-shadow: 5px 0 15px rgba(0,0,0,0.1);
 }
 
 .sidebar-menu.open {
-    width: 280px;
+  width: 240px;
 }
 
 .sidebar-menu a {
-    padding: 15px 25px;
-    display: block;
-    font-size: 18px;
-    border-bottom: 1px solid var(--border-color);
+  padding: 12px 20px;
+  display: block;
+  font-size: 16px;
+  border-bottom: 1px solid var(--border-color);
 }
 
 /* --- 4. Main Content Sections --- */
-.quote-box, .dictionary-section, .content-grid, .main-content {
-    background-color: var(--card-bg-color);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 1px;
-    margin-bottom: 25px;
-    box-shadow: var(--shadow);
+.quote-box,
+.dictionary-section,
+.content-grid,
+.main-content {
+  background-color: var(--card-bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 12px;
+  margin-bottom: 15px;
+  box-shadow: var(--shadow);
+  line-height: 1.4;
 }
 
-.quote-box {
-    text-align: center;
-}
-.quote-box h3 {
-    margin-top: 0;
-    font-size: 1.1em;
-    color: var(--secondary-text-color);
-    font-weight: 500;
-}
-.quote-box p {
-    font-size: 1.25em;
-    font-style: italic;
-    color: var(--primary-text-color);
-    margin-bottom: 0;
-}
-.quote-box small {
-    display: block;
-    margin-top: 15px;
-    font-size: 0.9em;
-    font-style: normal;
-    color: var(--secondary-text-color);
-}
-
-.dictionary-section h2, .main-content h2 {
-    margin-top: 0;
-    padding-bottom: 1px;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 20px;
+.quote-box h3,
+.quote-box p,
+.quote-box small,
+.dictionary-section h2,
+.main-content h2 {
+  margin: 0 0 6px;
 }
 
 #paliInput {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    font-size: 1em;
-    font-family: var(--font-family-base);
-}
-#paliInput:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 3px rgba(73, 80, 87, 0.1);
-}
-#paliResult {
-    margin-top: 15px;
-    padding: 15px;
-    border-radius: var(--border-radius);
-    background-color: var(--bg-color);
-    max-height: 250px;
-    overflow-y: auto;
-    display: none; /* ซ่อนไว้จนกว่าจะมีการค้นหา */
-}
-#paliResult p {
-    margin: 0 0 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px dashed var(--border-color);
-}
-#paliResult p:last-child {
-    margin-bottom: 0;
-    padding-bottom: 0;
-    border-bottom: none;
-}
-.no-match {
-    color: var(--secondary-text-color);
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  font-size: 1em;
+  font-family: var(--font-family-base);
 }
 
+#paliInput:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(73, 80, 87, 0.1);
+}
+
+#paliResult {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  background-color: var(--bg-color);
+  max-height: 250px;
+  overflow-y: auto;
+  display: none;
+  line-height: 1.4;
+}
+
+#paliResult p {
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--border-color);
+}
+
+#paliResult p:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.no-match {
+  color: var(--secondary-text-color);
+}
 
 hr.separator {
-    border: 0;
-    height: 1px;
-    background-color: var(--border-color);
-    margin: 40px 0;
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 30px 0;
 }
 
-
-/* --- 5. Content Grid (ใช้ CSS Grid) --- */
+/* --- 5. Content Grid --- */
 .content-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2px;
-    padding: 1px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  padding: 4px;
 }
 
 .grid-item {
-    background-color: var(--bg-color);
-    border: 1px solid transparent;
-    border-radius: var(--border-radius);
-    padding: 2px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    gap: 15px;
-    font-weight: 600;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  background-color: var(--bg-color);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 10px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    border-color: var(--accent-color);
-    color: var(--accent-hover-color);
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: var(--accent-color);
+  color: var(--accent-hover-color);
 }
 
 .grid-item img {
-    max-width: 60px; /* ปรับขนาดไอคอน */
+  max-width: 60px;
 }
 
 /* --- 6. Footer --- */
 footer.site-footer {
-    background-color: var(--footer-bg-color);
-    color: var(--secondary-text-color);
-    text-align: center;
-    padding: 25px 20px;
-    border-top: 1px solid var(--border-color);
-    font-size: 0.9em;
+  background-color: var(--footer-bg-color);
+  color: var(--secondary-text-color);
+  text-align: center;
+  padding: 20px 15px;
+  border-top: 1px solid var(--border-color);
+  font-size: 0.9em;
 }
 
 footer .warning-text {
-    color: #856404; /* สีสำหรับคำเตือน */
-    font-size: 0.85em;
+  color: #856404;
+  font-size: 0.85em;
 }
-
 
 /* --- 7. Responsive Design --- */
-
-/* Tablet and smaller laptops */
 @media (max-width: 992px) {
-    .navbar {
-        display: none; /* ซ่อนเมนูเดสก์ท็อป */
-    }
-    .hamburger-icon {
-        display: flex; /* แสดงแฮมเบอร์เกอร์ */
-    }
-    .site-title {
-        display: block; /* แสดงชื่อเว็บข้างโลโก้ */
-    }
-    .content-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ */
-    }
+  .navbar {
+    display: none;
+  }
+  .hamburger-icon {
+    display: flex;
+  }
+  .site-title {
+    display: block;
+  }
+  .content-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* Mobile */
 @media (max-width: 576px) {
-    body {
-        line-height: 1.6;
-    }
-    .site-title {
-        font-size: 18px; /* ลดขนาดชื่อเว็บ */
-    }
-    .container {
-        padding: 1.5px;
-    }
-    .quote-box, .dictionary-section, .content-grid, .main-content {
-        padding: 20px;
-    }
-    .content-grid {
-        grid-template-columns: 1fr; /* 1 คอลัมน์ */
-        gap: 15px;
-    }
-    .grid-item {
-        flex-direction: row;
-        justify-content: flex-start;
-        gap: 20px;
-    }
-    .grid-item img {
-        max-width: 40px;
-    }
+  .site-title {
+    font-size: 18px;
+  }
+  .container {
+    padding: 2px;
+  }
+  .quote-box,
+  .dictionary-section,
+  .content-grid,
+  .main-content {
+    padding: 12px;
+  }
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .grid-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+  .grid-item img {
+    max-width: 40px;
+  }
 }
 
-/* แสดงเมนู Desktop เมื่อหน้าจอกว้างขึ้น */
 @media (min-width: 993px) {
-    .navbar {
-        display: flex;
-    }
-    .hamburger-icon {
-        display: none;
-    }
+  .navbar {
+    display: flex;
+  }
+  .hamburger-icon {
+    display: none;
+  }
 }
