@@ -52,7 +52,7 @@ body {
     width: 100%;
     max-width: 960px;
     margin: 0 auto;
-    padding: 20px;
+    padding: 1.5px;
     flex-grow: 1;
 }
 
