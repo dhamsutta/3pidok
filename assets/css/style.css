@@ -190,7 +190,7 @@ img {
     background-color: var(--card-bg-color);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
-    padding: 25px;
+    padding: 1px;
     margin-bottom: 25px;
     box-shadow: var(--shadow);
 }
@@ -274,15 +274,15 @@ hr.separator {
 .content-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
-    padding: 20px;
+    gap: 2px;
+    padding: 1px;
 }
 
 .grid-item {
     background-color: var(--bg-color);
     border: 1px solid transparent;
     border-radius: var(--border-radius);
-    padding: 20px;
+    padding: 2px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -347,7 +347,7 @@ footer .warning-text {
         font-size: 18px; /* ลดขนาดชื่อเว็บ */
     }
     .container {
-        padding: 15px;
+        padding: 1.5px;
     }
     .quote-box, .dictionary-section, .content-grid, .main-content {
         padding: 20px;
