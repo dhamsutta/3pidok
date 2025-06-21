@@ -305,6 +305,67 @@ footer .warning-text {
   font-size: 0.85em;
 }
 
+/* กำหนด layout กลางจอใน Desktop */
+.content-grid {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ปรับให้ input และผลลัพธ์ อยู่ในระยะปลอดภัย */
+.pali-container {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+#paliInput,
+#paliResult {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+/* แก้เมนู sidebar ไม่ให้แคบหรือกว้างเกินในจอ Desktop */
+.sidebar-menu {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ปรับขนาดรูปภาพในจอ Desktop ให้อยู่ในกรอบ */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* เพิ่ม Media Query สำหรับจอขนาดใหญ่ */
+@media (min-width: 768px) {
+  body {
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  header .header-container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+}
+
+
+
+
+
+
+
 /* --- 7. Responsive Design --- */
 @media (max-width: 992px) {
   .navbar {
