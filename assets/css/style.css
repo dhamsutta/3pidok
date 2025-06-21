@@ -1,411 +1,365 @@
-/* ฟอนต์ไทย และโครงสร้างพื้นฐาน */
+/* --- 1. การตั้งค่าพื้นฐานและตัวแปร (Variables) --- */
+:root {
+    --font-family-base: 'Sarabun', 'Segoe UI', 'Tahoma', sans-serif;
+    --bg-color: #F8F9FA; /* สีพื้นหลังหลัก (ขาวอมเทา) */
+    --card-bg-color: #FFFFFF; /* สีพื้นหลังของการ์ด/กล่องข้อความ */
+    --primary-text-color: #343A40; /* สีตัวอักษรหลัก (เทาเข้ม) */
+    --secondary-text-color: #6C757D; /* สีตัวอักษรรอง (เทา) */
+    --header-bg-color: #FFFFFF; /* สีพื้นหลัง Header */
+    --footer-bg-color: #E9ECEF; /* สีพื้นหลัง Footer */
+    --accent-color: #495057; /* สีเน้นสำหรับลิงก์และไอคอน */
+    --accent-hover-color: #0056b3; /* สีเมื่อ hover */
+    --border-color: #DEE2E6; /* สีเส้นขอบ */
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* เงาแบบนุ่มนวล */
+    --header-height: 70px; /* ความสูงของ Header */
+    --border-radius: 8px; /* ความโค้งของขอบ */
+}
+
+/* --- 2. Global Styles --- */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
 
 body {
-  font-family: 'Sarabun', 'Noto Sans Thai', sans-serif;
-  font-size: 17px;
-  line-height: 1.6;
-  color: #222;
-  background-color: #fffdf8;
-  padding: 0 0.5em;
-  display: flex; 
-  flex-direction: column;
-  min-height: 100vh
+    font-family: var(--font-family-base);
+    background-color: var(--bg-color);
+    color: var(--primary-text-color);
+    line-height: 1.7;
+    margin: 0;
+    padding-top: var(--header-height); /* เว้นที่สำหรับ Fixed Header */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-/* รีเซ็ต margin/padding ทุกองค์ประกอบหลัก (วางไว้บนสุดเพื่อความชัดเจน) */
-body, h1, h2, h3, p, div, header, main, footer, ul, ol, li, table, tr, td {
-  margin: 0;
-  padding: 0;
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+    flex-grow: 1;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-/* ส่วนหัวเรื่อง */
 h1, h2, h3 {
-  color: #5a4a2f;
-  font-weight: 600;
+    color: var(--primary-text-color);
+    font-weight: 600;
 }
 
-h1 {
-  font-size: 2em;
-}
-h2 {
-  font-size: 1.4em;
-}
-h3 {
-  font-size: 1.2em;
-}
-
-/* ลิงก์ */
 a {
-  color: #003adb;
-  text-decoration: none;
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
 }
 
 a:hover {
-  text-decoration: underline;
+    color: var(--accent-hover-color);
 }
 
-/* ภาพประกอบทั่วไป */
 img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 0;
-  margin: 0;
-  display: block;
+    max-width: 100%;
+    height: auto;
 }
 
-/* ส่วนหัวโลโก้ */
+/* --- 3. Header และ Navigation --- */
 .site-header {
-  display: block;
-  background: none;
-  border-bottom: none;
+    background-color: var(--header-bg-color);
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    height: var(--header-height);
+    width: 100%;
+    position: fixed; /* ทำให้ Header อยู่กับที่ */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1200px; /* ทำให้ container ของ header กว้างกว่าเนื้อหาเล็กน้อย */
+    height: 100%;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo-link {
-  display: inline-block;
+    display: flex;
+    align-items: center;
+    gap: 12px;
 }
 
 .site-logo {
-  height: 120px;
-  width: auto;
-  display: block;
+    height: 45px;
 }
 
-/* กล่องพุทธพจน์ */
+.site-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary-text-color);
+    display: none; /* ซ่อนชื่อเว็บในตอนแรก */
+}
+
+/* Desktop Navbar */
+.navbar {
+    display: none; /* ซ่อนใน mobile, แสดงใน desktop */
+    gap: 10px;
+}
+
+.navbar a {
+    padding: 8px 16px;
+    font-weight: 500;
+    border-radius: var(--border-radius);
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.navbar a:hover {
+    background-color: var(--bg-color);
+    color: var(--accent-hover-color);
+}
+
+/* Hamburger & Sidebar (Mobile) */
+.hamburger-icon {
+    display: flex; /* แสดงบน mobile */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-icon .bar {
+    width: 100%;
+    height: 3px;
+    background-color: var(--primary-text-color);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+.hamburger-icon.open .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburger-icon.open .bar:nth-child(2) { opacity: 0; }
+.hamburger-icon.open .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+.sidebar-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    background-color: #FFF;
+    overflow-x: hidden;
+    transition: width 0.4s ease;
+    padding-top: calc(var(--header-height) + 20px);
+    box-shadow: 5px 0 15px rgba(0,0,0,0.1);
+}
+
+.sidebar-menu.open {
+    width: 280px;
+}
+
+.sidebar-menu a {
+    padding: 15px 25px;
+    display: block;
+    font-size: 18px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* --- 4. Main Content Sections --- */
+.quote-box, .dictionary-section, .content-grid, .main-content {
+    background-color: var(--card-bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+}
+
 .quote-box {
-  background-color: #fffdf3;
-  padding: 0.5em;
-  font-style: italic;
-  font-size: 1em;
-  border-left: 4px solid #c8a76a;
-  margin: 0;
+    text-align: center;
+}
+.quote-box h3 {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: var(--secondary-text-color);
+    font-weight: 500;
+}
+.quote-box p {
+    font-size: 1.25em;
+    font-style: italic;
+    color: var(--primary-text-color);
+    margin-bottom: 0;
+}
+.quote-box small {
+    display: block;
+    margin-top: 15px;
+    font-size: 0.9em;
+    font-style: normal;
+    color: var(--secondary-text-color);
 }
 
-/* กล่องค้นหา */
-.gcse-search {
-  margin: 0;
-  padding: 0;
+.dictionary-section h2, .main-content h2 {
+    margin-top: 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
 }
 
-/* เนื้อหาหลัก */
-main {
-  max-width: 100%;
-  padding: 0;
+#paliInput {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1em;
+    font-family: var(--font-family-base);
 }
-
-/* ส่วนท้าย */
-footer {
-  margin: 1em 0;
-  font-size: 0.9em;
-  color: #888;
-  text-align: center;
+#paliInput:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(73, 80, 87, 0.1);
 }
-
-table.image-grid {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: center;
-  margin: 2em 0;
+#paliResult {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: var(--border-radius);
+    background-color: var(--bg-color);
+    max-height: 250px;
+    overflow-y: auto;
+    display: none; /* ซ่อนไว้จนกว่าจะมีการค้นหา */
 }
-
-table.image-grid td {
-  padding: 0.5em;
-  vertical-align: top;
-}
-
-table.image-grid img {
-  width: 100%;
-  max-width: 100px;
-  height: auto;
-  border-radius: 6px;
-  display: block;
-  margin: 0 auto 0.3em;
-}
-
-table.image-grid div {
-  font-size: 0.95em;
-  color: #444;
-}
-
-.dictionary-box {
-  background: #fff9e9;
-  padding: 1.5em 1em;
-  min-height: 140px;
-  margin: 2em 0;
-  border: 1px solid #e0d4ba;
-  border-radius: 8px;
-
-}
-
-.dictionary-box input {
-  width: 100%;
-  padding: 0.6em;
-  font-size: 1em;
-  margin-bottom: 0.8em;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-
 #paliResult p {
-  margin: 0.5em 0;
-  line-height: 1.6;
+    margin: 0 0 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--border-color);
+}
+#paliResult p:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+.no-match {
+    color: var(--secondary-text-color);
 }
 
 
-.indent {
-  text-indent: 2em;
+hr.separator {
+    border: 0;
+    height: 1px;
+    background-color: var(--border-color);
+    margin: 40px 0;
 }
 
 
-/* จัดการโครงสร้าง */
+/* --- 5. Content Grid (ใช้ CSS Grid) --- */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
 
-.container {
-  width: 100%;
-  max-width: 650px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  box-sizing: border-box;
+.grid-item {
+    background-color: var(--bg-color);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    border-color: var(--accent-color);
+    color: var(--accent-hover-color);
+}
+
+.grid-item img {
+    max-width: 60px; /* ปรับขนาดไอคอน */
+}
+
+/* --- 6. Footer --- */
+footer.site-footer {
+    background-color: var(--footer-bg-color);
+    color: var(--secondary-text-color);
+    text-align: center;
+    padding: 25px 20px;
+    border-top: 1px solid var(--border-color);
+    font-size: 0.9em;
+}
+
+footer .warning-text {
+    color: #856404; /* สีสำหรับคำเตือน */
+    font-size: 0.85em;
 }
 
 
-/* Wikipedia */
+/* --- 7. Responsive Design --- */
 
-/* Wiki Section Styling */
-.wiki-content h1,
-.wiki-content h2,
-.wiki-content h3 {
-  margin-top: 1.5rem;
-  color: #2c3e50;
+/* Tablet and smaller laptops */
+@media (max-width: 992px) {
+    .navbar {
+        display: none; /* ซ่อนเมนูเดสก์ท็อป */
+    }
+    .hamburger-icon {
+        display: flex; /* แสดงแฮมเบอร์เกอร์ */
+    }
+    .site-title {
+        display: block; /* แสดงชื่อเว็บข้างโลโก้ */
+    }
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 คอลัมน์ */
+    }
 }
 
-.wiki-content p {
-  margin: 1rem 0;
-  line-height: 1.8;
+/* Mobile */
+@media (max-width: 576px) {
+    body {
+        line-height: 1.6;
+    }
+    .site-title {
+        font-size: 18px; /* ลดขนาดชื่อเว็บ */
+    }
+    .container {
+        padding: 15px;
+    }
+    .quote-box, .dictionary-section, .content-grid, .main-content {
+        padding: 20px;
+    }
+    .content-grid {
+        grid-template-columns: 1fr; /* 1 คอลัมน์ */
+        gap: 15px;
+    }
+    .grid-item {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 20px;
+    }
+    .grid-item img {
+        max-width: 40px;
+    }
 }
 
-.wiki-content ul {
-  padding-left: 1.5rem;
-  margin: 1rem 0;
-}
-
-.wiki-content li {
-  margin-bottom: 0.5rem;
-}
-
-.wiki-content a {
-  color: #006699;
-  text-decoration: none;
-  border-bottom: 1px dashed #ccc;
-}
-
-.wiki-content a:hover {
-  text-decoration: underline;
-  border-bottom: 1px solid #006699;
-}
-
-.wiki-content blockquote {
-  margin: 1rem 0;
-  padding: 1rem;
-  background-color: #f3f3f3;
-  border-left: 4px solid #999;
-  font-style: italic;
-  color: #444;
-}
-
-.wiki-content code {
-  background: #eee;
-  padding: 0.2em 0.4em;
-  font-family: monospace;
-  border-radius: 4px;
-}
-
-.win95-button {
-  display: inline-block;
-  width: 120px;
-  padding: 8px;
-  margin: 10px;
-  text-align: center;
-  font-family: 'Tahoma', sans-serif;
-  font-size: 14px;
-  color: black;
-  background-color: #c0c0c0;
-  border: 2px solid #fff;
-  border-right-color: #404040;
-  border-bottom-color: #404040;
-  box-shadow: inset -1px -1px 0 #808080, inset 1px 1px 0 #fff;
-  text-decoration: none;
-}
-
-.win95-button img {
-  width: 48px;
-  height: auto;
-  display: block;
-  margin: 0 auto 6px;
-}
-
-.win95-button:hover {
-  background-color: #dcdcdc;
-  box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
-}
-
-
-.tag-section {
-  border: none; /* ไม่มีกรอบรอบหมวด */
-  padding: 10px;
-  margin-bottom: 20px;
-  background-color: transparent; /* โปร่งใส */
-  font-family: Tahoma, sans-serif;
-}
-
-.tag-header {
-  background-color: #E6E6FA; /* น้ำเงินเข้ม */
-  color: #000000;
-  padding: 4px 10px;
-  margin-bottom: 12px;
-  font-weight: bold;
-  border: 1px solid #000;
-  border-right-color: #808080;
-  border-bottom-color: #808080;
-  box-shadow: inset -1px -1px #fff, inset 1px 1px #808080;
-  font-size: 14px;
-}
-
-.tag-buttons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.tag-buttons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 80px;
-  height: 28px;
-  padding: 2px 10px;
-  text-align: center;
-  text-decoration: none;
-  color: #000000;
-  background-color: #C0C0C0;
-  font-size: 13px;
-  font-family: Tahoma, sans-serif;
-
-  border: 2px solid;
-  border-color: #fff #808080 #808080 #fff;
-  box-shadow: inset -1px -1px #000;
-  border-radius: 2px;
-}
-
-.tag-buttons a:hover {
-  background-color: #E0E0E0;
-  cursor: pointer;
-}
-
-.tag-buttons a:active {
-  border-color: #808080 #fff #fff #808080;
-  box-shadow: inset 1px 1px #000;
-  background-color: #B0B0B0;
-}
-
-/* ฟอนต์ Pixelated MS Sans Serif (ถ้าต้องการความ Retro มากๆ) */
-@font-face {
-  font-family: 'Pixelated MS Sans Serif';
-  src: url('path/to/MS-Sans-Serif-8pt-Regular.ttf') format('truetype');
-}
-
-  /* สร้างขอบแบบ 3D ของ Windows 95 */
-  border: 2px solid;
-  border-color: #fff #808080 #808080 #fff; /* top right bottom left */
-  box-shadow: inset -1px -1px #000; /* เงาด้านใน */
-  
-  /* จัดกึ่งกลางข้อความแนวตั้ง */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.tag-buttons a:hover {
-  background-color: #D0D0D0; /* สีปุ่มเมื่อเมาส์ชี้ */
-  cursor: pointer;
-}
-
-.tag-buttons a:active {
-  /* สไตล์เมื่อคลิกปุ่ม (กดลงไป) */
-  border-color: #808080 #fff #fff #808080; /* สลับขอบให้ดูเหมือนปุ่มจมลง */
-  box-shadow: inset 1px 1px #000;
-  background-color: #B0B0B0;
-}
-.page-content {
-    display: flex; /* ทำให้เนื้อหาหลักของหน้าเป็น flex container */
-    flex-direction: column; /* จัดเรียงองค์ประกอบภายใน .page-content เป็นแนวตั้ง */
-    justify-content: center; /* จัดเรียงเนื้อหาภายใน .page-content ให้อยู่กึ่งกลางตามแนวตั้ง */
-    align-items: center; /* จัดเรียงเนื้อหาภายใน .page-content ให้อยู่กึ่งกลางตามแนวนอน */
-
-    flex-grow: 1; /* ทำให้ .page-content ขยายเต็มพื้นที่ที่เหลืออยู่ระหว่าง header และ footer */
-    width: 100%; /* กำหนดความกว้างเต็ม (สามารถปรับเป็นค่าคงที่หรือเปอร์เซ็นต์ได้) */
-    max-width: 960px; /* กำหนดความกว้างสูงสุดเพื่อไม่ให้กว้างเกินไปบนจอใหญ่ */
-    margin: 0 auto; /* จัด .page-content ให้อยู่กึ่งกลางเมื่อมี max-width */
-    padding: 20px; /* เพิ่ม padding รอบเนื้อหา (ปรับได้ตามต้องการ) */
-    box-sizing: border-box; /* ทำให้ padding และ border ไม่เพิ่มขนาดขององค์ประกอบ */
-}
-
-/* คุณอาจต้องปรับแต่ง Header และ Footer เล็กน้อยเพื่อให้เข้ากับ Flexbox บน Body */
-header, footer {
-    width: 100%; /* ให้ header และ footer กว้างเต็มจอ */
-    text-align: center; /* จัดข้อความใน header/footer ให้อยู่กึ่งกลาง (ถ้ามี) */
-    padding: 10px 0; /* เพิ่ม padding */
-    background-color: #f8f8f8; /* สีพื้นหลังตัวอย่าง */
-}
-
-/* ตัวอย่างการจัดข้อความหรือรูปภาพภายใน .page-content ให้ชิดซ้าย (ถ้าต้องการ) */
-.page-content h1,
-.page-content p {
-    text-align: left; /* สามารถบังคับให้ข้อความภายในกลับมาชิดซ้ายได้ */
-    width: 100%; /* กำหนดความกว้างเต็มเพื่อควบคุมการจัดวาง */
-    max-width: 800px; /* จำกัดความกว้างของข้อความเพื่อให้อ่านง่าย */
-}
-
-
-
-
-
-
-
-
-/* ฟอนต์ Pixelated MS Sans Serif (ถ้าต้องการความ Retro มากๆ) */
-@font-face {
-  font-family: 'Pixelated MS Sans Serif';
-  src: url('path/to/MS-Sans-Serif-8pt-Regular.ttf') format('truetype'); /* คุณต้องหาไฟล์ฟอนต์ .ttf มาใส่ในโปรเจกต์ของคุณเอง */
-  /* หรือใช้ฟอนต์ระบบที่คล้ายกัน เช่น 'Arial' หรือ 'Verdana' */
-}
-
-
-
-
-
-
-
-
-/* สำหรับมือถือ: padding พอดี */
-body {
-  padding: 1rem;
-}
-
-/* สำหรับจอใหญ่ขึ้น: กำหนดความกว้างกลางหน้า */
-@media (min-width: 768px) {
-  body {
-    max-width: 768px;
-    margin: auto;
-  }
-}
-
-@media (min-width: 1200px) {
-  body {
-    max-width: 960px;
-  }
+/* แสดงเมนู Desktop เมื่อหน้าจอกว้างขึ้น */
+@media (min-width: 993px) {
+    .navbar {
+        display: flex;
+    }
+    .hamburger-icon {
+        display: none;
+    }
 }
