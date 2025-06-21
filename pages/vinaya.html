@@ -1,69 +1,32 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="120x120">
-<link rel="stylesheet" href="/assets/css/style.css">
-
-  <title>พระไตรปิฎก | พระวินัย</title>
-  <meta name="description" content="ปาฏิโมกขศีล ภิกษุที่บวชเข้ามาแล้วพึงอ่านให้เข้าใจ ได้รู้ข้อปฏิบัติ ระวังให้พ้นโทษ จะได้ไม่ล่วงพุทธบัญญัติ" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ธรรมสุตตะ | พระวินัย</title>
+    <meta name="description" content="ปาฏิโมกขศีล ภิกษุที่บวชเข้ามาแล้วพึงอ่านให้เข้าใจ ได้รู้ข้อปฏิบัติ ระวังให้พ้นโทษ จะได้ไม่ล่วงพุทธบัญญัติ" />
   <meta name="keywords" content="ศีล 227, ปาราชิก, วินัยสงฆ์, พระไตรปิฎก, พระวินัย" />
   <meta name="author" content="ธรรมสุตตะ" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="/assets/css/style.css" /> <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "headline": "พระวินัยปิฎก",
-  "description": "ศึกษาพระวินัยตามพระไตรปิฎก ซึ่งเป็นหมวดหนึ่งในพระไตรปิฎกว่าด้วยข้อวินัยของพระสงฆ์",
-  "url": "https://dhamma-sutta.com/pages/vinaya.html",
-  "author": {
-    "@type": "Organization",
-    "name": "dhamma-sutta.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "dhamma-sutta.com",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://dhamma-sutta.com/assets/images/logo.png"
-    }
-  },
-  "mainEntityOfPage": "https://dhamma-sutta.com/vinaya.html"
-}
-</script>
- <style>
-    .pali-container {
-      padding-left: 10px;
-      padding-right: 10px;
-    }
-
-    #paliInput,
-    #paliResult {
-      width: 100%;
-      box-sizing: border-box;
-      margin-bottom: 10px;
-    }
-  </style>
-
-
-  <!-- ✅ CSS -->
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
-</head>
+    </head>
 <body>
-  <!-- ส่วนหัว -->
-  <header class="site-header">
+
+    <header class="site-header">
         <div class="header-container">
             <a href="/" class="logo-link">
                 <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
                 <span class="site-title">ธรรมสุตตะ</span>
             </a>
-
-          
+            <nav class="navbar" id="desktopNavbar">
+                <a href="/">หน้าแรก</a>
+                <a href=" /pages/vinaya.html">พระวินัย</a>
+                <a href=" /pages/sutta.html">พระสูตร</a>
+                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
+                <a href=" /pages/katha.html">อรรถกถา</a>
+                <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
+                </nav>
             <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -71,7 +34,8 @@
             </button>
         </div>
     </header>
-<nav class="sidebar-menu" id="sidebarMenu">
+
+   <nav class="sidebar-menu" id="sidebarMenu">
         <a href="/">🏠หน้าแรก</a>
         <a href="/pages/vinaya.html">🔹พระวินัย</a>
         <a href="/pages/sutta.html">🔹พระสูตร</a>
@@ -80,31 +44,28 @@
         <a href="/pages/pakinnaka.html">🔹ปกิณกะ</a>
         <a href="adhikaranasamatha.html">🔍ค้นหาจากในเว็บ</a>
 
-<div class="content-grid">
+<section class="dictionary-section">
   <b>💡อภิธานศัพท์</b>
 <input type="text" id="paliInput" placeholder="ค้นหาศัพท์ธรรมะ..." />
-            <div id="paliResult"></div></div>
+            <div id="paliResult"></div>
+</section>
 
 
     </nav>
-<div class="content-grid">
-<center><a href="/">หน้าแรก</a> > พระวินัย</center>
-</div>
-  <main>
-    <!-- ✅ เนื้อหาหลัก -->
-   <p> <h2>วินัยสงฆ์ ๒๒๗ สิกขาบท</h2>
+
+  
+<main>
+    <div class="main-content">
+ <p> <h2>วินัยสงฆ์ ๒๒๗ สิกขาบท</h2>
     ข้าพเจ้า (สมเด็จพระวันรัตน์) ขอวโรกาสแต่งอธิศีลสิกขา<span style="color: red;"><b>ปาฏิโมกขสังวรศีล</b></span> ไว้พอให้ภิกษุที่บวชเข้ามาแล้วได้อ่านให้เข้าใจ ได้รู้ปฏิบัติ ระวังให้พ้นโทษ มิได้ล่วงพุทธบัญญัติ ต้องอันติมวัตถุ และครุลพุกาบัติ เป็นอาณาวีติกกมันตราย
   <img src="/assets/images/vinaya.jpg" alt="พระสงฆ์" style="float: right; width: 200px; margin-left: 10px;">
 จะได้ขวนขวายที่จะศึกษาให้ชำนาญในพระวินัย จะได้รู้ถี่ถ้วนต่อไป อ่านฟังแล้วจำได้ บทใดไม่เข้าใจสงสัยอยู่ ให้ไต่ถามท่านผู้รู้ให้สันทัด จะขอคัดเอาแต่ข้อความที่เป็นข้อสำคัญขึ้นว่า ที่ควรย่อก็ย่อไว้ ที่ควรกว้างก็ให้กว้าง บางสิกขาบทที่ภิกษุคะนองจะต้องอาบัติง่ายๆ ท่านผู้ปรารถนาสิกขาบทละอายแก่บาปอยู่แล้ว ต้องศึกษาให้รู้เข้าใจ แล้วจำไว้ปฏิบัติ โดยสมควรแก่ศรัทธา เทอญ
 </p>
-<br>
-<br>
+</div>
 
-
- <div class="content-grid">
-
-
-<h2>🙏 ปาฎิโมกข์ศีล 🙏</h2>
+      <div class="main-content">
+           
+           <h2>🙏 ปาฎิโมกข์ศีล 🙏</h2>
 <p>🔅 <a href="/posts/ปาราชิก.html">ปาราชิก ๔</a><br>
 🔅 <a href="/posts/สังฆาทิเสส.html">สังฆาทิเสส ๑๓ </a><br>
 🔅 <a href="/posts/อนิยต.html">อนิยต ๒ </a><br>
@@ -125,27 +86,24 @@
 🔹 ทุพภาสิต<br>
 🔹 กาลิกบัพพ์<br><br><br></p>
   </div>
+    </main>
 
 
-    <!-- ✅ เนื้อหาเชื่อมโยง 
-    
-<h3>ส่วนขยาย...</h3>
-    <p>อ้างอิงจาก ขุททกนิกาย ธัมมปทคาถา และวินัยปิฎก มหาวิภังค์...</p>
-  </main>  -->
 
 
-  <center><a href="/">🏠 กลับหน้าแรก</a><br> <br></center>
-    
-  <footer> <center>
-    <hr />
-    <p>ธรรมสุตตะ<br>
-</p>
-  </footer> </center>
 
 
-<!-- สคริปบาลี-->
 
-  <script>
+  
+<!-- ย้ายข้อความออกมานอก grid -->
+
+
+    <footer class="site-footer">
+        <p>ธรรมสุตตะ</p>
+     
+    </footer>
+
+    <script>
         // Script สำหรับ Hamburger Menu
         const hamburgerIcon = document.getElementById('hamburgerIcon');
         const sidebarMenu = document.getElementById('sidebarMenu');
@@ -203,7 +161,10 @@
                     : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
             });
         }
-   
+    </script>
+
+      
+<script>
 document.addEventListener("DOMContentLoaded", function () {
   const input = document.getElementById("paliInput");
   const section = document.querySelector(".dictionary-section");
@@ -218,5 +179,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+    
 </body>
 </html>
