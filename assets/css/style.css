@@ -93,7 +93,7 @@ img {
     max-width: 1200px; /* ทำให้ container ของ header กว้างกว่าเนื้อหาเล็กน้อย */
     height: 100%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -220,7 +220,7 @@ img {
 
 .dictionary-section h2, .main-content h2 {
     margin-top: 0;
-    padding-bottom: 15px;
+    padding-bottom: 1px;
     border-bottom: 1px solid var(--border-color);
     margin-bottom: 20px;
 }
