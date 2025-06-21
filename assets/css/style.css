@@ -1,7 +1,7 @@
 /* --- 1. การตั้งค่าพื้นฐานและตัวแปร (Variables) --- */
 :root {
     --font-family-base: 'Sarabun', 'Segoe UI', 'Tahoma', sans-serif;
-    --bg-color: #F8F9FA; /* สีพื้นหลังหลัก (ขาวอมเทา) */
+    --bg-color: #FAFFE2; /* สีพื้นหลังหลัก (เหลืองอ่อน) */
     --card-bg-color: #FFFFFF; /* สีพื้นหลังของการ์ด/กล่องข้อความ */
     --primary-text-color: #343A40; /* สีตัวอักษรหลัก (เทาเข้ม) */
     --secondary-text-color: #6C757D; /* สีตัวอักษรรอง (เทา) */
