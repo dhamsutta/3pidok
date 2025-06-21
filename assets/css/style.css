@@ -3,28 +3,28 @@
   --font-family-base: 'Sarabun', 'Segoe UI', 'Tahoma', sans-serif;
 
   /* พื้นหลังและกล่อง */
-  --bg-color: #fefae0; /* พื้นหลังเว็บ - เหลืองอ่อนคล้ายกระดาษธรรมะ */
-  --card-bg-color: #fdf6e3; /* กล่องข้อความ - ครีมนวล อ่านง่าย */
-
+  --bg-color: #f4f4f2;        /* พื้นหลังสว่างนวล ไม่จ้า */
+  --card-bg-color: #ffffff;   /* กล่องข้อความขาวสะอาด */
+  
   /* สีข้อความ */
-  --primary-text-color: #2e2e2e; /* ตัวอักษรหลัก - เทาเข้มเกือบดำ */
-  --secondary-text-color: #6c757d; /* ตัวอักษรรอง - เทาอ่อน */
+  --primary-text-color: #000000;      /* ตัวอักษรหลัก = ดำสนิท */
+  --secondary-text-color: #555555;    /* ตัวอักษรรอง = เทาเข้ม */
+
+  /* ลิงก์ */
+  --accent-color: #0000ee;         /* ลิงก์ = น้ำเงินมาตรฐาน */
+  --accent-hover-color: #551a8b;   /* ลิงก์เมื่อ hover = ม่วงตามมาตรฐาน */
 
   /* Header และ Footer */
-  --header-bg-color: #f2e7ae; /* Header - เหลืองนวลแบบอ่อน */
-  --footer-bg-color: #f0f0f0; /* Footer - เทาอ่อนมาก เรียบ */
-
-  /* สีเน้น / ลิงก์ */
-  --accent-color: #b49b3e; /* สีทองอ่อน สงบ */
-  --accent-hover-color: #8d7a27; /* ทองเข้มเมื่อ hover */
+  --header-bg-color: #e6e6e6;   /* เทาอ่อนนิ่ง ๆ */
+  --footer-bg-color: #e0e0e0;   /* เทาอ่อนอีกนิด */
 
   /* เส้นขอบและเงา */
-  --border-color: #dddac2; /* เส้นขอบ - ครีมเทา */
-  --shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* เงาเบามาก */
+  --border-color: #cccccc;
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
 
   /* องค์ประกอบทั่วไป */
   --header-height: 70px;
-  --border-radius: 8px;
+  --border-radius: 6px;
 }
 
 /* --- 2. Global Styles --- */
