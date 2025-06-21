@@ -13,14 +13,21 @@
 
     <style>
         /* Global XP-like Base Styles */
-        body {
-            font-family: 'Sarabun', 'Segoe UI', 'Tahoma', 'Verdana', sans-serif; /* XP fonts fallback */
-            margin: 0;
-            padding-top: 60px; /* ระยะห่างสำหรับเนื้อหาไม่ให้ทับเมนูบาร์ */
-            background: #D9E8F4; /* Light blue-grey background, like XP */
-            color: #333;
-            line-height: 1.6;
-        }
+       body {
+        font-family: 'Sarabun', 'Segoe UI', 'Tahoma', 'Verdana', sans-serif;
+        margin: 0; /* ลบ margin เดิมออก */
+        padding: 0; /* ลบ padding เดิมออก */
+        background: #D9E8F4;
+        color: #333;
+        line-height: 1.6;
+
+        /* **** ส่วนสำคัญสำหรับการจัดกึ่งกลางด้วย Flexbox **** */
+        display: flex; /* ทำให้ body เป็น Flex Container */
+        flex-direction: column; /* จัดเรียงลูกๆ (header, main, footer) เป็นแนวตั้ง */
+        min-height: 100vh; /* ทำให้ body สูงเต็มหน้าจอเพื่อการจัดวางแนวตั้งที่สมบูรณ์ */
+        /* *********************************************** */
+    }
+
 
         /* Container for centralizing content */
         .container {
@@ -28,18 +35,28 @@
             margin: 0 auto; /* Center the content */
             padding: 20px;
             box-sizing: border-box; /* Include padding in width */
+            flex-grow: 1;
         }
 
         /* Site Header */
         .site-header {
-            background-color: #3A6EA5; /* XP Blue title bar-like */
-            padding: 10px 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-            position: relative; /* For hamburger icon positioning */
-            display: flex;
-            align-items: center;
-            justify-content: center; /* Center logo by default */
-            z-index: 1000; /* Ensure it's above other content */
+           background-color: #3A6EA5;
+        padding: 10px 20px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        /* คุณอาจต้องการให้ header กว้างเต็มจอเสมอ แม้เนื้อหาจะถูกจำกัด */
+        width: 100%;
+        /* ถ้าต้องการให้ header ลอยอยู่ด้านบนตลอดเวลาบน Desktop ด้วย */
+        /* position: fixed; */
+        /* top: 0; */
+        /* left: 0; */
+    }
+    
+    /* ... (โค้ด CSS ส่วนอื่นๆ ที่เหลือเหมือนเดิม) ... */
         }
 
         .site-header .logo-link {
@@ -52,7 +69,7 @@
         }
 
         .site-header .site-logo {
-            height: 40px; /* Adjust logo size */
+            height: 150px; /* Adjust logo size */
             margin-right: 10px;
         }
 
@@ -327,6 +344,7 @@
             box-shadow: 0 -2px 4px rgba(0,0,0,0.2);
             border-top-left-radius: 10px; /* XP-like bottom corners */
             border-top-right-radius: 10px;
+            width: 100%; /* ให้ footer กว้างเต็มจอ */
         }
 
         footer span {
@@ -367,6 +385,13 @@
             .sidebar-menu.open {
                 width: 250px; /* Adjust sidebar width for mobile */
             }
+
+/* เพิ่ม padding-top ให้กับ main.container เพื่อไม่ให้เนื้อหาถูก header บัง */
+          main.container {
+               padding-top: 70px; /* ปรับค่านี้ให้มากกว่าความสูงของ header เล็กน้อย */
+            }
+
+            
 
             .image-grid td {
                 width: 50%; /* Two columns on smaller screens */
