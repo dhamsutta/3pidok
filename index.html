@@ -151,5 +151,24 @@
             });
         }
     </script>
+
+ 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("paliInput");
+  const section = document.querySelector(".dictionary-section");
+
+  if (input && section) {
+    input.addEventListener("input", function () {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+});
+</script>
+
+
+
+
+    
 </body>
 </html>
