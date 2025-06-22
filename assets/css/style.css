@@ -335,7 +335,21 @@ footer .warning-text {
 }
 
 
+.sidebar-menu {
+  display: none;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  background-color: #eee;
+  padding: 10px;
+  z-index: 999;
+  width: 220px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
+.sidebar-menu.open {
+  display: block;
+}
 
 
 
