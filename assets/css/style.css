@@ -48,6 +48,14 @@ body {
   min-height: 100vh;
 }
 
+
+
+
+
+
+
+
+
 .container {
   width: 100%;
   max-width: 960px;
@@ -316,7 +324,15 @@ footer .warning-text {
 }
 
 
-
+#menu.hidden {
+  display: none;
+}
+#menu {
+  position: absolute;
+  background: #eee;
+  padding: 10px;
+  border: 1px solid #ccc;
+}
 
 
 
@@ -378,3 +394,4 @@ footer .warning-text {
     display: none;
   }
 }
+
