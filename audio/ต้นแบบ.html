@@ -285,5 +285,151 @@
 
         <p class="footer">ขอให้ทุกท่านมีความสุขกาย สบายใจ ด้วยธรรมะ</p>
     </div>
+
+
+
+
+<center> <footer class="site-footer">
+<i><a href="/">หน้าแรก</a> > <a href="/pages/vinaya.html">พระวินัย</a> > <b>ปาราชิก ๔</b></i>
+ <br>ธรรมสุตตะ🔅
+</footer></center>
+
+    <script>
+        // Script สำหรับ Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContainer = document.querySelector('main.container');
+
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+
+        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
+        fetch('/assets/data/quotes.json')
+            .then(res => res.json())
+            .then(data => {
+                const quote = data[Math.floor(Math.random() * data.length)];
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
+                }
+            })
+            .catch(() => {
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
+                }
+            });
+
+        let paliDict = [];
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => { paliDict = data; })
+            .catch(() => {
+                const paliResult = document.getElementById('paliResult');
+                if(paliResult) {
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
+                }
+            });
+
+        const paliInput = document.getElementById('paliInput');
+        if (paliInput) {
+            paliInput.addEventListener('input', function () {
+                const input = this.value.trim().toLowerCase();
+                const resultBox = document.getElementById('paliResult');
+                if (!input) {
+                    resultBox.innerHTML = '';
+                    resultBox.style.display = 'none';
+                    return;
+                }
+                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = matches.length
+                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
+            });
+        }
+    </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("paliInput");
+  const section = document.querySelector(".dictionary-section");
+
+  if (input && section) {
+    input.addEventListener("input", function () {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+});
+</script>
+
+<script>
+  const hamburgerIcon = document.getElementById('hamburgerIcon');
+  const sidebarMenu = document.getElementById('sidebarMenu');
+
+  if (hamburgerIcon && sidebarMenu) {
+    // เปิด/ปิดเมนูเมื่อกดปุ่ม 3 ขีด
+    hamburgerIcon.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sidebarMenu.classList.toggle('open');
+    });
+
+    // กันไม่ให้คลิกภายในเมนูแล้วเมนูปิดตัวเอง
+    sidebarMenu.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    // คลิกที่อื่น ๆ บน body → ให้ปิดเมนู
+    document.body.addEventListener('click', () => {
+      sidebarMenu.classList.remove('open');
+    });
+  }
+</script>
+
+
+<script>
+
+document.body.addEventListener('click', () => {
+      menu.classList.add('hidden');
+    });
+  </script>
+
+<script>
+  // รอให้หน้าเว็บโหลดเสร็จก่อน
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. เลือก Sidebar ของเรา
+    const sidebar = document.getElementById('sidebarMenu');
+
+    // 2. เลือกลิงก์ทั้งหมดที่อยู่ใน Sidebar
+    const sidebarLinks = document.querySelectorAll('#sidebarMenu a');
+
+    // 3. สร้างฟังก์ชันที่จะทำงานเมื่อมีการคลิก
+    function resetSidebarScroll() {
+      // คำสั่งสำคัญ: ตั้งค่าให้แถบเลื่อนของ sidebar กลับไปที่จุดบนสุด (0)
+      sidebar.scrollTop = 0;
+    }
+
+    // 4. สั่งให้ลิงก์ทุกตัวใน sidebar เรียกใช้ฟังก์ชันนี้เมื่อถูกคลิก
+    sidebarLinks.forEach(function(link) {
+      link.addEventListener('click', resetSidebarScroll);
+    });
+
+  });
+</script>
+
+
+
+</body>
+</html>
+
+
+
+        
 </body>
 </html>
