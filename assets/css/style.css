@@ -365,6 +365,34 @@ footer .warning-text {
 }
 
 
+/* --- ปรับเฉพาะบนจอคอม (ไม่แตะมือถือ) --- */
+@media (min-width: 768px) {
+  main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+
+  .main-content,
+  .content-description {
+    max-width: 900px;
+    margin: 0 auto 40px;
+    padding: 20px 30px;
+    box-sizing: border-box;
+  }
+
+  .audio-list {
+    max-width: 850px;
+    margin: 0 auto;
+    padding-left: 0;
+  }
+
+  .audio-item {
+    width: 100%;
+    margin: 0 auto 15px;
+  }
+}
 
 
 
