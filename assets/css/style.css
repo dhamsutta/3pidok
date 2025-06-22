@@ -48,7 +48,20 @@ body {
   min-height: 100vh;
 }
 
+#sidebarMenu {
+  position: sticky;
+  top: 0;
+  width: 250px;
+  height: 100vh;
+  background-color: #e9ecef;
+  padding: 15px;
+  overflow-y: auto; /* ถ้าเมนูยาว ให้มี scrollbar */
+}
 
+.main-content {
+  flex-grow: 1; /* ทำให้เนื้อหาหลักขยายเต็มพื้นที่ที่เหลือ */
+  padding: 20px;
+}
 
 
 
