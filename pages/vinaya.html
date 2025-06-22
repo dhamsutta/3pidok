@@ -184,7 +184,29 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+  // รอให้หน้าเว็บโหลดเสร็จก่อน
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. เลือก Sidebar ของเรา
+    const sidebar = document.getElementById('sidebarMenu');
 
+    // 2. เลือกลิงก์ทั้งหมดที่อยู่ใน Sidebar
+    const sidebarLinks = document.querySelectorAll('#sidebarMenu a');
+
+    // 3. สร้างฟังก์ชันที่จะทำงานเมื่อมีการคลิก
+    function resetSidebarScroll() {
+      // คำสั่งสำคัญ: ตั้งค่าให้แถบเลื่อนของ sidebar กลับไปที่จุดบนสุด (0)
+      sidebar.scrollTop = 0;
+    }
+
+    // 4. สั่งให้ลิงก์ทุกตัวใน sidebar เรียกใช้ฟังก์ชันนี้เมื่อถูกคลิก
+    sidebarLinks.forEach(function(link) {
+      link.addEventListener('click', resetSidebarScroll);
+    });
+
+  });
+</script>
 
 
     
