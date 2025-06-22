@@ -138,7 +138,7 @@
   
     
  
-    <h1>จริยาปิฎก</h1>
+    <h1>จริยาปิฎก (ทานบารมี)</h1>
     <p><a href="/">หน้าแรก</a> > <a href="/audio/index.html">ธรรมบรรยาย</a> > จริยาปิฎก</p>
 <hr style="border: 1px solid #e6e6e6;"> 
 
@@ -165,12 +165,13 @@
                     เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
                 </audio>
 </div>
+    
 <div class="main-content">
 <h3><span style="color: #783f04;">ตอนที่ ๒ อกิตติดาบส จริยาที่ ๑</span></h3><br>
 พระโพธิสัตว์เกิดเป็น อกิตติดาบส ผู้บำเพ็ญพรตอยู่ในป่าลึก แม้จะได้ผลไม้และข้าวของเล็กน้อยจากชาวบ้าน ท่านก็สละทุกอย่างให้ผู้มาขอโดยไม่ลังเล
 แม้พระอินทร์จะแปลงกายมาทดลองขอของหลายครั้ง ท่านก็มิได้หวงแหนหรือแสดงอาการเหนื่อยหน่ายใจของท่านเปี่ยมด้วยเมตตา และยินดีในทานไม่หวังสิ่งตอบแทนใด ๆ
-<br> <b>คำสอนของพระมหาโพธิสัตว์</b><br> 
-<span style="color: green;">“แม้มีของเพียงน้อยนิด แต่ข้าก็ยินดีสละเพื่อประโยชน์ของผู้อื่น”</span><br>
+<br> <b>คำสอนของพระมหาโพธิสัตว์</b><br><br>
+<center><span style="color: green;">“แม้มีของเพียงน้อยนิด แต่ข้าก็ยินดีสละเพื่อประโยชน์ของผู้อื่น”</span></center><br>
                 <audio controls>
                     <source src="https://archive.org/download/jariya-7/Jariya2.mp3" type="audio/mpeg">
                     เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
@@ -178,7 +179,17 @@
 </div>
 
 
-
+<div class="main-content">
+<h3><span style="color: #783f04;">ตอนที่ ๒ อกิตติดาบส จริยาที่ ๑</span></h3><br>
+พระโพธิสัตว์เกิดเป็น อกิตติดาบส ผู้บำเพ็ญพรตอยู่ในป่าลึก แม้จะได้ผลไม้และข้าวของเล็กน้อยจากชาวบ้าน ท่านก็สละทุกอย่างให้ผู้มาขอโดยไม่ลังเล
+แม้พระอินทร์จะแปลงกายมาทดลองขอของหลายครั้ง ท่านก็มิได้หวงแหนหรือแสดงอาการเหนื่อยหน่ายใจของท่านเปี่ยมด้วยเมตตา และยินดีในทานไม่หวังสิ่งตอบแทนใด ๆ
+<br> <b>คำสอนของพระมหาโพธิสัตว์</b><br><br>
+<center><span style="color: green;">“แม้มีของเพียงน้อยนิด แต่ข้าก็ยินดีสละเพื่อประโยชน์ของผู้อื่น”</span></center><br>
+                <audio controls>
+                    <source src="https://archive.org/download/jariya-7/Jariya2.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+</div>
 
 
 
@@ -504,7 +515,22 @@ document.body.addEventListener('click', () => {
 
   });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const audios = document.querySelectorAll("audio");
 
+    audios.forEach(audio => {
+      audio.addEventListener("play", () => {
+        audios.forEach(otherAudio => {
+          if (otherAudio !== audio) {
+            otherAudio.pause();
+            otherAudio.currentTime = 0; // รีเซ็ตกลับไปต้น
+          }
+        });
+      });
+    });
+  });
+</script>
 
 
 </body>
