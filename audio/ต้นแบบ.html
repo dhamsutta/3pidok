@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ฟังธรรมะ</title>
+    <style>
+        body {
+            font-family: 'Sukhumvit Set', sans-serif; /* แนะนำให้ใช้ font สุขุมวิท หรือ font ที่อ่านง่ายและเรียบง่าย */
+            background-color: #f0f2eb; /* สีพื้นหลังอ่อนๆ คล้ายสีของผ้าขาว */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #ffffff; /* สีขาวสะอาด */
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 700px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1 {
+            color: #5a7d7c; /* สีเขียวอมฟ้า สงบๆ */
+            margin-bottom: 25px;
+            font-size: 2.2em;
+            font-weight: 500;
+        }
+
+        .audio-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 30px;
+        }
+
+        .audio-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f7f7f7; /* สีเทาอ่อน */
+            border-radius: 10px;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .audio-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .audio-item span {
+            flex-grow: 1;
+            text-align: left;
+            font-size: 1.1em;
+            color: #444;
+            font-weight: 400;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 280px; /* จำกัดความกว้างของ player ให้ดูไม่ใหญ่เกินไป */
+            margin-left: 20px;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>บทฟังธรรมะเพื่อความสงบ</h1>
+
+        <ul class="audio-list">
+            <li class="audio-item">
+                <span>1. บทสวดมนต์เช้า</span>
+                <audio controls>
+                    <source src="audio/dhamma_1.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+            <li class="audio-item">
+                <span>2. การเจริญสติ</span>
+                <audio controls>
+                    <source src="audio/dhamma_2.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+            <li class="audio-item">
+                <span>3. อานาปานสติ</span>
+                <audio controls>
+                    <source src="audio/dhamma_3.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+            <li class="audio-item">
+                <span>4. ธรรมะกับการใช้ชีวิต</span>
+                <audio controls>
+                    <source src="audio/dhamma_4.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+            <li class="audio-item">
+                <span>5. ความเมตตา</span>
+                <audio controls>
+                    <source src="audio/dhamma_5.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+            <li class="audio-item">
+                <span>6. การปล่อยวาง</span>
+                <audio controls>
+                    <source src="audio/dhamma_6.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+            <li class="audio-item">
+                <span>7. สติสัมปชัญญะ</span>
+                <audio controls>
+                    <source src="audio/dhamma_7.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+            <li class="audio-item">
+                <span>8. การทำบุญ</span>
+                <audio controls>
+                    <source src="audio/dhamma_8.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+            <li class="audio-item">
+                <span>9. บทพิจารณา</span>
+                <audio controls>
+                    <source src="audio/dhamma_9.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+            <li class="audio-item">
+                <span>10. พุทธวจนะ</span>
+                <audio controls>
+                    <source src="audio/dhamma_10.mp3" type="audio/mpeg">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                </audio>
+            </li>
+        </ul>
+
+        <p class="footer">ขอให้ทุกท่านมีความสุขกาย สบายใจ ด้วยธรรมะ</p>
+    </div>
+</body>
+</html>
