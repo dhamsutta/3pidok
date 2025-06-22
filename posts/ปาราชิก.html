@@ -286,5 +286,34 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+
+<script>
+  const toggleBtn = document.getElementById('menu-toggle');
+  const menu = document.getElementById('menu');
+
+  // เปิด/ปิดเมนูเมื่อกดปุ่ม 3 ขีด
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // กันไม่ให้คลิกทะลุไป trigger ข้างนอก
+    menu.classList.toggle('hidden');
+  });
+
+  // กันไม่ให้คลิกในเมนูปิดตัวเอง
+  menu.addEventListener('click', (e) => {
+    e.stopPropagation();
+  });
+
+  // คลิกที่ไหนก็ได้บน body แล้วเมนูจะหุบ
+  document.body.addEventListener('click', () => {
+    menu.classList.add('hidden');
+  });
+</script>
+
+
+
+
+
+
+
+
 </body>
 </html>
