@@ -54,7 +54,7 @@ body {
   width: 250px;
   height: 100vh;
   background-color: #e9ecef;
-  padding: 15px;
+  padding: 2px;
   overflow-y: auto; /* ถ้าเมนูยาว ให้มี scrollbar */
 }
 
