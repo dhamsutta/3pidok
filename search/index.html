@@ -4,28 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ค้นหา | ธรรมสุตตะ</title>
-  <meta name="description" content="ค้นหาเนื้อหาธรรมะภายในเว็บไซต์ dhamma-sutta.com ด้วย Google" />
+  <meta name="description" content="ค้นหาเนื้อหาธรรมะภายในเว็บไซต์ธรรมสุตตะ" />
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
 
   <link rel="stylesheet" href="/assets/css/style.css" />
+<style>
+.marquee {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.marquee p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee 10s linear infinite;
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+</style>
+
+
+
+
+
+  
 </head>
 <body>
 
   <header>
-    <h1>🔍 ค้นหาธรรมะในเว็บไซต์</h1>
-    <p>ใช้ Google เพื่อค้นหาคำสอนจากพระไตรปิฎกใน dhamma-sutta.com</p>
+    <h1>🔍 ค้นหาเฉพาะในธรรมสุตตะ</h1>
+    <p>ขออภัย ขณะนี้อยู่ระหว่างการปรับปรุงและแก้ไขส่วนเนื้อหาทั้งหมด<br> </p>
     <hr />
   </header>
 
-  <main>
-    <!-- วางโค้ด Google Search ตรงนี้ -->
-    <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
-    <div class="gcse-search"></div>
-  </main>
+ <main>
+  <!-- วางโค้ด Google Search -->
+  <script async src="https://cse.google.com/cse.js?cx=51c4343b3eeb842d6"></script>
 
+  <div class="search-wrapper">
+    <div class="gcse-search"></div>
+  </div>
+</main>
+
+<style>
+.search-wrapper {
+  width: 50%;
+  margin: 0 auto;
+  min-width: 300px; /* ป้องกันแคบเกินไปในจอเล็ก */
+}
+</style>
+<div class="marquee">
+  <p>ปัจจุบัน ลิ้งค์จากการค้นหายังใช้การไม่ได้ทั้งหมด</p>
+</div>
   <footer>
     <hr />
-    <p style="text-align:center;">&copy; 2025 ธรรมสุตตะ</p>
+    <p style="text-align:center;">๒๕๖๑ ธรรมสุตตะ</p>
   </footer>
 
 </body>
