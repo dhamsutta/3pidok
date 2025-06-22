@@ -44,26 +44,31 @@
 
 
   
-
-  <!-- เพิ่ม CSS ควบคุมเมนูเปิด/ปิด -->
   <style>
-    .sidebar-menu {
+  
+  #menu.hidden {
       display: none;
+    }
+
+    #menu {
       position: absolute;
-      top: 60px;
+      top: 50px;
       left: 10px;
-      background-color: #eee;
+      background: #eee;
       padding: 10px;
-      z-index: 999;
-      width: 220px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border: 1px solid #ccc;
+      width: 200px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.2);
     }
 
-    .sidebar-menu.open {
+    #menu a {
       display: block;
+      margin: 5px 0;
+      text-decoration: none;
+      color: #333;
     }
 
-    .hamburger-icon {
+    #menu-toggle {
       font-size: 24px;
       padding: 10px;
       background-color: #007BFF;
@@ -72,17 +77,13 @@
       cursor: pointer;
       margin: 10px;
     }
-
-    .hamburger-icon .bar {
-      display: block;
-      width: 25px;
-      height: 3px;
-      background-color: white;
-      margin: 4px 0;
-    }
   </style>
   
- 
+  
+  
+
+
+
 
   
   
