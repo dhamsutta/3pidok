@@ -1,44 +1,88 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ค้นหา | ธรรมสุตตะ</title>
-  <meta name="description" content="ค้นหาเนื้อหาธรรมะภายในเว็บไซต์ธรรมสุตตะ" />
-  <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
-
-  <link rel="stylesheet" href="/assets/css/style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ธรรมสุตตะ | เปลี่ยน.....</title>
+    <meta name="description" content="เปลี่ยน......" />
+  <meta name="keywords" content="เปลี่ยน...... />
+  <meta name="author" content="ธรรมสุตตะ" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="140x140">
+    <link rel="stylesheet" href="/assets/css/style.css" /> <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-.marquee {
-  width: 100%;
-  overflow: hidden;
-  white-space: nowrap;
+.page-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 10px;
   box-sizing: border-box;
 }
-
-.marquee p {
-  display: inline-block;
-  padding-left: 100%;
-  animation: marquee 10s linear infinite;
-}
-
-@keyframes marquee {
-  0%   { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-}
 </style>
-
-
-
-
-
-
-</head>
+  
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "headline": "เปลี่ยนตามชื่อเรื่อง....",
+  "description": "ศึกษาพระวินัยตามพระไตรปิฎก ซึ่งเป็นหมวดหนึ่งในพระไตรปิฎกว่าด้วยข้อ........",
+  "url": "https://dhamma-sutta.com/posts/.......html",
+  "author": {
+    "@type": "Organization",
+    "name": "dhamma-sutta.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "dhamma-sutta.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dhamma-sutta.com/assets/images/logo.png"
+    }
+  },
+  "mainEntityOfPage": "https://dhamma-sutta.com/posts/........html"
+}
+</script>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    </head>
 <body>
+ <div class="page-wrapper">
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+                <span class="site-title">ธรรมสุตตะ</span>
+            </a>
+            <nav class="navbar" id="desktopNavbar">
+                <a href="/">หน้าแรก</a>
+                <a href=" /pages/vinaya.html">พระวินัย</a>
+                <a href=" /pages/sutta.html">พระสูตร</a>
+                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
+                <a href=" /pages/katha.html">อรรถกถา</a>
+                <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
+                </nav>
+            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
 
-  <header>    
-
-  </header>
+   <nav class="sidebar-menu" id="sidebarMenu">
+        <a href="/">🏠หน้าแรก</a>
+        <a href="/pages/vinaya.html">🔹พระวินัย</a>
+        <a href="/pages/sutta.html">🔹พระสูตร</a>
+        <a href="/pages/abhidhamma.html">🔹พระอภิธรรม</a>
+        <a href="/pages/katha.html">🔹อรรถกถา</a>
+        <a href="/pages/pakinnaka.html">🔹ปกิณกะ</a>
+      
    <main>
   <!-- วางโค้ด Google Search -->
      <h3>🔍 ค้นหาตามหัวข้อ</h3>
@@ -50,18 +94,18 @@
      <hr>
 <h3>💡ค้นหาอภิธานศัพท์</h3>
 <input type="text" id="paliInput" placeholder="คำแปลและความหมาย..." />
-     
+
 รวบรวมจาก: พจนานุกรมพุทธศาสตร์ <span style="color: #990000;">สมเด็จพระพุทธโฆษาจารย์ (ป.อ. ปยุตฺโต),</span>
 <a href="https://84000.org">84000.org,</a> <a href="https://etipitaka.com/">โปรแกรม E-Tipitaka (Open source)</a>, และตำราอื่นๆ<br>
-            
+
             <div id="paliResult"></div>
         </section>
 
 
-     
-     
-     
-     
+
+
+
+
 </main>
 
 <style>
@@ -73,9 +117,80 @@
 </style>
 
   <footer>
-    <hr />
-    <p style="text-align:center;">๒๕๖๑ ธรรมสุตตะ</p>
-  </footer>
+    
+    <script>
+        // Script สำหรับ Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContainer = document.querySelector('main.container');
+
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+
+        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
+        fetch('/assets/data/quotes.json')
+            .then(res => res.json())
+            .then(data => {
+                const quote = data[Math.floor(Math.random() * data.length)];
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
+                }
+            })
+            .catch(() => {
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
+                }
+            });
+
+        let paliDict = [];
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => { paliDict = data; })
+            .catch(() => {
+                const paliResult = document.getElementById('paliResult');
+                if(paliResult) {
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
+                }
+            });
+
+        const paliInput = document.getElementById('paliInput');
+        if (paliInput) {
+            paliInput.addEventListener('input', function () {
+                const input = this.value.trim().toLowerCase();
+                const resultBox = document.getElementById('paliResult');
+                if (!input) {
+                    resultBox.innerHTML = '';
+                    resultBox.style.display = 'none';
+                    return;
+                }
+                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = matches.length
+                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
+            });
+        }
+    </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("paliInput");
+  const section = document.querySelector(".dictionary-section");
+
+  if (input && section) {
+    input.addEventListener("input", function () {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+});
+</script>
 
 </body>
 </html>
