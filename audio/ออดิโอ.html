@@ -178,9 +178,30 @@
     
 <div class="main-content">
 <h3><span style="color: #783f04;">ตอนที่ ๒ อกิตติดาบส จริยาที่ ๑</span></h3><br>
-พระโพธิสัตว์เกิดเป็น อกิตติดาบส ผู้บำเพ็ญพรตอยู่ในป่าลึก แม้จะได้ผลไม้และข้าวของเล็กน้อยจากชาวบ้าน ท่านก็สละทุกอย่างให้ผู้มาขอโดยไม่ลังเล
-แม้พระอินทร์จะแปลงกายมาทดลองขอของหลายครั้ง ท่านก็มิได้หวงแหนหรือแสดงอาการเหนื่อยหน่ายใจของท่านเปี่ยมด้วยเมตตา และยินดีในทานไม่หวังสิ่งตอบแทนใด ๆ
-<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
+
+
+    
+<div id="dhamma-player" style="max-width: 420px; margin: auto; background: #fdfaf4; border: 1px solid #e6dac2; border-radius: 12px; padding: 16px; font-family: sans-serif; color: #5e4b2a; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <img id="cover" src="/assets/images/008.gif" alt="cover" style="width: 100%; border-radius: 8px; margin-bottom: 12px;">
+    <h3 id="title" style="margin-top: 0; font-size: 18px; text-align: center;"></h3>
+
+    <audio id="audio"></audio>
+
+    <div style="display: flex; justify-content: center; gap: 10px; margin: 10px 0;">
+        <button onclick="audio.play()" style="padding: 6px 14px; background: #d4b06a; border: none; border-radius: 5px; color: white;">▶️ เล่น</button>
+        <button onclick="audio.pause()" style="padding: 6px 14px; background: #a58e6c; border: none; border-radius: 5px; color: white;">⏸️ หยุด</button>
+        <button onclick="nextTrack()" style="padding: 6px 14px; background: #6c8e5f; border: none; border-radius: 5px; color: white;">➡️ ถัดไป</button>
+    </div>
+
+    <input type="range" id="progress" value="0" style="width: 100%;">
+    <div style="text-align: center; font-size: 14px; margin-top: 5px;">
+        <span id="current">00:00</span> / <span id="duration">00:00</span>
+    </div>
+</div>
+    
+    
+    
+    <br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
 <center><span style="color: green;">“แม้มีของเพียงน้อยนิด แต่ข้าก็ยินดีสละเพื่อประโยชน์ของผู้อื่น”</span></center><br>
                 <audio controls>
                     <source src="https://archive.org/download/jariya-7/Jariya2.mp3" type="audio/mpeg">
@@ -497,6 +518,69 @@ document.body.addEventListener('click', () => {
         return `${minutes}:${seconds}`;
     }
 </script>
+
+<script>
+const playlist = [
+    {
+        title: "พระสูตรที่ 1: จริยสูตร",
+        src: "https://archive.org/download/jariya-7/Jariya4.mp3",
+        cover: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Seated_Buddha_Ajang_Stephen.jpg/300px-Seated_Buddha_Ajang_Stephen.jpg"
+    },
+    {
+        title: "พระสูตรที่ 2: ธรรมจักรปวัตนสูตร",
+        src: "https://archive.org/download/jariya-7/Jariya2.mp3",
+        cover: "https://upload.wikimedia.org/wikipedia/commons/9/9e/Dharma_Wheel.svg"
+    }
+];
+
+let index = 0;
+const audio = document.getElementById('audio');
+const title = document.getElementById('title');
+const cover = document.getElementById('cover');
+const progress = document.getElementById('progress');
+const current = document.getElementById('current');
+const duration = document.getElementById('duration');
+
+function loadTrack(i) {
+    audio.src = playlist[i].src;
+    title.textContent = playlist[i].title;
+    cover.src = playlist[i].cover;
+    audio.load();
+}
+
+function nextTrack() {
+    index = (index + 1) % playlist.length;
+    loadTrack(index);
+    audio.play();
+}
+
+audio.addEventListener('loadedmetadata', () => {
+    progress.max = audio.duration;
+    duration.textContent = formatTime(audio.duration);
+});
+
+audio.addEventListener('timeupdate', () => {
+    progress.value = audio.currentTime;
+    current.textContent = formatTime(audio.currentTime);
+});
+
+progress.addEventListener('input', () => {
+    audio.currentTime = progress.value;
+});
+
+function formatTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = Math.floor(sec % 60).toString().padStart(2, '0');
+    return `${m}:${s}`;
+}
+
+// เริ่มต้น
+loadTrack(index);
+</script>
+
+
+
+     
 
 </body>
 </html>
