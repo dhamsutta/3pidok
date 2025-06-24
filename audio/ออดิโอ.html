@@ -136,7 +136,10 @@
 
 <main>
   
-    
+    <div style="max-width: 600px; margin: 30px auto; background: #fcf8ee; border: 1px solid #e8e0ce; padding: 16px; border-radius: 12px;">
+  <h3 style="text-align:center; color:#6b4c20;">📌 ฟังล่าสุด</h3>
+  <ul id="recent-list" style="list-style: none; padding-left: 1.2em; font-size: 15px; color: #3a3224;"></ul>
+</div>
  
     <h1>ทานบารมี</h1>
     <p><a href="/">หน้าแรก</a> > <a href="/audio/index.html">ธรรมบรรยาย</a> > <a href="/audio/jariya.html">จริยาปิฎก</a> > ทานบารมี</p>
@@ -327,179 +330,100 @@
  <br>ธรรมสุตตะ🔅
 </footer></center>
 
-    <script>
-        // Script สำหรับ Hamburger Menu
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const mainContainer = document.querySelector('main.container');
-
-        if (hamburgerIcon && sidebarMenu) {
-            hamburgerIcon.addEventListener('click', () => {
-                hamburgerIcon.classList.toggle('open');
-                sidebarMenu.classList.toggle('open');
-            });
-        }
-
-        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
-        fetch('/assets/data/quotes.json')
-            .then(res => res.json())
-            .then(data => {
-                const quote = data[Math.floor(Math.random() * data.length)];
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
-                }
-            })
-            .catch(() => {
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
-                }
-            });
-
-        let paliDict = [];
-        fetch('/assets/data/pali.json')
-            .then(res => res.json())
-            .then(data => { paliDict = data; })
-            .catch(() => {
-                const paliResult = document.getElementById('paliResult');
-                if(paliResult) {
-                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
-                }
-            });
-
-        const paliInput = document.getElementById('paliInput');
-        if (paliInput) {
-            paliInput.addEventListener('input', function () {
-                const input = this.value.trim().toLowerCase();
-                const resultBox = document.getElementById('paliResult');
-                if (!input) {
-                    resultBox.innerHTML = '';
-                    resultBox.style.display = 'none';
-                    return;
-                }
-                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = matches.length
-                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
-                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
-            });
-        }
-    </script>
-
-
-<script>
+   <script>
 document.addEventListener("DOMContentLoaded", function () {
-  const input = document.getElementById("paliInput");
-  const section = document.querySelector(".dictionary-section");
-
-  if (input && section) {
-    input.addEventListener("input", function () {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }
-});
-</script>
-
-<script>
-  const hamburgerIcon = document.getElementById('hamburgerIcon');
-  const sidebarMenu = document.getElementById('sidebarMenu');
-
-  if (hamburgerIcon && sidebarMenu) {
-    // เปิด/ปิดเมนูเมื่อกดปุ่ม 3 ขีด
-    hamburgerIcon.addEventListener('click', (e) => {
-      e.stopPropagation();
-      sidebarMenu.classList.toggle('open');
-    });
-
-    // กันไม่ให้คลิกภายในเมนูแล้วเมนูปิดตัวเอง
-    sidebarMenu.addEventListener('click', (e) => {
-      e.stopPropagation();
-    });
-
-    // คลิกที่อื่น ๆ บน body → ให้ปิดเมนู
-    document.body.addEventListener('click', () => {
-      sidebarMenu.classList.remove('open');
-    });
-  }
-</script>
-
-
-<script>
-
-document.body.addEventListener('click', () => {
-      menu.classList.add('hidden');
-    });
-  </script>
-
-<script>
-  // รอให้หน้าเว็บโหลดเสร็จก่อน
-  document.addEventListener('DOMContentLoaded', function() {
-    
-    // 1. เลือก Sidebar ของเรา
-    const sidebar = document.getElementById('sidebarMenu');
-
-    // 2. เลือกลิงก์ทั้งหมดที่อยู่ใน Sidebar
-    const sidebarLinks = document.querySelectorAll('#sidebarMenu a');
-
-    // 3. สร้างฟังก์ชันที่จะทำงานเมื่อมีการคลิก
-    function resetSidebarScroll() {
-      // คำสั่งสำคัญ: ตั้งค่าให้แถบเลื่อนของ sidebar กลับไปที่จุดบนสุด (0)
-      sidebar.scrollTop = 0;
-    }
-
-    // 4. สั่งให้ลิงก์ทุกตัวใน sidebar เรียกใช้ฟังก์ชันนี้เมื่อถูกคลิก
-    sidebarLinks.forEach(function(link) {
-      link.addEventListener('click', resetSidebarScroll);
-    });
-
-  });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const audios = document.querySelectorAll("audio");
-
-    audios.forEach(audio => {
-      audio.addEventListener("play", () => {
-        audios.forEach(otherAudio => {
-          if (otherAudio !== audio) {
-            otherAudio.pause();
-            otherAudio.currentTime = 0; // รีเซ็ตกลับไปต้น
-          }
-        });
+  const audios = document.querySelectorAll("audio");
+  audios.forEach(audio => {
+    audio.addEventListener("play", () => {
+      audios.forEach(other => {
+        if (other !== audio) {
+          other.pause();
+          other.currentTime = 0;
+        }
       });
+
+      // บันทึกไฟล์ที่เล่นล่าสุด
+      const src = audio.querySelector("source")?.src || audio.src;
+      const title = audio.closest(".main-content")?.querySelector("h3")?.innerText?.trim() || "ไม่ทราบชื่อ";
+      saveRecent(title, src);
     });
   });
-</script>
-<script>
-    const audio = document.getElementById('audioPlayer');
+
+  // สร้างแถบแสดงเวลาให้ player หลัก (id="audioPlayer")
+  const audio = document.getElementById('audioPlayer');
+  if (audio) {
     const progressBar = document.getElementById('progressBar');
     const currentTimeEl = document.getElementById('currentTime');
     const durationEl = document.getElementById('duration');
 
-    // แสดงเวลา
     audio.addEventListener('loadedmetadata', () => {
-        progressBar.max = audio.duration;
-        durationEl.textContent = formatTime(audio.duration);
+      progressBar.max = audio.duration;
+      durationEl.textContent = formatTime(audio.duration);
     });
 
-    // อัปเดต progress bar และเวลา
     audio.addEventListener('timeupdate', () => {
-        progressBar.value = audio.currentTime;
-        currentTimeEl.textContent = formatTime(audio.currentTime);
+      progressBar.value = audio.currentTime;
+      currentTimeEl.textContent = formatTime(audio.currentTime);
     });
 
-    // เลื่อน progress bar
     progressBar.addEventListener('input', () => {
-        audio.currentTime = progressBar.value;
+      audio.currentTime = progressBar.value;
     });
 
     function formatTime(sec) {
-        const minutes = Math.floor(sec / 60);
-        const seconds = Math.floor(sec % 60).toString().padStart(2, '0');
-        return `${minutes}:${seconds}`;
+      const m = Math.floor(sec / 60);
+      const s = Math.floor(sec % 60).toString().padStart(2, '0');
+      return `${m}:${s}`;
     }
+  }
+
+  // ระบบ Recent 3 รายการ
+  function saveRecent(title, src) {
+    const list = JSON.parse(localStorage.getItem("recentAudios") || "[]");
+    const filtered = list.filter(item => item.src !== src);
+    filtered.unshift({ title, src });
+    localStorage.setItem("recentAudios", JSON.stringify(filtered.slice(0, 3)));
+    renderRecent();
+  }
+
+  function renderRecent() {
+    const container = document.getElementById("recent-list");
+    if (!container) return;
+    const list = JSON.parse(localStorage.getItem("recentAudios") || "[]");
+    container.innerHTML = list.map(item =>
+      `<li><a href="#" onclick="playAudioNow('${item.src}', this)">${item.title}</a></li>`
+    ).join('');
+  }
+
+  window.playAudioNow = function(src, el) {
+    // หยุดทั้งหมด
+    document.querySelectorAll("audio").forEach(a => {
+      a.pause();
+      a.currentTime = 0;
+    });
+
+    // สร้าง audio ใหม่
+    const player = new Audio(src);
+    player.play();
+
+    // บันทึกการฟัง
+    saveRecent(el.textContent.trim(), src);
+  };
+
+  renderRecent();
+});
 </script>
+
+
+
+
+ </div>
+</body>
+</html>
+
+
+
+
 
 
 
