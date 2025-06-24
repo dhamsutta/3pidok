@@ -148,12 +148,18 @@
 พระองค์จึงทรงแสดง เรื่องราวการบำเพ็ญบารมีในชาติต่าง ๆ เพื่อให้เข้าใจว่า
 การตรัสรู้ไม่ใช่เรื่องบังเอิญ แต่เกิดจากความเพียรและความดีที่สั่งสมมาอย่างยาวนาน<br><br>
   
-  <div style="max-width: 350px; margin: auto; background: #f8f5f0; border: 1px solid #e0d8c3; border-radius: 12px; padding: 16px; font-family: sans-serif; color: #5e4b2a; box-shadow: 0 4px 8px rgba(0,0,0,0.05);">
-    <h3 style="margin-top: 0; font-size: 18px; text-align: center;">📖 ฟังธรรม</h3>
-    <audio id="player" src="https://archive.org/download/jariya-7/Jariya1.mp3"></audio>
-    <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
-        <button onclick="document.getElementById('player').play()" style="padding: 6px 14px; background: #d4b06a; border: none; border-radius: 5px; color: white;">▶️ เล่น</button>
-        <button onclick="document.getElementById('player').pause()" style="padding: 6px 14px; background: #a58e6c; border: none; border-radius: 5px; color: white;">⏸️ หยุด</button>
+ <div style="max-width: 400px; margin: auto; background: #fdfaf4; border: 1px solid #e6dac2; border-radius: 12px; padding: 16px; font-family: sans-serif; color: #5e4b2a; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+    <h3 style="text-align: center; margin-top: 0;">📖 ฟังธรรมะ</h3>
+    <audio id="audioPlayer" src="https://archive.org/download/jariya-7/Jariya1.mp3"></audio>
+
+    <div style="display: flex; justify-content: center; gap: 10px; margin: 10px 0;">
+        <button onclick="audio.play()" style="padding: 6px 14px; background: #d4b06a; border: none; border-radius: 5px; color: white;">▶️ เล่น</button>
+        <button onclick="audio.pause()" style="padding: 6px 14px; background: #a58e6c; border: none; border-radius: 5px; color: white;">⏸️ หยุด</button>
+    </div>
+
+    <input type="range" id="progressBar" value="0" style="width: 100%;" />
+    <div style="text-align: center; font-size: 14px; margin-top: 5px;">
+        <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
     </div>
 </div>
   
@@ -462,7 +468,35 @@ document.body.addEventListener('click', () => {
     });
   });
 </script>
+<script>
+    const audio = document.getElementById('audioPlayer');
+    const progressBar = document.getElementById('progressBar');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationEl = document.getElementById('duration');
 
+    // แสดงเวลา
+    audio.addEventListener('loadedmetadata', () => {
+        progressBar.max = audio.duration;
+        durationEl.textContent = formatTime(audio.duration);
+    });
+
+    // อัปเดต progress bar และเวลา
+    audio.addEventListener('timeupdate', () => {
+        progressBar.value = audio.currentTime;
+        currentTimeEl.textContent = formatTime(audio.currentTime);
+    });
+
+    // เลื่อน progress bar
+    progressBar.addEventListener('input', () => {
+        audio.currentTime = progressBar.value;
+    });
+
+    function formatTime(sec) {
+        const minutes = Math.floor(sec / 60);
+        const seconds = Math.floor(sec % 60).toString().padStart(2, '0');
+        return `${minutes}:${seconds}`;
+    }
+</script>
 
 </body>
 </html>
