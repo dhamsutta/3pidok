@@ -136,9 +136,9 @@
 
 <main>
   
-    <div style="max-width: 600px; margin: 30px auto; background: #fcf8ee; border: 1px solid #e8e0ce; padding: 16px; border-radius: 12px;">
+  <div style="max-width: 600px; margin: 30px auto; background: #fcf8ee; border: 1px solid #e8e0ce; padding: 16px; border-radius: 12px;">
   <h3 style="text-align:center; color:#6b4c20;">📌 ฟังล่าสุด</h3>
-  <ul id="recent-list" style="list-style: none; padding-left: 1.2em; font-size: 15px; color: #3a3224;"></ul>
+  <div id="recent-list"></div>
 </div>
  
     <h1>ทานบารมี</h1>
@@ -386,32 +386,81 @@ document.addEventListener("DOMContentLoaded", function () {
     renderRecent();
   }
 
-  function renderRecent() {
-    const container = document.getElementById("recent-list");
-    if (!container) return;
-    const list = JSON.parse(localStorage.getItem("recentAudios") || "[]");
-    container.innerHTML = list.map(item =>
-      `<li><a href="#" onclick="playAudioNow('${item.src}', this)">${item.title}</a></li>`
-    ).join('');
-  }
+  <script>
+function renderRecent() {
+  const container = document.getElementById("recent-list");
+  if (!container) return;
 
-  window.playAudioNow = function(src, el) {
-    // หยุดทั้งหมด
-    document.querySelectorAll("audio").forEach(a => {
-      a.pause();
-      a.currentTime = 0;
+  const list = JSON.parse(localStorage.getItem("recentAudios") || "[]");
+
+  container.innerHTML = "";
+
+  list.forEach((item, index) => {
+    const playerId = `recent-audio-${index}`;
+    const html = `
+      <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 8px; background: #fff;">
+        <b>${item.title}</b><br>
+        <audio id="${playerId}" src="${item.src}" preload="metadata" style="width: 100%; margin-top: 8px;"></audio>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">
+          <button onclick="togglePlay('${playerId}', this)" style="padding: 4px 10px; background: #d4b06a; border: none; color: white; border-radius: 4px;">▶️</button>
+          <span id="${playerId}-time" style="font-size: 13px;">00:00 / 00:00</span>
+        </div>
+        <input type="range" id="${playerId}-range" value="0" min="0" step="1" style="width: 100%; margin-top: 4px;" />
+      </div>
+    `;
+    container.insertAdjacentHTML("beforeend", html);
+
+    const audio = document.getElementById(playerId);
+    const range = document.getElementById(`${playerId}-range`);
+    const time = document.getElementById(`${playerId}-time`);
+
+    audio.addEventListener("loadedmetadata", () => {
+      range.max = Math.floor(audio.duration);
+      time.textContent = `00:00 / ${formatTime(audio.duration)}`;
     });
 
-    // สร้าง audio ใหม่
-    const player = new Audio(src);
-    player.play();
+    audio.addEventListener("timeupdate", () => {
+      range.value = audio.currentTime;
+      time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+    });
 
-    // บันทึกการฟัง
-    saveRecent(el.textContent.trim(), src);
-  };
+    range.addEventListener("input", () => {
+      audio.currentTime = range.value;
+    });
 
-  renderRecent();
-});
+    audio.addEventListener("ended", () => {
+      const btn = document.querySelector(`[onclick*="${playerId}"]`);
+      if (btn) btn.textContent = "▶️";
+    });
+  });
+}
+
+function togglePlay(id, btn) {
+  const audio = document.getElementById(id);
+  if (audio.paused) {
+    // หยุดตัวอื่น
+    document.querySelectorAll("audio").forEach(a => {
+      if (a !== audio) {
+        a.pause();
+        a.currentTime = 0;
+        const otherBtn = document.querySelector(`[onclick*="${a.id}"]`);
+        if (otherBtn) otherBtn.textContent = "▶️";
+      }
+    });
+
+    audio.play();
+    btn.textContent = "⏸️";
+  } else {
+    audio.pause();
+    btn.textContent = "▶️";
+  }
+}
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+}
 </script>
 
 
