@@ -333,6 +333,7 @@
    <script>
 document.addEventListener("DOMContentLoaded", function () {
   const audios = document.querySelectorAll("audio");
+
   audios.forEach(audio => {
     audio.addEventListener("play", () => {
       audios.forEach(other => {
@@ -341,6 +342,18 @@ document.addEventListener("DOMContentLoaded", function () {
           other.currentTime = 0;
         }
       });
+
+      // ✅ ดึงข้อมูลชื่อไฟล์จากบริบท (เช่น <h3>)
+      const src = audio.querySelector("source")?.src || audio.src;
+      const title = audio.closest(".main-content")?.querySelector("h3")?.innerText?.trim() || "ไม่ทราบชื่อ";
+
+      saveRecent(title, src);
+    });
+  });
+
+  renderRecent(); // แสดงรายการล่าสุดเมื่อโหลดหน้า
+});
+
 
       // บันทึกไฟล์ที่เล่นล่าสุด
       const src = audio.querySelector("source")?.src || audio.src;
