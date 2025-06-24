@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USA Backpacker | คู่มือตะลุยอเมริกาด้วยตัวเอง</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* --- CSS Reset & Basic Styles --- */
+        :root {
+            --primary-color: #D2691E; /* Chocolate - A warm, earthy color */
+            --secondary-color: #2F4F4F; /* Dark Slate Gray - For text */
+            --background-color: #F5F5DC; /* Beige - A light, paper-like background */
+            --light-gray: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Kanit', sans-serif;
+            background-color: var(--background-color);
+            color: var(--secondary-color);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- Header & Navigation --- */
+        header {
+            background-color: #fff;
+            padding: 1rem 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        .logo i {
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Hero Section (บทนำ) --- */
+        .hero {
+            height: 85vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1475518845976-0fd87b7e4e5d?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
+        }
+
+        .hero-content p {
+            font-family: 'Kanit', sans-serif;
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-family: 'Oswald', sans-serif;
+            font-size: 1.1rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #E57A2B;
+            transform: translateY(-3px);
+        }
+        
+        /* --- Info Section (ข้อมูลท่องเที่ยว) --- */
+        .info-section {
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        .section-subtitle {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            color: #555;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: left;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .card-content p {
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .card-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .card-content ul li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        .card-content ul li i {
+            position: absolute;
+            left: 0;
+            top: 5px;
+            color: var(--primary-color);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--background-color);
+            padding: 40px 0;
+            text-align: center;
+        }
+        .social-icons a {
+            color: var(--background-color);
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: var(--primary-color);
+        }
+        .footer p {
+            margin-top: 20px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* In a real site, this would become a hamburger menu */
+            }
+            .hero-content h1 {
+                font-size: 2.8rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .info-section {
+                padding: 50px 0;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <a href="#" class="logo"><i class="fa-solid fa-road-spikes"></i>USA BACKPACKER</a>
+            <ul class="nav-links">
+                <li><a href="#home">หน้าแรก</a></li>
+                <li><a href="#routes">เส้นทางแนะนำ</a></li>
+                <li><a href="#prepare">เตรียมตัวเดินทาง</a></li>
+                <li><a href="#blog">เรื่องเล่าจากเป้</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>ตะลุยอเมริกาด้วยตัวเอง</h1>
+                <p>
+                    ปลดล็อกจิตวิญญาณนักเดินทางในตัวคุณ! อเมริกาไม่ได้มีแค่ตึกระฟ้าและเมืองใหญ่ แต่ยังเต็มไปด้วยธรรมชาติสุดอลังการ วัฒนธรรมที่หลากหลาย และเส้นทาง Road Trip ในฝันที่รอให้คุณไปค้นพบ เว็บไซต์นี้คือเพื่อนร่วมทางและคู่มือสำหรับนักสะพายเป้ทุกคนที่พร้อมจะออกไปผจญภัยในดินแดนแห่งเสรีภาพ
+                </p>
+                <a href="#routes" class="cta-button">ค้นหาเส้นทางของคณ</a>
+            </div>
+        </section>
+
+        <section class="info-section" id="prepare">
+            <div class="container">
+                <h2 class="section-title">ข้อมูลท่องเที่ยวอเมริกาเบื้องต้น</h2>
+                <p class="section-subtitle">
+                    วางแผนให้พร้อมก่อนออกเดินทาง คือหัวใจสำคัญของการท่องเที่ยวแบบแบ็คแพ็คเกอร์ นี่คือสิ่งที่คุณต้องรู้เพื่อเริ่มต้นการผจญภัย!
+                </p>
+                
+                <div class="card-container">
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1558486012-817176f84c6d?q=80&w=1934&auto=format&fit=crop" alt="U.S. Passport and Visa">
+                        <div class="card-content">
+                            <h3><i class="fa-solid fa-passport"></i> วีซ่าและการเข้าเมือง</h3>
+                            <p>สิ่งแรกที่ต้องมี! <h1>สำหรับคนตัวใหญ้</h1> ต้องขอวีซ่าท่องเที่ยวประเภท B1/B2 ควรเตรียมเอกสารและยื่นขอล่วงหน้าอย่างน้อย 2-3 เดือน</p>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> ศึกษาข้อมูลจากเว็บไซต์สถานทูต</li>
+                                <li><i class="fa-solid fa-check"></i> เตรียมแผนการเดินทางคร่าวๆ</li>
+                                <li><i class="fa-solid fa-check"></i> เตรียมเอกสารการเงินและการงาน</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1932&auto=format&fit=crop" alt="Greyhound bus on a highway">
+                        <div class="card-content">
+                            <h3><i class="fa-solid fa-bus-simple"></i> การเดินทางสุดประหยัด</h3>
+                            <p>อเมริกาใหญ่มาก การเดินทางข้ามเมืองมีหลายวิธีที่เหมาะกับชาวเป้ ช่วยให้คุณประหยัดงบและได้เห็นวิวข้างทาง</p>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> <strong>รถบัส:</strong> Greyhound, Megabus</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>รถไฟ:</strong> Amtrak สำหรับชมวิวสวยๆ</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>เครื่องบิน:</strong> Low-cost airlines สำหรับข้ามรัฐไกลๆ</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop" alt="A cozy hostel bunk bed">
+                        <div class="card-content">
+                            <h3><i class="fa-solid fa-bed"></i> ที่พักสำหรับชาวเป้</h3>
+                            <p>ที่พักไม่จำเป็นต้องแพงเสมอไป มีตัวเลือกมากมายที่ทำให้คุณได้พบปะเพื่อนใหม่และประหยัดเงินในกระเป๋า</p>
+                            <ul>
+                                <li><i class="fa-solid fa-check"></i> <strong>Hostels:</strong> ตัวเลือกยอดฮิตในเมืองใหญ่</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>Camping:</strong> สำหรับสายธรรมชาติในอุทยาน</li>
+                                <li><i class="fa-solid fa-check"></i> <strong>Airbnb:</strong> หาห้องพักส่วนตัวราคาดี</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        </main>
+
+    <footer>
+        <div class="container">
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+            <p>&copy; 2025 USA Backpacker | สร้างสรรค์เพื่อนักเดินทางชาวไทย</p>
+        </div>
+    </footer>
+
+</body>
+</html>
