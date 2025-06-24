@@ -5,13 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ธรรมะบรรยาย | พระอาจารย์สมบัติ นันทิโก</title>
     <meta name="description" content="บรรยายธรรมโดย พระอาจารย์สมบัติ นันทิโก">
-  <meta name="keywords" content="พระอาจารย์สมบัติ นันทิโก, ธรรมะ, ธรรมะออนไลน์, เทศน์ธรรม, บรรยายธรรมตามพระไตรปิฎก, 
-แนวทางการปฏิบัติธรรม, ธรรมะตามพระพุทธพจน์, สมาธิ, วิปัสสนา, กรรมฐาน, ธรรมเทศนา, 
-ฟังธรรม, แสดงธรรม, ธรรมะสายปฏิบัติ, ธรรมะลึกซึ้ง, สติปัฏฐาน, เจริญสติ, เส้นทางธรรม">
-  <meta name="author" content="พระอาจารย์สมบัติ นันทิโก" />
+    <meta name="keywords" content="พระอาจารย์สมบัติ นันทิโก, ธรรมะ, ธรรมะออนไลน์, เทศน์ธรรม, บรรยายธรรมตามพระไตรปิฎก, แนวทางการปฏิบัติธรรม, ธรรมะตามพระพุทธพจน์, สมาธิ, วิปัสสนา, กรรมฐาน, ธรรมเทศนา, ฟังธรรม, แสดงธรรม, ธรรมะสายปฏิบัติ, ธรรมะลึกซึ้ง, สติปัฏฐาน, เจริญสติ, เส้นทางธรรม">
+    <meta name="author" content="พระอาจารย์สมบัติ นันทิโก" />
 
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="140x140">
-    <link rel="stylesheet" href="/assets/css/style.css" /> <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 .page-wrapper {
   max-width: 750px;
@@ -19,8 +18,35 @@
   padding: 10px;
   box-sizing: border-box;
 }
+#menu.hidden {
+    display: none;
+}
+#menu {
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    background: #eee;
+    padding: 10px;
+    border: 1px solid #ccc;
+    width: 200px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+}
+#menu a {
+    display: block;
+    margin: 5px 0;
+    text-decoration: none;
+    color: #333;
+}
+#menu-toggle {
+    font-size: 24px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
 </style>
-  
   
   <script type="application/ld+json">
 {
@@ -44,55 +70,9 @@
   "mainEntityOfPage": "https://dhamma-sutta.com/audio/จริยาปิฎก.html"
 }
 </script>
-
-
-  
-  <style>
-  
-  #menu.hidden {
-      display: none;
-    }
-
-    #menu {
-      position: absolute;
-      top: 50px;
-      left: 10px;
-      background: #eee;
-      padding: 10px;
-      border: 1px solid #ccc;
-      width: 200px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.2);
-    }
-
-    #menu a {
-      display: block;
-      margin: 5px 0;
-      text-decoration: none;
-      color: #333;
-    }
-
-    #menu-toggle {
-      font-size: 24px;
-      padding: 10px;
-      background-color: #007BFF;
-      color: white;
-      border: none;
-      cursor: pointer;
-      margin: 10px;
-    }
-  </style>
-  
-  
-  
-
-
-
-
-  
-  
-    </head>
+</head>
 <body>
- <div class="page-wrapper">
+<div class="page-wrapper">
     <header class="site-header">
         <div class="header-container">
             <a href="/" class="logo-link">
@@ -106,7 +86,7 @@
                 <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
                 <a href=" /pages/katha.html">อรรถกถา</a>
                 <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
-                </nav>
+            </nav>
             <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -115,7 +95,7 @@
         </div>
     </header>
 
-   <nav class="sidebar-menu" id="sidebarMenu">
+    <nav class="sidebar-menu" id="sidebarMenu">
         <a href="/">🏠หน้าแรก</a>
         <a href="/pages/vinaya.html">🔹พระวินัย</a>
         <a href="/pages/sutta.html">🔹พระสูตร</a>
@@ -129,10 +109,7 @@
 <input type="text" id="paliInput" placeholder="ค้นหาความหมาย..." />
             <div id="paliResult"></div>
 </section>
-
-
     </nav>
-
 
 <main>
   
@@ -140,7 +117,7 @@
   <h3 style="text-align:center; color:#6b4c20;">📌 ฟังล่าสุด</h3>
   <div id="recent-list"></div>
 </div>
- 
+  
     <h1>ทานบารมี</h1>
     <p><a href="/">หน้าแรก</a> > <a href="/audio/index.html">ธรรมบรรยาย</a> > <a href="/audio/jariya.html">จริยาปิฎก</a> > ทานบารมี</p>
 <hr style="border: 1px solid #e6e6e6;"> 
@@ -151,13 +128,13 @@
 พระองค์จึงทรงแสดง เรื่องราวการบำเพ็ญบารมีในชาติต่าง ๆ เพื่อให้เข้าใจว่า
 การตรัสรู้ไม่ใช่เรื่องบังเอิญ แต่เกิดจากความเพียรและความดีที่สั่งสมมาอย่างยาวนาน<br><br>
   
- <div style="max-width: 400px; margin: auto; background: #fdfaf4; border: 1px solid #e6dac2; border-radius: 12px; padding: 16px; font-family: sans-serif; color: #5e4b2a; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
+  <div style="max-width: 400px; margin: auto; background: #fdfaf4; border: 1px solid #e6dac2; border-radius: 12px; padding: 16px; font-family: sans-serif; color: #5e4b2a; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
     <h3 style="text-align: center; margin-top: 0;">📖 ฟังธรรมะ</h3>
     <audio id="audioPlayer" src="https://archive.org/download/jariya-7/Jariya1.mp3"></audio>
 
     <div style="display: flex; justify-content: center; gap: 10px; margin: 10px 0;">
-        <button onclick="audio.play()" style="padding: 6px 14px; background: #d4b06a; border: none; border-radius: 5px; color: white;">▶️ เล่น</button>
-        <button onclick="audio.pause()" style="padding: 6px 14px; background: #a58e6c; border: none; border-radius: 5px; color: white;">⏸️ หยุด</button>
+        <button onclick="document.getElementById('audioPlayer').play()" style="padding: 6px 14px; background: #d4b06a; border: none; border-radius: 5px; color: white;">▶️ เล่น</button>
+        <button onclick="document.getElementById('audioPlayer').pause()" style="padding: 6px 14px; background: #a58e6c; border: none; border-radius: 5px; color: white;">⏸️ หยุด</button>
     </div>
 
     <input type="range" id="progressBar" value="0" style="width: 100%;" />
@@ -166,32 +143,18 @@
     </div>
 </div>
   
-  
-  
-  
-  
-  <audio controls>
-                    <source src="https://archive.org/download/jariya-7/Jariya1.mp3" type="audio/mpeg">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                </audio>
-    
     <img src="/assets/images/009.jpg" alt="คำอธิบาย" style="float: center; width: 450px; margin-left:;">
-           
+            
 </div>
     
 <div class="main-content">
 <h3><span style="color: #783f04;">ตอนที่ ๒ อกิตติดาบส จริยาที่ ๑</span></h3><br>
-
-
-    
-    
-    
-    <br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
+<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
 <center><span style="color: green;">“แม้มีของเพียงน้อยนิด แต่ข้าก็ยินดีสละเพื่อประโยชน์ของผู้อื่น”</span></center><br>
-                <audio controls>
-                    <source src="https://archive.org/download/jariya-7/Jariya2.mp3" type="audio/mpeg">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                </audio>
+                      <audio controls>
+                          <source src="https://archive.org/download/jariya-7/Jariya2.mp3" type="audio/mpeg">
+                          เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                      </audio>
 </div>
 
 
@@ -200,12 +163,12 @@
 พระโพธิสัตว์บังเกิดเป็น สังขพราหมณ์ ผู้มีศีล มีธรรม และดำรงอยู่ในเพศบรรพชิต ท่านมีทรัพย์จำนวนมาก
 เมื่อมีคนยากไร้มาขอสิ่งของ ท่านก็สละสมบัติเหล่านั้นทั้งหมด ให้โดยไม่หวงแหน แม้ญาติหรือภรรยาจะคัดค้านก็ไม่หวั่นไหว
 พระโพธิสัตว์ยืนยันว่าทรัพย์ที่สะสมมาย่อมมีค่าเมื่อได้ให้แก่ผู้อื่น<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">"ทรัพย์ที่เราได้มาด้วยธรรม ควรใช้ให้เป็นประโยชน์แก่ผู้ตกทุกข์ได้ยาก 
+<center><span style="color: green;">"ทรัพย์ที่เราได้มาด้วยธรรม ควรใช้ให้เป็นประโยชน์แก่ผู้ตกทุกข์ได้ยาก  
     มิใช่ยึดไว้ด้วยความตระหนี่"</span></center><br>
-                <audio controls>
-                    <source src="https://archive.org/download/jariya-7/Jariya3.mp3" type="audio/mpeg">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                </audio>
+                      <audio controls>
+                          <source src="https://archive.org/download/jariya-7/Jariya3.mp3" type="audio/mpeg">
+                          เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                      </audio>
 </div>
 
 
@@ -214,7 +177,7 @@
 พระโพธิสัตว์ได้บังเกิดเป็น พระเจ้าธนญชัย (ธนญชัยราชา) กษัตริย์ผู้มีธรรมปกครองบ้านเมืองด้วยความยุติธรรมและมีจิตใจเปี่ยมด้วยเมตตา 
 พระองค์ทรงสละ ราชทรัพย์อย่างมากมายเป็นทาน แม้จะถึงกับต้อง ขายเครื่องประดับของพระองค์เองและของพระมเหสี
 ก็ยังไม่ยึดติด<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">“เมื่อใดที่เห็นผู้ตกทุกข์ได้ยาก ขอให้ใจเรากระตือรือร้นต่อทานทันที”</span></center></b><hr>
+<center><span style="color: green;">“เมื่อใดที่เห็นผู้ตกทุกข์ได้ยาก ขอให้ใจเรากระตือรือร้นต่อทานทันที”</span></center><hr>
 พระโพธิสัตว์เกิดเป็นกษัตริย์ชื่อว่า พระมหาสุทัศนา ปกครองนครชื่อว่า อัมพติฏฐนคร
 พระองค์ทรงครองราชย์ด้วยธรรมและความยุติธรรม มีจิตใจเปี่ยมด้วยเมตตาและทานบารมี
 
@@ -223,18 +186,10 @@
 แล้วออกบวชเป็นฤๅษี บำเพ็ญพรตอยู่ในป่าด้วยความเงียบสงบ<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
 <center><span style="color: green;">"อำนาจและทรัพย์สินแม้ยิ่งใหญ่เพียงใด ก็ไม่เท่าการพ้นจากกิเลส"</span></center><br>
 <audio controls>
-                    <source src="https://archive.org/download/jariya-7/Jariya4.mp3" type="audio/mpeg">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                </audio>
+                        <source src="https://archive.org/download/jariya-7/Jariya4.mp3" type="audio/mpeg">
+                        เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                      </audio>
 </div>
-
-
-
-
-
-
-
-    
 
 <div class="main-content">
 <h3><span style="color: #783f04;">ตอนที่ ๕ จริยาที่ ๕ มหาโควินทพราหมณ์ และ จริยาที่ ๖ พระเจ้าเนมิราช</span></h3><br>
@@ -246,7 +201,7 @@
 ท่านจึง สละทรัพย์ทั้งหมด แล้วออกบวชเป็นดาบสบำเพ็ญพรตในป่า<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
 <center><span style="color: green;">“ผู้มีปัญญาควรสละเพื่อแสวงหาสิ่งที่ประเสริฐกว่า”</span></center>
 
-</b><hr>
+<hr>
 พระโพธิสัตว์บังเกิดเป็นกษัตริย์พระนามว่า พระเจ้าเนมิราช
 ทรงปกครองโดยธรรม มีจิตใจเปี่ยมด้วยเมตตา ไม่ยึดมั่นในทรัพย์สมบัติหรืออำนาจ
 
@@ -255,9 +210,9 @@
 <center><span style="color: green;">“ข้าพเจ้ายินดีให้ มิใช่เพราะถูกขอ แต่เพราะความเมตตา”</span></center>
 <br>
 <audio controls>
-                    <source src="https://archive.org/download/jariya-7/Jariya5.mp3" type="audio/mpeg">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                </audio>
+                        <source src="https://archive.org/download/jariya-7/Jariya5.mp3" type="audio/mpeg">
+                        เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                      </audio>
 </div>
 
 <div class="main-content">
@@ -270,7 +225,7 @@
 ทรงมอบ เครื่องประดับที่สวมอยู่และเสื้อผ้า ของพระองค์ให้โดยเต็มใจ<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
 <center><span style="color: green;">“ข้าพเจ้าสละทรัพย์ที่ตนพอมี เพื่อช่วยเหลือผู้อื่น แม้ไม่มาก ก็ให้ด้วยความจริงใจ”</span></center>
 
-</b><hr>
+<hr>
 พระโพธิสัตว์บังเกิดเป็นกษัตริย์พระนามว่า พระเจ้าสิวิราช
 ทรงเปี่ยมด้วยเมตตาและบำเพ็ญทานบารมีอย่างสูงสุด
 
@@ -280,9 +235,9 @@
 <center><span style="color: green;">“แม้ดวงตาอันเป็นของรัก ข้าก็ยินดีสละ เพื่อให้ผู้อื่นพ้นทุกข์”</span></center>
 <br>
 <audio controls>
-                    <source src="https://archive.org/download/jariya-7/Jariya6.mp3" type="audio/mpeg">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                </audio>
+                        <source src="https://archive.org/download/jariya-7/Jariya6.mp3" type="audio/mpeg">
+                        เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                      </audio>
 </div>
 
 
@@ -293,130 +248,113 @@
 ก็ยังยินดีให้เมื่อมีผู้มาขอ → ชาวเมืองไม่พอใจและขับไล่พระองค์ออกจากเมืองไปอยู่ป่า แต่แม้ในป่า ก็ยังมีพราหมณ์ชื่อชูชกมาขอลูก
 ทั้งสองของพระองค์ไปเป็นทาส พระเวสสันดรก็ยังยินดีบริจาคบุตรทั้งสอง เพื่อรักษาความตั้งมั่นในทานบารมี<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
 <center><span style="color: green;">"แม้สิ่งที่รักยิ่งอย่างลูก ก็ไม่อาจรั้งไว้เมื่อมีผู้ขอ"</span></center><br>
-                <audio controls>
-                    <source src="https://archive.org/download/jariya-7/Jariya7.mp3" type="audio/mpeg">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                </audio>
+                      <audio controls>
+                          <source src="https://archive.org/download/jariya-7/Jariya7.mp3" type="audio/mpeg">
+                          เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                      </audio>
 </div>
 
 <div class="main-content">
 <h3><span style="color: #783f04;">ตอนที่ ๘ สสบัณฑิต จริยาที่ ๑๐ และ บทสรุป</span></h3><br>
 พระโพธิสัตว์ได้บังเกิดเป็นพญากระต่ายชื่อว่า สสบัณฑิต อาศัยอยู่ในป่ากับเพื่อสัตว์สหายอีก ๓ ตัว ต่างได้ตั้งสัจจะอธิษฐานกันว่าจะให้อาหารเป็นทานในวันอุโบสถ แต่พญากระต่ายโพธิสัตว์ไม่มีอาหาร จึงได้คิดจะมอบร่างกายเนื้อหนังของตนนั้นแหล่ะเป็นทาน แก่ผู้ที่มาขอเพื่อเป็นการสร้างทานบารมีอันยิ่งใหญ่ <br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
 <center><span style="color: green;">“สิ่งใดเป็นประโยชน์แก่ผู้อื่น สิ่งนั้นควรให้”</span></center><br>
-
-
 <audio controls>
-                    <source src="https://archive.org/download/jariya-7/Jariya8.mp3" type="audio/mpeg">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                </audio>
+                        <source src="https://archive.org/download/jariya-7/Jariya8.mp3" type="audio/mpeg">
+                        เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
+                      </audio>
 </div>
+</main>
 
-
-  
-    </main>
-
-
-
-
-
-
-
-
-<!-- ย้ายข้อความออกมานอก grid -->
-
-
-   <center> <footer class="site-footer">
+<center> <footer class="site-footer">
 <i><a href="/">หน้าแรก</a> > <a href="/audio/index.html">ธรรมบรรยาย</a> > <a href="/audio/jariya.html">จริยาปิฎก</a> > <b>ทานบารมี</b></i>
  <br>ธรรมสุตตะ🔅
 </footer></center>
+</div>
 
-   <script>
+<script>
 document.addEventListener("DOMContentLoaded", function () {
-  const audios = document.querySelectorAll("audio");
+  const allAudios = document.querySelectorAll("audio");
 
-  audios.forEach(audio => {
-    audio.addEventListener("play", () => {
-      audios.forEach(other => {
-        if (other !== audio) {
-          other.pause();
-          other.currentTime = 0;
+  allAudios.forEach(audio => {
+    audio.addEventListener("play", (event) => {
+      // หยุดเสียงอื่นๆ ทั้งหมดเมื่อมีเสียงใหม่เริ่มเล่น
+      allAudios.forEach(otherAudio => {
+        if (otherAudio !== event.target) {
+          otherAudio.pause();
         }
       });
-
-      // ✅ ดึงข้อมูลชื่อไฟล์จากบริบท (เช่น <h3>)
-      const src = audio.querySelector("source")?.src || audio.src;
-      const title = audio.closest(".main-content")?.querySelector("h3")?.innerText?.trim() || "ไม่ทราบชื่อ";
-
-      saveRecent(title, src);
+      
+      // บันทึกรายการที่เล่นล่าสุด (ยกเว้นรายการในส่วน "ฟังล่าสุด")
+      const mainContent = audio.closest(".main-content");
+      if (mainContent) {
+          const title = mainContent.querySelector("h3")?.innerText?.trim() || "ไม่ทราบชื่อ";
+          const src = audio.querySelector("source")?.src || audio.src;
+          if (src) {
+            saveRecent(title, src);
+          }
+      }
     });
   });
 
-  renderRecent(); // แสดงรายการล่าสุดเมื่อโหลดหน้า
-});
-
-
-      // บันทึกไฟล์ที่เล่นล่าสุด
-      const src = audio.querySelector("source")?.src || audio.src;
-      const title = audio.closest(".main-content")?.querySelector("h3")?.innerText?.trim() || "ไม่ทราบชื่อ";
-      saveRecent(title, src);
-    });
-  });
-
-  // สร้างแถบแสดงเวลาให้ player หลัก (id="audioPlayer")
-  const audio = document.getElementById('audioPlayer');
-  if (audio) {
+  // สร้างแถบควบคุมสำหรับ Player หลัก
+  const mainAudioPlayer = document.getElementById('audioPlayer');
+  if (mainAudioPlayer) {
     const progressBar = document.getElementById('progressBar');
     const currentTimeEl = document.getElementById('currentTime');
     const durationEl = document.getElementById('duration');
 
-    audio.addEventListener('loadedmetadata', () => {
-      progressBar.max = audio.duration;
-      durationEl.textContent = formatTime(audio.duration);
+    mainAudioPlayer.addEventListener('loadedmetadata', () => {
+      progressBar.max = mainAudioPlayer.duration;
+      durationEl.textContent = formatTime(mainAudioPlayer.duration);
     });
 
-    audio.addEventListener('timeupdate', () => {
-      progressBar.value = audio.currentTime;
-      currentTimeEl.textContent = formatTime(audio.currentTime);
+    mainAudioPlayer.addEventListener('timeupdate', () => {
+      progressBar.value = mainAudioPlayer.currentTime;
+      currentTimeEl.textContent = formatTime(mainAudioPlayer.currentTime);
     });
 
     progressBar.addEventListener('input', () => {
-      audio.currentTime = progressBar.value;
+      mainAudioPlayer.currentTime = progressBar.value;
     });
-
-    function formatTime(sec) {
-      const m = Math.floor(sec / 60);
-      const s = Math.floor(sec % 60).toString().padStart(2, '0');
-      return `${m}:${s}`;
-    }
   }
+  
+  // แสดงรายการล่าสุดเมื่อโหลดหน้า
+  renderRecent();
+});
 
-  // ระบบ Recent 3 รายการ
-  function saveRecent(title, src) {
-    const list = JSON.parse(localStorage.getItem("recentAudios") || "[]");
-    const filtered = list.filter(item => item.src !== src);
-    filtered.unshift({ title, src });
-    localStorage.setItem("recentAudios", JSON.stringify(filtered.slice(0, 3)));
-    renderRecent();
-  }
+// ฟังก์ชันสำหรับระบบ "ฟังล่าสุด"
+function saveRecent(title, src) {
+  let list = JSON.parse(localStorage.getItem("recentAudios") || "[]");
+  // ลบรายการเก่าที่มี src เดียวกันออกก่อน
+  list = list.filter(item => item.src !== src);
+  // เพิ่มรายการใหม่เข้าไปข้างหน้า
+  list.unshift({ title, src });
+  // เก็บไว้แค่ 3 รายการล่าสุด
+  localStorage.setItem("recentAudios", JSON.stringify(list.slice(0, 3)));
+  renderRecent();
+}
 
-  <script>
 function renderRecent() {
   const container = document.getElementById("recent-list");
   if (!container) return;
 
   const list = JSON.parse(localStorage.getItem("recentAudios") || "[]");
+  container.innerHTML = ""; // เคลียร์รายการเก่า
 
-  container.innerHTML = "";
+  if (list.length === 0) {
+      container.innerHTML = '<p style="text-align:center; color:#888;">ยังไม่มีรายการที่ฟังล่าสุด</p>';
+      return;
+  }
 
   list.forEach((item, index) => {
     const playerId = `recent-audio-${index}`;
     const html = `
       <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 8px; background: #fff;">
         <b>${item.title}</b><br>
-        <audio id="${playerId}" src="${item.src}" preload="metadata" style="width: 100%; margin-top: 8px;"></audio>
+        <audio id="${playerId}" src="${item.src}" preload="metadata" style="display:none;"></audio>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">
-          <button onclick="togglePlay('${playerId}', this)" style="padding: 4px 10px; background: #d4b06a; border: none; color: white; border-radius: 4px;">▶️</button>
-          <span id="${playerId}-time" style="font-size: 13px;">00:00 / 00:00</span>
+          <button onclick="togglePlay('${playerId}', this)" style="padding: 4px 10px; background: #d4b06a; border: none; color: white; border-radius: 4px; width: 40px;">▶️</button>
+          <span id="${playerId}-time" style="font-size: 13px; margin: 0 10px;">00:00 / 00:00</span>
         </div>
         <input type="range" id="${playerId}-range" value="0" min="0" step="1" style="width: 100%; margin-top: 4px;" />
       </div>
@@ -426,6 +364,7 @@ function renderRecent() {
     const audio = document.getElementById(playerId);
     const range = document.getElementById(`${playerId}-range`);
     const time = document.getElementById(`${playerId}-time`);
+    const btn = document.querySelector(`[onclick*="${playerId}"]`);
 
     audio.addEventListener("loadedmetadata", () => {
       range.max = Math.floor(audio.duration);
@@ -436,36 +375,41 @@ function renderRecent() {
       range.value = audio.currentTime;
       time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
     });
+    
+    audio.addEventListener('play', () => {
+      btn.textContent = "⏸️";
+    });
 
-    range.addEventListener("input", () => {
-      audio.currentTime = range.value;
+    audio.addEventListener('pause', () => {
+        btn.textContent = "▶️";
     });
 
     audio.addEventListener("ended", () => {
-      const btn = document.querySelector(`[onclick*="${playerId}"]`);
-      if (btn) btn.textContent = "▶️";
+      btn.textContent = "▶️";
+      range.value = 0;
+      audio.currentTime = 0;
+    });
+
+    range.addEventListener("input", () => {
+      audio.currentTime = range.value;
     });
   });
 }
 
 function togglePlay(id, btn) {
   const audio = document.getElementById(id);
+  if (!audio) return;
+  
   if (audio.paused) {
-    // หยุดตัวอื่น
+    // หยุดเสียงอื่นๆ ทั้งหมดก่อน
     document.querySelectorAll("audio").forEach(a => {
-      if (a !== audio) {
+      if (a.id !== id && !a.paused) {
         a.pause();
-        a.currentTime = 0;
-        const otherBtn = document.querySelector(`[onclick*="${a.id}"]`);
-        if (otherBtn) otherBtn.textContent = "▶️";
       }
     });
-
     audio.play();
-    btn.textContent = "⏸️";
   } else {
     audio.pause();
-    btn.textContent = "▶️";
   }
 }
 
@@ -475,23 +419,6 @@ function formatTime(sec) {
   return `${m}:${s}`;
 }
 </script>
-
-
-
-
- </div>
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-     
 
 </body>
 </html>
