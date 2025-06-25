@@ -1,336 +1,405 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USA Backpacker | คู่มือตะลุยอเมริกาด้วยตัวเอง</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;700&family=Oswald:wght@400;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ธรรมสุตตะ | ศึกษาพระธรรมตามพระไตรปิฎก</title>
+    <meta name="description" content="คลังธรรมะออนไลน์ พระไตรปิฎก วินัยสงฆ์ ธรรมบท พุทธวจนะ เรียบง่ายแต่ครบถ้วน" />
+    <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์" />
+    <meta name="author" content="ธรรมสุตตะ" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="/assets/css/style.css" /> <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <style>
-        /* --- CSS Reset & Basic Styles --- */
-        :root {
-            --primary-color: #D2691E; /* Chocolate - A warm, earthy color */
-            --secondary-color: #2F4F4F; /* Dark Slate Gray - For text */
-            --background-color: #F5F5DC; /* Beige - A light, paper-like background */
-            --light-gray: #e0e0e0;
-        }
+<style>
+  /* ชุดเครื่องเล่น mp3 */
+  .dhamma-player-container {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    padding: 20px;
+    font-family: 'Sarabun', sans-serif; /* Ensure Sarabun is loaded or use a fallback */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  /* Styling for the random poem section */
+  #random-poem-container {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #fff8e1; /* Light yellow background for poem */
+    border-left: 5px solid #6A8C69; /* Using the Dhamma tone keycolor */
+    border-radius: 4px;
+  }
 
-        body {
-            font-family: 'Kanit', sans-serif;
-            background-color: var(--background-color);
-            color: var(--secondary-color);
-            line-height: 1.7;
-        }
+  #random-poem {
+    color: #5D4037; /* Earthy brown text color */
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.7;
+  }
 
-        h1, h2, h3 {
-            font-family: 'Oswald', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
+  /* Styling for the controls section (dropdown and button) */
+  .controls-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Space between label, select, and button */
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
+  .controls-section label {
+    font-size: 18px;
+    color: #333;
+    margin-right: 5px; /* Space after label */
+  }
 
-        /* --- Header & Navigation --- */
-        header {
-            background-color: #fff;
-            padding: 1rem 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+  #dhamma-select {
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1; /* Allow dropdown to take available space */
+    min-width: 200px; /* Minimum width for dropdown */
+    background-color: #fff;
+  }
 
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+  .play-button {
+    background-color: #6A8C69; /* Using the Dhamma tone keycolor */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 3px;
+    cursor: pointer;
+    font-family: 'Sarabun', sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+  }
 
-        .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            text-decoration: none;
-        }
-        .logo i {
-            margin-right: 8px;
-        }
+  .play-button:hover {
+    background-color: #597758; /* Darker shade on hover */
+  }
 
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
+  /* Styling for the iframe section */
+  #dhamma-frame-container {
+    margin-top: 20px;
+  }
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            font-weight: 400;
-            transition: color 0.3s;
-        }
+  #dhamma-frame {
+    border: 1px solid #ddd; /* Add a subtle border to the iframe */
+    border-radius: 4px;
+    height: 800px;
+    width: 100%;
+    background-color: #fff; /* In case content doesn't load immediately */
+  }
 
-        .nav-links a:hover {
-            color: var(--primary-color);
-        }
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .controls-section {
+      flex-direction: column; /* Stack items vertically on small screens */
+      align-items: stretch; /* Make items take full width */
+    }
+    .controls-section label {
+      margin-bottom: 5px; /* Add some space below label when stacked */
+      margin-right: 0;
+    }
+    #dhamma-select {
+      width: 100%; /* Full width for select */
+      margin-bottom: 10px; /* Space below select when stacked */
+    }
+    .play-button {
+      width: 100%; /* Full width for button */
+    }
+  }
+  
+</style>
 
-        /* --- Hero Section (บทนำ) --- */
-        .hero {
-            height: 85vh;
-            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1475518845976-0fd87b7e4e5d?q=80&w=2070&auto=format&fit=crop');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            padding: 20px;
-        }
 
-        .hero-content h1 {
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-        }
 
-        .hero-content p {
-            font-family: 'Kanit', sans-serif;
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 2rem auto;
-            font-weight: 300;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-family: 'Oswald', sans-serif;
-            font-size: 1.1rem;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #E57A2B;
-            transform: translateY(-3px);
-        }
-        
-        /* --- Info Section (ข้อมูลท่องเที่ยว) --- */
-        .info-section {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--secondary-color);
-        }
-        .section-subtitle {
-            max-width: 600px;
-            margin: 0 auto 50px auto;
-            color: #555;
-        }
-
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            text-align: left;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card-content h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        .card-content p {
-            font-size: 0.95rem;
-            margin-bottom: 15px;
-        }
-        .card-content ul {
-            list-style: none;
-            padding-left: 0;
-        }
-        .card-content ul li {
-            margin-bottom: 8px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .card-content ul li i {
-            position: absolute;
-            left: 0;
-            top: 5px;
-            color: var(--primary-color);
-        }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--secondary-color);
-            color: var(--background-color);
-            padding: 40px 0;
-            text-align: center;
-        }
-        .social-icons a {
-            color: var(--background-color);
-            font-size: 1.5rem;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-        .social-icons a:hover {
-            color: var(--primary-color);
-        }
-        .footer p {
-            margin-top: 20px;
-            font-size: 0.9rem;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none; /* In a real site, this would become a hamburger menu */
-            }
-            .hero-content h1 {
-                font-size: 2.8rem;
-            }
-            .hero-content p {
-                font-size: 1rem;
-            }
-            .info-section {
-                padding: 50px 0;
-            }
-        }
-
-    </style>
-</head>
+    </head>
 <body>
 
-    <header>
-        <div class="container navbar">
-            <a href="#" class="logo"><i class="fa-solid fa-road-spikes"></i>USA BACKPACKER</a>
-            <ul class="nav-links">
-                <li><a href="#home">หน้าแรก</a></li>
-                <li><a href="#routes">เส้นทางแนะนำ</a></li>
-                <li><a href="#prepare">เตรียมตัวเดินทาง</a></li>
-                <li><a href="#blog">เรื่องเล่าจากเป้</a></li>
-            </ul>
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+                <span class="site-title">ธรรมสุตตะ</span>
+            </a>
+            <nav class="navbar" id="desktopNavbar">
+                <a href="/">หน้าแรก</a>
+                <a href=" /pages/vinaya.html">พระวินัย</a>
+                <a href=" /pages/sutta.html">พระสูตร</a>
+                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
+                <a href=" /pages/katha.html">อรรถกถา</a>
+                <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
+                </nav>
+            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
 
-    <main>
-        <section class="hero" id="home">
-            <div class="hero-content">
-                <h1>ตะลุยอเมริกาด้วยตัวเอง</h1>
-                <p>
-                    ปลดล็อกจิตวิญญาณนักเดินทางในตัวคุณ! อเมริกาไม่ได้มีแค่ตึกระฟ้าและเมืองใหญ่ แต่ยังเต็มไปด้วยธรรมชาติสุดอลังการ วัฒนธรรมที่หลากหลาย และเส้นทาง Road Trip ในฝันที่รอให้คุณไปค้นพบ เว็บไซต์นี้คือเพื่อนร่วมทางและคู่มือสำหรับนักสะพายเป้ทุกคนที่พร้อมจะออกไปผจญภัยในดินแดนแห่งเสรีภาพ
-                </p>
-                <a href="#routes" class="cta-button">ค้นหาเส้นทางของคณ</a>
-            </div>
+    <nav class="sidebar-menu" id="sidebarMenu">
+        <a href="/">🏠หน้าแรก</a>
+        <a href="/pages/vinaya.html">🔹พระวินัย</a>
+        <a href="/pages/sutta.html">🔹พระสูตร</a>
+        <a href="/pages/abhidhamma.html">🔹พระอภิธรรม</a>
+        <a href="/pages/katha.html">🔹อรรถกถา</a>
+        <a href="/pages/pakinnaka.html">🔹ปกิณกะ</a>
+        <a href="/search/index.html">🔍ค้นหาจากในเว็บ</a>
+    </nav>
+
+    <main class="container">
+        <section class="quote-box">
+       <h3><b>🔅พุทธพจน์วันนี้</h3></b>
+          <center>  <p id="random-quote">กำลังโหลด...</p></center>
         </section>
 
-        <section class="info-section" id="prepare">
-            <div class="container">
-                <h2 class="section-title">ข้อมูลท่องเที่ยวอเมริกาเบื้องต้น</h2>
-                <p class="section-subtitle">
-                    วางแผนให้พร้อมก่อนออกเดินทาง คือหัวใจสำคัญของการท่องเที่ยวแบบแบ็คแพ็คเกอร์ นี่คือสิ่งที่คุณต้องรู้เพื่อเริ่มต้นการผจญภัย!
-                </p>
-                
-                <div class="card-container">
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1558486012-817176f84c6d?q=80&w=1934&auto=format&fit=crop" alt="U.S. Passport and Visa">
-                        <div class="card-content">
-                            <h3><i class="fa-solid fa-passport"></i> วีซ่าและการเข้าเมือง</h3>
-                            <p>สิ่งแรกที่ต้องมี! <h1>สำหรับคนตัวใหญ้</h1> ต้องขอวีซ่าท่องเที่ยวประเภท B1/B2 ควรเตรียมเอกสารและยื่นขอล่วงหน้าอย่างน้อย 2-3 เดือน</p>
-                            <ul>
-                                <li><i class="fa-solid fa-check"></i> ศึกษาข้อมูลจากเว็บไซต์สถานทูต</li>
-                                <li><i class="fa-solid fa-check"></i> เตรียมแผนการเดินทางคร่าวๆ</li>
-                                <li><i class="fa-solid fa-check"></i> เตรียมเอกสารการเงินและการงาน</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=1932&auto=format&fit=crop" alt="Greyhound bus on a highway">
-                        <div class="card-content">
-                            <h3><i class="fa-solid fa-bus-simple"></i> การเดินทางสุดประหยัด</h3>
-                            <p>อเมริกาใหญ่มาก การเดินทางข้ามเมืองมีหลายวิธีที่เหมาะกับชาวเป้ ช่วยให้คุณประหยัดงบและได้เห็นวิวข้างทาง</p>
-                            <ul>
-                                <li><i class="fa-solid fa-check"></i> <strong>รถบัส:</strong> Greyhound, Megabus</li>
-                                <li><i class="fa-solid fa-check"></i> <strong>รถไฟ:</strong> Amtrak สำหรับชมวิวสวยๆ</li>
-                                <li><i class="fa-solid fa-check"></i> <strong>เครื่องบิน:</strong> Low-cost airlines สำหรับข้ามรัฐไกลๆ</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="card">
-                        <img src="https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=2070&auto=format&fit=crop" alt="A cozy hostel bunk bed">
-                        <div class="card-content">
-                            <h3><i class="fa-solid fa-bed"></i> ที่พักสำหรับชาวเป้</h3>
-                            <p>ที่พักไม่จำเป็นต้องแพงเสมอไป มีตัวเลือกมากมายที่ทำให้คุณได้พบปะเพื่อนใหม่และประหยัดเงินในกระเป๋า</p>
-                            <ul>
-                                <li><i class="fa-solid fa-check"></i> <strong>Hostels:</strong> ตัวเลือกยอดฮิตในเมืองใหญ่</li>
-                                <li><i class="fa-solid fa-check"></i> <strong>Camping:</strong> สำหรับสายธรรมชาติในอุทยาน</li>
-                                <li><i class="fa-solid fa-check"></i> <strong>Airbnb:</strong> หาห้องพักส่วนตัวราคาดี</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <section class="dictionary-section">
+<h3><b>💡อภิธานศัพท์</h3></b>
+รวบรวมจาก: พจนานุกรมพุทธศาสตร์ <span style="color: #990000;">สมเด็จพระพุทธโฆษาจารย์ (ป.อ. ปยุตฺโต),</span>
+<a href="https://84000.org">84000.org,</a> <a href="https://etipitaka.com/">โปรแกรม E-Tipitaka (Open source)</a>, และตำราอื่นๆ<br>
+            <input type="text" id="paliInput" placeholder="ค้นหาศัพท์ธรรมะ..." />
+            <div id="paliResult"></div>
         </section>
 
-        </main>
+        
 
-    <footer>
-        <div class="container">
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
-            </div>
-            <p>&copy; 2025 USA Backpacker | สร้างสรรค์เพื่อนักเดินทางชาวไทย</p>
+
+<center>
+<h3>📻 ฟังธรรมบรรยาย</h3><br>
+</center>
+<div class="controls-section">
+    <label for="dhamma-select">เลือกชุดธรรมะที่ต้องการฟัง:</label>
+    <select id="dhamma-select">
+      <option value="">-- กรุณาเลือก --</option>
+      <option value="/radio/buddhawong/w1-25.html">คัมภีร์พุทธวงศ์ พระพุทธเจ้า ๒๕ พระองค์</option>
+      <option value="/radio/jariya/tan.html">จริยาปิฎก > ทานบารมี</option>
+      <option value="/radio/jariya/sigkha.html">จริยาปิฎก > ศีลบารมี</option>
+      <option value="/radio/jariya/panya.html">จริยาปิฎก > เนกขัมมะบารมี</option>
+      <option value="/radio/jariya/pakinnaka.html">จริยาปิฎก > ปกิณณกกถา</option>
+      <option value="sombat.html">ชุด.....</option>
+    </select>
+    <button class="play-button" onclick="loadDhammaPage()">
+      ▶️ ไปฟังชุดที่เลือก
+    </button>
+  </div>
+
+  <div id="dhamma-frame-container">
+    <iframe id="dhamma-frame" src="" title="Dhamma Content"></iframe>
+  </div>
+-------------------------------------------------------------------------------
+<div class="content-grid">
+  <a href="#" class="grid-item">
+    <img src="/assets/images/buddha-icon.png" alt="พระวินัย">
+    <span style="color: #990000;">🎧 ชุดพระพุทธเจ้า</span>
+  </a>
+  <a href="/พระสูตร.html" class="grid-item">
+    <img src="/assets/images/dhammacakka-icon.png" alt="พระสูตร">
+    <span>🎧 ชุดพระสูตร</span>
+  </a>
+  <a href="/พระอภิธรรม.html" class="grid-item">
+    <img src="/assets/images/bell-icon.png" alt="พระอภิธรรม">
+    <span>🎧 ชุดพระปัญญา</span>
+  </a>
+  <a href="/อรรถกถา.html" class="grid-item">
+    <img src="/assets/images/bodhi-icon.png" alt="อรรถกถา">
+    <span>🎧 อรรถกถาและปกิณกะ</span>
+  </a>
+</div><center>
+<p>ขอกราบนอบน้อมแด่ <span style="color: #990000;">พระอาจารย์สมบัติ นันทิโก</span> ผู้ได้สาธยายธรรมอันไพเราะจับใจ
+และ
+  <a href="https://www.trisikkha.com">กลุ่มไตรสิกขา</a> ผู้มีเมตตารวบรวมคำสอนของพระอาจารย์มาแเผยแผ่
+</p></center>
+<!-- ย้ายข้อความออกมานอก grid -->
+<div class="main-content">
+
+  <p>
+    <a href="/audio/jariya.html">จริยาปิฏก</a>, พุทธวงศ์, บทสรรเสริญพระรัตนตรัย, พระพุทธเจ้าผู้ทรงคุณ,
+    พระรัตนตรัยอันทรงคุณ, พุทธคุณ, ท้าวสักกะสรรเสริญพุทธคุณ, พระมหากรุณาสมาบัติญาณ,
+    พุทธอุทาน, มหาปทานสูตร, มหาปรินิพพานสูตร, สู่แดนพุทธภูมิ, พระเวสสันดร
+  อลคัททูปมสูตร, ทสุตตรสูตร, มูลปริยายสูตร, สัพพาสวสังวรสูตร, ภยเภรวสูตร, มงคลสูตร, ธนิยสูตร
+  พระอภิธรรม, สติปัฏฐาน, กายานุปัสสนาฯ, เวทนานุปัสสนาฯ, จิตตานุปัสสนาฯ, ธัมมาฯ อายตนบรรพ, โพชฌงค์บรรพ
+  ปฏิสัมภิทามรรค, เนตติปกรณ์, มิลินทปัญหา, พระปัจเจกพุทธเจ้า, พรหมวิหาร, ไตรสรณคมน์
+  </p>
+</div>
+
+
+
+        
+        <div class="main-content">
+            <h2>ยินดีต้อนรับ</h2>
+            <p>เว็บไซต์ธรรมสุตตะเป็นแหล่งรวบรวมคำสอนในพระพุทธศาสนาจากพระไตรปิฎก เพื่อให้ผู้ที่สนใจได้ศึกษาค้นคว้าหลักธรรมคำสอนได้อย่างสะดวกและครบถ้วน</p>
+            <p>คุณสามารถเลือกศึกษาจากหมวดหมู่ต่างๆ เช่น พระวินัย พระสูตร พระอภิธรรม หรือค้นหาความหมายของศัพท์บาลีที่สนใจได้จากพจนานุกรม</p>
         </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>๒๕๖๑ - ปัจจุบัน, ธรรมสุตตะ</p>
+        <p class="warning-text">กราบขออภัยหากบางส่วนของเว็บไซต์ยังอยู่ในระหว่างการพัฒนาและปรับปรุง</p>
     </footer>
 
+    <script>
+        // Script สำหรับ Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContainer = document.querySelector('main.container');
+
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+        
+        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
+        fetch('/assets/data/quotes.json')
+            .then(res => res.json())
+            .then(data => {
+                const quote = data[Math.floor(Math.random() * data.length)];
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
+                }
+            })
+            .catch(() => {
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
+                }
+            });
+
+        let paliDict = [];
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => { paliDict = data; })
+            .catch(() => {
+                const paliResult = document.getElementById('paliResult');
+                if(paliResult) {
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
+                }
+            });
+
+        const paliInput = document.getElementById('paliInput');
+        if (paliInput) {
+            paliInput.addEventListener('input', function () {
+                const input = this.value.trim().toLowerCase();
+                const resultBox = document.getElementById('paliResult');
+                if (!input) {
+                    resultBox.innerHTML = '';
+                    resultBox.style.display = 'none';
+                    return;
+                }
+                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = matches.length
+                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
+            });
+        }
+    </script>
+
+      
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("paliInput");
+  const section = document.querySelector(".dictionary-section");
+
+  if (input && section) {
+    input.addEventListener("input", function () {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+});
+</script>
+
+
+
+<script>
+  // รอให้หน้าเว็บโหลดเสร็จก่อน
+  document.addEventListener('DOMContentLoaded', function() {
+    
+    // 1. เลือก Sidebar ของเรา
+    const sidebar = document.getElementById('sidebarMenu');
+
+    // 2. เลือกลิงก์ทั้งหมดที่อยู่ใน Sidebar
+    const sidebarLinks = document.querySelectorAll('#sidebarMenu a');
+
+    // 3. สร้างฟังก์ชันที่จะทำงานเมื่อมีการคลิก
+    function resetSidebarScroll() {
+      // คำสั่งสำคัญ: ตั้งค่าให้แถบเลื่อนของ sidebar กลับไปที่จุดบนสุด (0)
+      sidebar.scrollTop = 0;
+    }
+
+    // 4. สั่งให้ลิงก์ทุกตัวใน sidebar เรียกใช้ฟังก์ชันนี้เมื่อถูกคลิก
+    sidebarLinks.forEach(function(link) {
+      link.addEventListener('click', resetSidebarScroll);
+    });
+
+  });
+</script>
+
+
+    <script>
+  async function loadRandomPoem() {
+    try {
+      // Ensure this URL is correct and accessible (CORS policy)
+      const res = await fetch("https://dhammasutta.github.io/poem-box/poems.json");
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data = await res.json();
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const poem = data[randomIndex];
+
+      const div = document.getElementById("random-poem");
+      div.innerHTML = poem.replace(/\n/g, "<br>"); // Assuming poem is a string with \n for newlines
+    } catch (e) {
+      console.error("Error loading poem:", e);
+      document.getElementById("random-poem").innerHTML = "⚠️ โหลดกลอนไม่สำเร็จ";
+    }
+  }
+
+  function loadDhammaPage() {
+    const select = document.getElementById("dhamma-select");
+    const frame = document.getElementById("dhamma-frame");
+    const value = select.value;
+    if (value) {
+      frame.src = value;
+    } else {
+      // Optional: Clear iframe or show a message if no selection
+      // frame.src = 'about:blank';
+      // alert("กรุณาเลือกชุดธรรมะ");
+    }
+  }
+
+  // Load initial poem when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    loadRandomPoem();
+
+    // Note: The showLastTrack function from your original script is not called here
+    // as there is no element with id="last-track-text" in this revised HTML structure.
+    // If you want to display last track info, you'll need to add an element for it.
+    // For example:
+    // function showLastTrackDisplay() {
+    //   const lastTitle = localStorage.getItem("lastAudioTitle");
+    //   const displayElement = document.getElementById("your-last-track-display-element-id"); // Create this element
+    //   if (displayElement && lastTitle) {
+    //     displayElement.textContent = "ฟังครั้งล่าสุด: " + lastTitle;
+    //   }
+    // }
+    // showLastTrackDisplay();
+  });
+</script>
+
+    
 </body>
 </html>
