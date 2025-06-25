@@ -229,6 +229,11 @@
     <iframe id="dhamma-frame" src="" title="Dhamma Content"></iframe>
   </div>
 -------------------------------------------------------------------------------
+<div id="dhamma-list" style="max-width:800px; margin:auto;"></div>
+<button onclick="new Audio('${item.mp3}').play()">▶ เล่นเสียง</button>
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+        
 <div class="content-grid">
   <a href="#" class="grid-item">
     <img src="/assets/images/buddha-icon.png" alt="พระวินัย">
@@ -482,7 +487,32 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener('DOMContentLoaded', showRecentList);
 </script>
 
+<script>
+fetch('/data/dhamma.json')
+  .then(res => res.json())
+  .then(data => {
+    const container = document.getElementById('dhamma-list');
+    data.forEach(item => {
+      const div = document.createElement('div');
+      div.style = "background:#fff8e1; border:1px solid #e0cda0; padding:15px; margin-bottom:20px; border-radius:10px";
 
+      div.innerHTML = `
+        <h3 style="margin-top:0;">${item.title}</h3>
+        <p>${item.description}</p>
+        <audio controls style="width:100%;">
+          <source src="${item.mp3}" type="audio/mpeg">
+          เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+        </audio>
+      `;
+
+      container.appendChild(div);
+    });
+  })
+  .catch(err => {
+    document.getElementById('dhamma-list').innerHTML = "<p>เกิดข้อผิดพลาดในการโหลดข้อมูล.</p>";
+    console.error(err);
+  });
+</script>
 
     
     
