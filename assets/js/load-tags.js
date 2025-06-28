@@ -11,7 +11,7 @@ fetch('/assets/data/tags.json')
     } else {
       filtered.forEach(post => {
         const li = document.createElement('li');
-        const tagsHtml = post.tags.map(t => `<span class="tag">${t}</span>`).join(' ');
+        const tagsHtml = post.tags.map(t => `<a href="/tags/${encodeURIComponent(t)}.html" class="tag">${t}</a>`).join(' ');
         li.innerHTML = `
           <a href="${post.url}">${post.title}</a><br>
           <small>${post.description}</small><br>
