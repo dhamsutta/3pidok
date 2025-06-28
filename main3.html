@@ -34,13 +34,20 @@
             margin-top: 0;
             margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
         }
-        .hero-section .quote-box { /* สไตล์สำหรับ quote-box ภายใน hero-section */
-            background-color: rgba(255, 255, 255, 0.7); /* พื้นหลังโปร่งแสง */
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            margin-top: 20px; /* ระยะห่างจาก h3 */
-            max-width: 80%; /* จำกัดความกว้าง */
+       .hero-section .quote-box {
+   background-color: rgba(255, 255, 255, 0.7); /* พื้นหลังโปร่งแสง */
+   padding: 30px; /* ปรับ padding ตามต้องการ */
+   border-radius: 8px;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   margin-top: 20px; /* ระยะห่างจาก h3 (ถ้าต้องการ) */
+   width: 100%; /* ขยายเต็มความกว้าง */
+   height: 100%; /* ขยายเต็มความสูงของ hero */
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+}
         }
         .hero-section .quote-box h3 {
             color: #4CAF50; /* สีเขียว */
