@@ -266,6 +266,20 @@
 
   <div class="tag-section">
     <div class="tag-header">ป</div>
+ <ul id="tag-list">
+  <li>กำลังโหลด...</li>
+</ul>
+
+<script>
+const currentTag = "ปาราชิก"; // ระบุชื่อแท็กตามหน้านี้
+</script>
+<script src="/assets/js/load-tags.js"></script>
+  </div>
+
+
+
+
+    
     <ul class="tag-list">
       <li><a href="/tags/ปาราชิก.html">ปาราชิก</a></li>
       <li><a href="#"></a></li>
@@ -334,6 +348,16 @@
 
   <div class="tag-section">
     <div class="tag-header">ว</div>
+ <ul id="tag-list">
+  <li>กำลังโหลด...</li>
+</ul>
+
+<script>
+const currentTag = "วินัย"; // ระบุชื่อแท็กตามหน้านี้
+</script>
+<script src="/assets/js/load-tags.js"></script>
+
+
     <ul class="tag-list">
       <li><a href="/tags/วินัยสงฆ์.html">วินัยสงฆ์</a></li>
 
@@ -359,6 +383,14 @@
   <div class="tag-section">
     <div class="tag-header">ส</div>
     <ul class="tag-list">
+       <ul id="tag-list">
+  <li>กำลังโหลด...</li>
+</ul>
+
+<script>
+const currentTag = "สังฆาทิเสส"; // ระบุชื่อแท็กตามหน้านี้
+</script>
+<script src="/assets/js/load-tags.js"></script>
       <li><a href="/posts/สังฆาทิเสส.html">สังฆาทิเสส</a></li>
       <li><a href="#"></a></li>
      
@@ -381,6 +413,16 @@
 
   <div class="tag-section">
     <div class="tag-header">อ</div>
+<ul id="tag-list">
+  <li>กำลังโหลด...</li>
+</ul>
+
+<script>
+const currentTag = "อนิยต"; // ระบุชื่อแท็กตามหน้านี้
+</script>
+<script src="/assets/js/load-tags.js"></script>
+
+    
     <ul class="tag-list">
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
@@ -498,7 +540,7 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch('/assets/data/tags.json')
       .then(response => response.json())
       .then(data => {
-        const tagName = 'วินัย'; // ระบุแท็กของหน้านี้
+        const tagName = 'วินัย','ปาราชิก', 'สังฆาทิเสส', 'อนิยตะ' ' ; // ระบุแท็กของหน้านี้
         const list = document.getElementById('tag-list');
 
         // หากไม่มีข้อมูล ให้แสดงข้อความ
