@@ -368,12 +368,14 @@ footer .warning-text {
   display: inline-block;
   padding: 2px 8px;
   margin: 2px 4px 0 0;
-  background-color: #eee;
-  color: #333;
+  background-color: #fff3cd;  /* เหลืองอ่อน */
+  color: #856404;             /* น้ำตาลเข้ม */
   font-size: 0.8em;
   border-radius: 4px;
 }
-
+.tag:hover {
+  background-color: #ffe08a;
+}
 
 
 
