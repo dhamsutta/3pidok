@@ -364,6 +364,23 @@ footer .warning-text {
   display: block;
 }
 
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  margin: 2px 4px 0 0;
+  background-color: #eee;
+  color: #333;
+  font-size: 0.8em;
+  border-radius: 4px;
+}
+
+
+
+
+
+
+
+
 
 /* --- ปรับเฉพาะบนจอคอม (ไม่แตะมือถือ) --- */
 @media (min-width: 768px) {
