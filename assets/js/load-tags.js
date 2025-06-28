@@ -1,4 +1,4 @@
-fetch('/assets/data/posts.json')
+fetch('/assets/data/tags.json')
   .then(response => response.json())
   .then(data => {
     const list = document.getElementById('tag-list');
