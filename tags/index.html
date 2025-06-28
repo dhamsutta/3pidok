@@ -13,43 +13,124 @@
   <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
   <link rel="stylesheet" href="/assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
-  
-<script type="application/ld+json">
-
-
- {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "headline": "รวมป้ายกำกับ",
-  "description": "ป้ายกำกับแบ่งเป็นหมวดหมู่ ตามตัวอักษร ก-ฮ",
-  "url": "https://dhamma-sutta.com/tags/index.html",
-  "author": {
-    "@type": "Organization",
-    "name": "dhamma-sutta.com"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "dhamma-sutta.com",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://dhamma-sutta.com/assets/images/logo.png"
-    }
-  },
-  "mainEntityOfPage": "https://dhamma-sutta.com/tags/index.html"
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="140x140">
+  <link rel="stylesheet" href="/assets/css/style.css" /> 
+ 
+<style>
+.page-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
-</script>
+</style>
+  <style>
+    /* 1. CSS Reset & Base Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: #f4f4f9; /* สีพื้นหลังเทาอ่อน */
+      color: #333;
+      line-height: 1; /* ปรับระยะห่างระหว่างบรรทัดให้อ่านง่าย */
+    }
 
-  <!-- ✅ CSS -->
-  <link rel="stylesheet" href="/assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;600&display=swap" rel="stylesheet" />
+    /* 2. Content Wrapper */
+    .content-wrapper {
+      max-width: 800px;
+      margin: 2rem auto; /* จัดกึ่งกลางและเว้นระยะจากขอบบน/ล่าง */
+      padding: 2rem;
+      background-color: #ffffff; /* พื้นหลังส่วนเนื้อหาสีขาว */
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* 3. Typography & Header */
+    h1 {
+      text-align: center;
+      color: #2c3e50; /* สีน้ำเงินเข้มเกือบดำ */
+      font-weight: 700;
+      margin-bottom: 1.5rem; /* เว้นระยะใต้หัวข้อเล็กน้อย */
+      border-bottom: 2px solid #3498db; /* เส้นคั่นใต้หัวข้อ */
+      padding-bottom: 0.5rem;
+    }
+
+    /* 4. Article List Styling */
+    #tag-list {
+      list-style-type: none; /* เอา bullet point ออก */
+    }
+
+    #tag-list li {
+      padding: 1rem 0; /* เพิ่มระยะห่างภายในบน-ล่างของแต่ละรายการ */
+      border-bottom: 1px solid #ecf0f1; /* เส้นคั่นบางๆ ระหว่างรายการ */
+    }
+
+    #tag-list li:last-child {
+      border-bottom: none; /* รายการสุดท้ายไม่ต้องมีเส้นคั่น */
+    }
+
+    #tag-list a {
+      font-size: 1.2rem; /* ขนาดตัวอักษรของชื่อบทความ */
+      font-weight: 700; /* ตัวหนา */
+      color: #3498db; /* สีฟ้าสำหรับลิงก์ */
+      text-decoration: none;
+      transition: color 0.2s ease-in-out;
+    }
+
+    #tag-list a:hover {
+      color: #2980b9; /* สีเข้มขึ้นเมื่อเมาส์ชี้ */
+      text-decoration: underline;
+    }
+
+    #tag-list small {
+      display: block; /* ทำให้ <small> ขึ้นบรรทัดใหม่เสมอ (เหมือน <br>) */
+      font-size: 0.95rem;
+      color: #555; /* สีเทาเข้มสำหรับคำอธิบาย */
+      margin-top: 4px; /* เว้นระยะจากชื่อบทความเล็กน้อย */
+    }
+  </style>
 </head>
 <body>
-  <!-- ส่วนหัว -->
-  <header class="site-header">
-    <a href="/" class="logo-link">
-      <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
-    </a>
+
+   <div class="page-wrapper">
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+                <span class="site-title">ธรรมสุตตะ</span>
+            </a>
+           
+            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+      <nav class="sidebar-menu" id="sidebarMenu">
+        <a href="/">🏠หน้าแรก</a>
+        <a href="/pages/vinaya.html">🔹พระวินัย</a>
+        <a href="/pages/sutta.html">🔹พระสูตร</a>
+        <a href="/pages/abhidhamma.html">🔹พระอภิธรรม</a>
+        <a href="/pages/katha.html">🔹อรรถกถา</a>
+        <a href="/pages/pakinnaka.html">🔹ปกิณกะ</a>
+        <a href=" /tags/index.html">🔹ป้ายกำกับ</a>
+        <a href="/search/index.html">🔍ค้นหา/อภิธานศัพท์</a>
+    </nav>
+    
+
+  <div class="content-wrapper">
+
+ <p><a href="/">หน้าแรก</a> > <a href="/tags/index.html">รวมป้ายกำกับ</a> >  <span style="color: #990000;">"ปาราชิก"</span></p><hr>
+<br>
 
     <h1>ป้ายกำกับ สำหรับค้นหา</h1>
     <p><a href="/">หน้าแรก</a> > รวมป้ายกำกับ</a></p>
@@ -353,8 +434,7 @@ document.getElementById('paliInput').addEventListener('input', function () {
   if (!input) {
     resultBox.innerHTML = '';
     return;
-  }
-
+ 
   const matches = paliDict.filter(entry =>
     entry.headword.toLowerCase().includes(input)
   );
