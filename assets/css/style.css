@@ -92,6 +92,58 @@ body {
     color: white;
 }
 
+/* 1. สร้าง counter style ชื่อ thai-numerals */
+@counter-style thai-numerals {
+  system: numeric;
+  symbols: ๐ ๑ ๒ ๓ ๔ ๕ ๖ ๗ ๘ ๙;  /* กำหนดชุดตัวเลขไทย */
+  suffix: '. ';                     /* ใส่จุดและเว้นวรรคหลังตัวเลข */
+}
+
+/* 2. ใช้งาน counter กับ ol.thai */
+ol.thai {
+  list-style: thai-numerals;       /* ใช้ counter style ที่สร้างไว้ */
+  padding-left: 1.5em;             /* กรณีอยากขยับให้เห็นเลข */
+}
+
+/* 3. ถ้าอยากใช้กับ ul ก็ต้อง reset bullet แล้วใช้ counter */
+ul.thai {
+  counter-reset: item;             /* เริ่มนับจาก 0 */
+  list-style: none;                /* ปิด bullet เดิม */
+  padding-left: 1.5em;
+}
+ul.thai li {
+  counter-increment: item;         /* เพิ่ม counter ทีละ 1 */
+}
+ul.thai li::before {
+  content: counter(item, thai-numerals);
+  position: absolute;
+  margin-left: -1.5em;             /* จัดตำแหน่งเลขให้อยู่ซ้ายของ li */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
