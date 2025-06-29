@@ -66,6 +66,41 @@
             font-size: 0.9em;
             color: #555;
         }
+.hero-section {
+    text-align: center;
+    padding: 40px 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* START: คุณสมบัติสำหรับรูปภาพพื้นหลัง (แนะนำให้ใช้แบบนี้) */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/hero.jpg');
+    /* อธิบาย:
+       - url('/assets/images/hero.jpg') คือการอ้างอิงถึงไฟล์รูปภาพ hero.jpg ที่อยู่ในโฟลเดอร์ assets/images/
+       - GitHub Pages จะจัดการ Path นี้ให้ถูกต้องเมื่อเว็บไซต์ของคุณ Deploy
+    */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    /* END: คุณสมบัติสำหรับรูปภาพพื้นหลัง */
+}
+/* ไม่ต้องเปลี่ยนส่วน h2, h3 หรือ quote-box ที่อยู่ด้านล่างครับ */
+
+
+
+
+
+
+
+
+
+
+
+        
         .button {
             display: inline-block;
             background-color: #4CAF50;
