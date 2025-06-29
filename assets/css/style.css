@@ -99,10 +99,17 @@ body {
   suffix: '. ';                     /* ใส่จุดและเว้นวรรคหลังตัวเลข */
 }
 
-/* 2. ใช้งาน counter กับ ol.thai */
+/* 1. สร้าง counter style ชื่อ thai-numerals */
+@counter-style thai-numerals {
+  system: numeric;
+  symbols: ๐ ๑ ๒ ๓ ๔ ๕ ๖ ๗ ๘ ๙;
+  suffix: ". ";    /* ใส่จุดและเว้นวรรค ตามปกติของ ol */
+}
+
+/* 2. สั่งให้ ol ใช้ list-style-type เป็น thai-numerals */
 ol.thai {
-  list-style: thai-numerals;       /* ใช้ counter style ที่สร้างไว้ */
-  padding-left: 1.5em;             /* กรณีอยากขยับให้เห็นเลข */
+  list-style-type: thai-numerals;
+  padding-left: 1.5em;  /* เว้นซ้าย ให้เห็นเลขชัดๆ */
 }
 
 /* 3. ถ้าอยากใช้กับ ul ก็ต้อง reset bullet แล้วใช้ counter */
