@@ -201,15 +201,16 @@
             <h2 class="section-title-new">คัมภีร์ในพระไตรปิฎก</h2>
             <p>เลือกคัมภีร์ในพระไตรปิฏก เพื่ออ่านคำอธิบายเบื้องต้นถึงองค์ประกอบในคำภีร์, คาถาบทนั้นๆ กล่าวถึงเรื่องอะไร</p>
 
-            <div class="dropdown-container">
-                <select id="scripture-dropdown">
-                    <option value="">--- เลือกคัมภีร์ที่ท่านสนใจ ---</option>
-                    </select>
-            </div>
+        <div class="vb-frame">
+  <label for="bookSelect">เลือกตำรา:</label>
+  <select id="bookSelect">
+    <option value="">-- กรุณาเลือก --</option>
+  </select>
 
-            <div id="scripture-description-display" class="description-box">
-                <p>กรุณาเลือกคัมภีร์จากเมนูด้านบนเพื่อดูคำอธิบาย</p>
-            </div>
+  <div id="bookOutput" class="vb-output">
+    กรุณาเลือกตำราเพื่อดูรายละเอียด
+  </div>
+</div>
         </section>
         <section class="main-categories">
             <h2 class="section-title-new">สำรวจตามหมวดหมู่หลัก</h2>
@@ -449,5 +450,78 @@
             }
         });
     </script>
+
+
+<script>
+  let books = [];
+
+  // โหลดข้อมูลจาก books.json
+  // ตรวจสอบให้แน่ใจว่าไฟล์ books.json อยู่ที่ /assets/data/books.json
+  fetch('/assets/data/books.json')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then(data => {
+      books = data;
+      const select = document.getElementById('bookSelect');
+      data.forEach(book => {
+        const option = document.createElement('option');
+        option.value = book.id; // ใช้ book.id เป็นค่าของ option
+        option.textContent = `${book.label} - ${book.name}`;
+        select.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error("Error loading books.json:", error);
+      document.getElementById('bookOutput').innerHTML = `<span style="color:red;">❌ ไม่สามารถโหลดข้อมูลตำราได้. โปรดตรวจสอบไฟล์ books.json และ Path</span>`;
+    });
+
+  document.getElementById('bookSelect').addEventListener('change', function () {
+    const selectedId = this.value; // ดึงค่า id ที่เลือก
+    const output = document.getElementById('bookOutput');
+
+    if (!selectedId) { // ถ้าเลือก "กรุณาเลือก" หรือค่าว่าง
+      output.innerHTML = 'กรุณาเลือกตำราเพื่อดูรายละเอียด';
+      // Reset styling if it was changed
+      output.style.display = 'flex'; // กลับไปเป็น flex เพื่อจัดกึ่งกลาง
+      output.style.justifyContent = 'center';
+      output.style.alignItems = 'center';
+      output.style.textAlign = 'center';
+      return;
+    }
+
+    const selected = books.find(book => book.id === selectedId); // ค้นหา object ของตำราที่เลือกจาก id
+
+    if (selected) {
+      output.innerHTML = `
+        <b>${selected.label}</b> - ${selected.name}<br>
+        ${selected.desc}<br>
+        <a href="${selected.link}" class="book-link" target="_blank">🔗 ไปยังหน้า</a>
+      `;
+      // Remove centering styles when content is loaded
+      output.style.display = 'block'; // เปลี่ยนเป็น block เพื่อให้เนื้อหาไหลตามปกติ
+      output.style.justifyContent = 'initial';
+      output.style.alignItems = 'initial';
+      output.style.textAlign = 'left'; // จัดข้อความไปทางซ้าย
+    } else {
+      output.innerHTML = 'ไม่พบข้อมูลสำหรับตำราที่เลือก';
+      output.style.display = 'flex';
+      output.style.justifyContent = 'center';
+      output.style.alignItems = 'center';
+      output.style.textAlign = 'center';
+    }
+  });
+</script>
+
+
+
+
+
+
+
+    
     </body>
 </html>
