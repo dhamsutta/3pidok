@@ -69,7 +69,7 @@ body {
     margin-bottom: 30px; /* Optional: ระยะห่างจาก section ถัดไป */
     
     /* START: คุณสมบัติสำหรับรูปภาพพื้นหลัง */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/ai.jpg');
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/ai2.jpg');
     /* อธิบาย:
        - linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) คือการสร้างชั้นสีดำโปร่งแสง (opacity 0.6 = 60%) ทับบนรูปภาพ
          เพื่อให้ข้อความสีขาวอ่านง่ายขึ้น หากรูปของคุณมืดอยู่แล้ว อาจลดค่า 0.6 ลง
