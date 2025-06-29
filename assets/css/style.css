@@ -63,7 +63,34 @@ body {
   padding: 20px;
 }
 
+.about-project {
+    padding: 40px 20px; /* เพิ่ม padding เพื่อให้มีพื้นที่รอบข้อความ */
+    border-radius: 8px; /* Optional: ถ้าต้องการขอบมน */
+    margin-bottom: 30px; /* Optional: ระยะห่างจาก section ถัดไป */
+    
+    /* START: คุณสมบัติสำหรับรูปภาพพื้นหลัง */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/ai.jpg');
+    /* อธิบาย:
+       - linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) คือการสร้างชั้นสีดำโปร่งแสง (opacity 0.6 = 60%) ทับบนรูปภาพ
+         เพื่อให้ข้อความสีขาวอ่านง่ายขึ้น หากรูปของคุณมืดอยู่แล้ว อาจลดค่า 0.6 ลง
+       - url('/assets/images/ai.jpg') คือการระบุตำแหน่งของรูปภาพที่คุณอัปโหลดไว้
+    */
+    background-size: cover;      /* ทำให้รูปภาพขยายเต็มพื้นที่ของ section โดยไม่บิดเบี้ยว */
+    background-position: center; /* จัดให้รูปภาพอยู่ตรงกลาง */
+    background-repeat: no-repeat;/* ป้องกันไม่ให้รูปภาพซ้ำ */
+    color: white; /* เปลี่ยนสีข้อความทั้งหมดใน section นี้เป็นสีขาว เพื่อให้อ่านง่ายบนพื้นหลังรูปภาพ */
+    /* END: คุณสมบัติสำหรับรูปภาพพื้นหลัง */
+}
 
+/* ตรวจสอบว่า h2 ภายใน about-project เป็นสีขาวด้วย */
+.about-project h2 {
+    color: white;
+}
+
+/* และ p ภายใน about-project ก็ควรเป็นสีขาวด้วย (ปกติจะสืบทอดมาจาก color: white ด้านบน) */
+.about-project p {
+    color: white;
+}
 
 
 
