@@ -1,31 +1,3 @@
-
-
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-}
-.table-responsive table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 600px; /* กำหนดความกว้างขั้นต่ำของตาราง */
-}
-.table-responsive th, .table-responsive td {
-  border: 1px solid #999;
-  padding: 8px;
-  text-align: left;
-}
-.table-responsive th {
-  background-color: #f5f5f5;
-}
-.table-responsive td {
-  background-color: #fafafa;
-}
-
-
-
-
-
-
 /* --- 1. การตั้งค่าพื้นฐานและตัวแปร (Variables) --- */
 :root {
   --font-family-base: 'Sarabun', 'Segoe UI', 'Tahoma', sans-serif;
@@ -156,7 +128,26 @@ ul.thai li::before {
 }
 
 
-
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+.table-responsive table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px; /* กำหนดความกว้างขั้นต่ำของตาราง */
+}
+.table-responsive th, .table-responsive td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: left;
+}
+.table-responsive th {
+  background-color: #f5f5f5;
+}
+.table-responsive td {
+  background-color: #fafafa;
+}
 
 
 
