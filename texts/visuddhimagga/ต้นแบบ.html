@@ -48,7 +48,69 @@
 </script>
   
   
-  
+   <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #1a202c; /* A dark, calming background */
+        }
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background-color: #4a5568; /* A subtle line */
+            z-index: 0;
+        }
+        .timeline-item {
+            position: relative;
+            width: 100%;
+            padding-left: 2.5rem; /* Space for the line and dot */
+            padding-right: 1rem;
+        }
+        .timeline-dot {
+            content: '';
+            position: absolute;
+            left: -8px; /* Adjust to center on the line */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            border: 4px solid #4a5568;
+            background-color: #fde68a; /* A bright, noticeable color */
+            z-index: 1;
+        }
+        .timeline-content {
+            transition: all 0.3s ease;
+        }
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(253, 230, 138, 0.1), 0 4px 6px -2px rgba(253, 230, 138, 0.05);
+        }
+        @media (min-width: 768px) {
+            .timeline-item {
+                width: 50%;
+                padding: 0 2rem;
+            }
+            .timeline-item:nth-child(odd) {
+                left: 0;
+                padding-right: 3rem;
+                text-align: right;
+            }
+            .timeline-item:nth-child(even) {
+                left: 50%;
+                padding-left: 3rem;
+                text-align: left;
+            }
+            .timeline-dot {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
   
   
   
@@ -148,6 +210,235 @@
 <p>
     ในหน้าถัดไป เมื่อเราเข้าใจ "สนาม" ของการปฏิบัติแล้ว เราจะมาเจาะลึกถึง "ลำดับขั้นของปัญญา" ที่เกิดขึ้นจากการเฝ้าดูในสนามนี้ ในหัวข้อ <a href="/texts/visuddhimagga/p12.html"><strong>วิปัสสนาญาณ ๑๖: แผนที่การเดินทางของปัญญา</strong></a>
 </p>
+
+
+
+
+
+
+
+
+
+
+<body class="bg-gray-900 text-white">
+
+    <div class="container mx-auto px-4 py-12">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-yellow-300">วิปัสสนาญาณ ๑๖</h1>
+            <p class="text-lg text-gray-400 mt-2">เส้นทางแห่งการพัฒนาปัญญาเพื่อความสิ้นทุกข์</p>
+        </header>
+
+        <!-- Main Timeline Container -->
+        <div class="relative">
+            <!-- The vertical line -->
+            <div class="hidden md:block absolute top-0 left-1/2 w-1 bg-gray-700 h-full -ml-0.5"></div>
+
+            <!-- Section 1: Foundation -->
+            <div class="mb-12">
+                <div class="flex items-center justify-center mb-6">
+                    <div class="flex items-center gap-4 bg-gray-800 px-6 py-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-yellow-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <h2 class="text-2xl font-bold text-yellow-400">ส่วนที่ ๑: ปัญญาขั้นพื้นฐาน</h2>
+                    </div>
+                </div>
+                <div class="relative wrap overflow-hidden p-2 md:p-10 h-full">
+                    <!-- Item 1 -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-yellow-400 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-gray-900">1</h1>
+                        </div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-yellow-300 text-lg">นามรูปปริจเฉทญาณ</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">แยกรูปธรรมและนามธรรม</p>
+                        </div>
+                    </div>
+                    <!-- Item 2 -->
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-yellow-400 shadow-xl w-8 h-8 rounded-full">
+                           <h1 class="mx-auto font-semibold text-lg text-gray-900">2</h1>
+                        </div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-yellow-300 text-lg">ปัจจยปริคคหญาณ</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">รู้เหตุปัจจัยของรูปนาม</p>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                     <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-yellow-400 shadow-xl w-8 h-8 rounded-full">
+                            <h1 class="mx-auto font-semibold text-lg text-gray-900">3</h1>
+                        </div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-yellow-300 text-lg">สัมมสนญาณ</h3>
+                            <p class="text-sm leading-snug tracking-wide text-gray-300">เห็นไตรลักษณ์ (อนิจจัง ทุกขัง อนัตตา)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Insight -->
+            <div class="mb-12">
+                <div class="flex items-center justify-center mb-6">
+                     <div class="flex items-center gap-4 bg-gray-800 px-6 py-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                        </svg>
+                        <h2 class="text-2xl font-bold text-green-400">ส่วนที่ ๒: ปัญญาในวิปัสสนาภูมิ</h2>
+                    </div>
+                </div>
+                <div class="relative wrap overflow-hidden p-2 md:p-10 h-full">
+                    <!-- Items 4-12 -->
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">4</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-green-300 text-lg">อุทยัพพยานุปัสสนาญาณ</h3>
+                            <p class="text-sm text-gray-300">เห็นความเกิด-ดับของรูปนาม</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">5</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-green-300 text-lg">ภังคานุปัสสนาญาณ</h3>
+                            <p class="text-sm text-gray-300">เห็นแต่ความดับ</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">6</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-green-300 text-lg">ภยตูปัฏฐานญาณ</h3>
+                            <p class="text-sm text-gray-300">เห็นสังขารเป็นของน่ากลัว</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">7</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-green-300 text-lg">อาทีนวานุปัสสนาญาณ</h3>
+                            <p class="text-sm text-gray-300">เห็นสังขารมีแต่โทษ</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">8</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-green-300 text-lg">นิพพิทานุปัสสนาญาณ</h3>
+                            <p class="text-sm text-gray-300">เกิดความเบื่อหน่าย</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">9</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-green-300 text-lg">มุจจิตุกัมยตาญาณ</h3>
+                            <p class="text-sm text-gray-300">ปรารถนาจะพ้น</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">10</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-green-300 text-lg">ปฏิสังขานุปัสสนาญาณ</h3>
+                            <p class="text-sm text-gray-300">หาทางพ้นด้วยไตรลักษณ์อีกครั้ง</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">11</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-green-300 text-lg">สังขารุเปกขาญาณ</h3>
+                            <p class="text-sm text-gray-300">วางเฉยในสังขาร</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-green-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">12</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-green-300 text-lg">สัจจานุโลมิกญาณ</h3>
+                            <p class="text-sm text-gray-300">คล้อยตามอริยสัจ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Supramundane -->
+            <div>
+                <div class="flex items-center justify-center mb-6">
+                     <div class="flex items-center gap-4 bg-gray-800 px-6 py-3 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-12v4m-2-2h4m5 4v4m-2-2h4M17 3l4 4M3 17l4 4m10-14l4 4M7 17l-4 4" />
+                        </svg>
+                        <h2 class="text-2xl font-bold text-blue-400">ส่วนที่ ๓: ปัญญาในโลกุตตรภูมิ</h2>
+                    </div>
+                </div>
+                <div class="relative wrap overflow-hidden p-2 md:p-10 h-full">
+                    <!-- Items 13-16 -->
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-blue-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">13</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-blue-300 text-lg">โคตรภูญาณ</h3>
+                            <p class="text-sm text-gray-300">ข้ามโคตรสู่ความเป็นอริยะ</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-blue-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">14</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-blue-300 text-lg">มัคคญาณ</h3>
+                            <p class="text-sm text-gray-300">ประหารกิเลส</p>
+                        </div>
+                    </div>
+                    <div class="mb-8 flex justify-between items-center w-full right-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-blue-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">15</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-blue-300 text-lg">ผลญาณ</h3>
+                            <p class="text-sm text-gray-300">เสวยวิมุตติรส</p>
+                        </div>
+                    </div>
+                     <div class="mb-8 flex justify-between flex-row-reverse items-center w-full left-timeline">
+                        <div class="order-1 w-5/12"></div>
+                        <div class="z-20 flex items-center order-1 bg-blue-400 shadow-xl w-8 h-8 rounded-full"><h1 class="mx-auto font-semibold text-lg text-gray-900">16</h1></div>
+                        <div class="order-1 bg-gray-800 rounded-lg shadow-xl w-5/12 px-6 py-4 timeline-content">
+                            <h3 class="font-bold text-blue-300 text-lg">ปัจจเวกขณญาณ</h3>
+                            <p class="text-sm text-gray-300">พิจารณาทบทวนมรรคผล</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 
 </main>
      <div class="post-tags">
