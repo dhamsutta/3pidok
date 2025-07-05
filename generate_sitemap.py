@@ -3,7 +3,7 @@ import os
 import datetime
 
 # ✏️ เปลี่ยนเป็น URL หลักของคุณ (ต้องมี / ข้างท้าย)
-BASE_URL   = "https://www.yoursite.com/"
+BASE_URL   = "https://www.dhamma-sutta.com/"
 
 # ชื่อไฟล์ sitemap ที่จะสร้าง
 OUTPUT_FILE = "sitemap.xml"
