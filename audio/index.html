@@ -497,5 +497,216 @@
 
     });
     </script>
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const allAudios = document.querySelectorAll("audio");
+
+  allAudios.forEach(audio => {
+    audio.addEventListener("play", (event) => {
+      // หยุดเสียงอื่นๆ ทั้งหมดเมื่อมีเสียงใหม่เริ่มเล่น
+      allAudios.forEach(otherAudio => {
+        if (otherAudio !== event.target) {
+          otherAudio.pause();
+        }
+      });
+      
+      // บันทึกรายการที่เล่นล่าสุด (ยกเว้นรายการในส่วน "ฟังล่าสุด")
+      const mainContent = audio.closest(".main-content");
+      if (mainContent) {
+          const title = mainContent.querySelector("h3")?.innerText?.trim() || "ไม่ทราบชื่อ";
+          const src = audio.querySelector("source")?.src || audio.src;
+          if (src) {
+            saveRecent(title, src);
+          }
+      }
+    });
+  });
+
+  // สร้างแถบควบคุมสำหรับ Player หลัก
+  const mainAudioPlayer = document.getElementById('audioPlayer');
+  if (mainAudioPlayer) {
+    const progressBar = document.getElementById('progressBar');
+    const currentTimeEl = document.getElementById('currentTime');
+    const durationEl = document.getElementById('duration');
+
+    mainAudioPlayer.addEventListener('loadedmetadata', () => {
+      progressBar.max = mainAudioPlayer.duration;
+      durationEl.textContent = formatTime(mainAudioPlayer.duration);
+    });
+
+    mainAudioPlayer.addEventListener('timeupdate', () => {
+      progressBar.value = mainAudioPlayer.currentTime;
+      currentTimeEl.textContent = formatTime(mainAudioPlayer.currentTime);
+    });
+
+    progressBar.addEventListener('input', () => {
+      mainAudioPlayer.currentTime = progressBar.value;
+    });
+  }
+  
+  // แสดงรายการล่าสุดเมื่อโหลดหน้า
+  renderRecent();
+});
+
+// ฟังก์ชันสำหรับระบบ "ฟังล่าสุด"
+function saveRecent(title, src) {
+  let list = JSON.parse(localStorage.getItem("recentAudios") || "[]");
+  // ลบรายการเก่าที่มี src เดียวกันออกก่อน
+  list = list.filter(item => item.src !== src);
+  // เพิ่มรายการใหม่เข้าไปข้างหน้า
+  list.unshift({ title, src });
+  // เก็บไว้แค่ 3 รายการล่าสุด
+  localStorage.setItem("recentAudios", JSON.stringify(list.slice(0, 1)));
+  renderRecent();
+}
+
+function renderRecent() {
+  const container = document.getElementById("recent-list");
+  if (!container) return;
+
+  const list = JSON.parse(localStorage.getItem("recentAudios") || "[]");
+  container.innerHTML = ""; // เคลียร์รายการเก่า
+
+  if (list.length === 0) {
+      container.innerHTML = '<p style="text-align:center; color:#888;">ยังไม่มีรายการที่ฟังล่าสุด</p>';
+      return;
+  }
+
+  list.forEach((item, index) => {
+    const playerId = `recent-audio-${index}`;
+    const html = `
+      <div style="border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 8px; background: #fff;">
+        <b>${item.title}</b><br>
+        <audio id="${playerId}" src="${item.src}" preload="metadata" style="display:none;"></audio>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 6px;">
+          <button onclick="togglePlay('${playerId}', this)" style="padding: 4px 10px; background: #d4b06a; border: none; color: white; border-radius: 4px; width: 40px;">▶️</button>
+          <span id="${playerId}-time" style="font-size: 13px; margin: 0 10px;">00:00 / 00:00</span>
+        </div>
+        <input type="range" id="${playerId}-range" value="0" min="0" step="1" style="width: 100%; margin-top: 4px;" />
+      </div>
+    `;
+    container.insertAdjacentHTML("beforeend", html);
+
+    const audio = document.getElementById(playerId);
+    const range = document.getElementById(`${playerId}-range`);
+    const time = document.getElementById(`${playerId}-time`);
+    const btn = document.querySelector(`[onclick*="${playerId}"]`);
+
+    audio.addEventListener("loadedmetadata", () => {
+      range.max = Math.floor(audio.duration);
+      time.textContent = `00:00 / ${formatTime(audio.duration)}`;
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      range.value = audio.currentTime;
+      time.textContent = `${formatTime(audio.currentTime)} / ${formatTime(audio.duration)}`;
+    });
+    
+    audio.addEventListener('play', () => {
+      btn.textContent = "⏸️";
+    });
+
+    audio.addEventListener('pause', () => {
+        btn.textContent = "▶️";
+    });
+
+    audio.addEventListener("ended", () => {
+      btn.textContent = "▶️";
+      range.value = 0;
+      audio.currentTime = 0;
+    });
+
+    range.addEventListener("input", () => {
+      audio.currentTime = range.value;
+    });
+  });
+}
+
+function togglePlay(id, btn) {
+  const audio = document.getElementById(id);
+  if (!audio) return;
+  
+  if (audio.paused) {
+    // หยุดเสียงอื่นๆ ทั้งหมดก่อน
+    document.querySelectorAll("audio").forEach(a => {
+      if (a.id !== id && !a.paused) {
+        a.pause();
+      }
+    });
+    audio.play();
+  } else {
+    audio.pause();
+  }
+}
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+}
+</script>
+
+<script>
+  function loadDhammaPage() {
+    const select = document.getElementById("dhamma-select");
+    const frame = document.getElementById("dhamma-frame");
+    const value = select.value;
+
+    if (value) {
+      frame.src = value;
+
+      // ✅ บันทึกประวัติการฟัง
+      const selectedTitle = select.options[select.selectedIndex].text;
+      const selectedURL = select.value;
+      saveRecent(selectedTitle, selectedURL);
+    }
+  }
+
+  function saveRecent(title, url) {
+    let recent = JSON.parse(localStorage.getItem('recentList') || '[]');
+    recent = recent.filter(item => item.url !== url);
+    recent.unshift({ title, url });
+    if (recent.length > 5) recent = recent.slice(0, 5);
+    localStorage.setItem('recentList', JSON.stringify(recent));
+  }
+
+  function showRecentList() {
+    const recent = JSON.parse(localStorage.getItem('recentList') || '[]');
+    const container = document.getElementById('recent-list');
+    if (!container) return;
+    if (!recent.length) {
+      container.innerHTML = '<p style="text-align:center; color:#999;">ยังไม่มีประวัติการฟัง</p>';
+      return;
+    }
+    container.innerHTML = recent.map(item => `
+      <div style="margin: 8px 0;">
+        <a href="${item.url}" target="_blank" style="color:#6b4c20; text-decoration: none;">
+          ▶ ${item.title}
+        </a>
+      </div>
+    `).join('');
+  }
+
+  document.addEventListener('DOMContentLoaded', showRecentList);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 </body>
 </html>
