@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>สถานีวิทยุธรรมสุตตะออนไลน์ | ฟังธรรมบรรยาย</title>
+    <title>ธรรมะบรรยาย | พระอาจารย์สมบัติ นันทิโก</title>
     <meta name="description" content="สถานีวิทยุธรรมะออนไลน์ ฟังธรรมบรรยายจากพระไตรปิฎก ทั้งชุดพระพุทธเจ้า, ชุดพระสูตร, ชุดพระปัญญา, และอรรถกถา โดย พระอาจารย์สมบัติ นันทิโก" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <style>
@@ -164,13 +164,118 @@
             }
         }
     </style>
+
+<script>
+  // เรียกเมื่อมีการฟังหรือเลือกธรรมะใหม่
+  function saveRecent(title, url) {
+    let recent = JSON.parse(localStorage.getItem('recentList') || '[]');
+
+    // ลบรายการซ้ำถ้ามี
+    recent = recent.filter(item => item.url !== url);
+
+    // เพิ่มรายการใหม่ไว้ข้างบน
+    recent.unshift({ title, url });
+
+    // เก็บไม่เกิน 5 รายการ
+    if (recent.length > 5) recent = recent.slice(0, 5);
+
+    localStorage.setItem('recentList', JSON.stringify(recent));
+  }
+
+  // เรียกเมื่อโหลดหน้า เพื่อแสดงรายการ
+  function showRecentList() {
+    const recent = JSON.parse(localStorage.getItem('recentList') || '[]');
+    const container = document.getElementById('recent-list');
+
+    if (!recent.length) {
+      container.innerHTML = '<p style="text-align:center; color:#999;">ยังไม่มีประวัติการฟัง</p>';
+      return;
+    }
+
+    // สร้างรายการแสดงผล
+    container.innerHTML = recent.map(item => `
+      <div style="margin: 8px 0;">
+        <a href="${item.url}" target="_blank" style="color:#6b4c20; text-decoration: none;">
+          ▶ ${item.title}
+        </a>
+      </div>
+    `).join('');
+  }
+
+  // โหลดเมื่อเปิดหน้า
+  document.addEventListener('DOMContentLoaded', showRecentList);
+</script>
+
+
+
+
+
+
+
+
+
+    
 </head>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 <body>
+
+    <body>
+<div class="page-wrapper">
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+                <span class="site-title">ธรรมสุตตะ</span>
+            </a>
+            <nav class="navbar" id="desktopNavbar">
+                <a href="/">หน้าแรก</a>
+                <a href=" /pages/vinaya.html">พระวินัย</a>
+                <a href=" /pages/sutta.html">พระสูตร</a>
+                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
+                <a href=" /pages/katha.html">อรรถกถา</a>
+                <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
+            </nav>
+            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+        <nav class="sidebar-menu" id="sidebarMenu">
+        <a href="/">🏠หน้าแรก</a>
+        <a href=" /pages/vinaya.html">🔹พระวินัย</a>
+        <a href=" /pages/sutta.html">🔹พระสูตร</a>
+        <a href=" /pages/abhidhamma.html">🔹พระอภิธรรม</a>
+        <a href=" /pages/katha.html">🔹อรรถกถา</a>
+        <a href=" /pages/pakinnaka.html">🔹ปกิณกะ</a>
+        <a href=" /tags/index.html">🔹รวมป้ายกำกับ</a>
+        <a href=" /audio/index.html">📻 ฟังธรรมบรรยาย</a>
+        <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
+    </nav>
 
     <div class="container">
         <header>
-            <h1>สถานีวิทยุธรรมสุตตะออนไลน์</h1>
-            <p>โดย พระอาจารย์สมบัติ นันทิโก</p>
+            <h1>สถานีวิทยุธรรมสุตตะ</h1>
+            <p>ธรรมบรรยายโดย พระอาจารย์สมบัติ นันทิโก</p>
+<div style="max-width: 600px; margin: 30px auto; background: #fcf8ee; border: 1px solid #e8e0ce; padding: 16px; border-radius: 12px;">
+  <h3 style="text-align:center; color:#6b4c20;">📌 ประวัติการฟังจากครั้งก่อน</h3>
+  <div id="recent-list"></div>
+</div>
         </header>
 
         <main>
