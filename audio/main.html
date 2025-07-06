@@ -5,15 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ธรรมะบรรยาย | พระอาจารย์สมบัติ นันทิโก</title>
     <meta name="description" content="บรรยายธรรมโดย พระอาจารย์สมบัติ นันทิโก">
-    <meta name="keywords" content="พระอาจารย์สมบัติ นันทิโก, ธรรมะ, ธรรมะออนไลน์, เทศน์ธรรม, บรรยายธรรมตามพระไตรปิฎก, แนวทางการปฏิบัติธรรม, ธรรมะตามพระพุทธพจน์, สมาธิ, วิปัสสนา, กรรมฐาน, ธรรมเทศนา, ฟังธรรม, แสดงธรรม, ธรรมะสายปฏิบัติ, ธรรมะลึกซึ้ง, สติปัฏฐาน, เจริญสติ, เส้นทางธรรม">
+    <meta name="keywords" content="พระอาจารย์สมบัติ นันทิโก, ธรรมะ, ธรรมะออนไลน์, เทศน์ธรรม, บรรยายธรรมตามพระไตรปิฎก">
     <meta name="author" content="พระอาจารย์สมบัติ นันทิโก" />
 
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="140x140">
-    <link rel="stylesheet" href="/assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
     <style>
-        /* --- General Styles --- */
+        /* --- General and Reset Styles --- */
         body {
             font-family: 'Sarabun', sans-serif;
             background-color: #f7f9f7;
@@ -22,7 +21,6 @@
             padding: 0;
             line-height: 1.7;
         }
-
         .container {
             max-width: 900px;
             margin: 20px auto;
@@ -30,76 +28,114 @@
             background-color: #ffffff;
             border-radius: 12px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-            position: relative;
-            z-index: 1;
         }
 
-        header.site-header {
-            /* Styles for your main header if needed */
+        /* --- Header Styles --- */
+        .site-header {
+            padding: 10px 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
         }
-        
-        /* --- Styles for Hamburger Menu (ที่เพิ่มเข้ามา) --- */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #2e8b57;
+        }
+        .site-logo {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .site-title {
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+
+        /*
+        ==============================================
+        === CSS ที่จำเป็นสำหรับ HAMBURGER MENU (สำคัญ) ===
+        ==============================================
+        */
+        .navbar#desktopNavbar {
+            display: none; /* ซ่อนเมนูแนวนอนบน Mobile ก่อน */
+        }
         .hamburger-icon {
-            display: flex; /* Changed from default */
+            display: flex;
             flex-direction: column;
             justify-content: space-around;
-            width: 30px;
-            height: 25px;
+            width: 28px;
+            height: 24px;
             background: transparent;
             border: none;
             cursor: pointer;
             padding: 0;
-            z-index: 1001; /* ให้อยู่เหนือสุด */
+            z-index: 1001;
         }
-
         .hamburger-icon .bar {
-            width: 30px;
+            width: 100%;
             height: 3px;
-            background-color: #333; /* สีของขีด */
+            background-color: #333;
             border-radius: 5px;
-            transition: all 0.3s linear;
-            position: relative;
-            transform-origin: 1px;
+            transition: all 0.3s ease-in-out;
         }
+        /* Animation for hamburger to 'X' */
         .hamburger-icon.open .bar:nth-child(1) {
-            transform: rotate(45deg);
+            transform: translateY(8px) rotate(45deg);
         }
         .hamburger-icon.open .bar:nth-child(2) {
             opacity: 0;
-            transform: translateX(-20px);
         }
         .hamburger-icon.open .bar:nth-child(3) {
-            transform: rotate(-45deg);
+            transform: translateY(-8px) rotate(-45deg);
         }
 
+        /* Sidebar Menu Styles */
         .sidebar-menu {
             height: 100%;
             width: 250px;
             position: fixed;
             top: 0;
-            left: -250px; /* ซ่อนไว้ทางซ้าย */
-            background-color: #2e8b57; /* สีพื้นหลังเมนู */
+            left: -250px; /* ซ่อนเมนูไว้นอกจอด้านซ้าย */
+            background-color: #2e8b57;
             padding-top: 60px;
             transition: left 0.3s ease-in-out;
             z-index: 1000;
+            box-shadow: 2px 0 5px rgba(0,0,0,0.2);
         }
+        /* State when menu is open */
         .sidebar-menu.open {
-            left: 0; /* แสดงเมนู */
+            left: 0; /* เลื่อนเมนูเข้ามาในจอ */
         }
         .sidebar-menu a {
-            padding: 10px 15px;
+            padding: 12px 20px;
             text-decoration: none;
             font-size: 18px;
             color: #f1f1f1;
             display: block;
-            transition: 0.3s;
+            transition: background-color 0.3s;
         }
         .sidebar-menu a:hover {
-            color: #ffffff;
             background-color: #256d45;
         }
+        /* ============================================== */
 
-        /* --- Main Player Section --- */
+
+        /* --- Player and Playlist Styles --- */
+        .page-header h1, .page-header p {
+            text-align: center;
+            color: #2e8b57;
+        }
+        .page-header p {
+            color: #555;
+            margin-top: -10px;
+        }
         .main-player-section {
             display: flex;
             gap: 25px;
@@ -109,9 +145,6 @@
             margin-top: 20px;
             align-items: center;
         }
-        .album-art {
-            flex-shrink: 0;
-        }
         .album-art img {
             width: 150px;
             height: 150px;
@@ -119,119 +152,38 @@
             object-fit: cover;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
-        .player-info {
-            flex-grow: 1;
-        }
-        .player-info h2 {
-            margin: 0 0 5px 0;
-            font-size: 1.6em;
-            color: #1b5e20;
-        }
-        .player-info p {
-            margin: 0 0 15px 0;
-            color: #4caf50;
-            font-weight: 500;
-        }
-        #audioPlayer {
-            width: 100%;
-            filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) brightness(105%);
-        }
+        .player-info h2 { font-size: 1.6em; color: #1b5e20; margin: 0 0 5px; }
+        .player-info p { margin: 0 0 15px; color: #4caf50; font-weight: 500; }
+        #audioPlayer { width: 100%; }
 
-        /* --- Playlist Section --- */
-        .playlist-section {
-            margin-top: 30px;
-        }
-        .tab-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 15px;
-        }
-        .tab-link {
-            padding: 10px 20px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-            border-radius: 20px;
-            font-size: 1em;
-            font-family: 'Sarabun', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .tab-link:hover {
-            background-color: #e0e0e0;
-        }
-        .tab-link.active {
-            background-color: #2e8b57;
-            color: white;
-            border-color: #2e8b57;
-            font-weight: 600;
-        }
-        #playlist-view {
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 10px;
-        }
-        .playlist-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 10px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            border-radius: 5px;
-        }
-        .playlist-item:hover {
-            background-color: #e8f5e9;
-        }
-        .playlist-item.active-track {
-            background-color: #d1e7d2;
-            font-weight: bold;
-        }
-        .playlist-item .track-number {
-            font-size: 1.1em;
-            color: #777;
-            width: 40px;
-        }
-        .playlist-item .track-title {
-            flex-grow: 1;
-        }
-        .playlist-item .track-duration {
-            color: #888;
-            font-size: 0.9em;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-            color: #777;
-        }
+        .playlist-section { margin-top: 30px; }
+        .tab-container { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 20px; border-bottom: 1px solid #ddd; padding-bottom: 15px; }
+        .tab-link { padding: 10px 20px; cursor: pointer; border: 1px solid #ccc; background-color: #f1f1f1; border-radius: 20px; font-size: 1em; transition: all 0.3s; }
+        .tab-link:hover { background-color: #e0e0e0; }
+        .tab-link.active { background-color: #2e8b57; color: white; border-color: #2e8b57; font-weight: 600; }
+        #playlist-view { max-height: 400px; overflow-y: auto; padding-right: 10px; }
+        .playlist-item { display: flex; align-items: center; padding: 12px 10px; border-bottom: 1px solid #eee; cursor: pointer; transition: background-color 0.2s; border-radius: 5px; }
+        .playlist-item:hover { background-color: #e8f5e9; }
+        .playlist-item.active-track { background-color: #d1e7d2; font-weight: bold; }
+        .playlist-item .track-number { font-size: 1.1em; color: #777; width: 40px; }
+        .playlist-item .track-title { flex-grow: 1; }
+        .playlist-item .track-duration { color: #888; font-size: 0.9em; }
+        
+        footer { text-align: center; margin-top: 30px; padding-top: 20px; border-top: 1px solid #e0e0e0; color: #777; }
 
         /* --- Responsive Design --- */
         @media (max-width: 768px) {
-            .main-player-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            .player-info h2 {
-                font-size: 1.4em;
-            }
-            .tab-container {
-                justify-content: center;
-            }
-            .navbar#desktopNavbar {
-                display: none; /* ซ่อนเมนูแนวนอนบนมือถือ */
-            }
+            .main-player-section { flex-direction: column; text-align: center; }
+            .player-info h2 { font-size: 1.4em; }
+            .tab-container { justify-content: center; }
         }
+        
+        /* For Desktop View */
         @media (min-width: 769px) {
-            .hamburger-icon {
-                display: none; /* ซ่อนปุ่มแฮมเบอร์เกอร์บนเดสก์ท็อป */
-            }
-            .sidebar-menu {
-                display: none; /* ซ่อนไซด์บาร์บนเดสก์ท็อป */
-            }
+            .hamburger-icon { display: none; } /* ซ่อนปุ่ม Hamburger บนจอใหญ่ */
+            .sidebar-menu { display: none; } /* ซ่อนเมนู Sidebar บนจอใหญ่ */
+            .navbar#desktopNavbar { display: flex; gap: 20px; } /* แสดงเมนูแนวนอนบนจอใหญ่ */
+            .navbar#desktopNavbar a { text-decoration: none; color: #333; font-weight: 500; }
         }
     </style>
 </head>
@@ -245,11 +197,9 @@
             </a>
             <nav class="navbar" id="desktopNavbar">
                 <a href="/">หน้าแรก</a>
-                <a href="/pages/vinaya.html">พระวินัย</a>
                 <a href="/pages/sutta.html">พระสูตร</a>
                 <a href="/pages/abhidhamma.html">พระอภิธรรม</a>
-                <a href="/pages/katha.html">อรรถกถา</a>
-                <a href="/search/index.html">🔍ค้นหาจากในเว็บ</a>
+                <a href="/search/index.html">🔍ค้นหา</a>
             </nav>
             <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
                 <span class="bar"></span>
@@ -265,20 +215,14 @@
         <a href="/pages/sutta.html">🔹พระสูตร</a>
         <a href="/pages/abhidhamma.html">🔹พระอภิธรรม</a>
         <a href="/pages/katha.html">🔹อรรถกถา</a>
-        <a href="/pages/pakinnaka.html">🔹ปกิณกะ</a>
-        <a href="/tags/index.html">🔹รวมป้ายกำกับ</a>
         <a href="/audio/index.html">📻 ฟังธรรมบรรยาย</a>
         <a href="/search/index.html">🔍ค้นหาจากในเว็บ</a>
     </nav>
 
     <div class="container">
-        <header>
+        <header class="page-header">
             <h1>สถานีวิทยุธรรมสุตตะ</h1>
             <p>ธรรมบรรยายโดย พระอาจารย์สมบัติ นันทิโก</p>
-            <div style="max-width: 600px; margin: 30px auto; background: #fcf8ee; border: 1px solid #e8e0ce; padding: 16px; border-radius: 12px;">
-                <h3 style="text-align:center; color:#6b4c20;">📌 ประวัติการฟังจากครั้งก่อน</h3>
-                <div id="recent-list"></div>
-            </div>
         </header>
 
         <main>
@@ -313,7 +257,11 @@
     </div>
     
     <script>
-    // --- SCRIPT สำหรับ HAMBURGER MENU (ที่เพิ่มเข้ามา) ---
+    /*
+    ==================================================
+    === JAVASCRIPT ที่จำเป็นสำหรับ HAMBURGER MENU (สำคัญ) ===
+    ==================================================
+    */
     document.addEventListener('DOMContentLoaded', function () {
         const hamburgerIcon = document.getElementById('hamburgerIcon');
         const sidebarMenu = document.getElementById('sidebarMenu');
@@ -326,13 +274,14 @@
         }
     });
 
+
     // --- SCRIPT สำหรับ PLAYER และ PLAYLIST ---
     document.addEventListener('DOMContentLoaded', function () {
         const playlists = {
-            'buddha': { name: 'ชุดพระพุทธเจ้า', image: '/assets/images/buddha-icon.png', tracks: [ { title: 'พระพุทธเจ้าผู้ทรงคุณ', file: '/audio/buddha/buddha-khun.mp3', duration: '58:12' }, { title: 'พุทธวงศ์', file: '/audio/buddha/buddhawong.mp3', duration: '45:30' }, { title: 'มหาปทานสูตร', file: '/audio/buddha/mahapadana.mp3', duration: '1:10:05' }, { title: 'มหาปรินิพพานสูตร', file: '/audio/buddha/mahaparinibbana.mp3', duration: '1:25:11' }, { title: 'สู่แดนพุทธภูมิ', file: '/audio/buddha/to-buddha-land.mp3', duration: '33:45' } ] },
-            'sutta': { name: 'ชุดพระสูตร', image: '/assets/images/dhammacakka-icon.png', tracks: [ { title: 'มงคลสูตร', file: '/audio/sutta/mongkol.mp3', duration: '48:15' }, { title: 'ธนิยสูตร', file: '/audio/sutta/thaniya.mp3', duration: '35:22' }, { title: 'อลคัททูปมสูตร', file: '/audio/sutta/alaguddupama.mp3', duration: '1:05:40' }, { title: 'มูลปริยายสูตร', file: '/audio/sutta/mulapariyaya.mp3', duration: '55:50' }, { title: 'ทสุตตรสูตร', file: '/audio/sutta/dasuttara.mp3', duration: '49:18' } ] },
-            'panna': { name: 'ชุดพระปัญญา', image: '/assets/images/bell-icon.png', tracks: [ { title: 'พระอภิธรรม 7 คัมภีร์', file: '/audio/panna/abhidhamma7.mp3', duration: '1:15:00' }, { title: 'สติปัฏฐาน - กายานุปัสสนา', file: '/audio/panna/satipatthana-kaya.mp3', duration: '59:30' }, { title: 'สติปัฏฐาน - เวทนานุปัสสนา', file: '/audio/panna/satipatthana-vedana.mp3', duration: '1:02:10' }, { title: 'โพชฌงค์บรรพ', file: '/audio/panna/bojjhanga.mp3', duration: '47:25' }, { title: 'ปฏิสัมภิทามรรค', file: '/audio/panna/patisambhida.mp3', duration: '1:08:00' } ] },
-            'misc': { name: 'อรรถกถาและปกิณกะ', image: '/assets/images/bodhi-icon.png', tracks: [ { title: 'มิลินทปัญหา', file: '/audio/misc/milinda.mp3', duration: '1:30:15' }, { title: 'จริยาปิฎก', file: '/audio/misc/jariya.mp3', duration: '50:45' }, { title: 'เนตติปกรณ์', file: '/audio/misc/netti.mp3', duration: '44:55' }, { title: 'พรหมวิหาร 4', file: '/audio/misc/brahmavihara.mp3', duration: '38:10' }, { title: 'ไตรสรณคมน์', file: '/audio/misc/tisarana.mp3', duration: '29:50' } ] }
+            'buddha': { name: 'ชุดพระพุทธเจ้า', image: '/assets/images/buddha-icon.png', tracks: [ { title: 'พระพุทธเจ้าผู้ทรงคุณ', file: '/audio/buddha/buddha-khun.mp3', duration: '58:12' }, { title: 'พุทธวงศ์', file: '/audio/buddha/buddhawong.mp3', duration: '45:30' } ] },
+            'sutta': { name: 'ชุดพระสูตร', image: '/assets/images/dhammacakka-icon.png', tracks: [ { title: 'มงคลสูตร', file: '/audio/sutta/mongkol.mp3', duration: '48:15' }, { title: 'ธนิยสูตร', file: '/audio/sutta/thaniya.mp3', duration: '35:22' } ] },
+            'panna': { name: 'ชุดพระปัญญา', image: '/assets/images/bell-icon.png', tracks: [ { title: 'พระอภิธรรม 7 คัมภีร์', file: '/audio/panna/abhidhamma7.mp3', duration: '1:15:00' }, { title: 'สติปัฏฐาน - กายานุปัสสนา', file: '/audio/panna/satipatthana-kaya.mp3', duration: '59:30' } ] },
+            'misc': { name: 'อรรถกถาและปกิณกะ', image: '/assets/images/bodhi-icon.png', tracks: [ { title: 'มิลินทปัญหา', file: '/audio/misc/milinda.mp3', duration: '1:30:15' }, { title: 'จริยาปิฎก', file: '/audio/misc/jariya.mp3', duration: '50:45' } ] }
         };
 
         const audioPlayer = document.getElementById('audioPlayer');
@@ -342,9 +291,7 @@
         const currentTrackTitle = document.getElementById('current-track-title');
         const currentSeriesName = document.getElementById('current-series-name');
         const currentAlbumArt = document.getElementById('current-album-art');
-        let currentPlaylist = 'buddha';
-        let currentTrackIndex = -1;
-
+        
         function generatePlaylist(playlistName) {
             const playlist = playlists[playlistName].tracks;
             playlistView.innerHTML = '';
@@ -359,29 +306,25 @@
         }
 
         function playTrack(playlistName, trackIndex) {
-            currentPlaylist = playlistName;
-            currentTrackIndex = trackIndex;
             const playlistData = playlists[playlistName];
             const trackData = playlistData.tracks[trackIndex];
-
             audioSource.src = trackData.file;
             currentTrackTitle.textContent = trackData.title;
             currentSeriesName.textContent = `จาก: ${playlistData.name}`;
             currentAlbumArt.src = playlistData.image;
-            
             audioPlayer.load();
             audioPlayer.play();
-
-            updateActiveTrack();
-
-            // Save to recent list
-            saveRecent(trackData.title, trackData.file);
+            updateActiveTrack(trackIndex);
         }
 
-        function updateActiveTrack() {
-            document.querySelectorAll('.playlist-item').forEach(track => track.classList.remove('active-track'));
-            const activeTrackElement = playlistView.querySelector(`.playlist-item[data-index='${currentTrackIndex}']`);
-            if (activeTrackElement) activeTrackElement.classList.add('active-track');
+        function updateActiveTrack(activeIndex) {
+            document.querySelectorAll('.playlist-item').forEach((track, index) => {
+                if (index === activeIndex) {
+                    track.classList.add('active-track');
+                } else {
+                    track.classList.remove('active-track');
+                }
+            });
         }
 
         tabs.forEach(tab => {
@@ -392,60 +335,11 @@
             });
         });
 
+        // Initial load
         generatePlaylist('buddha');
         currentSeriesName.textContent = `หมวดหมู่: ${playlists.buddha.name}`;
         currentAlbumArt.src = playlists.buddha.image;
     });
-
-    // --- SCRIPT สำหรับ "ประวัติการฟัง" ---
-    function saveRecent(title, url) {
-        let recent = JSON.parse(localStorage.getItem('recentList') || '[]');
-        recent = recent.filter(item => item.url !== url);
-        recent.unshift({ title, url });
-        if (recent.length > 5) recent = recent.slice(0, 5);
-        localStorage.setItem('recentList', JSON.stringify(recent));
-        showRecentList(); // Update list immediately
-    }
-
-    function showRecentList() {
-        const container = document.getElementById('recent-list');
-        if (!container) return;
-        const recent = JSON.parse(localStorage.getItem('recentList') || '[]');
-
-        if (!recent.length) {
-            container.innerHTML = '<p style="text-align:center; color:#999;">ยังไม่มีประวัติการฟัง</p>';
-            return;
-        }
-
-        container.innerHTML = recent.map(item => `
-            <div style="margin: 8px 0;">
-                <a href="javascript:void(0)" onclick="playFromRecent('${item.url}', '${item.title}')" style="color:#6b4c20; text-decoration: none;">
-                    ▶ ${item.title}
-                </a>
-            </div>
-        `).join('');
-    }
-    
-    // Function to play when clicking on a recent item
-    function playFromRecent(url, title) {
-        const audioPlayer = document.getElementById('audioPlayer');
-        const audioSource = document.getElementById('audioSource');
-        const currentTrackTitle = document.getElementById('current-track-title');
-        
-        audioSource.src = url;
-        currentTrackTitle.textContent = title;
-        // You might want to clear or update the series name and album art here
-        document.getElementById('current-series-name').textContent = "จาก: ประวัติการฟัง";
-        document.getElementById('current-album-art').src = '/assets/images/logo.png'; // Default image
-
-        audioPlayer.load();
-        audioPlayer.play();
-
-        // Clear active track highlight in the main list
-        document.querySelectorAll('.playlist-item').forEach(track => track.classList.remove('active-track'));
-    }
-
-    document.addEventListener('DOMContentLoaded', showRecentList);
     </script>
 </body>
 </html>
