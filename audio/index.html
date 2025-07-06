@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>สถานีวิทยุธรรมสุตตะออนไลน์ | ฟังธรรมบรรยาย</title>
+    <meta name="description" content="สถานีวิทยุธรรมะออนไลน์ ฟังธรรมบรรยายจากพระไตรปิฎก ทั้งชุดพระพุทธเจ้า, ชุดพระสูตร, ชุดพระปัญญา, และอรรถกถา โดย พระอาจารย์สมบัติ นันทิโก" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        /* --- General Styles --- */
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #f7f9f7; /* สีพื้นหลังเขียวอ่อนๆ */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        header h1 {
+            color: #2e8b57; /* สีเขียวเข้ม */
+            font-size: 2.2em;
+            margin-bottom: 0;
+        }
+        header p {
+            font-size: 1.1em;
+            color: #555;
+            margin-top: 5px;
+        }
+
+        /* --- Main Player Section --- */
+        .main-player-section {
+            display: flex;
+            gap: 25px;
+            padding: 25px;
+            background-color: #e8f5e9; /* สีเขียวที่อ่อนลง */
+            border-radius: 8px;
+            margin-top: 20px;
+            align-items: center;
+        }
+        .album-art {
+            flex-shrink: 0;
+        }
+        .album-art img {
+            width: 150px;
+            height: 150px;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .player-info {
+            flex-grow: 1;
+        }
+        .player-info h2 {
+            margin: 0 0 5px 0;
+            font-size: 1.6em;
+            color: #1b5e20; /* สีเขียวเข้มขึ้น */
+        }
+        .player-info p {
+            margin: 0 0 15px 0;
+            color: #4caf50;
+            font-weight: 500;
+        }
+        #audioPlayer {
+            width: 100%;
+            filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) brightness(105%);
+        }
+
+        /* --- Playlist Section --- */
+        .playlist-section {
+            margin-top: 30px;
+        }
+        .tab-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 15px;
+        }
+        .tab-link {
+            padding: 10px 20px;
+            cursor: pointer;
+            border: 1px solid #ccc;
+            background-color: #f1f1f1;
+            border-radius: 20px;
+            font-size: 1em;
+            font-family: 'Sarabun', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .tab-link:hover {
+            background-color: #e0e0e0;
+        }
+        .tab-link.active {
+            background-color: #2e8b57;
+            color: white;
+            border-color: #2e8b57;
+            font-weight: 600;
+        }
+        #playlist-view {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px; /* สำหรับ scrollbar */
+        }
+        .playlist-item {
+            display: flex;
+            align-items: center;
+            padding: 12px 10px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border-radius: 5px;
+        }
+        .playlist-item:hover {
+            background-color: #e8f5e9;
+        }
+        .playlist-item.active-track {
+            background-color: #d1e7d2;
+            font-weight: bold;
+        }
+        .playlist-item .track-number {
+            font-size: 1.1em;
+            color: #777;
+            width: 40px;
+        }
+        .playlist-item .track-title {
+            flex-grow: 1;
+        }
+        .playlist-item .track-duration {
+            color: #888;
+            font-size: 0.9em;
+        }
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+            color: #777;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .main-player-section {
+                flex-direction: column;
+                text-align: center;
+            }
+            .player-info h2 {
+                font-size: 1.4em;
+            }
+            .tab-container {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>สถานีวิทยุธรรมสุตตะออนไลน์</h1>
+            <p>โดย พระอาจารย์สมบัติ นันทิโก</p>
+        </header>
+
+        <main>
+            <section class="main-player-section">
+                <div class="album-art">
+                    <img id="current-album-art" src="/assets/images/dhammacakka-icon.png" alt="ปกธรรมะ" />
+                </div>
+                <div class="player-info">
+                    <h2 id="current-track-title">เลือกธรรมบรรยายเพื่อเริ่มฟัง</h2>
+                    <p id="current-series-name">ยังไม่ได้เลือกหมวดหมู่</p>
+                    <audio id="audioPlayer" controls>
+                        <source id="audioSource" src="" type="audio/mpeg">
+                        เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+                    </audio>
+                </div>
+            </section>
+
+            <section class="playlist-section">
+                <div class="tab-container">
+                    <button class="tab-link active" data-playlist="buddha">🎧 ชุดพระพุทธเจ้า</button>
+                    <button class="tab-link" data-playlist="sutta">🎧 ชุดพระสูตร</button>
+                    <button class="tab-link" data-playlist="panna">🎧 ชุดพระปัญญา</button>
+                    <button class="tab-link" data-playlist="misc">🎧 อรรถกถาและปกิณกะ</button>
+                </div>
+
+                <div id="playlist-view">
+                    </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; ๒๕๖๑ - ปัจจุบัน, ธรรมสุตตะ</p>
+        </footer>
+    </div>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+
+        // --- ฐานข้อมูลรายการเสียง ---
+        // **สำคัญ**: คุณต้องแก้ path ของไฟล์เสียง (file) และรูปภาพ (image) ให้ถูกต้อง
+        const playlists = {
+            'buddha': {
+                name: 'ชุดพระพุทธเจ้า',
+                image: '/assets/images/buddha-icon.png', // รูปประจำหมวด
+                tracks: [
+                    { title: 'พระพุทธเจ้าผู้ทรงคุณ', file: '/audio/buddha/buddha-khun.mp3', duration: '58:12' },
+                    { title: 'พุทธวงศ์', file: '/audio/buddha/buddhawong.mp3', duration: '45:30' },
+                    { title: 'มหาปทานสูตร', file: '/audio/buddha/mahapadana.mp3', duration: '1:10:05' },
+                    { title: 'มหาปรินิพพานสูตร', file: '/audio/buddha/mahaparinibbana.mp3', duration: '1:25:11' },
+                    { title: 'สู่แดนพุทธภูมิ', file: '/audio/buddha/to-buddha-land.mp3', duration: '33:45' }
+                ]
+            },
+            'sutta': {
+                name: 'ชุดพระสูตร',
+                image: '/assets/images/dhammacakka-icon.png', // รูปประจำหมวด
+                tracks: [
+                    { title: 'มงคลสูตร', file: '/audio/sutta/mongkol.mp3', duration: '48:15' },
+                    { title: 'ธนิยสูตร', file: '/audio/sutta/thaniya.mp3', duration: '35:22' },
+                    { title: 'อลคัททูปมสูตร', file: '/audio/sutta/alaguddupama.mp3', duration: '1:05:40' },
+                    { title: 'มูลปริยายสูตร', file: '/audio/sutta/mulapariyaya.mp3', duration: '55:50' },
+                    { title: 'ทสุตตรสูตร', file: '/audio/sutta/dasuttara.mp3', duration: '49:18' }
+                ]
+            },
+            'panna': {
+                name: 'ชุดพระปัญญา',
+                image: '/assets/images/bell-icon.png', // รูปประจำหมวด
+                tracks: [
+                    { title: 'พระอภิธรรม 7 คัมภีร์', file: '/audio/panna/abhidhamma7.mp3', duration: '1:15:00' },
+                    { title: 'สติปัฏฐาน - กายานุปัสสนา', file: '/audio/panna/satipatthana-kaya.mp3', duration: '59:30' },
+                    { title: 'สติปัฏฐาน - เวทนานุปัสสนา', file: '/audio/panna/satipatthana-vedana.mp3', duration: '1:02:10' },
+                    { title: 'โพชฌงค์บรรพ', file: '/audio/panna/bojjhanga.mp3', duration: '47:25' },
+                    { title: 'ปฏิสัมภิทามรรค', file: '/audio/panna/patisambhida.mp3', duration: '1:08:00' }
+                ]
+            },
+            'misc': {
+                name: 'อรรถกถาและปกิณกะ',
+                image: '/assets/images/bodhi-icon.png', // รูปประจำหมวด
+                tracks: [
+                    { title: 'มิลินทปัญหา', file: '/audio/misc/milinda.mp3', duration: '1:30:15' },
+                    { title: 'จริยาปิฎก', file: '/audio/misc/jariya.mp3', duration: '50:45' },
+                    { title: 'เนตติปกรณ์', file: '/audio/misc/netti.mp3', duration: '44:55' },
+                    { title: 'พรหมวิหาร 4', file: '/audio/misc/brahmavihara.mp3', duration: '38:10' },
+                    { title: 'ไตรสรณคมน์', file: '/audio/misc/tisarana.mp3', duration: '29:50' }
+                ]
+            }
+        };
+
+        const audioPlayer = document.getElementById('audioPlayer');
+        const audioSource = document.getElementById('audioSource');
+        const playlistView = document.getElementById('playlist-view');
+        const tabs = document.querySelectorAll('.tab-link');
+        const currentTrackTitle = document.getElementById('current-track-title');
+        const currentSeriesName = document.getElementById('current-series-name');
+        const currentAlbumArt = document.getElementById('current-album-art');
+
+        let currentPlaylist = 'buddha';
+        let currentTrackIndex = -1;
+
+        // ฟังก์ชันสร้างรายการเสียงใน Playlist
+        function generatePlaylist(playlistName) {
+            const playlist = playlists[playlistName].tracks;
+            playlistView.innerHTML = ''; // ล้างรายการเก่า
+            playlist.forEach((track, index) => {
+                const trackElement = document.createElement('div');
+                trackElement.className = 'playlist-item';
+                trackElement.dataset.index = index;
+                
+                trackElement.innerHTML = `
+                    <span class="track-number">${index + 1}.</span>
+                    <span class="track-title">${track.title}</span>
+                    <span class="track-duration">${track.duration}</span>
+                `;
+
+                trackElement.addEventListener('click', () => {
+                    playTrack(playlistName, index);
+                });
+                playlistView.appendChild(trackElement);
+            });
+        }
+
+        // ฟังก์ชันเล่นไฟล์เสียง
+        function playTrack(playlistName, trackIndex) {
+            currentPlaylist = playlistName;
+            currentTrackIndex = trackIndex;
+
+            const playlistData = playlists[playlistName];
+            const trackData = playlistData.tracks[trackIndex];
+
+            // อัปเดตข้อมูลในเครื่องเล่นหลัก
+            audioSource.src = trackData.file;
+            currentTrackTitle.textContent = trackData.title;
+            currentSeriesName.textContent = `จาก: ${playlistData.name}`;
+            currentAlbumArt.src = playlistData.image; // เปลี่ยนรูปปกตามหมวดหมู่
+
+            audioPlayer.load();
+            audioPlayer.play();
+
+            // อัปเดตไฮไลท์ในรายการ
+            updateActiveTrack();
+        }
+
+        // ฟังก์ชันอัปเดตไฮไลท์เพลงที่กำลังเล่น
+        function updateActiveTrack() {
+            const allTracks = document.querySelectorAll('.playlist-item');
+            allTracks.forEach(track => track.classList.remove('active-track'));
+
+            const activeTrackElement = playlistView.querySelector(`.playlist-item[data-index='${currentTrackIndex}']`);
+            if (activeTrackElement) {
+                activeTrackElement.classList.add('active-track');
+            }
+        }
+        
+        // จัดการการคลิก Tab
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // อัปเดต UI ของ Tab
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // สร้างรายการเพลงใหม่
+                const playlistName = tab.dataset.playlist;
+                generatePlaylist(playlistName);
+            });
+        });
+
+        // เริ่มต้น: โหลด Playlist แรกเมื่อเปิดหน้า
+        generatePlaylist('buddha');
+        currentSeriesName.textContent = `หมวดหมู่: ${playlists.buddha.name}`;
+        currentAlbumArt.src = playlists.buddha.image;
+
+    });
+    </script>
+</body>
+</html>
