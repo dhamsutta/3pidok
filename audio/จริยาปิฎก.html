@@ -255,66 +255,7 @@
  <br>ธรรมสุตตะ🔅
 </footer></center>
 
-    <script>
-        // Script สำหรับ Hamburger Menu
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const mainContainer = document.querySelector('main.container');
-
-        if (hamburgerIcon && sidebarMenu) {
-            hamburgerIcon.addEventListener('click', () => {
-                hamburgerIcon.classList.toggle('open');
-                sidebarMenu.classList.toggle('open');
-            });
-        }
-
-        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
-        fetch('/assets/data/quotes.json')
-            .then(res => res.json())
-            .then(data => {
-                const quote = data[Math.floor(Math.random() * data.length)];
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
-                }
-            })
-            .catch(() => {
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
-                }
-            });
-
-        let paliDict = [];
-        fetch('/assets/data/pali.json')
-            .then(res => res.json())
-            .then(data => { paliDict = data; })
-            .catch(() => {
-                const paliResult = document.getElementById('paliResult');
-                if(paliResult) {
-                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
-                }
-            });
-
-        const paliInput = document.getElementById('paliInput');
-        if (paliInput) {
-            paliInput.addEventListener('input', function () {
-                const input = this.value.trim().toLowerCase();
-                const resultBox = document.getElementById('paliResult');
-                if (!input) {
-                    resultBox.innerHTML = '';
-                    resultBox.style.display = 'none';
-                    return;
-                }
-                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = matches.length
-                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
-                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
-            });
-        }
-    </script>
-
+  
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
