@@ -12,168 +12,181 @@
     <link rel="stylesheet" href="/assets/css/style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-.page-wrapper {
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 10px;
-  box-sizing: border-box;
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "headline": "ฟังธรรมบรรยาย",
+  "description": "ศึกษาพระธรรมตามพระไตรปิฎก โดยการบรรยายธรรมอันไพเราะของท่านพระอาจารย์สมบัติ นันทิโก",
+  "url": "https://dhamma-sutta.com/audio/index.html",
+  "author": {
+    "@type": "Organization",
+    "name": "dhamma-sutta.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "dhamma-sutta.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dhamma-sutta.com/assets/images/logo.png"
+    }
+  },
+  "mainEntityOfPage": "https://dhamma-sutta.com/audio/index.html"
 }
-#menu.hidden {
-    display: none;
-}
-#menu {
-    position: absolute;
-    top: 50px;
-    left: 10px;
-    background: #eee;
-    padding: 10px;
-    border: 1px solid #ccc;
-    width: 200px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.2);
-}
-#menu a {
-    display: block;
-    margin: 5px 0;
-    text-decoration: none;
+</script>
+
+
+
+
+
+    
+  /* General styling for the container */
+  .dhamma-player-container {
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    padding: 20px;
+    font-family: 'Sarabun', sans-serif; /* Ensure Sarabun is loaded or use a fallback */
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+
+  /* Styling for the random poem section */
+  #random-poem-container {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #fff8e1; /* Light yellow background for poem */
+    border-left: 5px solid #6A8C69; /* Using the Dhamma tone keycolor */
+    border-radius: 4px;
+  }
+
+  #random-poem {
+    color: #5D4037; /* Earthy brown text color */
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.7;
+  }
+
+  /* Styling for the controls section (dropdown and button) */
+  .controls-section {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap on smaller screens */
+    align-items: center; /* Vertically align items */
+    gap: 15px; /* Space between label, select, and button */
+    margin-bottom: 25px;
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+
+  .controls-section label {
+    font-size: 18px;
     color: #333;
-}
-#menu-toggle {
-    font-size: 24px;
-    padding: 10px;
-    background-color: #007BFF;
+    margin-right: 5px; /* Space after label */
+  }
+
+  #dhamma-select {
+    font-size: 16px;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    flex-grow: 1; /* Allow dropdown to take available space */
+    min-width: 200px; /* Minimum width for dropdown */
+    background-color: #fff;
+  }
+
+  .play-button {
+    background-color: #6A8C69; /* Using the Dhamma tone keycolor */
     color: white;
     border: none;
+    border-radius: 8px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1px 2px 3px;
     cursor: pointer;
-    margin: 10px;
-}
+    font-family: 'Sarabun', sans-serif;
+    font-size: 16px;
+    padding: 10px 20px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent button text from wrapping */
+  }
+
+  .play-button:hover {
+    background-color: #597758; /* Darker shade on hover */
+  }
+
+  /* Styling for the iframe section */
+  #dhamma-frame-container {
+    margin-top: 20px;
+  }
+
+  #dhamma-frame {
+    border: 1px solid #ddd; /* Add a subtle border to the iframe */
+    border-radius: 4px;
+    height: 800px;
+    width: 100%;
+    background-color: #fff; /* In case content doesn't load immediately */
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 600px) {
+    .controls-section {
+      flex-direction: column; /* Stack items vertically on small screens */
+      align-items: stretch; /* Make items take full width */
+    }
+    .controls-section label {
+      margin-bottom: 5px; /* Add some space below label when stacked */
+      margin-right: 0;
+    }
+    #dhamma-select {
+      width: 100%; /* Full width for select */
+      margin-bottom: 10px; /* Space below select when stacked */
+    }
+    .play-button {
+      width: 100%; /* Full width for button */
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </style>
-    
-    <style>
-
-        /* --- Main Player Section --- */
-        .main-player-section {
-            display: flex;
-            gap: 25px;
-            padding: 25px;
-            background-color: #e8f5e9; /* สีเขียวที่อ่อนลง */
-            border-radius: 8px;
-            margin-top: 20px;
-            align-items: center;
-        }
-        .album-art {
-            flex-shrink: 0;
-        }
-        .album-art img {
-            width: 150px;
-            height: 150px;
-            border-radius: 8px;
-            object-fit: cover;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-        .player-info {
-            flex-grow: 1;
-        }
-        .player-info h2 {
-            margin: 0 0 5px 0;
-            font-size: 1.6em;
-            color: #1b5e20; /* สีเขียวเข้มขึ้น */
-        }
-        .player-info p {
-            margin: 0 0 15px 0;
-            color: #4caf50;
-            font-weight: 500;
-        }
-        #audioPlayer {
-            width: 100%;
-            filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) brightness(105%);
-        }
-
-        /* --- Playlist Section --- */
-        .playlist-section {
-            margin-top: 30px;
-        }
-        .tab-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 15px;
-        }
-        .tab-link {
-            padding: 10px 20px;
-            cursor: pointer;
-            border: 1px solid #ccc;
-            background-color: #f1f1f1;
-            border-radius: 20px;
-            font-size: 1em;
-            font-family: 'Sarabun', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        .tab-link:hover {
-            background-color: #e0e0e0;
-        }
-        .tab-link.active {
-            background-color: #2e8b57;
-            color: white;
-            border-color: #2e8b57;
-            font-weight: 600;
-        }
-        #playlist-view {
-            max-height: 400px;
-            overflow-y: auto;
-            padding-right: 10px; /* สำหรับ scrollbar */
-        }
-        .playlist-item {
-            display: flex;
-            align-items: center;
-            padding: 12px 10px;
-            border-bottom: 1px solid #eee;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            border-radius: 5px;
-        }
-        .playlist-item:hover {
-            background-color: #e8f5e9;
-        }
-        .playlist-item.active-track {
-            background-color: #d1e7d2;
-            font-weight: bold;
-        }
-        .playlist-item .track-number {
-            font-size: 1.1em;
-            color: #777;
-            width: 40px;
-        }
-        .playlist-item .track-title {
-            flex-grow: 1;
-        }
-        .playlist-item .track-duration {
-            color: #888;
-            font-size: 0.9em;
-        }
-        footer {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #e0e0e0;
-            color: #777;
-        }
-
-        /* --- Responsive Design --- */
-        @media (max-width: 768px) {
-            .main-player-section {
-                flex-direction: column;
-                text-align: center;
-            }
-            .player-info h2 {
-                font-size: 1.4em;
-            }
-            .tab-container {
-                justify-content: center;
-            }
-        }
-    </style>
+  
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "headline": "ฟังธรรมบรรยาย",
+  "description": "ศึกษาพระธรรมตามพระไตรปิฎก โดยการบรรยายธรรมอันไพเราะของท่านพระอาจารย์สมบัติ นันทิโก",
+  "url": "https://dhamma-sutta.com/audio/จริยาปิฎก.html",
+  "author": {
+    "@type": "Organization",
+    "name": "dhamma-sutta.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "dhamma-sutta.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dhamma-sutta.com/assets/images/logo.png"
+    }
+  },
+  "mainEntityOfPage": "https://dhamma-sutta.com/audio/จริยาปิฎก.html"
+}
+</script>
 
 <script>
   // เรียกเมื่อมีการฟังหรือเลือกธรรมะใหม่
@@ -216,47 +229,6 @@
   document.addEventListener('DOMContentLoaded', showRecentList);
 </script>
 
-
-<script>
-  // เรียกเมื่อมีการฟังหรือเลือกธรรมะใหม่
-  function saveRecent(title, url) {
-    let recent = JSON.parse(localStorage.getItem('recentList') || '[]');
-
-    // ลบรายการซ้ำถ้ามี
-    recent = recent.filter(item => item.url !== url);
-
-    // เพิ่มรายการใหม่ไว้ข้างบน
-    recent.unshift({ title, url });
-
-    // เก็บไม่เกิน 5 รายการ
-    if (recent.length > 5) recent = recent.slice(0, 5);
-
-    localStorage.setItem('recentList', JSON.stringify(recent));
-  }
-
-  // เรียกเมื่อโหลดหน้า เพื่อแสดงรายการ
-  function showRecentList() {
-    const recent = JSON.parse(localStorage.getItem('recentList') || '[]');
-    const container = document.getElementById('recent-list');
-
-    if (!recent.length) {
-      container.innerHTML = '<p style="text-align:center; color:#999;">ยังไม่มีประวัติการฟัง</p>';
-      return;
-    }
-
-    // สร้างรายการแสดงผล
-    container.innerHTML = recent.map(item => `
-      <div style="margin: 8px 0;">
-        <a href="${item.url}" target="_blank" style="color:#6b4c20; text-decoration: none;">
-          ▶ ${item.title}
-        </a>
-      </div>
-    `).join('');
-  }
-
-  // โหลดเมื่อเปิดหน้า
-  document.addEventListener('DOMContentLoaded', showRecentList);
-</script>
 
 
 
@@ -265,24 +237,8 @@
 
     
 </head>
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 <body>
 
-    <body>
-<div class="page-wrapper">
     <header class="site-header">
         <div class="header-container">
             <a href="/" class="logo-link">
@@ -296,6 +252,7 @@
                 <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
                 <a href=" /pages/katha.html">อรรถกถา</a>
                 <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
+                
             </nav>
             <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
                 <span class="bar"></span>
@@ -305,7 +262,7 @@
         </div>
     </header>
 
-        <nav class="sidebar-menu" id="sidebarMenu">
+    <nav class="sidebar-menu" id="sidebarMenu">
         <a href="/">🏠หน้าแรก</a>
         <a href=" /pages/vinaya.html">🔹พระวินัย</a>
         <a href=" /pages/sutta.html">🔹พระสูตร</a>
@@ -316,253 +273,47 @@
         <a href=" /audio/index.html">📻 ฟังธรรมบรรยาย</a>
         <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
     </nav>
+<main>
+  
 
-    <div class="container">
-        <header>
-            <h1>สถานีวิทยุธรรมสุตตะ</h1>
-            <p>ธรรมบรรยายโดย พระอาจารย์สมบัติ นันทิโก</p>
-<div style="max-width: 600px; margin: 30px auto; background: #fcf8ee; border: 1px solid #e8e0ce; padding: 16px; border-radius: 12px;">
-  <h3 style="text-align:center; color:#6b4c20;">📌 ประวัติการฟังจากครั้งก่อน</h3>
-  <div id="recent-list"></div>
 </div>
-        </header>
+   <p><a href="/">หน้าแรก</a> > ธรรมบรรยาย</p>
+<hr style="border: 1px solid #e6e6e6;"> 
 
-        <main>
-            <section class="main-player-section">
-                <div class="album-art">
-                    <img id="current-album-art" src="/assets/images/dhammacakka-icon.png" alt="ปกธรรมะ" />
-                </div>
-                <div class="player-info">
-                    <h2 id="current-track-title">เลือกธรรมบรรยายเพื่อเริ่มฟัง</h2>
-                    <p id="current-series-name">ยังไม่ได้เลือกหมวดหมู่</p>
-                    <audio id="audioPlayer" controls>
-                        <source id="audioSource" src="" type="audio/mpeg">
-                        เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
-                    </audio>
-                </div>
-            </section>
-
-            <section class="playlist-section">
-                <div class="tab-container">
-                    <button class="tab-link active" data-playlist="buddha">🎧 ชุดพระพุทธเจ้า</button>
-                    <button class="tab-link" data-playlist="sutta">🎧 ชุดพระสูตร</button>
-                    <button class="tab-link" data-playlist="panna">🎧 ชุดพระปัญญา</button>
-                    <button class="tab-link" data-playlist="misc">🎧 อรรถกถาและปกิณกะ</button>
-                </div>
-
-                <div id="playlist-view">
-                    </div>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; ๒๕๖๑ - ปัจจุบัน, ธรรมสุตตะ</p>
-        </footer>
-    </div>
-
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-
-        // --- ฐานข้อมูลรายการเสียง ---
-        // **สำคัญ**: คุณต้องแก้ path ของไฟล์เสียง (file) และรูปภาพ (image) ให้ถูกต้อง
-        const playlists = {
-            'buddha': {
-                name: 'ชุดพระพุทธเจ้า',
-                image: '/assets/images/buddha-icon.png', // รูปประจำหมวด
-                tracks: [
-                    { title: 'พระพุทธเจ้าผู้ทรงคุณ', file: '/audio/buddha/buddha-khun.mp3', duration: '58:12' },
-                    { title: 'พุทธวงศ์', file: '/audio/buddha/buddhawong.mp3', duration: '45:30' },
-                    { title: 'มหาปทานสูตร', file: '/audio/buddha/mahapadana.mp3', duration: '1:10:05' },
-                    { title: 'มหาปรินิพพานสูตร', file: '/audio/buddha/mahaparinibbana.mp3', duration: '1:25:11' },
-                    { title: 'สู่แดนพุทธภูมิ', file: '/audio/buddha/to-buddha-land.mp3', duration: '33:45' }
-                ]
-            },
-            'sutta': {
-                name: 'ชุดพระสูตร',
-                image: '/assets/images/dhammacakka-icon.png', // รูปประจำหมวด
-                tracks: [
-                    { title: 'มงคลสูตร', file: '/audio/sutta/mongkol.mp3', duration: '48:15' },
-                    { title: 'ธนิยสูตร', file: '/audio/sutta/thaniya.mp3', duration: '35:22' },
-                    { title: 'อลคัททูปมสูตร', file: '/audio/sutta/alaguddupama.mp3', duration: '1:05:40' },
-                    { title: 'มูลปริยายสูตร', file: '/audio/sutta/mulapariyaya.mp3', duration: '55:50' },
-                    { title: 'ทสุตตรสูตร', file: '/audio/sutta/dasuttara.mp3', duration: '49:18' }
-                ]
-            },
-            'panna': {
-                name: 'ชุดพระปัญญา',
-                image: '/assets/images/bell-icon.png', // รูปประจำหมวด
-                tracks: [
-                    { title: 'พระอภิธรรม 7 คัมภีร์', file: '/audio/panna/abhidhamma7.mp3', duration: '1:15:00' },
-                    { title: 'สติปัฏฐาน - กายานุปัสสนา', file: '/audio/panna/satipatthana-kaya.mp3', duration: '59:30' },
-                    { title: 'สติปัฏฐาน - เวทนานุปัสสนา', file: '/audio/panna/satipatthana-vedana.mp3', duration: '1:02:10' },
-                    { title: 'โพชฌงค์บรรพ', file: '/audio/panna/bojjhanga.mp3', duration: '47:25' },
-                    { title: 'ปฏิสัมภิทามรรค', file: '/audio/panna/patisambhida.mp3', duration: '1:08:00' }
-                ]
-            },
-            'misc': {
-                name: 'อรรถกถาและปกิณกะ',
-                image: '/assets/images/bodhi-icon.png', // รูปประจำหมวด
-                tracks: [
-                    { title: 'มิลินทปัญหา', file: '/audio/misc/milinda.mp3', duration: '1:30:15' },
-                    { title: 'จริยาปิฎก', file: '/audio/misc/jariya.mp3', duration: '50:45' },
-                    { title: 'เนตติปกรณ์', file: '/audio/misc/netti.mp3', duration: '44:55' },
-                    { title: 'พรหมวิหาร 4', file: '/audio/misc/brahmavihara.mp3', duration: '38:10' },
-                    { title: 'ไตรสรณคมน์', file: '/audio/misc/tisarana.mp3', duration: '29:50' }
-                ]
-            }
-        };
-
-        const audioPlayer = document.getElementById('audioPlayer');
-        const audioSource = document.getElementById('audioSource');
-        const playlistView = document.getElementById('playlist-view');
-        const tabs = document.querySelectorAll('.tab-link');
-        const currentTrackTitle = document.getElementById('current-track-title');
-        const currentSeriesName = document.getElementById('current-series-name');
-        const currentAlbumArt = document.getElementById('current-album-art');
-
-        let currentPlaylist = 'buddha';
-        let currentTrackIndex = -1;
-
-        // ฟังก์ชันสร้างรายการเสียงใน Playlist
-        function generatePlaylist(playlistName) {
-            const playlist = playlists[playlistName].tracks;
-            playlistView.innerHTML = ''; // ล้างรายการเก่า
-            playlist.forEach((track, index) => {
-                const trackElement = document.createElement('div');
-                trackElement.className = 'playlist-item';
-                trackElement.dataset.index = index;
-                
-                trackElement.innerHTML = `
-                    <span class="track-number">${index + 1}.</span>
-                    <span class="track-title">${track.title}</span>
-                    <span class="track-duration">${track.duration}</span>
-                `;
-
-                trackElement.addEventListener('click', () => {
-                    playTrack(playlistName, index);
-                });
-                playlistView.appendChild(trackElement);
-            });
-        }
-
-        // ฟังก์ชันเล่นไฟล์เสียง
-        function playTrack(playlistName, trackIndex) {
-            currentPlaylist = playlistName;
-            currentTrackIndex = trackIndex;
-
-            const playlistData = playlists[playlistName];
-            const trackData = playlistData.tracks[trackIndex];
-
-            // อัปเดตข้อมูลในเครื่องเล่นหลัก
-            audioSource.src = trackData.file;
-            currentTrackTitle.textContent = trackData.title;
-            currentSeriesName.textContent = `จาก: ${playlistData.name}`;
-            currentAlbumArt.src = playlistData.image; // เปลี่ยนรูปปกตามหมวดหมู่
-
-            audioPlayer.load();
-            audioPlayer.play();
-
-            // อัปเดตไฮไลท์ในรายการ
-            updateActiveTrack();
-        }
-
-        // ฟังก์ชันอัปเดตไฮไลท์เพลงที่กำลังเล่น
-        function updateActiveTrack() {
-            const allTracks = document.querySelectorAll('.playlist-item');
-            allTracks.forEach(track => track.classList.remove('active-track'));
-
-            const activeTrackElement = playlistView.querySelector(`.playlist-item[data-index='${currentTrackIndex}']`);
-            if (activeTrackElement) {
-                activeTrackElement.classList.add('active-track');
-            }
-        }
-        
-        // จัดการการคลิก Tab
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                // อัปเดต UI ของ Tab
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // สร้างรายการเพลงใหม่
-                const playlistName = tab.dataset.playlist;
-                generatePlaylist(playlistName);
-            });
-        });
-
-        // เริ่มต้น: โหลด Playlist แรกเมื่อเปิดหน้า
-        generatePlaylist('buddha');
-        currentSeriesName.textContent = `หมวดหมู่: ${playlists.buddha.name}`;
-        currentAlbumArt.src = playlists.buddha.image;
-
-    });
-    </script>
 
     
+ <div class="controls-section">
+    <label>เลือกชุดธรรมะที่ต้องการฟัง:</label>
+    <select id="dhamma-select">
+      <option value="">-- กรุณาเลือก --</option>
+      <option value="https://dhammasutta.github.io/dhamma-radio/buddhawong/w1-25.html">คัมภีร์พุทธวงศ์ พระพุทธเจ้า ๒๕ พระองค์</option>
+      <option value="https://dhamsutta.github.io/3pidok/audio/จริยาปิฎก.html">ทานบารมี &gt; จริยาปิฎก</option>
+      <option value="https://dhammasutta.github.io/dhamma-radio/jariya/sigkha.html">ศีลบารมี &gt; จริยาปิฎก</option>
+      <option value="https://dhammasutta.github.io/dhamma-radio/jariya/panya.html">เนกขัมมะบารมี &gt; จริยาปิฎก</option>
+      <option value="https://dhammasutta.github.io/dhamma-radio/jariya/pakinnaka.html">ปกิณณกกถา &gt; จริยาปิฎก</option>
+        <option value="https://dhamsutta.github.io/3pidok/audio/jariya.html">จริยาปิฎก &gt; อรรถกถา (หน้าแรก)</option>
+      <option value="sombat.html">ชุด.....</option>
+    </select>
+    <button class="play-button" onclick="loadDhammaPage()">
+      ▶️ ไปฟังชุดที่เลือก
+    </button>
+  </div>
 
-   <script>
-        // Script สำหรับ Hamburger Menu
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const mainContainer = document.querySelector('main.container');
+  <div id="dhamma-frame-container">
+    <iframe id="dhamma-frame" src="" title="Dhamma Content"></iframe>
+  </div>
 
-        if (hamburgerIcon && sidebarMenu) {
-            hamburgerIcon.addEventListener('click', () => {
-                hamburgerIcon.classList.toggle('open');
-                sidebarMenu.classList.toggle('open');
-            });
-        }
-        
-        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
-        // ตอนนี้ quote-box อยู่ใน hero-section แล้ว
-        fetch('/assets/data/quotes.json')
-            .then(res => res.json())
-            .then(data => {
-                const quote = data[Math.floor(Math.random() * data.length)];
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
-                }
-            })
-            .catch(() => {
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
-                }
-            });
 
-        let paliDict = [];
-        fetch('/assets/data/pali.json')
-            .then(res => res.json())
-            .then(data => { paliDict = data; })
-            .catch(() => {
-                const paliResult = document.getElementById('paliResult');
-                if(paliResult) {
-                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
-                }
-            });
 
-        const paliInput = document.getElementById('paliInput');
-        if (paliInput) {
-            paliInput.addEventListener('input', function () {
-                const input = this.value.trim().toLowerCase();
-                const resultBox = document.getElementById('paliResult');
-                if (!input) {
-                    resultBox.innerHTML = '';
-                    resultBox.style.display = 'none';
-                    return;
-                }
-                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = matches.length
-                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
-                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
-            });
-        }
-    </script>
 
     
+</main>
 
+<center> <footer class="site-footer">
+<a href="/">หน้าแรก</a> > <a href="/audio/index.html">ธรรมบรรยาย</a><br>
+ <br>ธรรมสุตตะ🔅
+</footer></center>
+</div>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
@@ -757,17 +508,118 @@ function formatTime(sec) {
   document.addEventListener('DOMContentLoaded', showRecentList);
 </script>
 
+   <script>
+        // Script สำหรับ Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContainer = document.querySelector('main.container');
 
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+        
+        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
+        // ตอนนี้ quote-box อยู่ใน hero-section แล้ว
+        fetch('/assets/data/quotes.json')
+            .then(res => res.json())
+            .then(data => {
+                const quote = data[Math.floor(Math.random() * data.length)];
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
+                }
+            })
+            .catch(() => {
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
+                }
+            });
 
+        let paliDict = [];
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => { paliDict = data; })
+            .catch(() => {
+                const paliResult = document.getElementById('paliResult');
+                if(paliResult) {
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
+                }
+            });
 
+        const paliInput = document.getElementById('paliInput');
+        if (paliInput) {
+            paliInput.addEventListener('input', function () {
+                const input = this.value.trim().toLowerCase();
+                const resultBox = document.getElementById('paliResult');
+                if (!input) {
+                    resultBox.innerHTML = '';
+                    resultBox.style.display = 'none';
+                    return;
+                }
+                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = matches.length
+                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
+            });
+        }
+    </script>
 
+<script>
+  async function loadRandomPoem() {
+    try {
+      // Ensure this URL is correct and accessible (CORS policy)
+      const res = await fetch("https://dhammasutta.github.io/poem-box/poems.json");
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data = await res.json();
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const poem = data[randomIndex];
 
+      const div = document.getElementById("random-poem");
+      div.innerHTML = poem.replace(/\n/g, "<br>"); // Assuming poem is a string with \n for newlines
+    } catch (e) {
+      console.error("Error loading poem:", e);
+      document.getElementById("random-poem").innerHTML = "⚠️ โหลดกลอนไม่สำเร็จ";
+    }
+  }
 
+  function loadDhammaPage() {
+    const select = document.getElementById("dhamma-select");
+    const frame = document.getElementById("dhamma-frame");
+    const value = select.value;
+    if (value) {
+      frame.src = value;
+    } else {
+      // Optional: Clear iframe or show a message if no selection
+      // frame.src = 'about:blank';
+      // alert("กรุณาเลือกชุดธรรมะ");
+    }
+  }
 
+  // Load initial poem when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    loadRandomPoem();
 
-
-
-
+    // Note: The showLastTrack function from your original script is not called here
+    // as there is no element with id="last-track-text" in this revised HTML structure.
+    // If you want to display last track info, you'll need to add an element for it.
+    // For example:
+    // function showLastTrackDisplay() {
+    //   const lastTitle = localStorage.getItem("lastAudioTitle");
+    //   const displayElement = document.getElementById("your-last-track-display-element-id"); // Create this element
+    //   if (displayElement && lastTitle) {
+    //     displayElement.textContent = "ฟังครั้งล่าสุด: " + lastTitle;
+    //   }
+    // }
+    // showLastTrackDisplay();
+  });
+</script>
 
 
     
