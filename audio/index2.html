@@ -156,163 +156,46 @@
         <a href=" /audio/index.html">📻 ฟังธรรมบรรยาย</a>
         <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
     </nav>
-
-    
- <p><a href="/">หน้าแรก</a> > ธรรมบรรยาย
 <main>
   
   <div style="max-width: 600px; margin: 30px auto; background: #fcf8ee; border: 1px solid #e8e0ce; padding: 16px; border-radius: 12px;">
   <h3 style="text-align:center; color:#6b4c20;">📌 ประวัติการฟังจากครั้งก่อน</h3>
   <div id="recent-list"></div>
+
 </div>
-  
+   <p><a href="/">หน้าแรก</a> > ธรรมบรรยาย</p>
 <hr style="border: 1px solid #e6e6e6;"> 
-<h3><span style="color:brown;">🎧 การสร้างทานบารมีของพระมหาโพธิสัตว์</span></h3><br>
-<div class="main-content">
-<h3><span style="color: #783f04;">ตอนที่ ๑ เหตุแสดงจริยาปิฏก</span></h3><br>
-เมื่อพระองค์ตรัสรู้แล้ว มีผู้สงสัยว่า <span style="color: #990000;">"เพราะเหตุใดพระองค์จึงตรัสรู้ได้?"</span>
-พระองค์จึงทรงแสดง เรื่องราวการบำเพ็ญบารมีในชาติต่าง ๆ เพื่อให้เข้าใจว่า
-การตรัสรู้ไม่ใช่เรื่องบังเอิญ แต่เกิดจากความเพียรและความดีที่สั่งสมมาอย่างยาวนาน<br><br>
-  
-  <div style="max-width: 400px; margin: auto; background: #fdfaf4; border: 1px solid #e6dac2; border-radius: 12px; padding: 16px; font-family: sans-serif; color: #5e4b2a; box-shadow: 0 4px 10px rgba(0,0,0,0.05);">
-    <h3 style="text-align: center; margin-top: 0;">📖 ฟังธรรมะ</h3>
-    <audio id="audioPlayer" src="https://archive.org/download/jariya-7/Jariya1.mp3"></audio>
 
-    <div style="display: flex; justify-content: center; gap: 10px; margin: 10px 0;">
-        <button onclick="document.getElementById('audioPlayer').play()" style="padding: 6px 14px; background: #d4b06a; border: none; border-radius: 5px; color: white;">▶️ เล่น</button>
-        <button onclick="document.getElementById('audioPlayer').pause()" style="padding: 6px 14px; background: #a58e6c; border: none; border-radius: 5px; color: white;">⏸️ หยุด</button>
-    </div>
 
-    <input type="range" id="progressBar" value="0" style="width: 100%;" />
-    <div style="text-align: center; font-size: 14px; margin-top: 5px;">
-        <span id="currentTime">00:00</span> / <span id="duration">00:00</span>
-    </div>
-</div>
-  
-    <img src="/assets/images/009.jpg" alt="คำอธิบาย" style="float: center; width: 450px; margin-left:;">
-            
-</div>
     
-<div class="main-content">
-<h3><span style="color: #783f04;">ตอนที่ ๒ อกิตติดาบส จริยาที่ ๑</span></h3><br>
-<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">“แม้มีของเพียงน้อยนิด แต่ข้าก็ยินดีสละเพื่อประโยชน์ของผู้อื่น”</span></center><br>
-                      <audio controls>
-                          <source src="https://archive.org/download/jariya-7/Jariya2.mp3" type="audio/mpeg">
-                          เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                      </audio>
-</div>
+ <div class="controls-section">
+    <label>เลือกชุดธรรมะที่ต้องการฟัง:</label>
+    <select id="dhamma-select">
+      <option value="">-- กรุณาเลือก --</option>
+      <option value="https://dhammasutta.github.io/dhamma-radio/buddhawong/w1-25.html">คัมภีร์พุทธวงศ์ พระพุทธเจ้า ๒๕ พระองค์</option>
+      <option value="https://dhammasutta.github.io/dhamma-radio/jariya/tan.html">จริยาปิฎก &gt; ทานบารมี</option>
+      <option value="https://dhammasutta.github.io/dhamma-radio/jariya/sigkha.html">จริยาปิฎก &gt; ศีลบารมี</option>
+      <option value="https://dhammasutta.github.io/dhamma-radio/jariya/panya.html">จริยาปิฎก &gt; เนกขัมมะบารมี</option>
+      <option value="https://dhammasutta.github.io/dhamma-radio/jariya/pakinnaka.html">จริยาปิฎก &gt; ปกิณณกกถา</option>
+      <option value="sombat.html">ชุด.....</option>
+    </select>
+    <button class="play-button" onclick="loadDhammaPage()">
+      ▶️ ไปฟังชุดที่เลือก
+    </button>
+  </div>
+
+  <div id="dhamma-frame-container">
+    <iframe id="dhamma-frame" src="" title="Dhamma Content"></iframe>
+  </div>
 
 
-<div class="main-content">
-<h3><span style="color: #783f04;">ตอนที่ ๓ สังขพราหมณ์ จริยาที่ ๒</span></h3><br>
-พระโพธิสัตว์บังเกิดเป็น สังขพราหมณ์ ผู้มีศีล มีธรรม และดำรงอยู่ในเพศบรรพชิต ท่านมีทรัพย์จำนวนมาก
-เมื่อมีคนยากไร้มาขอสิ่งของ ท่านก็สละสมบัติเหล่านั้นทั้งหมด ให้โดยไม่หวงแหน แม้ญาติหรือภรรยาจะคัดค้านก็ไม่หวั่นไหว
-พระโพธิสัตว์ยืนยันว่าทรัพย์ที่สะสมมาย่อมมีค่าเมื่อได้ให้แก่ผู้อื่น<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">"ทรัพย์ที่เราได้มาด้วยธรรม ควรใช้ให้เป็นประโยชน์แก่ผู้ตกทุกข์ได้ยาก  
-    มิใช่ยึดไว้ด้วยความตระหนี่"</span></center><br>
-                      <audio controls>
-                          <source src="https://archive.org/download/jariya-7/Jariya3.mp3" type="audio/mpeg">
-                          เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                      </audio>
-</div>
 
 
-<div class="main-content">
-<h3><span style="color: #783f04;">ตอนที่ ๔ จริยาที่ ๓ พระเจ้าธนญชัย และ จริยาที่ ๔ มหาสุทัศน</span></h3><br>
-พระโพธิสัตว์ได้บังเกิดเป็น พระเจ้าธนญชัย (ธนญชัยราชา) กษัตริย์ผู้มีธรรมปกครองบ้านเมืองด้วยความยุติธรรมและมีจิตใจเปี่ยมด้วยเมตตา 
-พระองค์ทรงสละ ราชทรัพย์อย่างมากมายเป็นทาน แม้จะถึงกับต้อง ขายเครื่องประดับของพระองค์เองและของพระมเหสี
-ก็ยังไม่ยึดติด<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">“เมื่อใดที่เห็นผู้ตกทุกข์ได้ยาก ขอให้ใจเรากระตือรือร้นต่อทานทันที”</span></center><hr>
-พระโพธิสัตว์เกิดเป็นกษัตริย์ชื่อว่า พระมหาสุทัศนา ปกครองนครชื่อว่า อัมพติฏฐนคร
-พระองค์ทรงครองราชย์ด้วยธรรมและความยุติธรรม มีจิตใจเปี่ยมด้วยเมตตาและทานบารมี
-
-ต่อมา เมื่อพระองค์เห็นว่าตนได้สั่งสมบุญบารมีเพียงพอแล้ว และต้องการบำเพ็ญธรรมขั้นสูง
-พระองค์จึง สละราชสมบัติและทรัพย์ทั้งหมดให้แก่ประชาชน
-แล้วออกบวชเป็นฤๅษี บำเพ็ญพรตอยู่ในป่าด้วยความเงียบสงบ<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">"อำนาจและทรัพย์สินแม้ยิ่งใหญ่เพียงใด ก็ไม่เท่าการพ้นจากกิเลส"</span></center><br>
-<audio controls>
-                        <source src="https://archive.org/download/jariya-7/Jariya4.mp3" type="audio/mpeg">
-                        เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                      </audio>
-</div>
-
-<div class="main-content">
-<h3><span style="color: #783f04;">ตอนที่ ๕ จริยาที่ ๕ มหาโควินทพราหมณ์ และ จริยาที่ ๖ พระเจ้าเนมิราช</span></h3><br>
- พระโพธิสัตว์เกิดเป็น พราหมณ์ผู้มีปัญญาชื่อว่า มหาโควินทะ
-เป็นมหาเศรษฐีผู้ทรงอิทธิพลในราชสำนักของกษัตริย์ทั้งเจ็ดพระองค์
-
-ด้วยความสามารถ พระองค์ได้รับทรัพย์สินและเกียรติยศมากมาย
-แต่เมื่อพิจารณาเห็นว่า ทรัพย์สมบัติไม่ใช่สิ่งเที่ยงแท้ และไม่ใช่หนทางสู่ความพ้นทุกข์
-ท่านจึง สละทรัพย์ทั้งหมด แล้วออกบวชเป็นดาบสบำเพ็ญพรตในป่า<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">“ผู้มีปัญญาควรสละเพื่อแสวงหาสิ่งที่ประเสริฐกว่า”</span></center>
-
-<hr>
-พระโพธิสัตว์บังเกิดเป็นกษัตริย์พระนามว่า พระเจ้าเนมิราช
-ทรงปกครองโดยธรรม มีจิตใจเปี่ยมด้วยเมตตา ไม่ยึดมั่นในทรัพย์สมบัติหรืออำนาจ
-
-พระองค์ทรงบำเพ็ญ ทานบารมี อย่างไม่ลังเล เมื่อมีผู้ใดมาขอ ทรงยินดีให้ ไม่ว่าจะเป็นทรัพย์สิน เสื้อผ้า อาหาร
-แม้สิ่งของส่วนพระองค์ เช่น เครื่องประดับของพระมเหสี หรือทรัพย์ของตนเอง ก็ทรงยินดีมอบให้ด้วยความเต็มใจ<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">“ข้าพเจ้ายินดีให้ มิใช่เพราะถูกขอ แต่เพราะความเมตตา”</span></center>
-<br>
-<audio controls>
-                        <source src="https://archive.org/download/jariya-7/Jariya5.mp3" type="audio/mpeg">
-                        เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                      </audio>
-</div>
-
-<div class="main-content">
-<h3><span style="color: #783f04;">ตอนที่ ๖ จริยาที่ ๗ พระจันทกุมาร และ จริยาที่ ๘ พระเจ้าสิวิราช</span></h3><br>
- พระโพธิสัตว์บังเกิดเป็นพระราชโอรส มีพระนามว่า พระจันทกุมาร
-พระองค์เป็นกุมารผู้เปี่ยมด้วยศีลธรรม เมตตา และความกรุณาต่อผู้อื่น
-
-วันหนึ่ง มี พราหมณ์ยากจน เดินทางมาขอพระราชทรัพย์จากพระองค์
-แม้จะไม่ได้เป็นกษัตริย์หรือมีทรัพย์สินมากมาย แต่ พระจันทกุมารก็ไม่ลังเล
-ทรงมอบ เครื่องประดับที่สวมอยู่และเสื้อผ้า ของพระองค์ให้โดยเต็มใจ<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">“ข้าพเจ้าสละทรัพย์ที่ตนพอมี เพื่อช่วยเหลือผู้อื่น แม้ไม่มาก ก็ให้ด้วยความจริงใจ”</span></center>
-
-<hr>
-พระโพธิสัตว์บังเกิดเป็นกษัตริย์พระนามว่า พระเจ้าสิวิราช
-ทรงเปี่ยมด้วยเมตตาและบำเพ็ญทานบารมีอย่างสูงสุด
-
-วันหนึ่ง พระอินทร์ได้แปลงกายเป็น พราหมณ์ตาบอด มาขอ “ดวงตา”
-พระเจ้าสิวิราช ไม่ลังเลเลยแม้แต่น้อย ทรงยินดี ควักลูกตาของพระองค์ ให้แก่พราหมณ์ด้วยความเต็มใจ
-เพื่อช่วยให้เขามองเห็นได้ แม้จะต้องเสียตาของตนเองไปก็ตาม<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">“แม้ดวงตาอันเป็นของรัก ข้าก็ยินดีสละ เพื่อให้ผู้อื่นพ้นทุกข์”</span></center>
-<br>
-<audio controls>
-                        <source src="https://archive.org/download/jariya-7/Jariya6.mp3" type="audio/mpeg">
-                        เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                      </audio>
-</div>
-
-
-<div class="main-content">
-<h3><span style="color: #783f04;">ตอนที่ ๗ พระเวสสันดร จริยาที่ ๙</span></h3><br>
-พระโพธิสัตว์ได้บังเกิดเป็นกษัตริย์พระนามว่า พระเวสสันดร ผู้มีพระทัยเอื้อเฟื้อ ชอบแจกทาน ไม่ยึดมั่นในทรัพย์สิน
-พระองค์ทรงบริจาคทานอย่างไม่เลือกชนชั้น แม้จะ บริจาคช้างปัจจัยนาเคนทร์ (ช้างคู่บ้านคู่เมือง)
-ก็ยังยินดีให้เมื่อมีผู้มาขอ → ชาวเมืองไม่พอใจและขับไล่พระองค์ออกจากเมืองไปอยู่ป่า แต่แม้ในป่า ก็ยังมีพราหมณ์ชื่อชูชกมาขอลูก
-ทั้งสองของพระองค์ไปเป็นทาส พระเวสสันดรก็ยังยินดีบริจาคบุตรทั้งสอง เพื่อรักษาความตั้งมั่นในทานบารมี<br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">"แม้สิ่งที่รักยิ่งอย่างลูก ก็ไม่อาจรั้งไว้เมื่อมีผู้ขอ"</span></center><br>
-                      <audio controls>
-                          <source src="https://archive.org/download/jariya-7/Jariya7.mp3" type="audio/mpeg">
-                          เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                      </audio>
-</div>
-
-<div class="main-content">
-<h3><span style="color: #783f04;">ตอนที่ ๘ สสบัณฑิต จริยาที่ ๑๐ และ บทสรุป</span></h3><br>
-พระโพธิสัตว์ได้บังเกิดเป็นพญากระต่ายชื่อว่า สสบัณฑิต อาศัยอยู่ในป่ากับเพื่อสัตว์สหายอีก ๓ ตัว ต่างได้ตั้งสัจจะอธิษฐานกันว่าจะให้อาหารเป็นทานในวันอุโบสถ แต่พญากระต่ายโพธิสัตว์ไม่มีอาหาร จึงได้คิดจะมอบร่างกายเนื้อหนังของตนนั้นแหล่ะเป็นทาน แก่ผู้ที่มาขอเพื่อเป็นการสร้างทานบารมีอันยิ่งใหญ่ <br><br><b>คำสอนของพระมหาโพธิสัตว์</b><br>
-<center><span style="color: green;">“สิ่งใดเป็นประโยชน์แก่ผู้อื่น สิ่งนั้นควรให้”</span></center><br>
-<audio controls>
-                        <source src="https://archive.org/download/jariya-7/Jariya8.mp3" type="audio/mpeg">
-                        เบราว์เซอร์ของคุณไม่รองรับการเล่นไฟล์เสียง
-                      </audio>
-</div>
+    
 </main>
 
 <center> <footer class="site-footer">
-<i><a href="/">หน้าแรก</a> > <a href="/audio/index.html">ธรรมบรรยาย</a> > <a href="/audio/jariya.html">จริยาปิฎก</a> > <b>ทานบารมี</b></i>
+<a href="/">หน้าแรก</a> > <a href="/audio/index.html">ธรรมบรรยาย</a><br>
  <br>ธรรมสุตตะ🔅
 </footer></center>
 </div>
@@ -571,6 +454,57 @@ function formatTime(sec) {
         }
     </script>
 
+<script>
+  async function loadRandomPoem() {
+    try {
+      // Ensure this URL is correct and accessible (CORS policy)
+      const res = await fetch("https://dhammasutta.github.io/poem-box/poems.json");
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      const data = await res.json();
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const poem = data[randomIndex];
+
+      const div = document.getElementById("random-poem");
+      div.innerHTML = poem.replace(/\n/g, "<br>"); // Assuming poem is a string with \n for newlines
+    } catch (e) {
+      console.error("Error loading poem:", e);
+      document.getElementById("random-poem").innerHTML = "⚠️ โหลดกลอนไม่สำเร็จ";
+    }
+  }
+
+  function loadDhammaPage() {
+    const select = document.getElementById("dhamma-select");
+    const frame = document.getElementById("dhamma-frame");
+    const value = select.value;
+    if (value) {
+      frame.src = value;
+    } else {
+      // Optional: Clear iframe or show a message if no selection
+      // frame.src = 'about:blank';
+      // alert("กรุณาเลือกชุดธรรมะ");
+    }
+  }
+
+  // Load initial poem when the page loads
+  document.addEventListener('DOMContentLoaded', function() {
+    loadRandomPoem();
+
+    // Note: The showLastTrack function from your original script is not called here
+    // as there is no element with id="last-track-text" in this revised HTML structure.
+    // If you want to display last track info, you'll need to add an element for it.
+    // For example:
+    // function showLastTrackDisplay() {
+    //   const lastTitle = localStorage.getItem("lastAudioTitle");
+    //   const displayElement = document.getElementById("your-last-track-display-element-id"); // Create this element
+    //   if (displayElement && lastTitle) {
+    //     displayElement.textContent = "ฟังครั้งล่าสุด: " + lastTitle;
+    //   }
+    // }
+    // showLastTrackDisplay();
+  });
+</script>
 
 
     
