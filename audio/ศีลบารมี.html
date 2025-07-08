@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>รายการเสียง</title>
+  <style>
+    .episode {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      max-width: 600px;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      white-space: pre-wrap;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="episodes-container"></div>
+
+  <script>
+    const episodes = [
+      {
+        url: "https://archive.org/download/sigkha1/sigkha1.mp3",
+        title: `จริยาที่ ๑ ว่าด้วยจริยาวัตรของพระยาช้างสีลว
+จริยาที่ ๒ ว่าด้วยจริยาวัตรของภูริทัตตนาคราช
+จริยาที่ ๓ ว่าด้วยจริยาวัตรของจัมเปยยกนาครา`
+      },
+      {
+        url: "https://archive.org/download/sigkha2/sigkha2.mp3",
+        title: `จริยาที่ ๔ ว่าด้วยจริยาวัตรของจูฬโพธิปริพาชก\nจริยาที่ ๕ ว่าด้วยจริยาวัตรของพระยากระบือ`
+      },
+      {
+        url: "https://archive.org/download/sigkha3/sigkha3.mp3",
+        title: `จริยาที่ ๖ ว่าด้วยจริยาวัตรของเทวตาบัณฑิต
+จริยาที่ ๗ ว่าด้วยจริยาวัตรของมหาชนก
+จริยาที่ ๘ ว่าด้วยจริยาวัตรของธรรมเทวปุตต`
+        
+      },
+  
+  {
+        url: "https://archive.org/download/sigkha2/sigkha2.mp3",
+title: `ศรัทธาเพื่อออกจากวัฏฏทุกข์
+จริยาที่ ๙ ว่าด้วยจริยาวัตรของพระเจ้าชยทิส
+จริยาที่ ๑๐ ว่าด้วยจริยาวัตรของสังขปาลนาคราช`
+      },
+      
+  
+  
+  
+  
+  
+  
+  
+  
+    ];
+
+    const container = document.getElementById("episodes-container");
+
+    episodes.forEach(ep => {
+      const episodeEl = document.createElement("div");
+      episodeEl.className = "episode";
+
+      const audioEl = document.createElement("audio");
+      audioEl.controls = true;
+      audioEl.src = ep.url;
+
+      const titleEl = document.createElement("div");
+      titleEl.className = "title";
+      titleEl.textContent = ep.title;
+
+      episodeEl.appendChild(audioEl);
+      episodeEl.appendChild(titleEl);
+      container.appendChild(episodeEl);
+    });
+  </script>
+
+</body>
+</html>
