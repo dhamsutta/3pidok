@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>รายการเสียง</title>
+  <style>
+    .episode {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      max-width: 600px;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      white-space: pre-wrap;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="episodes-container"></div>
+
+  <script>
+    const episodes = [
+      {
+        url: "https://archive.org/download/sigkha1/sigkha1.mp3",
+        title: `จริยาที่ ๑ ว่าด้วยจริยาวัตรของยุธัญชยกุมาร\n
+จริยาที่ ๒ ว่าด้วยจริยาวัตรของโสมนัสสกุมาร`
+      },
+      {
+        url: "https://archive.org/download/sigkha1/sigkha2.mp3",
+        title: `จริยาที่ ๓ ว่าด้วยจริยาวัตรของอโยฆรกุมาร\n
+จริยาที่ ๔ ว่าด้วยจริยาวัตรของภิงสพราหมณ์`
+      },
+      {
+        url: "https://archive.org/download/sigkha1/sigkha3.mp3",
+        title: `จริยาที่ ๕ ว่าด้วยจริยาวัตรของโสณนันทบัณฑิต\n
+จริยาที่ ๖ ว่าด้วยจริยาวัตรของมูลผักขกุมาร`
+        
+      },
+  
+  {
+        url: "https://archive.org/download/sigkha1/sigkha4.mp3",
+title: `จริยาที่ ๗ ว่าด้วยจริยาวัตรของพระยาวานร\n
+จริยาที่ ๘ ว่าด้วยจริยาวัตรของสัจจดาบส\n
+จริยาที่ ๙ ว่าด้วยจริยาวัตรของลูกนกคุ้ม\n
+จริยาที่ ๑๐ ว่าด้วยจริยาวัตรของพระยาปลา\n
+จริยาที่ ๑๑ ว่าด้วยจริยาวัตรของกัณหทีปายนะดาบส`
+      },
+
+      {
+        url: "https://archive.org/download/sigkha1/sigkha3.mp3",
+        title: `จริยาที่ ๑๒ ว่าด้วยจริยาวัตรของพระเจ้าสุตโสม\n
+จริยาที่ ๑๓ ว่าด้วยจริยาวัตรของสุวรรณสามดาบส`
+        
+      },
+
+      {
+        url: "https://archive.org/download/sigkha1/sigkha3.mp3",
+        title: `จริยาที่ ๑๔ ว่าด้วยจริยาวัตรของพระเจ้าเอกราช\n
+จริยาที่ ๑๕ ว่าด้วยจริยาวัตรของมหาโลมหังสบัณฑิต`
+        
+      },
+
+
+
+
+
+
+
+
+
+      
+    ];
+
+    const container = document.getElementById("episodes-container");
+
+    episodes.forEach(ep => {
+      const episodeEl = document.createElement("div");
+      episodeEl.className = "episode";
+
+      const audioEl = document.createElement("audio");
+      audioEl.controls = true;
+      audioEl.src = ep.url;
+
+      const titleEl = document.createElement("div");
+      titleEl.className = "title";
+      titleEl.textContent = ep.title;
+
+      episodeEl.appendChild(audioEl);
+      episodeEl.appendChild(titleEl);
+      container.appendChild(episodeEl);
+    });
+  </script>
+
+</body>
+</html>
