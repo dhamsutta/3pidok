@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>รายการเสียง</title>
+  <style>
+    .episode {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background-color: #f9f9f9;
+      max-width: 600px;
+    }
+
+    audio {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      white-space: pre-wrap;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="episodes-container"></div>
+
+  <script>
+    const episodes = [
+      {
+        url: "https://archive.org/download/athakatha/athakatha.mp3",
+        title: `สโมธานกถา
+อรรถกถา อุททานคาถา`
+      },
+      {
+        url: "https://archive.org/download/athakatha/pakinnaka1-4.mp3",
+        title: `ปกิณณกกถา ปัญหาเรื่องบารมี ๑๖ข้อ
+ปัญหาข้อ๑. บารมีคืออะไร
+ปัญหาข้อ๒. อรรถว่ากระไร
+ปัญหาข้อ๓. บารมีมีกี่อย่าง
+ปัญหาข้อ๔. ลำดับของบารมี`
+      },
+      {
+        url: "https://archive.org/download/athakatha/pakinnaka5.mp3",
+        title: `ข้อ๕. ลักขณาทิจตุกะของบารมี`
+        
+      },
+  
+  {
+        url: "https://archive.org/download/athakatha/pakinnaka6_1.mp3",
+title: `ข้อ๖ อะไรเป็นปัจจัยแห่งบารมี
+อธิบายอภินิหาร ๘
+อธิบายการเป็นผู้มีฉันทะ`
+      },
+
+      {
+        url: "https://archive.org/download/athakatha/pakinnaka6_2.mp3",
+        title: `ปัจจัย๔ เหตุ๔ แห่งอภินิหาร`
+        
+      },
+
+      {
+        url: "https://archive.org/download/athakatha/pakinnaka6_3.mp3",
+        title: `อานิสงส์ของการให้ทาน/โทษของการตระหนี่
+อานิสงส์ของการรักษาศีล/โทษของการทุศีล
+อานิสงส์ของเนกขัมมะบารมี/โทษของการติดในกาม
+อานิสงส์ของปัญญา/โทษของการไม่รู้
+อานิสงส์ของขันติบารมี/โทษของโทสะ`
+        
+      },
+
+    {
+        url: "https://archive.org/download/athakatha/pakinnaka6_4.mp3",
+        title: `อานิสงส์ของวิริยบารมี/โทษของการขาดความเพียร
+อานิสงส์ของสัจจะบารมี/โทษของการไม่มีสัจจะ
+อานิสงส์ของอธิษฐานบารมี/โทษของการไม่ตั้งอธิษฐาน
+อานิสงส์ของเมตตาบารมี/โทษของการขาดเมตตา
+อานิสงส์ของอุเบกขาบารมี/โทษของการขาดอุเบกขา`
+        
+      },
+
+    {
+        url: "https://archive.org/download/athakatha/pakinnaka6_5.mp3",
+        title: `จรณธรรม ๑๕ อภิญญา ๕/บริวารของจรณธรรม
+ปัญหาข้อ๗ อะไรเป็นความเศร้าหมองของบารมี ๑๐`
+        
+      },
+
+    {
+        url: "https://archive.org/download/athakatha/pakinnaka6_6.mp3",
+        title: `ปัญหาข้อ๘ อะไรคือความผ่องแผ้วของบารมี ๑๐
+ปัญหาข้อ๙ อะไรเป็นปฏิปักษ์ต่อการสร้างบารมี ๑๐`
+        
+      },
+
+ {
+        url: "https://archive.org/download/athakatha/pakinnaka6_7.mp3",
+        title: `ปัญหาข้อ๑๐ อะไรเป็นข้อปฏิบัติ
+อะไรเป็นข้อปฏิบัติของทาน
+อะไรเป็นข้อปฏิบัติของศีล`
+        
+      },
+
+ {
+        url: "https://archive.org/download/athakatha/pakinnaka6_8.mp3",
+        title: `ข้อประพฤติ ปฎิบัติของจารีตศีล`
+        
+      },
+
+ {
+        url: "https://archive.org/download/athakatha/pakinnaka6_9.mp3",
+        title: `อะไรเป็นข้อปฏิบัติของเนกขัมมะ
+อะไรเป็นข้อปฏิบัติของปัญญา`
+        
+      },
+
+{
+        url: "https://archive.org/download/athakatha/pakinnaka6_10.mp3",
+        title: `อะไรเป็นข้อปฏิบัติของวิริยะ
+อะไรเป็นข้อปฏิบัติของขันติ
+อะไรเป็นข้อปฏิบัติของสัจจะ
+อะไรเป็นข้อปฏิบัติของอธิษฐาน`
+        
+      },
+
+{
+        url: "https://archive.org/download/athakatha/pakinnaka6_11.mp3",
+        title: `สรุป อะไรเป็นข้อปฏิบัติของทั้งหมด`
+        
+      },
+
+{
+        url: "https://archive.org/download/athakatha/pakinnaka6_12.mp3",
+        title: `ปัญหาข้อ๑๑ อะไรเป็นการจำแนก
+ปัญหาข้อ๑๒ อะไรเป็นการสงเคราะห์`
+        
+      },
+
+{
+        url: "https://archive.org/download/athakatha/pakinnaka6_13.mp3",
+        title: `ปัญหาข้อ๑๓ อะไรเป็นอุบายให้สำเร็จ
+ปัญหาข้อ๑๔ ให้สำเร็จประโยชน์โดยกาลไหน`
+        
+      },
+
+{
+        url: "https://archive.org/download/athakatha/pakinnaka6_14.mp3",
+        title: `ปัญหาข้อ๑๕ อะไรเป็นอานิสงส์ของการสร้างบารมี
+ปัญหาข้อ๑๖ อะไรเป็นผลแห่งการสร้างบารมี`
+        
+      },
+
+      {
+        url: "https://archive.org/download/athakatha/pakinnaka6_15.mp3",
+        title: `อธิบายคาถา ที่๑ จงปรารภความเพียร
+อธิบายคาถา ที่ ๒ ความวิวาท
+อธิบายคาถา ที่ ๓ ความประมาท
+บทสรุป-ให้พร`
+        
+      },
+
+
+
+
+
+
+
+      
+      
+    ];
+
+    const container = document.getElementById("episodes-container");
+
+    episodes.forEach(ep => {
+      const episodeEl = document.createElement("div");
+      episodeEl.className = "episode";
+
+      const audioEl = document.createElement("audio");
+      audioEl.controls = true;
+      audioEl.src = ep.url;
+
+      const titleEl = document.createElement("div");
+      titleEl.className = "title";
+      titleEl.textContent = ep.title;
+
+      episodeEl.appendChild(audioEl);
+      episodeEl.appendChild(titleEl);
+      container.appendChild(episodeEl);
+    });
+  </script>
+
+</body>
+</html>
