@@ -161,5 +161,138 @@
 
   <script src="js/sync.js"></script>
 
+
+     <div class="post-tags">
+  <span>ป้ายกำกับ: </span>
+  <a href="/tags/อรรถกถา.html" class="tag">พระอภิธรรม</a>
+</div>  
+
+
+
+
+<style>
+  .references {
+    background-color: #e6f4e6;  /* สีเขียวอ่อน */
+    border-left: 6px solid #4CAF50;
+    padding: 15px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+  }
+  .references h2 {
+    margin-top: 0;
+    color: #2e7d32;
+  }
+  .references ul {
+    padding-left: 20px;
+  }
+  .references li {
+    margin-bottom: 15px;
+  }
+</style>
+</div>
+
+<div class="references">
+  <h2>แหล่งอ้างอิง</h2>
+ <ol>
+  
+  </ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ย้ายข้อความออกมานอก grid -->
+
+
+    <footer class="site-footer">
+
+       <center> <i><a href="/">หน้าแรก</a> > พระอภิธรรมปิฏก<br>
+
+      🛞 ธรรมสุตตะ</center>
+
+    </footer>
+
+    <script>
+        // Script สำหรับ Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContainer = document.querySelector('main.container');
+
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+
+        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
+        fetch('/assets/data/quotes.json')
+            .then(res => res.json())
+            .then(data => {
+                const quote = data[Math.floor(Math.random() * data.length)];
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
+                }
+            })
+            .catch(() => {
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
+                }
+            });
+
+        let paliDict = [];
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => { paliDict = data; })
+            .catch(() => {
+                const paliResult = document.getElementById('paliResult');
+                if(paliResult) {
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
+                }
+            });
+
+        const paliInput = document.getElementById('paliInput');
+        if (paliInput) {
+            paliInput.addEventListener('input', function () {
+                const input = this.value.trim().toLowerCase();
+                const resultBox = document.getElementById('paliResult');
+                if (!input) {
+                    resultBox.innerHTML = '';
+                    resultBox.style.display = 'none';
+                    return;
+                }
+                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = matches.length
+                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
+            });
+        }
+    </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("paliInput");
+  const section = document.querySelector(".dictionary-section");
+
+  if (input && section) {
+    input.addEventListener("input", function () {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+});
+</script>
+
 </body>
 </html>
