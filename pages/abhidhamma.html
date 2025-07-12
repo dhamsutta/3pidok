@@ -1,80 +1,265 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Player with Highlight</title>
-  <style>
-    body { font-family: sans-serif; padding: 2rem; background: #f8f9fa; }
-    audio { width: 100%; margin-bottom: 2rem; }
-    .line { padding: 0.5rem; margin-bottom: 0.25rem; border-radius: 5px; }
-    .highlight { background-color: yellow; }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <title>ธรรมสุตตะ: อภิธรรมปิฎก</title>
+<meta name="description" content="อรรถกถา คือคัมภีร์อธิบายความหมายพระไตรปิฎก ช่วยขยายความเนื้อหาและเหตุการณ์ในพระสูตร พระวินัย และพระอภิธรรม เพื่อให้เข้าใจพุทธวจนะอย่างถูกต้องลึกซึ้ง">
+<meta name="keywords" content="อภิธรรม, พระอภิธรรมปิฎก, พระไตรปิฎก, อธิบายพระสูตร, คำอธิบายพระไตรปิฎก, พุทธโฆษา, คัมภีร์พุทธศาสนา">
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dhamsutta.github.io/3pidok/pages/katha.html"
+  },
+  "headline": "คัมภีร์อรรถกถา: คำอธิบายพระไตรปิฎกเพื่อความเข้าใจลึกซึ้ง",
+  "description": "คัมภีร์อรรถกถาคือคัมภีร์อธิบายความหมายพระไตรปิฎก ช่วยขยายความเนื้อหา คำศัพท์ และเหตุการณ์ในพระสูตร พระวินัย และพระอภิธรรม เพื่อให้เข้าใจพุทธวจนะอย่างถูกต้องลึกซึ้ง",
+  "author": {
+    "@type": "Organization",
+    "name": "ธรรมสุตตะ: ศึกษาพระธรรมตามพระไตรปิฎก"
+  }
+}
+</script>
 
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="140x140">
+    <link rel="stylesheet" href="/assets/css/style.css" /> <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
-
-.verse-row {
-  display: flex;
-  justify-content: space-between;
-  background: #fff;
-  padding: 1rem;
-  margin-bottom: 0.5rem;
-  border-radius: 8px;
-  transition: background 0.3s;
+.page-wrapper {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
 }
-.pali, .thai {
-  width: 48%;
-}
-.pali {
-  font-weight: bold;
-  color: #333;
-}
-.thai {
-  color: #666;
-}
-.highlight {
-  background-color: #fff79a !important;
-}
-@media (max-width: 600px) {
-  .verse-row {
-    flex-direction: column;
-  }
-  .pali, .thai {
-    width: 100%;
-  }
-}
-
-
-
-
-
-
-
 </style>
 
 
 
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-568JJVLV44');
+</script>
 
 
+
+
+
+
+    </head>
+<body>
+ <div class="page-wrapper">
+    <header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+                <span class="site-title">ธรรมสุตตะ</span>
+            </a>
+            <nav class="navbar" id="desktopNavbar">
+                <a href="/">หน้าแรก</a>
+                <a href=" /pages/vinaya.html">พระวินัย</a>
+                <a href=" /pages/sutta.html">พระสูตร</a>
+                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
+                <a href=" /pages/katha.html">อรรถกถา</a>
+                <a href=" /search/index.html">🔍ค้นหา/อภิธานศัพท์</a>
+                </nav>
+            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
+
+ <nav class="sidebar-menu" id="sidebarMenu">
+        <a href="/">🏠หน้าแรก</a>
+        <a href=" /pages/vinaya.html">🔹พระวินัย</a>
+        <a href=" /pages/sutta.html">🔹พระสูตร</a>
+        <a href=" /pages/abhidhamma.html">🔹พระอภิธรรม</a>
+        <a href=" /pages/katha.html">🔹อรรถกถา</a>
+        <a href=" /pages/pakinnaka.html">🔹ปกิณกะ</a>
+        <a href=" /tags/index.html">🔹รวมป้ายกำกับ</a>
+        <a href=" /audio/index.html">📻 ฟังธรรมบรรยาย</a>
+        <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
+    </nav>
+
+
+<main>
+      <h1>พระอภิธรรมปิฏก</h1>
+<p><a href="/">หน้าแรก</a> > พระอภิธรรมปิฏก
+
+<div class="main-content">
+
+ <h2>สารบัญพระไตรปิฎก</h2>
+
+  <div class="menu-group">
+    <h3>พระวินัยปิฎก</h3>
+    <a href="vinaya/suttavibhanga.html">สุตตวิภังค์</a>
+    <a href="vinaya/khandhaka.html">ขันธกะ</a>
+    <a href="vinaya/parivara.html">ปริวาร</a>
+  </div>
+
+  <div class="menu-group">
+    <h3>พระสุตตันตปิฎก</h3>
+    <a href="sutta/digha.html">ทีฆนิกาย</a>
+    <a href="sutta/majjhima.html">มัชฌิมนิกาย</a>
+    <a href="sutta/samyutta.html">สังยุตตนิกาย</a>
+    <a href="sutta/anguttara.html">อังคุตตรนิกาย</a>
+  </div>
+
+  <div class="menu-group">
+    <h3>พระอภิธรรมปิฎก</h3>
+    <a href="abhi/dhammasangani.html">ธัมมสังคณี</a>
+    <a href="abhi/vibhanga.html">วิภังค์</a>
+    <a href="abhi/dhatu.html">ธาตุกถา</a>
+    <a href="abhi/yamaka.html">ยมก</a>
+  </div>
 
 
 
 
   
-</head>
-<body>
 
-  <h2>เล่นเสียงพร้อมไฮไลต์ข้อความ</h2>
-
-  <audio id="player" controls>
-    <source src="abhidhamma/audio/audio_ap-dhs-1.m4a" type="audio/mpeg" />
-    เบราว์เซอร์ของคุณไม่รองรับไฟล์เสียง
-  </audio>
-<div id="text-container" style="margin-top: 2rem;"></div>
+</main>
 
 
-  <script src="abhidhamma/js/sync.js"></script>
+     <div class="post-tags">
+  <span>ป้ายกำกับ: </span>
+  <a href="/tags/อรรถกถา.html" class="tag">พระอภิธรรม</a>
+</div>  
+
+
+
+
+<style>
+  .references {
+    background-color: #e6f4e6;  /* สีเขียวอ่อน */
+    border-left: 6px solid #4CAF50;
+    padding: 15px 20px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+  }
+  .references h2 {
+    margin-top: 0;
+    color: #2e7d32;
+  }
+  .references ul {
+    padding-left: 20px;
+  }
+  .references li {
+    margin-bottom: 15px;
+  }
+</style>
+</div>
+
+<div class="references">
+  <h2>แหล่งอ้างอิง</h2>
+ <ol>
+  
+  </ol>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<!-- ย้ายข้อความออกมานอก grid -->
+
+
+    <footer class="site-footer">
+
+       <center> <i><a href="/">หน้าแรก</a> > พระอภิธรรมปิฏก<br>
+
+      🛞 ธรรมสุตตะ</center>
+
+    </footer>
+
+    <script>
+        // Script สำหรับ Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContainer = document.querySelector('main.container');
+
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+
+        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
+        fetch('/assets/data/quotes.json')
+            .then(res => res.json())
+            .then(data => {
+                const quote = data[Math.floor(Math.random() * data.length)];
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
+                }
+            })
+            .catch(() => {
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
+                }
+            });
+
+        let paliDict = [];
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => { paliDict = data; })
+            .catch(() => {
+                const paliResult = document.getElementById('paliResult');
+                if(paliResult) {
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
+                }
+            });
+
+        const paliInput = document.getElementById('paliInput');
+        if (paliInput) {
+            paliInput.addEventListener('input', function () {
+                const input = this.value.trim().toLowerCase();
+                const resultBox = document.getElementById('paliResult');
+                if (!input) {
+                    resultBox.innerHTML = '';
+                    resultBox.style.display = 'none';
+                    return;
+                }
+                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = matches.length
+                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
+            });
+        }
+    </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("paliInput");
+  const section = document.querySelector(".dictionary-section");
+
+  if (input && section) {
+    input.addEventListener("input", function () {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+});
+</script>
 
 </body>
 </html>
