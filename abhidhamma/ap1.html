@@ -137,26 +137,40 @@
 
 
 </style>
+<style>
+
+.audio-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  z-index: 9999;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+body {
+  padding-top: 70px; /* เว้นช่องด้านบนให้เท่าความสูงของ .audio-fixed */
+}
 
 
 
 
 
-
-
-
+</style>
 
   
 </head>
 <body>
 
-  <h2>เล่นเสียงพร้อมไฮไลต์ข้อความ</h2>
- 
-
+<div class="audio-fixed">
   <audio id="player" controls>
     <source src="audio/audio_ap-dhs-1.m4a" type="audio/mpeg" />
     เบราว์เซอร์ของคุณไม่รองรับไฟล์เสียง
   </audio>
+   </div> 
+    
 <div id="text-container" style="margin-top: 2rem;"></div>
 
 
