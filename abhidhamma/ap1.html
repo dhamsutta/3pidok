@@ -185,6 +185,17 @@ body {
 <button onclick="seekForward()">⏩ เดินหน้า 10 วิ</button>
 </center>
 
+<script>
+  const audio = document.getElementById('audioPlayer');
+
+  function seekBackward() {
+    audio.currentTime = Math.max(0, audio.currentTime - 10);
+  }
+
+  function seekForward() {
+    audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+  }
+</script>
 
 
 
@@ -332,21 +343,6 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 </script>
-
-
-<script>
-  const audio = document.getElementById('audioPlayer');
-
-  function seekBackward() {
-    audio.currentTime = Math.max(0, audio.currentTime - 10);
-  }
-
-  function seekForward() {
-    audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
-  }
-</script>
-
-
 
 
 
