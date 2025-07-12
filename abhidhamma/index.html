@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Player with Highlight</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; background: #f8f9fa; }
+    audio { width: 100%; margin-bottom: 2rem; }
+    .line { padding: 0.5rem; margin-bottom: 0.25rem; border-radius: 5px; }
+    .highlight { background-color: yellow; }
+  </style>
+
+
+<style>
+
+.verse-row {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 8px;
+  transition: background 0.3s;
+}
+.pali, .thai {
+  width: 48%;
+}
+.pali {
+  font-weight: bold;
+  color: #333;
+}
+.thai {
+  color: #666;
+}
+.highlight {
+  background-color: #fff79a !important;
+}
+@media (max-width: 600px) {
+  .verse-row {
+    flex-direction: column;
+  }
+  .pali, .thai {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+</style>
+
+
+
+
+
+
+
+
+
+  
+</head>
+<body>
+
+  <h2>เล่นเสียงพร้อมไฮไลต์ข้อความ</h2>
+
+  <audio id="player" controls>
+    <source src="audio/audio_ap-dhs-1.m4a" type="audio/mpeg" />
+    เบราว์เซอร์ของคุณไม่รองรับไฟล์เสียง
+  </audio>
+<div id="text-container" style="margin-top: 2rem;"></div>
+
+
+  <script src="js/sync.js"></script>
+
+</body>
+</html>
