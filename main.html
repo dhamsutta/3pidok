@@ -3,194 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ชื่อเว็บไซต์ของคุณ | ยินดีต้อนรับ</title>
+    <title>คลังความรู้ของคุณ | หน้าแรก</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
 
+
 <style>
-    
-    /* --- Global Styles & Variables --- */
+
+/* --- Variables & Global --- */
 :root {
-    --primary-color: #0056b3; /* สีหลัก (น้ำเงินเข้ม) */
-    --secondary-color: #007bff; /* สีรอง (น้ำเงินสว่าง) */
-    --background-color: #f4f4f4; /* สีพื้นหลัง */
-    --text-color: #333;
-    --light-color: #fff;
+    --primary-color: #2c3e50; /* สีน้ำเงินเข้ม */
+    --accent-color: #1abc9c;  /* สีเขียวมินต์ */
+    --bg-color: #ecf0f1;      /* สีเทาอ่อน */
+    --card-bg: #ffffff;
+    --text-color: #34495e;
     --font-family: 'Sarabun', sans-serif;
 }
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
     font-family: var(--font-family);
-    line-height: 1.6;
-    background-color: var(--light-color);
+    background-color: var(--bg-color);
     color: var(--text-color);
+    margin: 0;
 }
+.container { max-width: 1200px; margin: auto; padding: 0 1.5rem; }
+.content-section { padding: 3rem 0; }
+h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2.5rem; color: var(--primary-color); }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 2rem;
-}
+/* --- Navbar --- */
+.navbar { background: var(--card-bg); padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+.navbar .container { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); text-decoration: none; }
+.navbar nav a { margin-left: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700; }
 
-h1, h2, h3 {
-    font-weight: 700;
-}
+/* --- 1. Featured Slider --- */
+.featured-slider { position: relative; height: 60vh; overflow: hidden; }
+.slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease; }
+.slide.active { opacity: 1; }
+.slide img { width: 100%; height: 100%; object-fit: cover; }
+.slide-caption { position: absolute; bottom: 10%; left: 5%; color: white; background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 8px; max-width: 50%; }
+.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; font-size: 2rem; padding: 0.5rem 1rem; cursor: pointer; }
+.prev-btn { left: 1rem; }
+.next-btn { right: 1rem; }
 
-/* --- Navigation Bar --- */
-.navbar {
-    background: var(--light-color);
-    color: var(--text-color);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+/* --- 2. Search Section --- */
+.search-section { background: var(--primary-color); padding: 2rem 0; }
+.search-section input { width: 100%; padding: 1rem; font-size: 1.2rem; border: none; border-radius: 5px; }
 
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/* --- 3. Post Grid --- */
+.post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.post-card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.post-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+.post-card h3 { color: var(--primary-color); }
+.post-card p { color: #7f8c8d; font-size: 0.9rem; margin: 0.5rem 0; }
+.post-card span { font-weight: 700; color: var(--accent-color); }
 
-.navbar .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: var(--primary-color);
-    text-decoration: none;
-}
-
-.navbar nav ul {
-    display: flex;
-    list-style: none;
-}
-
-.navbar nav ul li a {
-    color: var(--text-color);
-    padding: 0.5rem 1rem;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.navbar nav ul li a:hover {
-    color: var(--primary-color);
-}
-
-/* --- Hero Section --- */
-.hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070') no-repeat center center/cover;
-    height: 100vh;
-    color: var(--light-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 1rem;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-}
-
-.cta-button {
-    background: var(--secondary-color);
-    color: var(--light-color);
-    padding: 0.8rem 2rem;
-    border: none;
-    border-radius: 5px;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-}
-
-.cta-button:hover {
-    background: var(--primary-color);
-}
-
-/* --- Features Section --- */
-#features {
-    padding: 4rem 0;
-    text-align: center;
-}
-
-#features h2 {
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-}
-
-.feature-card {
-    background: var(--light-color);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
-}
-
-.feature-card:hover {
-    transform: translateY(-10px);
-}
-
-.feature-card img {
-    margin-bottom: 1rem;
-}
-
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-}
+/* --- 4. Category Grid --- */
+.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
+.category-card { background: var(--accent-color); color: white; padding: 2.5rem; border-radius: 8px; text-align: center; font-size: 1.5rem; font-weight: 700; cursor: pointer; transition: background-color 0.3s ease; }
+.category-card:hover { background-color: #16a085; }
 
 /* --- Footer --- */
-.footer {
-    background: #333;
-    color: var(--light-color);
-    text-align: center;
-    padding: 2rem 0;
-}
-
-/* --- Responsive Design --- */
-@media(max-width: 768px) {
-    .hero-content h1 {
-        font-size: 2.5rem;
-    }
-
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .navbar .container {
-        flex-direction: column;
-    }
-    .navbar nav {
-        padding-top: 1rem;
-    }
-}
+.footer { background: var(--primary-color); color: var(--bg-color); text-align: center; padding: 1.5rem 0; margin-top: 2rem; }
 
 
 
 
 </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
 </head>
@@ -198,52 +92,159 @@ h1, h2, h3 {
 
     <header class="navbar">
         <div class="container">
-            <a href="#" class="logo">YourLogo</a>
+            <a href="#" class="logo">KnowledgeHub</a>
             <nav>
-                <ul>
-                    <li><a href="#features">บริการของเรา</a></li>
-                    <li><a href="#about">เกี่ยวกับเรา</a></li>
-                    <li><a href="#contact">ติดต่อ</a></li>
-                </ul>
+                <a href="#categories">หมวดหมู่</a>
+                <a href="#latest">บทความล่าสุด</a>
             </nav>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>หัวข้อหลักที่น่าดึงดูดใจ</h1>
-            <p>คำอธิบายสั้นๆ เกี่ยวกับธุรกิจหรือบริการของคุณ</p>
-            <a href="#contact" class="cta-button">เริ่มต้นใช้งาน</a>
-        </div>
-    </section>
+    <main>
+        <section id="featured-slider" class="featured-slider">
+            <div class="slide active">
+                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070" alt="บทความเด่น 1">
+                <div class="slide-caption">
+                    <h2>หัวข้อบทความเด่นที่ 1</h2>
+                    <p>คำอธิบายสั้นๆ เกี่ยวกับบทความนี้...</p>
+                </div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072" alt="บทความเด่น 2">
+                <div class="slide-caption">
+                    <h2>หัวข้อบทความเด่นที่ 2</h2>
+                    <p>เจาะลึกเรื่องราวที่น่าสนใจ...</p>
+                </div>
+            </div>
+            <button class="slider-btn prev-btn">&lt;</button>
+            <button class="slider-btn next-btn">&gt;</button>
+        </section>
 
-    <main id="features" class="container">
-        <h2>บริการและจุดเด่นของเรา</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <img src="https://via.placeholder.com/80" alt="ไอคอนคุณสมบัติ 1">
-                <h3>คุณสมบัติที่ 1</h3>
-                <p>คำอธิบายคุณสมบัติหรือบริการแรกของคุณอย่างละเอียด</p>
+        <section class="search-section">
+            <div class="container">
+                <input type="search" placeholder="ค้นหาบทความ, เอกสาร, หรือสิ่งที่คุณสนใจ...">
             </div>
-            <div class="feature-card">
-                <img src="https://via.placeholder.com/80" alt="ไอคอนคุณสมบัติ 2">
-                <h3>คุณสมบัติที่ 2</h3>
-                <p>คำอธิบายคุณสมบัติหรือบริการที่สองของคุณอย่างละเอียด</p>
+        </section>
+
+        <section id="latest" class="container content-section">
+            <h2>บทความล่าสุด</h2>
+            <div class="post-grid">
+                <article class="post-card">
+                    <h3>หัวข้อบทความที่น่าสนใจ</h3>
+                    <p>หมวดหมู่: เทคโนโลยี</p>
+                    <span>อ่านต่อ...</span>
+                </article>
+                <article class="post-card">
+                    <h3>คู่มือการเริ่มต้นใช้งาน...</h3>
+                    <p>หมวดหมู่: การใช้งาน</p>
+                    <span>อ่านต่อ...</span>
+                </article>
+                 <article class="post-card">
+                    <h3>วิเคราะห์ข้อมูลเชิงลึก</h3>
+                    <p>หมวดหมู่: ข้อมูล</p>
+                    <span>อ่านต่อ...</span>
+                </article>
             </div>
-            <div class="feature-card">
-                <img src="https://via.placeholder.com/80" alt="ไอคอนคุณสมบัติ 3">
-                <h3>คุณสมบัติที่ 3</h3>
-                <p>คำอธิบายคุณสมบัติหรือบริการที่สามของคุณอย่างละเอียด</p>
+        </section>
+        
+        <section id="categories" class="container content-section">
+            <h2>สำรวจตามหมวดหมู่</h2>
+            <div class="category-grid">
+                 <div class="category-card"><h3>เทคโนโลยี</h3></div>
+                 <div class="category-card"><h3>การตลาด</h3></div>
+                 <div class="category-card"><h3>การออกแบบ</h3></div>
+                 <div class="category-card"><h3>การพัฒนาตนเอง</h3></div>
             </div>
-        </div>
+        </section>
+
     </main>
-    
-    <footer id="contact" class="footer">
+
+    <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 ชื่อบริษัทของคุณ. สงวนลิขสิทธิ์.</p>
-            <p>ติดต่อเราได้ที่: example@email.com</p>
+            <p>&copy; 2025 KnowledgeHub. All rights reserved.</p>
         </div>
     </footer>
+    
+    <script src="script.js"></script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+
+// --- Simple Image Slider for Featured Section ---
+
+// 1. เลือก Element ที่จำเป็นจาก HTML
+const slides = document.querySelectorAll('.slide');
+const nextBtn = document.querySelector('.next-btn');
+const prevBtn = document.querySelector('.prev-btn');
+
+let currentIndex = 0; // ตำแหน่งสไลด์ปัจจุบัน (เริ่มต้นที่ 0)
+const slideInterval = 5000; // เปลี่ยนสไลด์ทุกๆ 5 วินาที (5000 ms)
+
+// 2. ฟังก์ชันสำหรับแสดงสไลด์
+function showSlide(index) {
+    // ซ่อนสไลด์ทั้งหมดก่อน
+    slides.forEach(slide => {
+        slide.classList.remove('active');
+    });
+    // แสดงเฉพาะสไลด์ที่ต้องการ
+    slides[index].classList.add('active');
+}
+
+// 3. ฟังก์ชันสำหรับเลื่อนไปสไลด์ถัดไป
+function nextSlide() {
+    currentIndex++;
+    if (currentIndex >= slides.length) {
+        currentIndex = 0; // ถ้าถึงสไลด์สุดท้าย ให้วนกลับไปสไลด์แรก
+    }
+    showSlide(currentIndex);
+}
+
+// 4. ฟังก์ชันสำหรับเลื่อนไปสไลด์ก่อนหน้า
+function prevSlide() {
+    currentIndex--;
+    if (currentIndex < 0) {
+        currentIndex = slides.length - 1; // ถ้าอยู่ที่สไลด์แรก ให้วนไปสไลด์สุดท้าย
+    }
+    showSlide(currentIndex);
+}
+
+// 5. กำหนด Event Listeners ให้กับปุ่ม
+nextBtn.addEventListener('click', nextSlide);
+prevBtn.addEventListener('click', prevSlide);
+
+// 6. ตั้งค่าให้สไลด์เปลี่ยนอัตโนมัติ
+setInterval(nextSlide, slideInterval);
+
+// 7. แสดงสไลด์แรกเมื่อหน้าเว็บโหลดเสร็จ
+document.addEventListener('DOMContentLoaded', () => {
+    showSlide(currentIndex);
+});
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+    
 </body>
 </html>
