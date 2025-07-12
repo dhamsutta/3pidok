@@ -1,532 +1,249 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ธรรมสุตตะ | ศึกษาพระธรรมตามพระไตรปิฎก</title>
-    <meta name="description" content="คลังธรรมะออนไลน์ ศึกษาพระธรรมตามพระไตรปิฎก ทั้งพระวินัย พระสูตร และพระอภิธรรม พร้อมพุทธวจนะและอรรถกถา เพื่อการเข้าถึงคำสอนของพระพุทธเจ้าที่เรียบง่ายแต่ครบถ้วน" />
-    <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์, พระสูตร, พระอภิธรรม, ศึกษาธรรมะ, ฟังธรรม" />
-    <meta name="author" content="ธรรมสุตตะ" />
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ชื่อเว็บไซต์ของคุณ | ยินดีต้อนรับ</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
 
-    <style>
-        .hero-section {
-            text-align: center;
-            padding: 5px 5px;
-            background-color: #e0ffe0; /* สีเขียวอ่อน */
-            border-radius: 8px;
-            margin-bottom: 30px;
-            display: flex; /* ใช้ flexbox เพื่อจัดวางเนื้อหา */
-            flex-direction: column; /* จัดเรียงองค์ประกอบในแนวตั้ง */
-            align-items: center; /* จัดให้อยู่กึ่งกลางแนวนอน */
-            justify-content: center; /* จัดให้อยู่กึ่งกลางแนวตั้ง */
-        }
-        .hero-section h2 {
-            color: #2e8b57; /* เขียวเข้ม */
-            font-size: 2.5em;
-            margin-bottom: 10px;
-        }
-        .hero-section h3 {
-            color: #4CAF50; /* เขียวกลาง */
-            font-size: 1.5em;
-            margin-top: 0;
-            margin-bottom: 20px; /* เพิ่มระยะห่างด้านล่าง */
-        }
-       .hero-section .quote-box {
-   background-color: rgba(255, 255, 255, 0.7); /* พื้นหลังโปร่งแสง */
-   padding: 30px; /* ปรับ padding ตามต้องการ */
-   border-radius: 8px;
-   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-   margin-top: 20px; /* ระยะห่างจาก h3 (ถ้าต้องการ) */
-   width: 100%; /* ขยายเต็มความกว้าง */
-   height: 100%; /* ขยายเต็มความสูงของ hero */
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   text-align: center; /* จัดข้อความให้อยู่ตรงกลาง */
+<style>
+    
+    /* --- Global Styles & Variables --- */
+:root {
+    --primary-color: #0056b3; /* สีหลัก (น้ำเงินเข้ม) */
+    --secondary-color: #007bff; /* สีรอง (น้ำเงินสว่าง) */
+    --background-color: #f4f4f4; /* สีพื้นหลัง */
+    --text-color: #333;
+    --light-color: #fff;
+    --font-family: 'Sarabun', sans-serif;
 }
-        }
-        .hero-section .quote-box h3 {
-            color: #4CAF50; /* สีเขียว */
-            font-size: 1.3em;
-            margin-top: 0;
-            margin-bottom: 10px;
-        }
-        .hero-section .quote-box p {
-            font-size: 1.1em;
-            line-height: 1.6;
-            margin: 0;
-        }
-        .hero-section .quote-box small {
-            display: block;
-            margin-top: 10px;
-            font-size: 0.9em;
-            color: #555;
-        }
-.hero-section {
-    text-align: center;
-    padding: 40px 20px;
-    border-radius: 8px;
-    margin-bottom: 30px;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    background-color: var(--light-color);
+    color: var(--text-color);
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 2rem;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background: var(--light-color);
+    color: var(--text-color);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navbar .container {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.navbar nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar nav ul li a {
+    color: var(--text-color);
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Hero Section --- */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=2070') no-repeat center center/cover;
+    height: 100vh;
+    color: var(--light-color);
+    display: flex;
     justify-content: center;
-
-    /* START: คุณสมบัติสำหรับรูปภาพพื้นหลัง (แนะนำให้ใช้แบบนี้) */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/hero.jpg');
-    /* อธิบาย:
-       - url('/assets/images/hero.jpg') คือการอ้างอิงถึงไฟล์รูปภาพ hero.jpg ที่อยู่ในโฟลเดอร์ assets/images/
-       - GitHub Pages จะจัดการ Path นี้ให้ถูกต้องเมื่อเว็บไซต์ของคุณ Deploy
-    */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: white;
-    /* END: คุณสมบัติสำหรับรูปภาพพื้นหลัง */
+    align-items: center;
+    text-align: center;
+    padding: 0 1rem;
 }
-/* ไม่ต้องเปลี่ยนส่วน h2, h3 หรือ quote-box ที่อยู่ด้านล่างครับ */
 
-
-
-
-
-
-
-
-
-
-
-        
-        .button {
-            display: inline-block;
-            background-color: #4CAF50;
-            color: white;
-            padding: 12px 25px;
-            border-radius: 5px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 20px;
-            transition: background-color 0.3s ease;
-        }
-        .button:hover {
-            background-color: #45a049;
-        }
-        .section-title-new { /* ใช้ชื่อคลาสใหม่เพื่อไม่ชนกับ h3 ของคุณ */
-            text-align: center;
-            color: #2e8b57;
-            margin-bottom: 25px;
-            font-size: 2em;
-        }
-        .scripture-explorer {
-            margin-bottom: 30px;
-            padding-top: 20px; /* เพิ่ม padding ด้านบนเล็กน้อย */
-        }
-        .scripture-explorer p {
-            text-align: center;
-        }
-        .dropdown-container {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .dropdown-container select {
-            padding: 10px 15px;
-            border-radius: 5px;
-            border: 1px solid #ddd;
-            font-size: 1em;
-            width: 70%;
-            max-width: 400px;
-        }
-        .description-box {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-            min-height: 150px;
-            margin-top: 15px;
-        }
-        .category-cards-new { /* ใช้ชื่อคลาสใหม่เพื่อไม่ชนกับ content-grid ของคุณ */
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            justify-content: center;
-        }
-        .card-new { /* ใช้ชื่อคลาสใหม่ */
-            background-color: #f0f8ff; /* ฟ้าอ่อน */
-            border: 1px solid #add8e6; /* ขอบฟ้าอ่อน */
-            border-radius: 8px;
-            padding: 20px;
-            width: calc(33% - 20px); /* 3 cards per row */
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            text-decoration: none;
-            color: #333;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-        .card-new:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
-        }
-        .card-new h4 {
-            color: #2e8b57; /* เขียวเข้ม */
-            margin-top: 0;
-            font-size: 1.2em;
-        }
-        .about-project p {
-            text-align: center;
-        }
-        /* Media Queries สำหรับ Responsive Design ของส่วนใหม่ */
-        @media (max-width: 768px) {
-            .card-new {
-                width: calc(50% - 20px); /* 2 cards per row */
-            }
-        }
-        @media (max-width: 480px) {
-            .card-new {
-                width: 100%; /* 1 card per row */
-            }
-        }
-    </style>
-
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-568JJVLV44');
-</script>
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "ธรรมสุตตะ",
-  "url": "https://dhamma-sutta.com/",
-  "description": "คลังธรรมะออนไลน์ ศึกษาพระธรรมตามพระไตรปิฎก พระวินัย พระสูตร และพระอภิธรรม พร้อมพุทธวจนะและอรรถกถา เพื่อการเข้าถึงคำสอนของพระพุทธเจ้าที่เรียบง่ายแต่ครบถ้วน",
-  "keywords": "ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์, พระสูตร, พระอภิธรรม, ศึกษาธรรมะ, ฟังธรรม",
-  "author": {
-    "@type": "Organization",
-    "name": "ธรรมสุตตะ"
-  },
-  "inLanguage": "th",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://your-website-url.com/search/index.html?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
 }
-</script>
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    background: var(--secondary-color);
+    color: var(--light-color);
+    padding: 0.8rem 2rem;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background: var(--primary-color);
+}
+
+/* --- Features Section --- */
+#features {
+    padding: 4rem 0;
+    text-align: center;
+}
+
+#features h2 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+.feature-card {
+    background: var(--light-color);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+}
+
+.feature-card img {
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+}
+
+/* --- Footer --- */
+.footer {
+    background: #333;
+    color: var(--light-color);
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* --- Responsive Design --- */
+@media(max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar .container {
+        flex-direction: column;
+    }
+    .navbar nav {
+        padding-top: 1rem;
+    }
+}
 
 
-    </head>
+
+
+</style>
+
+    
+</head>
 <body>
 
-    <header class="site-header">
-        <div class="header-container">
-            <a href="/" class="logo-link">
-                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
-                <span class="site-title">ธรรมสุตตะ</span>
-            </a>
-            <nav class="navbar" id="desktopNavbar">
-                <a href="/">หน้าแรก</a>
-                <a href=" /pages/vinaya.html">พระวินัย</a>
-                <a href=" /pages/sutta.html">พระสูตร</a>
-                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
-                <a href=" /pages/katha.html">อรรถกถา</a>
-               <a href=" /pages/pakinnaka.html">🔹ปกิณกะ</a>
-               <a href=" /tags/index.html">🔹รวมป้ายกำกับ</a>
-               <a href=" /audio/index.html">📻 ฟังธรรมบรรยาย</a>
-               <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
-    </nav>
-            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
+    <header class="navbar">
+        <div class="container">
+            <a href="#" class="logo">YourLogo</a>
+            <nav>
+                <ul>
+                    <li><a href="#features">บริการของเรา</a></li>
+                    <li><a href="#about">เกี่ยวกับเรา</a></li>
+                    <li><a href="#contact">ติดต่อ</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <nav class="sidebar-menu" id="sidebarMenu">
-        <a href="/">🏠หน้าแรก</a>
-        <a href=" /pages/vinaya.html">🔹พระวินัย</a>
-        <a href=" /pages/sutta.html">🔹พระสูตร</a>
-        <a href=" /pages/abhidhamma.html">🔹พระอภิธรรม</a>
-        <a href=" /pages/katha.html">🔹อรรถกถา</a>
-        <a href=" /pages/pakinnaka.html">🔹ปกิณกะ</a>
-        <a href=" /tags/index.html">🔹รวมป้ายกำกับ</a>
-        <a href=" /audio/index.html">📻 ฟังธรรมบรรยาย</a>
-        <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
-    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>หัวข้อหลักที่น่าดึงดูดใจ</h1>
+            <p>คำอธิบายสั้นๆ เกี่ยวกับธุรกิจหรือบริการของคุณ</p>
+            <a href="#contact" class="cta-button">เริ่มต้นใช้งาน</a>
+        </div>
+    </section>
 
-    <main class="container">
-        <section class="hero-section">
-        <div class="quote-box">
-                <h3><b>🔅พุทธพจน์วันนี้</h3></b>
-                <p id="random-quote">กำลังโหลด...</p>
+    <main id="features" class="container">
+        <h2>บริการและจุดเด่นของเรา</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img src="https://via.placeholder.com/80" alt="ไอคอนคุณสมบัติ 1">
+                <h3>คุณสมบัติที่ 1</h3>
+                <p>คำอธิบายคุณสมบัติหรือบริการแรกของคุณอย่างละเอียด</p>
             </div>
-            </section>
-        
-        
-        <div class="main-content">
-        <section class="scripture-explorer" id="scripture-explorer">
-            <h2 class="section-title-new">คัมภีร์ในพระไตรปิฎก</h2>
-         
-
-            <div class="vb-frame">
-<center>  <label for="bookSelect"><h3>เลือกตามชื่อคัมภีร์:</h3></label>
-  <select id="bookSelect">
-    <option value="">-- ค้นหาตามชื่อ --</option>
-  </select></center>
-<br>
-  <div id="bookOutput" class="vb-output">
-   กรุณาเลือกเพื่อดูรายละเอียดและคำอธิบายเบื้องต้น
-  </div>
-</div>
-</div>
+            <div class="feature-card">
+                <img src="https://via.placeholder.com/80" alt="ไอคอนคุณสมบัติ 2">
+                <h3>คุณสมบัติที่ 2</h3>
+                <p>คำอธิบายคุณสมบัติหรือบริการที่สองของคุณอย่างละเอียด</p>
+            </div>
+            <div class="feature-card">
+                <img src="https://via.placeholder.com/80" alt="ไอคอนคุณสมบัติ 3">
+                <h3>คุณสมบัติที่ 3</h3>
+                <p>คำอธิบายคุณสมบัติหรือบริการที่สามของคุณอย่างละเอียด</p>
+            </div>
+        </div>
+    </main>
     
-        </section>
-     
-        </main>
-
-    <footer class="site-footer">
-        <p>ธรรมสุตตะ</p>
-      
+    <footer id="contact" class="footer">
+        <div class="container">
+            <p>&copy; 2025 ชื่อบริษัทของคุณ. สงวนลิขสิทธิ์.</p>
+            <p>ติดต่อเราได้ที่: example@email.com</p>
+        </div>
     </footer>
 
-    <script>
-        // Script สำหรับ Hamburger Menu
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const mainContainer = document.querySelector('main.container');
-
-        if (hamburgerIcon && sidebarMenu) {
-            hamburgerIcon.addEventListener('click', () => {
-                hamburgerIcon.classList.toggle('open');
-                sidebarMenu.classList.toggle('open');
-            });
-        }
-        
-        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
-        // ตอนนี้ quote-box อยู่ใน hero-section แล้ว
-        fetch('/assets/data/quotes.json')
-            .then(res => res.json())
-            .then(data => {
-                const quote = data[Math.floor(Math.random() * data.length)];
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
-                }
-            })
-            .catch(() => {
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
-                }
-            });
-
-        let paliDict = [];
-        fetch('/assets/data/pali.json')
-            .then(res => res.json())
-            .then(data => { paliDict = data; })
-            .catch(() => {
-                const paliResult = document.getElementById('paliResult');
-                if(paliResult) {
-                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
-                }
-            });
-
-        const paliInput = document.getElementById('paliInput');
-        if (paliInput) {
-            paliInput.addEventListener('input', function () {
-                const input = this.value.trim().toLowerCase();
-                const resultBox = document.getElementById('paliResult');
-                if (!input) {
-                    resultBox.innerHTML = '';
-                    resultBox.style.display = 'none';
-                    return;
-                }
-                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = matches.length
-                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
-                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
-            });
-        }
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const input = document.getElementById("paliInput");
-            const section = document.querySelector(".dictionary-section");
-
-            if (input && section) {
-                input.addEventListener("input", function () {
-                    section.scrollIntoView({ behavior: "smooth", block: "start" });
-                });
-            }
-        });
-    </script>
-    <script>
-        // รอให้หน้าเว็บโหลดเสร็จก่อน
-        document.addEventListener('DOMContentLoaded', function() {
-            // 1. เลือก Sidebar ของเรา
-            const sidebar = document.getElementById('sidebarMenu');
-
-            // 2. เลือกลิงก์ทั้งหมดที่อยู่ใน Sidebar
-            const sidebarLinks = document.querySelectorAll('#sidebarMenu a');
-
-            // 3. สร้างฟังก์ชันที่จะทำงานเมื่อมีการคลิก
-            function resetSidebarScroll() {
-                // คำสั่งสำคัญ: ตั้งค่าให้แถบเลื่อนของ sidebar กลับไปที่จุดบนสุด (0)
-                sidebar.scrollTop = 0;
-            }
-
-            // 4. สั่งให้ลิงก์ทุกตัวใน sidebar เรียกใช้ฟังก์ชันนี้เมื่อถูกคลิก
-            sidebarLinks.forEach(function(link) {
-                link.addEventListener('click', resetSidebarScroll);
-            });
-        });
-    </script>
-    <script>
-        const scriptureData = [
-            {
-                "name_abbr": "วิสุทธิ.",
-                "name_full": "วิสุทธิมรรค",
-                "affiliated": "คัมภีร์ปกรณ์พิเศษในพระพุทธศาสนาเถรวาท",
-                "desc": "สังกัด: คัมภีร์ปกรณ์พิเศษ...<br><br>อธิบายคัมภีร์: วิสุทธิมรรค (Visuddhimagga) เป็นคัมภีร์อรรถกถาชั้นเยี่ยมและคู่มือปฏิบัติธรรมที่ครอบคลุมที่สุดในพระพุทธศาสนาเถรวาท ประพันธ์โดยพระพุทธโฆสาจารย์ในศตวรรษที่ 5 ณ ลังกา (ศรีลังกา) คัมภีร์นี้ได้รวบรวมและจัดระบบหลักธรรมคำสอนของพระพุทธเจ้าไว้อย่างเป็นขั้นเป็นตอน ตั้งแต่ศีล สมาธิ ปัญญา (ไตรสิกขา) โดยละเอียดลึกซึ้ง <br><br>ความหมายของชื่อคัมภีร์: \"วิสุทธิมคฺค\" (วิ-สุด-ทิ-มัก) แปลว่า \"หนทางแห่งความบริสุทธิ์\" ชื่อนี้สะท้อนถึงแก่นแท้ของคัมภีร์ที่มุ่งชี้ทางสู่ความบริสุทธิ์แห่งจิตและการบรรลุธรรม <br><br>คุณค่าและความสำคัญ: วิสุทธิมรรคเป็นคัมภีร์สำคัญที่ใช้เป็นแบบแผนและคู่มือในการศึกษาพระอภิธรรมและแนวทางการปฏิบัติวิปัสสนาธุระมาอย่างยาวนาน เป็นแหล่งรวบรวมคำอธิบายหลักธรรมสำคัญ เช่น กรรมฐาน 40, ญาณ 16, และปฏิจจสมุปบาทอย่างละเอียด โดยอ้างอิงจากพระไตรปิฎกและอรรถกถาอื่นๆ ทำให้เป็นคัมภีร์ที่ขาดไม่ได้สำหรับผู้ที่ต้องการศึกษาพระพุทธศาสนาอย่างลึกซึ้งและฝึกฝนจิตใจให้บริสุทธิ์"
-            },
-            {
-                "name_abbr": "มิลินท.",
-                "name_full": "มิลินทปัญหา",
-                "affiliated": "คัมภีร์ปกรณ์พิเศษในพระพุทธศาสนาเถรวาท",
-                "desc": "สังกัด: คัมภีร์ปกรณ์พิเศษ...<br><br>อธิบายคัมภีร์: มิลินทปัญหา (Milindapañha) เป็นคัมภีร์ปกรณ์พิเศษในพระพุทธศาสนาเถรวาทที่บันทึกบทสนทนาโต้ตอบระหว่างพระนาคเสนเถระและพระยามิลินท์ (Menander I) กษัตริย์ชาวกรีก-อินเดีย ผู้ปกครองแคว้นสาคละ ในช่วงพุทธศตวรรษที่ 5-6 เนื้อหาในคัมภีร์เป็นการตอบคำถามเกี่ยวกับหลักธรรมที่ซับซ้อนและปัญหาทางปรัชญาต่างๆ ด้วยอุปมาอุปไมยที่เฉลียวฉลาดและน่าสนใจ<br><br>ความหมายของชื่อคัมภีร์: \"มิลินทปัญหา\" แปลว่า \"ปัญหาของพระยามิลินท์\" ซึ่งหมายถึงคำถามที่พระยามิลินท์ได้สอบถามพระนาคเสน<br><br>คุณค่าและความสำคัญ: คัมภีร์นี้มีคุณค่าอย่างยิ่งในการเป็นสะพานเชื่อมวัฒนธรรมระหว่างปรัชญาตะวันออกและตะวันตก แสดงให้เห็นถึงการอธิบายหลักธรรมทางพระพุทธศาสนาด้วยเหตุผลและตรรกะที่น่าเชื่อถือ การตอบปัญหาของพระนาคเสนเป็นแบบอย่างในการอธิบายธรรมะให้แก่ผู้ที่ยังไม่คุ้นเคยกับคำสอนได้อย่างลึกซึ้งและน่าติดตาม นอกจากนี้ยังให้ข้อมูลทางประวัติศาสตร์และสังคมวิทยาในยุคนั้นอีกด้วย"
-            },
-            {
-                "name_abbr": "ที.ปา.",
-                "name_full": "ทีฆนิกาย ปาฏิกวรรค",
-                "affiliated": "พระสุตตันตปิฎก: ทีฆนิกาย (หมวดพระสูตรขนาดยาว)",
-                "desc": "สังกัด: พระสุตตันตปิฎก (ทีฆนิกาย หมวดพระสูตรขนาดยาว)<br><br>อธิบายคัมภีร์: ทีฆนิกาย ปาฏิกวรรค เป็นส่วนที่สามและส่วนสุดท้ายของทีฆนิกายในพระสุตตันตปิฎก ประกอบด้วยพระสูตรยาว 11 สูตร ที่กล่าวถึงเรื่องราวหลากหลาย ทั้งเรื่องปาฏิกบุตร ผู้ซึ่งมีความสามารถทางเวทมนตร์, เรื่องเล่าเกี่ยวกับอดีตพระพุทธเจ้า, พุทธประวัติ, และหลักธรรมที่ลึกซึ้ง<br><br>ความหมายของชื่อคัมภีร์: \"ทีฆนิกาย\" แปลว่า \"หมวดยาว\" หรือ \"คัมภีร์ที่รวบรวมพระสูตรยาว\" ส่วน \"ปาฏิกวรรค\" มาจากชื่อของพระสูตรแรกในวรรคนี้คือ \"ปาฏิกสูตร\"<br><br>คุณค่าและความสำคัญ: วรรคนี้มีความสำคัญในการให้ข้อมูลเกี่ยวกับความเชื่อและปรัชญาต่างๆ ในยุคพุทธกาล รวมถึงการแสดงปาฏิหาริย์ของพระพุทธเจ้า (ตามที่มีบันทึก) และการบรรยายหลักธรรมในบริบทที่กว้างขวาง โดยเฉพาะอย่างยิ่ง \"จักรวัตติสูตร\" ที่กล่าวถึงเรื่องการปกครองโดยธรรม และ \"อัคคัญญสูตร\" ที่กล่าวถึงกำเนิดโลกและวรรณะ แสดงให้เห็นถึงทัศนะของพระพุทธศาสนาต่อสังคมและจักรวาล"
-            },
-            {
-                "name_abbr": "สํ.ข.",
-                "name_full": "สังยุตตนิกาย ขันธวารวรรค",
-                "affiliated": "พระสุตตันตปิฎก: สังยุตตนิกาย (หมวดพระสูตรที่จัดรวมเป็นหมวด)",
-                "desc": "สังกัด: พระสุตตันตปิฎก (สังยุตตนิกาย หมวดพระสูตรที่จัดรวมเป็นหมวดหมู่)<br><br>อธิบายคัมภีร์: สังยุตตนิกาย ขันธวารวรรค เป็นส่วนหนึ่งของสังยุตตนิกายในพระสุตตันตปิฎก ซึ่งเป็นหมวดที่รวบรวมพระสูตรที่จัดรวมกันเป็นหมวดๆ ตามหัวข้อธรรมะหรือบุคคลที่เกี่ยวข้อง \"ขันธวารวรรค\" นี้ว่าด้วยเรื่องของขันธ์ 5 (รูป เวทนา สัญญา สังขาร วิญญาณ) ซึ่งเป็นองค์ประกอบของชีวิตและเป็นพื้นฐานสำคัญในการทำความเข้าใจอริยสัจ 4 และการบรรลุธรรม<br><br>ความหมายของชื่อคัมภีร์: \"สังยุตตนิกาย\" แปลว่า \"หมวดธรรมที่จัดรวมกัน\" ส่วน \"ขันธวารวรรค\" แปลว่า \"หมวดว่าด้วยเรื่องของขันธ์\"<br><br>คุณค่าและความสำคัญ: วรรคนี้มีความสำคัญอย่างยิ่งในการทำความเข้าใจเรื่องขันธ์ 5 ซึ่งเป็นแก่นธรรมที่พระพุทธองค์ทรงสอนเพื่อชี้ให้เห็นถึงความไม่เที่ยง เป็นทุกข์ และอนัตตาของสิ่งทั้งปวง การศึกษาขันธวารวรรคช่วยให้ผู้ปฏิบัติธรรมสามารถพิจารณาและคลายความยึดมั่นในกายและใจของตนเอง อันนำไปสู่การละกิเลสและบรรลุนิพพาน พระสูตรในวรรคนี้มีคำอธิบายที่ลึกซึ้งและหลากหลายแง่มุมเกี่ยวกับขันธ์ 5 ทำให้ผู้ศึกษาสามารถนำไปประยุกต์ใช้ในการปฏิบัติภาวนาได้อย่างมีประสิทธิภาพ"
-            }
-            // คุณจะเพิ่มข้อมูลคัมภีร์อื่นๆ ที่นี่เมื่อทำ Research เสร็จ
-        ];
-
-        const dropdown = document.getElementById('scripture-dropdown');
-        const descriptionDisplay = document.getElementById('scripture-description-display');
-
-        // เพิ่ม Option ให้ Dropdown จากข้อมูล scriptureData
-        scriptureData.forEach(scripture => {
-            const option = document.createElement('option');
-            option.value = scripture.name_full; // ใช้ชื่อเต็มเป็น value
-            option.textContent = `${scripture.name_abbr} - ${scripture.name_full}`;
-            dropdown.appendChild(option);
-        });
-
-        // เมื่อมีการเลือกคัมภีร์ใน Dropdown
-        dropdown.addEventListener('change', function() {
-            const selectedScriptureName = this.value;
-            if (selectedScriptureName === "") {
-                descriptionDisplay.innerHTML = '<p>กรุณาเลือกคัมภีร์จากเมนูด้านบนเพื่อดูคำอธิบาย</p>';
-                return;
-            }
-
-            const selectedScripture = scriptureData.find(s => s.name_full === selectedScriptureName);
-
-            if (selectedScripture) {
-                descriptionDisplay.innerHTML = `
-                    <div class="description-content">
-                        <h4>สังกัด: ${selectedScripture.affiliated}</h4>
-                        <h3>อธิบายคัมภีร์: ${selectedScripture.name_full}</h3>
-                        <p>${selectedScripture.desc}</p>
-                        </div>
-                `;
-            } else {
-                descriptionDisplay.innerHTML = '<p>ไม่พบข้อมูลคัมภีร์ที่เลือก</p>';
-            }
-        });
-    </script>
-
-
-<script>
-  let books = [];
-
-  // โหลดข้อมูลจาก books.json
-  // ตรวจสอบให้แน่ใจว่าไฟล์ books.json อยู่ที่ /assets/data/books.json
-  fetch('/assets/data/books.json')
-    .then(res => {
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      return res.json();
-    })
-    .then(data => {
-      books = data;
-      const select = document.getElementById('bookSelect');
-      data.forEach(book => {
-        const option = document.createElement('option');
-        option.value = book.id; // ใช้ book.id เป็นค่าของ option
-        option.textContent = `${book.label} - ${book.name}`;
-        select.appendChild(option);
-      });
-    })
-    .catch(error => {
-      console.error("Error loading books.json:", error);
-      document.getElementById('bookOutput').innerHTML = `<span style="color:red;">❌ ไม่สามารถโหลดข้อมูลตำราได้. โปรดตรวจสอบไฟล์ books.json และ Path</span>`;
-    });
-
-  document.getElementById('bookSelect').addEventListener('change', function () {
-    const selectedId = this.value; // ดึงค่า id ที่เลือก
-    const output = document.getElementById('bookOutput');
-
-    if (!selectedId) { // ถ้าเลือก "กรุณาเลือก" หรือค่าว่าง
-      output.innerHTML = 'กรุณาเลือกตำราเพื่อดูรายละเอียด';
-      // Reset styling if it was changed
-      output.style.display = 'flex'; // กลับไปเป็น flex เพื่อจัดกึ่งกลาง
-      output.style.justifyContent = 'center';
-      output.style.alignItems = 'center';
-      output.style.textAlign = 'center';
-      return;
-    }
-
-    const selected = books.find(book => book.id === selectedId); // ค้นหา object ของตำราที่เลือกจาก id
-
-    if (selected) {
-      output.innerHTML = `
-        <b>${selected.label}</b> - ${selected.name}<br>
-        ${selected.desc}<br>
-        <a href="${selected.link}" class="book-link" target="_blank">🔗 ไปยังหน้า</a>
-      `;
-      // Remove centering styles when content is loaded
-      output.style.display = 'block'; // เปลี่ยนเป็น block เพื่อให้เนื้อหาไหลตามปกติ
-      output.style.justifyContent = 'initial';
-      output.style.alignItems = 'initial';
-      output.style.textAlign = 'left'; // จัดข้อความไปทางซ้าย
-    } else {
-      output.innerHTML = 'ไม่พบข้อมูลสำหรับตำราที่เลือก';
-      output.style.display = 'flex';
-      output.style.justifyContent = 'center';
-      output.style.alignItems = 'center';
-      output.style.textAlign = 'center';
-    }
-  });
-</script>
-
-
-
-
-
-
-
-    
-    </body>
+</body>
 </html>
