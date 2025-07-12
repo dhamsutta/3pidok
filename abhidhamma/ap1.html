@@ -174,11 +174,53 @@ body {
 
     
 <div class="audio-fixed">
+
+
   <audio id="player" controls>
     <source src="audio/audio_ap-dhs-1.m4a" type="audio/mpeg" />
     เบราว์เซอร์ของคุณไม่รองรับไฟล์เสียง
   </audio>
+
+
+
+<audio id="audioPlayer" controls>
+  <source src=""audio/audio_ap-dhs-1.m4a" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<br>
+
+<button onclick="seekBackward()">⏪ ย้อนหลัง 10 วิ</button>
+<button onclick="seekForward()">⏩ เดินหน้า 10 วิ</button>
+
+<script>
+  const audio = document.getElementById('audioPlayer');
+
+  function seekBackward() {
+    audio.currentTime = Math.max(0, audio.currentTime - 10);
+  }
+
+  function seekForward() {
+    audio.currentTime = Math.min(audio.duration, audio.currentTime + 10);
+  }
+</script>
+
+
+
+
+
+
+
+
+
    </div> 
+
+
+
+
+
+
+
      
            
 <div id="text-container" style="margin-top: 2rem;"></div>
