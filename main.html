@@ -1,74 +1,186 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>คลังความรู้ของคุณ | หน้าแรก</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>คลังความรู้ | KnowledgeHub</title>
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+
+
 
 
 <style>
 
-/* --- Variables & Global --- */
+
+
 :root {
-    --primary-color: #2c3e50; /* สีน้ำเงินเข้ม */
-    --accent-color: #1abc9c;  /* สีเขียวมินต์ */
-    --bg-color: #ecf0f1;      /* สีเทาอ่อน */
-    --card-bg: #ffffff;
-    --text-color: #34495e;
-    --font-family: 'Sarabun', sans-serif;
+  --primary-color: #2c3e50;
+  --accent-color: #1abc9c;
+  --bg-color: #f8f9fa;
+  --text-color: #333;
+  --font-family: 'Sarabun', sans-serif;
 }
+
 body {
-    font-family: var(--font-family);
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
+  margin: 0;
+  font-family: var(--font-family);
+  background: var(--bg-color);
+  color: var(--text-color);
 }
-.container { max-width: 1200px; margin: auto; padding: 0 1.5rem; }
-.content-section { padding: 3rem 0; }
-h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2.5rem; color: var(--primary-color); }
 
-/* --- Navbar --- */
-.navbar { background: var(--card-bg); padding: 1rem 0; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
-.navbar .container { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.8rem; font-weight: 700; color: var(--primary-color); text-decoration: none; }
-.navbar nav a { margin-left: 1.5rem; text-decoration: none; color: var(--text-color); font-weight: 700; }
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 0 1rem;
+}
 
-/* --- 1. Featured Slider --- */
-.featured-slider { position: relative; height: 60vh; overflow: hidden; }
-.slide { position: absolute; width: 100%; height: 100%; opacity: 0; transition: opacity 0.8s ease; }
-.slide.active { opacity: 1; }
-.slide img { width: 100%; height: 100%; object-fit: cover; }
-.slide-caption { position: absolute; bottom: 10%; left: 5%; color: white; background: rgba(0,0,0,0.5); padding: 1.5rem; border-radius: 8px; max-width: 50%; }
-.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(255,255,255,0.7); border: none; font-size: 2rem; padding: 0.5rem 1rem; cursor: pointer; }
-.prev-btn { left: 1rem; }
-.next-btn { right: 1rem; }
+/* Navbar */
+.navbar {
+  background: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  text-decoration: none;
+}
+.navbar nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  color: var(--text-color);
+}
 
-/* --- 2. Search Section --- */
-.search-section { background: var(--primary-color); padding: 2rem 0; }
-.search-section input { width: 100%; padding: 1rem; font-size: 1.2rem; border: none; border-radius: 5px; }
+/* Hero */
+.hero {
+  background: linear-gradient(to right, #2c3e50, #34495e);
+  color: white;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+.hero-content h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+.search-bar {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.search-bar input {
+  flex: 1;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px 0 0 8px;
+}
+.search-bar button {
+  background: var(--accent-color);
+  border: none;
+  color: white;
+  font-weight: bold;
+  padding: 1rem 1.5rem;
+  border-radius: 0 8px 8px 0;
+  cursor: pointer;
+}
 
-/* --- 3. Post Grid --- */
-.post-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
-.post-card { background: var(--card-bg); padding: 1.5rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; }
-.post-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-.post-card h3 { color: var(--primary-color); }
-.post-card p { color: #7f8c8d; font-size: 0.9rem; margin: 0.5rem 0; }
-.post-card span { font-weight: 700; color: var(--accent-color); }
+/* Tags / Category */
+.tag-filter {
+  margin: 2rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+.tag-filter button {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--accent-color);
+  background: white;
+  color: var(--accent-color);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.tag-filter button:hover {
+  background: var(--accent-color);
+  color: white;
+}
 
-/* --- 4. Category Grid --- */
-.category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; }
-.category-card { background: var(--accent-color); color: white; padding: 2.5rem; border-radius: 8px; text-align: center; font-size: 1.5rem; font-weight: 700; cursor: pointer; transition: background-color 0.3s ease; }
-.category-card:hover { background-color: #16a085; }
+/* Posts */
+.content-section {
+  padding: 2rem 0;
+}
+.content-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+.post-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.post-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+.post-card:hover {
+  transform: translateY(-5px);
+}
+.post-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+.post-meta {
+  font-size: 0.85rem;
+  color: gray;
+  margin-bottom: 1rem;
+}
+.post-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+.post-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--accent-color);
+  font-weight: bold;
+  text-decoration: none;
+}
+.post-card a:hover {
+  text-decoration: underline;
+}
 
-/* --- Footer --- */
-.footer { background: var(--primary-color); color: var(--bg-color); text-align: center; padding: 1.5rem 0; margin-top: 2rem; }
-
-
-
+/* Footer */
+.footer {
+  background: var(--primary-color);
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
 
 </style>
+
+
+
+
+
 
 
 
@@ -90,161 +202,66 @@ h2 { font-size: 2.2rem; text-align: center; margin-bottom: 2.5rem; color: var(--
 </head>
 <body>
 
-    <header class="navbar">
-        <div class="container">
-            <a href="#" class="logo">KnowledgeHub</a>
-            <nav>
-                <a href="#categories">หมวดหมู่</a>
-                <a href="#latest">บทความล่าสุด</a>
-            </nav>
-        </div>
-    </header>
+  <header class="navbar">
+    <div class="container">
+      <a href="#" class="logo">📚 KnowledgeHub</a>
+      <nav>
+        <a href="#latest">บทความล่าสุด</a>
+        <a href="#categories">หมวดหมู่</a>
+      </nav>
+    </div>
+  </header>
 
-    <main>
-        <section id="featured-slider" class="featured-slider">
-            <div class="slide active">
-                <img src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?q=80&w=2070" alt="บทความเด่น 1">
-                <div class="slide-caption">
-                    <h2>หัวข้อบทความเด่นที่ 1</h2>
-                    <p>คำอธิบายสั้นๆ เกี่ยวกับบทความนี้...</p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?q=80&w=2072" alt="บทความเด่น 2">
-                <div class="slide-caption">
-                    <h2>หัวข้อบทความเด่นที่ 2</h2>
-                    <p>เจาะลึกเรื่องราวที่น่าสนใจ...</p>
-                </div>
-            </div>
-            <button class="slider-btn prev-btn">&lt;</button>
-            <button class="slider-btn next-btn">&gt;</button>
-        </section>
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>คลังความรู้ของคุณในทุกหมวดหมู่</h1>
+      <p>ค้นหาเอกสาร บทความ และคู่มือการใช้งานจากหลากหลายหัวข้อ</p>
+      <div class="search-bar">
+        <input type="search" placeholder="ค้นหาสิ่งที่คุณต้องการ..." />
+        <button>ค้นหา</button>
+      </div>
+    </div>
+  </section>
 
-        <section class="search-section">
-            <div class="container">
-                <input type="search" placeholder="ค้นหาบทความ, เอกสาร, หรือสิ่งที่คุณสนใจ...">
-            </div>
-        </section>
+  <section class="container tag-filter" id="categories">
+    <span>หมวดหมู่:</span>
+    <button>เทคโนโลยี</button>
+    <button>พัฒนาตนเอง</button>
+    <button>การตลาด</button>
+    <button>ออกแบบ</button>
+    <button>บทความแนะนำ</button>
+  </section>
 
-        <section id="latest" class="container content-section">
-            <h2>บทความล่าสุด</h2>
-            <div class="post-grid">
-                <article class="post-card">
-                    <h3>หัวข้อบทความที่น่าสนใจ</h3>
-                    <p>หมวดหมู่: เทคโนโลยี</p>
-                    <span>อ่านต่อ...</span>
-                </article>
-                <article class="post-card">
-                    <h3>คู่มือการเริ่มต้นใช้งาน...</h3>
-                    <p>หมวดหมู่: การใช้งาน</p>
-                    <span>อ่านต่อ...</span>
-                </article>
-                 <article class="post-card">
-                    <h3>วิเคราะห์ข้อมูลเชิงลึก</h3>
-                    <p>หมวดหมู่: ข้อมูล</p>
-                    <span>อ่านต่อ...</span>
-                </article>
-            </div>
-        </section>
-        
-        <section id="categories" class="container content-section">
-            <h2>สำรวจตามหมวดหมู่</h2>
-            <div class="category-grid">
-                 <div class="category-card"><h3>เทคโนโลยี</h3></div>
-                 <div class="category-card"><h3>การตลาด</h3></div>
-                 <div class="category-card"><h3>การออกแบบ</h3></div>
-                 <div class="category-card"><h3>การพัฒนาตนเอง</h3></div>
-            </div>
-        </section>
+  <section class="container content-section" id="latest">
+    <h2>บทความล่าสุด</h2>
+    <div class="post-grid">
+      <article class="post-card">
+        <h3>เริ่มต้นใช้งาน AI กับชีวิตประจำวัน</h3>
+        <div class="post-meta">เทคโนโลยี · 10 ก.ค. 2025</div>
+        <p>สำรวจวิธีการใช้ AI เช่น ChatGPT, การทำงานอัตโนมัติ, และการจัดการงานง่ายๆ</p>
+        <a href="#">อ่านต่อ</a>
+      </article>
+      <article class="post-card">
+        <h3>แนวทางการพัฒนาตนเองอย่างยั่งยืน</h3>
+        <div class="post-meta">พัฒนาตนเอง · 9 ก.ค. 2025</div>
+        <p>เรียนรู้เทคนิคปรับปรุงนิสัย เป้าหมาย และแรงจูงใจให้สำเร็จในระยะยาว</p>
+        <a href="#">อ่านต่อ</a>
+      </article>
+      <article class="post-card">
+        <h3>ออกแบบเว็บไซต์อย่างมืออาชีพ</h3>
+        <div class="post-meta">ออกแบบ · 7 ก.ค. 2025</div>
+        <p>แนะนำพื้นฐาน UX/UI การเลือกสี ฟอนต์ และโครงสร้างหน้าเว็บที่ใช้งานง่าย</p>
+        <a href="#">อ่านต่อ</a>
+      </article>
+    </div>
+  </section>
 
-    </main>
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 KnowledgeHub. All rights reserved.</p>
+    </div>
+  </footer>
 
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 KnowledgeHub. All rights reserved.</p>
-        </div>
-    </footer>
-    
-    <script src="script.js"></script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<script>
-
-
-// --- Simple Image Slider for Featured Section ---
-
-// 1. เลือก Element ที่จำเป็นจาก HTML
-const slides = document.querySelectorAll('.slide');
-const nextBtn = document.querySelector('.next-btn');
-const prevBtn = document.querySelector('.prev-btn');
-
-let currentIndex = 0; // ตำแหน่งสไลด์ปัจจุบัน (เริ่มต้นที่ 0)
-const slideInterval = 5000; // เปลี่ยนสไลด์ทุกๆ 5 วินาที (5000 ms)
-
-// 2. ฟังก์ชันสำหรับแสดงสไลด์
-function showSlide(index) {
-    // ซ่อนสไลด์ทั้งหมดก่อน
-    slides.forEach(slide => {
-        slide.classList.remove('active');
-    });
-    // แสดงเฉพาะสไลด์ที่ต้องการ
-    slides[index].classList.add('active');
-}
-
-// 3. ฟังก์ชันสำหรับเลื่อนไปสไลด์ถัดไป
-function nextSlide() {
-    currentIndex++;
-    if (currentIndex >= slides.length) {
-        currentIndex = 0; // ถ้าถึงสไลด์สุดท้าย ให้วนกลับไปสไลด์แรก
-    }
-    showSlide(currentIndex);
-}
-
-// 4. ฟังก์ชันสำหรับเลื่อนไปสไลด์ก่อนหน้า
-function prevSlide() {
-    currentIndex--;
-    if (currentIndex < 0) {
-        currentIndex = slides.length - 1; // ถ้าอยู่ที่สไลด์แรก ให้วนไปสไลด์สุดท้าย
-    }
-    showSlide(currentIndex);
-}
-
-// 5. กำหนด Event Listeners ให้กับปุ่ม
-nextBtn.addEventListener('click', nextSlide);
-prevBtn.addEventListener('click', prevSlide);
-
-// 6. ตั้งค่าให้สไลด์เปลี่ยนอัตโนมัติ
-setInterval(nextSlide, slideInterval);
-
-// 7. แสดงสไลด์แรกเมื่อหน้าเว็บโหลดเสร็จ
-document.addEventListener('DOMContentLoaded', () => {
-    showSlide(currentIndex);
-});
-
-
-
-</script>
-
-
-
-
-
-
-
-
-
-
-    
+  <script src="assets/js/script.js"></script>
 </body>
 </html>
