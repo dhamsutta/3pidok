@@ -1,5 +1,5 @@
 
-const audio = document.getElementById('player');
+const audio = document.getElementById('audioPlayer');
 const container = document.getElementById('text-container');
 let lines = [];
 
@@ -37,3 +37,17 @@ audio.addEventListener('timeupdate', () => {
     }
   });
 });
+
+if (audio) {
+  audio.addEventListener('timeupdate', () => {
+    const current = audio.currentTime;
+    lines.forEach((line, index) => {
+      const el = document.getElementById('line-' + index);
+      if (current >= line.start && current <= line.end) {
+        el.classList.add('highlight');
+      } else {
+        el.classList.remove('highlight');
+      }
+    });
+  });
+}
