@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const right = document.createElement('div');
         right.className = 'thai';
-        // ✅ แปลง \n เป็น <br> เพื่อให้แสดงบรรทัด
         right.innerHTML = item.thai.replace(/\n/g, "<br>");
 
         row.appendChild(left);
@@ -32,10 +31,17 @@ document.addEventListener('DOMContentLoaded', () => {
     lines.forEach((line, index) => {
       const el = document.getElementById('line-' + index);
       if (!el) return;
-      if (current >= line.start && current <= line.end) {
-        el.classList.add('highlight');
-      } else {
-        el.classList.remove('highlight');
+
+      const isActive = current >= line.start && current <= line.end;
+
+      el.classList.toggle('highlight', isActive);
+
+      // ✅ Scroll เฉพาะบรรทัดที่ตรงเวลา
+      if (isActive) {
+        el.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center'
+        });
       }
     });
   });
