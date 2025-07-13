@@ -1,6 +1,5 @@
-// /abhidhamma/js/sync.js  (หลังแก้)
 document.addEventListener('DOMContentLoaded', () => {
-  const audio   = document.getElementById('audioPlayer');   // หรือ 'player' ให้ตรงกัน
+  const audio = document.getElementById('audioPlayer');
   const container = document.getElementById('text-container');
   let lines = [];
 
@@ -13,23 +12,31 @@ document.addEventListener('DOMContentLoaded', () => {
         row.className = 'verse-row';
         row.id = 'line-' + index;
 
-        row.innerHTML = `
-          <div class="pali">${item.pali}</div>
-          <div class="thai">${item.thai}</div>
-        `;
+        const left = document.createElement('div');
+        left.className = 'pali';
+        left.textContent = item.pali;
+
+        const right = document.createElement('div');
+        right.className = 'thai';
+        // ✅ แปลง \n เป็น <br> เพื่อให้แสดงบรรทัด
+        right.innerHTML = item.thai.replace(/\n/g, "<br>");
+
+        row.appendChild(left);
+        row.appendChild(right);
         container.appendChild(row);
       });
-    })
-    .catch(err => console.error('โหลด JSON ไม่ได้:', err));
-
-  if (audio) {
-    audio.addEventListener('timeupdate', () => {
-      const current = audio.currentTime;
-      lines.forEach((line, i) => {
-        const el = document.getElementById('line-' + i);
-        if (!el) return;
-        el.classList.toggle('highlight', current >= line.start && current <= line.end);
-      });
     });
-  }
+
+  audio.addEventListener('timeupdate', () => {
+    const current = audio.currentTime;
+    lines.forEach((line, index) => {
+      const el = document.getElementById('line-' + index);
+      if (!el) return;
+      if (current >= line.start && current <= line.end) {
+        el.classList.add('highlight');
+      } else {
+        el.classList.remove('highlight');
+      }
+    });
+  });
 });
