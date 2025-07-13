@@ -3,7 +3,7 @@ const audio = document.getElementById('player');
 const container = document.getElementById('text-container');
 let lines = [];
 
-fetch('/3pidok/abhidhamma/data/data.json')
+fetch('/abhidhamma/data/data.json')
   .then(res => res.json())
   .then(data => {
     lines = data;
