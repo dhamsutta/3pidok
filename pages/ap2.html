@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ธรรมสุตตะ: พระอภิธรรมปิฎก</title>
+    <meta name="description" content="สารบัญและภาพรวมของพระอภิธรรมปิฎก ทั้งในส่วนของอภิธรรมมัตถสังคหะและคัมภีร์หลักทั้ง ๗ คัมภีร์ เพื่อการศึกษาธรรมะที่ลึกซึ้ง">
+    <meta name="keywords" content="อภิธรรม, พระอภิธรรมปิฎก, อภิธรรมมัตถสังคหะ, ธรรมสังคณี, วิภังค์, ธาตุกถา, ปุคคลบัญญัติ, กถาวัตถุ, ยมก, ปัฏฐาน">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://dhamsutta.github.io/3pidok/pages/abhidhamma.html" 
+      },
+      "headline": "สารบัญพระอภิธรรมปิฎก: แนวทางการศึกษาอภิธรรมมัตถสังคหะและ ๗ คัมภีร์",
+      "description": "หน้ารวบรวมสารบัญและภาพรวมของพระอภิธรรมปิฎก ประกอบด้วยหัวข้อจากอภิธรรมมัตถสังคหะ 10 หมวด และคำอธิบายคัมภีร์หลักทั้ง 7 คัมภีร์ เพื่อเป็นแนวทางในการศึกษาปรมัตถธรรม",
+      "author": {
+        "@type": "Organization",
+        "name": "ธรรมสุตตะ: ศึกษาพระธรรมตามพระไตรปิฎก"
+      }
+    }
+    </script>
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="140x140">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet" />
+    
+    <style>
+        :root {
+            --bg-color: #fdfaf6; /* สีครีมอ่อน */
+            --text-color: #4a4a4a; /* สีเทาเข้ม */
+            --heading-color: #3d5a52; /* สีเขียวเข้ม-เทา */
+            --accent-color: #c5a773; /* สีทอง-น้ำตาล */
+            --card-bg: #ffffff;
+            --border-color: #eaeaea;
+        }
+        
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        .page-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px;
+        }
+
+        /* --- พื้นที่สำหรับใส่ภาพตกแต่ง --- */
+        .hero-image-placeholder {
+            background-color: #f0ebe5;
+            border: 2px dashed var(--accent-color);
+            border-radius: 12px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 20px 0 40px 0;
+            color: var(--accent-color);
+            font-size: 1.2em;
+        }
+        
+        .main-content h1 {
+            text-align: center;
+            color: var(--heading-color);
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .main-content .breadcrumb {
+            text-align: center;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        /* --- Grid Layout --- */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .content-column h2 {
+            font-size: 1.8em;
+            color: var(--heading-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+        
+        /* --- Card for TOC --- */
+        .toc-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .toc-card h3 {
+            color: var(--heading-color);
+            font-size: 1.3em;
+            margin: 0 0 15px 0;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+        .toc-card ul {
+            list-style-type: none;
+            padding-left: 0;
+            margin: 0;
+        }
+        .toc-card li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .toc-card ul ul {
+            padding-left: 25px;
+            margin-top: 8px;
+        }
+
+        /* --- List for 7 Canons --- */
+        .canon-list {
+            list-style: none;
+            padding: 0;
+        }
+        .canon-list li {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .canon-list a {
+            font-size: 1.3em;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+        .canon-list p {
+            margin: 0;
+            color: #555;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="site-header">
+            <div class="header-container">
+                <a href="/" class="logo-link">
+                    <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+                    <span class="site-title">ธรรมสุตตะ</span>
+                </a>
+                <nav class="navbar" id="desktopNavbar">
+                    <a href="/">หน้าแรก</a>
+                    <a href="/pages/vinaya.html">พระวินัย</a>
+                    <a href="/pages/sutta.html">พระสูตร</a>
+                    <a href="/pages/abhidhamma.html">พระอภิธรรม</a>
+                    <a href="/pages/katha.html">อรรถกถา</a>
+                    <a href="/search/index.html">🔍ค้นหา/อภิธานศัพท์</a>
+                </nav>
+                <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </div>
+        </header>
+        <nav class="sidebar-menu" id="sidebarMenu">
+            <a href="/">🏠หน้าแรก</a>
+            <a href="/pages/vinaya.html">🔹พระวินัย</a>
+            <a href="/pages/sutta.html">🔹พระสูตร</a>
+            <a href="/pages/abhidhamma.html">🔹พระอภิธรรม</a>
+            <a href="/pages/katha.html">🔹อรรถกถา</a>
+            <a href="/pages/pakinnaka.html">🔹ปกิณกะ</a>
+            <a href="/tags/index.html">🔹รวมป้ายกำกับ</a>
+            <a href="/audio/index.html">📻 ฟังธรรมบรรยาย</a>
+            <a href="/search/index.html">🔍ค้นหาจากในเว็บ</a>
+        </nav>
+
+        <main class="main-content">
+            <h1>พระอภิธรรมปิฎก</h1>
+            <p class="breadcrumb"><a href="/">หน้าแรก</a> &gt; พระอภิธรรมปิฎก</p>
+
+            <div class="hero-image-placeholder">
+                <p>พื้นที่สำหรับใส่ภาพตกแต่ง<br/><small>(เช่น ภาพดอกบัว, พระเจดีย์, หรือภาพสัญลักษณ์ธรรมจักร)</small></p>
+                </div>
+
+            <div class="content-grid">
+                <div class="content-column">
+                    <h2>สารบัญอภิธรรมมัตถสังคหะ</h2>
+                    
+                    <div class="toc-card">
+                        <h3>หมวดที่ ๐๑: พระอภิธรรมคืออะไร</h3>
+                        <ul>
+                            <li>๑. ประวัติพระอภิธรรม</li>
+                            <li>๒. ประโยชน์จากพระอภิธรรม</li>
+                            <li>๓. ปรมัตถและบัญญัติ</li>
+                            <li>๔. พระอภิธัมมัตถสังคหะ</li>
+                        </ul>
+                    </div>
+
+                    <div class="toc-card">
+                        <h3>หมวดที่ ๐๒: ชีวิต</h3>
+                        <ul>
+                            <li>๑. ชีวิตคืออะไร</li>
+                            <li>๒. จิตคืออะไร</li>
+                            <li>๓. ที่เกิดและอำนาจของจิต</li>
+                            <li>๔. บุญบาปเกิดขึ้นได้อย่างไร</li>
+                            <li>๕. ลักษณะของจิต</li>
+                        </ul>
+                    </div>
+
+                    <div class="toc-card">
+                        <h3>หมวดที่ ๐๓: จิต</h3>
+                        <ul>
+                            <li>๑. ประเภทของจิต</li>
+                            <li>๒. กามาวจรจิต ๕๔ ดวง</li>
+                            <li>๓. รูปาวจรจิต ๑๕ ดวง</li>
+                            <li>๔. อรูปาวจรจิต ๑๒ ดวง</li>
+                            <li>๕. โลกุตตรจิต ๘ ดวง</li>
+                        </ul>
+                    </div>
+
+                     <div class="toc-card">
+                        <h3>หมวดที่ ๐๔: เจตสิก</h3>
+                        <ul>
+                            <li>๑. เจตสิก ๕๒ ดวง</li>
+                            <li>๒. เจตสิกกลุ่มที่ ๑</li>
+                            <li>๓. เจตสิกกลุ่มที่ ๒</li>
+                            <li>๔. เจตสิกกลุ่มที่ ๓</li>
+                        </ul>
+                    </div>
+
+                    <div class="toc-card">
+                        <h3>หมวดที่ ๐๕: รูปปรมัตถ์</h3>
+                        <ul>
+                            <li>นัยที่ ๑ รูปสมุทเทสนัย</li>
+                            <li>นัยที่ ๒ รูปวิภาคนัย</li>
+                            <li>นัยที่ ๓ รูปสมุฏฐานนัย</li>
+                            <li>นัยที่ ๔ รูปกลาปนัย</li>
+                            <li>นัยที่ ๕ รูปปวัตติกมนัย</li>
+                        </ul>
+                    </div>
+                     <div class="toc-card">
+                        <h3>หมวดที่ ๐๖: ภพภูมิ</h3>
+                        <ul>
+                           <li>๑. ความเป็นไปในสังสารวัฏ</li>
+                           <li>๒. ภพภูมิทั้ง ๓๑ ภูมิ</li>
+                           <li>๓. นรกภูมิ</li>
+                           <li>๔. ดิรัจฉานภูมิ</li>
+                           <li>๕. เปรตภูมิ</li>
+                           <li>๖. อสุรกายภูมิ</li>
+                           <li>๗. มนุษยภูมิ</li>
+                           <li>๘. เทวภูมิ</li>
+                           <li>๙. รูปาวจรภูมิ</li>
+                           <li>๑๐. อรูปาวจรภูมิ</li>
+                           <li>๑๑. อายุของสัตว์ในภูมิทั้ง ๓๑</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="toc-card">
+                        <h3>หมวดที่ ๐๗: กฎแห่งกรรม</h3>
+                        <ul>
+                            <li>ความรู้เบื้องต้นของกรรม</li>
+                            <li>กรรมหมวดที่ ๑
+                                <ul>
+                                    <li>๑.๑ ชนกกรรม</li>
+                                    <li>๑.๒ อุปัตถัมภกกรรม</li>
+                                    <li>๑.๓ อุปปีฬกกรรม</li>
+                                    <li>๑.๔ อุปฆาตกกรรม</li>
+                                </ul>
+                            </li>
+                             <li>กรรมหมวดที่ ๒
+                                <ul>
+                                    <li>๒.๑ ครุกกรรม</li>
+                                    <li>๒.๒ อาสันนกรรม</li>
+                                    <li>๒.๓ อาจิณณกรรม</li>
+                                    <li>๒.๔ กฏัตตากรรม</li>
+                                </ul>
+                            </li>
+                            <li>กรรมหมวดที่ ๓
+                                <ul>
+                                    <li>๓.๑ ทิฏฐธัมมเวทนียกรรม</li>
+                                    <li>๓.๒ อุปปัชชเวทนียกรรม</li>
+                                    <li>๓.๓ อปราปริยเวทนียกรรม</li>
+                                    <li>๓.๔ อโหสิกรรม</li>
+                                </ul>
+                            </li>
+                             <li>กรรมหมวดที่ ๔
+                                <ul>
+                                    <li>๔.๑ อกุศลกรรม</li>
+                                    <li>๔.๒ กามาวจรกุศลกรรม</li>
+                                    <li>๔.๓ รูปาวจรกุศลกรรม</li>
+                                    <li>๔.๔ อรูปาวจรกุศลกรรม</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                     <div class="toc-card">
+                        <h3>หมวดที่ ๐๘: สมุจจยสังคหะ</h3>
+                        <ul>
+                            <li>๑. อกุศลสังคหะ</li>
+                            <li>๒. มิสสกสังคหะ</li>
+                            <li>๓. โพธิปักขิยสังคหะ</li>
+                            <li>๔. สัพพสังคหะ</li>
+                        </ul>
+                    </div>
+
+                    <div class="toc-card">
+                        <h3>หมวดที่ ๐๙: สมถกรรมฐาน</h3>
+                        <ul>
+                             <li>๑. ความรู้เบื้องต้นของกรรมฐาน</li>
+                             <li>๒. รูปฌาน อรูปฌาน</li>
+                             <li>๓. ประโยชน์ของสมาธิ</li>
+                             <li>๔. กสิณ ๑๐</li>
+                             <li>๕. อสุภะ ๑๐</li>
+                             <li>๖. อนุสสติ ๑๐</li>
+                             <li>๗. อัปปมัญญา ๔</li>
+                             <li>๘. อาหาเรปฏิกูลสัญญา ๑</li>
+                             <li>๙. จตุธาตุววัฏฐาน ๑</li>
+                             <li>๑๐. อรูปกรรมฐาน ๔</li>
+                        </ul>
+                    </div>
+
+                     <div class="toc-card">
+                        <h3>หมวดที่ ๑๐: วิปัสสนากรรมฐาน</h3>
+                        <ul>
+                            <li>๑. สติปัฏฐาน</li>
+                            <li>๒. วิสุทธิ ๗</li>
+                            <li>๓. ลักษณะ ๓</li>
+                            <li>๔. อนุปัสสนา</li>
+                            <li>๕. ญาณ ๑๖</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="content-column">
+                    <h2>พระอภิธรรมปิฎก ๗ คัมภีร์</h2>
+                    <ul class="canon-list">
+                        <li>
+                            <a href="/abhidhamma/ap1.html">🔹 คัมภีร์ธัมมสังคณี</a>
+                            <p>ว่าด้วยการ "รวมกลุ่มธรรมะ" เป็นคัมภีร์แรกที่รวบรวมและจัดหมวดหมู่สภาวธรรมทั้งหมด (จิต เจตสิก รูป) ออกเป็นกุศลธรรม, อกุศลธรรม, และอัพยากตธรรม ถือเป็นแม่บทของพระอภิธรรม</p>
+                        </li>
+                        <li>
+                            <a href="#">🔹 คัมภีร์วิภังค์</a>
+                            <p>ว่าด้วยการ "จำแนกธรรมะ" นำธรรมะที่จัดหมวดหมู่ไว้ในคัมภีร์แรกมาวิเคราะห์แยกแยะอย่างละเอียดในแง่มุมต่างๆ เช่น ขันธ์ ๕, อายตนะ ๑๒, ธาตุ ๑๘</p>
+                        </li>
+                        <li>
+                            <a href="#">🔹 คัมภีร์ธาตุกถา</a>
+                            <p>ว่าด้วยการ "สงเคราะห์ธรรมะ" อธิบายความสัมพันธ์ของธรรมะต่างๆ ว่าเข้ากันได้หรือไม่ได้กับธรรมะหมวดอื่น เช่น ขันธ์ อายตนะ และธาตุ</p>
+                        </li>
+                        <li>
+                            <a href="#">🔹 คัมภีร์ปุคคลบัญญัติ</a>
+                            <p>ว่าด้วยการ "บัญญัติบุคคล" เป็นคัมภีร์ที่พิเศษกว่าเล่มอื่น คืออธิบายลักษณะของบุคคลประเภทต่างๆ ตามคุณธรรมที่มีอยู่ เพื่อเชื่อมโยงสภาวะปรมัตถ์เข้ากับบุคคลตามความเป็นจริงในโลกสมมติ</p>
+                        </li>
+                        <li>
+                            <a href="#">🔹 คัมภีร์กถาวัตถุ</a>
+                            <p>ว่าด้วย "ประเด็นโต้แย้ง" เป็นการรวบรวมหลักธรรมที่เป็นประเด็นถกเถียงกันระหว่างนิกายเถรวาทกับนิกายอื่นๆ ในสมัยสังคายนาครั้งที่ ๓</p>
+                        </li>
+                        <li>
+                            <a href="#">🔹 คัมภีร์ยมก</a>
+                            <p>ว่าด้วยการ "ยกธรรมะขึ้นเป็นคู่ๆ" เป็นคัมภีร์ที่ใช้หลักตรรกะชั้นสูงในการอธิบายธรรมะ โดยตั้งคำถามและคำตอบเป็นคู่ๆ เพื่อยืนยันความหมายและขอบเขตของธรรมะแต่ละอย่างให้ชัดเจน</p>
+                        </li>
+                        <li>
+                            <a href="#">🔹 คัมภีร์ปัฏฐาน</a>
+                            <p>ว่าด้วย "ปัจจัย ๒๔" เป็นคัมภีร์ที่ยิ่งใหญ่และละเอียดซับซ้อนที่สุด อธิบายถึงความสัมพันธ์ของธรรมะทั้งปวงในฐานะเหตุและผล (ปัจจัย) ถือเป็นบทสรุปและสุดยอดของพระอภิธรรม</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="site-footer">
+            <center> <i><a href="/">หน้าแรก</a> &gt; พระอภิธรรมปิฎก<br>
+            🛞 ธรรมสุตตะ</center>
+        </footer>
+    </div>
+
+    <script>
+        // Script สำหรับ Hamburger Menu (คงเดิม)
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+    </script>
+</body>
+</html>
