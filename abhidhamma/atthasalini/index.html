@@ -397,5 +397,153 @@
 
         });
     </script>
+
+
+
+ <div class="post-tags">
+  <span>ป้ายกำกับ: </span>
+  <a href="/tags/วิปัสสนูปกิเลส.html" class="tag">วิปัสสนูปกิเลส</a>
+  <a href="/tags/วิสุทธิมรรค.html" class="tag">วิสุทธิมรรค</a>
+<a href="/tags/วิปัสสนา.html" class="tag">วิปัสสนา</a>
+<a href="/tags/ญาณ.html" class="tag">ญาณ</a>
+<a href="/tags/มรรค.html" class="tag">มรรค</a>
+
+</div>  
+
+
+    <div class="references">
+  <h2>อ้างอิงพระสูตรและตำรา</h2>
+  <ul>
+    <li>
+      <strong><a href="https://www.accesstoinsight.org/lib/authors/nanamoli/PathofPurification2011.pdf">The Path of Purification (Visuddhimagga), Bhikkhu Ñāṇamoli</a></strong><br>
+      อรรถกถาสำคัญว่าด้วยวิสุทธิ 7 โดยเฉพาะมัคคามัคคญาณทัสสนวิสุทธิในบทที่ 21
+    </li>
+    <li>
+      <strong><a href="https://www.bps.lk/olib/wh/wh041-p.html">The Progress of Insight, Mahāsi Sayādaw</a></strong><br>
+      ตำราอธิบายลำดับญาณวิปัสสนา พร้อมรายละเอียดวิปัสสนูปกิเลส 10 อย่างชัดเจน
+    </li>
+    <li>
+      <strong><a href="https://wisdomexperience.org/product/manual-of-insight/">Manual of Insight, Mahāsi Sayādaw</a></strong><br>
+      รวมหลักการปฏิบัติวิปัสสนาและการแยกแยะมรรค-อมรรคอย่างเป็นระบบ
+    </li>
+  </ul>
+</div>
+    <hr>
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+<!-- ย้ายข้อความออกมานอก grid -->
+
+
+    <footer class="site-footer">
+
+       <center> <a href="/">หน้าแรก</a> > <a href="/texts/visuddhimagga/index.html">วิสุทธิมรรค<a><br>
+
+      🛞 ธรรมสุตตะ</center>
+
+    </footer>
+
+    <script>
+        // Script สำหรับ Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContainer = document.querySelector('main.container');
+
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+
+        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
+        fetch('/assets/data/quotes.json')
+            .then(res => res.json())
+            .then(data => {
+                const quote = data[Math.floor(Math.random() * data.length)];
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
+                }
+            })
+            .catch(() => {
+                const quoteElement = document.getElementById('random-quote');
+                if(quoteElement) {
+                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
+                }
+            });
+
+        let paliDict = [];
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => { paliDict = data; })
+            .catch(() => {
+                const paliResult = document.getElementById('paliResult');
+                if(paliResult) {
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
+                }
+            });
+
+        const paliInput = document.getElementById('paliInput');
+        if (paliInput) {
+            paliInput.addEventListener('input', function () {
+                const input = this.value.trim().toLowerCase();
+                const resultBox = document.getElementById('paliResult');
+                if (!input) {
+                    resultBox.innerHTML = '';
+                    resultBox.style.display = 'none';
+                    return;
+                }
+                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
+                resultBox.style.display = 'block';
+                resultBox.innerHTML = matches.length
+                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
+                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
+            });
+        }
+    </script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("paliInput");
+  const section = document.querySelector(".dictionary-section");
+
+  if (input && section) {
+    input.addEventListener("input", function () {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
 </body>
 </html>
