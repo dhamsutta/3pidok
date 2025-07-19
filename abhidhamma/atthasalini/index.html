@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คัมภีร์อัฏฐสาลินี</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Dhamma Calm -->
+    <!-- Application Structure Plan: ใช้โครงสร้างแบบ Single-Page Application (SPA) ที่จำลองการทำงานแบบหลายหน้า ผู้ใช้จะเริ่มต้นที่หน้าสารบัญ (Homepage) และสามารถคลิกเพื่อ "เปิด" หน้าเนื้อหาแต่ละบทได้ การออกแบบนี้ให้ความรู้สึกเหมือนการเปิดหนังสือ อ่านไปทีละบท และสามารถเข้าถึงอภิธานศัพท์ได้ตลอดเวลาเพื่อสนับสนุนการเรียนรู้ โครงสร้างนี้ถูกเลือกเพราะเหมาะสมกับการนำเสนอเนื้อหาที่เป็นลำดับขั้น ทำให้ผู้ใช้มีสมาธิและติดตามเนื้อหาได้ง่าย -->
+    <!-- Visualization & Content Choices: เนื่องจากเนื้อหาเป็นข้อความเป็นหลัก จึงไม่มีการใช้กราฟหรือชาร์ต แต่เน้นการจัดวางข้อความให้อ่านง่าย: สารบัญใช้การ์ดที่คลิกได้เพื่อนำทาง, หน้าเนื้อหาใช้แท็กคำสำคัญ (Badges) เพื่อสรุปใจความ, และหน้าอภิธานศัพท์มีระบบค้นหาแบบ Real-time ด้วย JavaScript เพื่อให้ผู้ใช้ค้นหาคำศัพท์เฉพาะทางได้อย่างรวดเร็ว ทั้งหมดนี้ทำงานบน Vanilla JS และ Tailwind CSS เพื่อให้เว็บเบาและตอบสนองเร็ว -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            background-color: #FDFBF8;
+            color: #402E32;
+        }
+        .page {
+            transition: opacity 0.5s ease-in-out;
+        }
+        .page.hidden {
+            display: none;
+        }
+        .card-link {
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .card-link:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .nav-button {
+            transition: background-color 0.2s, color 0.2s;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto p-4 md:p-8 max-w-4xl">
+
+        <!-- Page 1: สารบัญ (Homepage) -->
+        <section id="page-1" class="page">
+            <header class="text-center mb-8 md:mb-12">
+                <h1 class="text-3xl md:text-4xl font-bold text-[#6A5A53]">สารบัญคัมภีร์อัฏฐสาลินี</h1>
+                <p class="mt-2 text-lg text-gray-600">ธัมมสังคณี อัฏฐกถา</p>
+            </header>
+
+            <div class="bg-white/50 rounded-lg p-6 shadow-sm border border-gray-200/50 mb-8">
+                <h2 class="text-xl font-semibold mb-2 text-[#4A3C35]">บทนำ</h2>
+                <p class="text-gray-700 leading-relaxed">
+                    คัมภีร์อัฏฐสาลินี คืออรรถกถา หรือคัมภีร์ที่อธิบายขยายความเนื้อหาในคัมภีร์ "ธัมมสังคณี" ซึ่งเป็นคัมภีร์แรกแห่งพระอภิธรรมปิฎก ๗ คัมภีร์ แอปพลิเคชันนี้ได้จัดทำขึ้นเพื่อเป็นเครื่องมือช่วยในการศึกษาและทำความเข้าใจในหลักธรรมอันลึกซึ้งของพระอภิธรรมให้ง่ายขึ้น ผ่านการจัดหมวดหมู่เนื้อหาที่เป็นระบบและเครื่องมือช่วยเหลือต่างๆ
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="#page-2" data-page="2" class="nav-link card-link block bg-white p-6 rounded-lg shadow-sm border border-gray-200/50">
+                    <h3 class="font-bold text-xl text-[#6A5A53]">นิทานกถา »</h3>
+                    <p class="text-gray-600 mt-1">ประวัติและความเป็นมาแห่งพระอภิธรรม</p>
+                </a>
+                <a href="#page-3" data-page="3" class="nav-link card-link block bg-white p-6 rounded-lg shadow-sm border border-gray-200/50">
+                    <h3 class="font-bold text-xl text-[#6A5A53]">มาติกา »</h3>
+                    <p class="text-gray-600 mt-1">แม่บทหัวข้อธรรม 3 หมวด (ติกะ) และ 2 หมวด (ทุกะ)</p>
+                </a>
+                <a href="#page-4" data-page="4" class="nav-link card-link block bg-white p-6 rounded-lg shadow-sm border border-gray-200/50">
+                    <h3 class="font-bold text-xl text-[#6A5A53]">จิตตุปปาทกัณฑ์ »</h3>
+                    <p class="text-gray-600 mt-1">การจำแนกสภาวธรรมโดยละเอียด</p>
+                </a>
+                <a href="#page-5" data-page="5" class="nav-link card-link block bg-white p-6 rounded-lg shadow-sm border border-gray-200/50">
+                    <h3 class="font-bold text-xl text-[#6A5A53]">รูปกัณฑ์ »</h3>
+                    <p class="text-gray-600 mt-1">การจำแนกรูปธรรม 28 ประการ</p>
+                </a>
+                <a href="#page-6" data-page="6" class="nav-link card-link block bg-white p-6 rounded-lg shadow-sm border border-gray-200/50">
+                    <h3 class="font-bold text-xl text-[#6A5A53]">นิกเขปกัณฑ์ »</h3>
+                    <p class="text-gray-600 mt-1">การสรุปและจัดระเบียบธรรมะ</p>
+                </a>
+                <a href="#page-7" data-page="7" class="nav-link card-link block bg-white p-6 rounded-lg shadow-sm border border-gray-200/50">
+                    <h3 class="font-bold text-xl text-[#6A5A53]">อรรถกถาโยชนา »</h3>
+                    <p class="text-gray-600 mt-1">บทสรุปปิดท้ายคัมภีร์และอานิสงส์</p>
+                </a>
+            </div>
+
+            <div class="text-center mt-8">
+                <a href="#page-8" data-page="8" class="nav-link inline-block bg-[#A9988D] text-white font-bold py-3 px-6 rounded-lg hover:bg-[#8E7C72] nav-button">
+                    เปิดหน้าอภิธานศัพท์
+                </a>
+            </div>
+        </section>
+
+        <!-- Template for content pages (to be populated by JS) -->
+        <section id="content-page-template" class="page hidden">
+            <header class="mb-6">
+                <a href="#page-1" data-page="1" class="nav-link text-[#A9988D] hover:text-[#6A5A53] mb-4 block">‹ กลับไปที่สารบัญ</a>
+                <h2 id="content-title" class="text-3xl font-bold text-[#6A5A53]"></h2>
+                <div id="content-tags" class="flex flex-wrap gap-2 mt-3"></div>
+            </header>
+            <div class="bg-white/50 rounded-lg p-6 md:p-8 shadow-sm border border-gray-200/50 prose max-w-none">
+                <div id="content-intro" class="mb-6 border-l-4 border-[#A9988D] pl-4 italic text-gray-600"></div>
+                <div id="content-body" class="text-gray-800 leading-relaxed"></div>
+            </div>
+            <footer id="content-nav" class="flex justify-between mt-8"></footer>
+        </section>
+
+
+        <!-- Page 8: อภิธานศัพท์ -->
+        <section id="page-8" class="page hidden">
+            <header class="mb-6">
+                <a href="#page-1" data-page="1" class="nav-link text-[#A9988D] hover:text-[#6A5A53] mb-4 block">‹ กลับไปที่สารบัญ</a>
+                <h2 class="text-3xl font-bold text-[#6A5A53]">อภิธานศัพท์พระอภิธรรม</h2>
+            </header>
+             <div class="bg-white/50 rounded-lg p-6 shadow-sm border border-gray-200/50">
+                <p class="mb-4 text-gray-700">
+                    ส่วนนี้ได้รวบรวมคำศัพท์เฉพาะทางที่ปรากฏในคัมภีร์ เพื่อเป็นเครื่องมือช่วยเหลือในการศึกษาและทำความความเข้าใจในเนื้อหาได้ดียิ่งขึ้น คุณสามารถพิมพ์คำที่ต้องการค้นหาในช่องด้านล่างนี้ได้
+                </p>
+                <input type="text" id="glossary-search" placeholder="ค้นหาคำศัพท์..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#A9988D] focus:border-transparent transition">
+                <div id="glossary-list" class="mt-6 space-y-4">
+                    <!-- Glossary items will be populated by JS -->
+                </div>
+             </div>
+        </section>
+
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const pages = document.querySelectorAll('.page');
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentTemplate = document.getElementById('content-page-template');
+            
+            const contentData = {
+                '2': {
+                    title: 'นิทานกถา',
+                    tags: ['#พระอภิธรรม', '#เทวโลก', '#ประวัติ', '#พระอนุรุทธาจารย์', '#ปัญจกนัย'],
+                    intro: 'นิทานกถาเป็นบทแรกที่บอกเล่าถึงความเป็นมาของพระอภิธรรมปิฎก โดยกล่าวถึงเหตุการณ์สำคัญเมื่อครั้งที่องค์สมเด็จพระสัมมาสัมพุทธเจ้าเสด็จขึ้นไปทรงแสดงธรรมโปรดพุทธมารดา ณ สวรรค์ชั้นดาวดึงส์ อันเป็นที่มาของคัมภีร์ทั้ง ๗ แห่งพระอภิธรรม',
+                    body: '<p>เนื้อหาในส่วนนี้จะบรรยายถึงเหตุการณ์ที่พระพุทธเจ้าเสด็จขึ้นไปแสดงพระอภิธรรมโปรดพุทธมารดาบนสวรรค์ชั้นดาวดึงส์ เป็นเวลา ๓ เดือนเต็ม การแสดงธรรมครั้งนั้นเป็นการแสดงโดยพิสดารและเป็นต้นกำเนิดของพระอภิธรรมปิฎกทั้งหมด ซึ่งพระสารีบุตรเถระได้ฟังแล้วนำมาถ่ายทอดแก่มวลมนุษย์ต่อไป...</p><p>ส่วนนี้จึงมีความสำคัญอย่างยิ่งในการสร้างศรัทธาและความเข้าใจในที่มาของหลักธรรมอันประเสริฐนี้</p>',
+                    prev: null,
+                    next: '3'
+                },
+                '3': {
+                    title: 'มาติกา',
+                    tags: ['#แม่บท', '#ติกมาติกา', '#ทุกมาติกา', '#กุศลาธรรมา', '#หัวข้อธรรม'],
+                    intro: 'มาติกา หรือแม่บท คือหัวข้อธรรมที่พระพุทธองค์ทรงยกขึ้นเป็นบทตั้งก่อนจะอธิบายเนื้อความโดยละเอียด เปรียบเสมือนสารบัญของสภาวธรรมทั้งหมด ในส่วนนี้จะจำแนกเป็น ๒ ส่วนหลักคือ ติกมาติกา (หมวด ๓) และ ทุกมาติกา (หมวด ๒) ซึ่งเป็นโครงสร้างหลักของพระอภิธรรมทั้งหมด',
+                    body: '<p>ติกมาติกา คือการจัดกลุ่มสภาวธรรมทั้งปวงลงในหมวด ๓ มีทั้งหมด ๒๒ ติกะ ที่สำคัญที่สุดคือ "กุสลา ธัมมา, อกุสลา ธัมมา, อพยากตา ธัมมา" ซึ่งหมายถึง สภาวธรรมที่เป็นกุศล อกุศล และที่เป็นกลางๆ ส่วนทุกมาติกา คือการจัดกลุ่มธรรมะเป็นหมวด ๒ มีทั้งหมด ๑๐๐ ทุกะ การเข้าใจมาติกานี้จะทำให้เห็นภาพรวมของธรรมะทั้งหมดได้อย่างชัดเจน...</p>',
+                    prev: '2',
+                    next: '4'
+                },
+                '4': {
+                    title: 'จิตตุปปาทกัณฑ์',
+                    tags: ['#จิต', '#เจตสิก', '#กุศลจิต', '#อารมณ์', '#วัตถุ'],
+                    intro: 'จิตตุปปาทกัณฑ์ เป็นการอธิบายเนื้อหาของมาติกาอย่างละเอียด โดยเริ่มจากติกมาติกาบทแรก คือ กุศลติกะ เป็นการวิเคราะห์และจำแนกสภาวะของ "จิต" และ "เจตสิก" (สภาวะที่ประกอบกับจิต) ที่เกิดขึ้นว่าเป็นกุศล อกุศล หรืออัพยากฤต ในภูมิทั้ง ๔',
+                    body: '<p>ในบทนี้จะอธิบายถึงการเกิดขึ้นของจิตแต่ละดวงโดยละเอียดว่าประกอบด้วยเจตสิกอะไรบ้าง มีอารมณ์และวัตถุที่อาศัยเกิดคืออะไร การศึกษาในบทนี้จะทำให้เข้าใจธรรมชาติของจิตใจมนุษย์อย่างลึกซึ้ง ตั้งแต่กุศลจิตอันเป็นจิตที่งดงาม ไปจนถึงอกุศลจิตที่เป็นเหตุแห่งทุกข์ทั้งปวง...</p>',
+                    prev: '3',
+                    next: '5'
+                },
+                '5': {
+                    title: 'รูปกัณฑ์',
+                    tags: ['#รูปธรรม', '#มหาภูตรูป', '#อุปาทายรูป', '#สมุฏฐาน', '#กลาป'],
+                    intro: 'หลังจากอธิบายเรื่องนามธรรม (จิตและเจตสิก) แล้ว ในรูปกัณฑ์จะหันมาอธิบายเรื่อง "รูปธรรม" หรือสสารอย่างละเอียดตามหลักพระอภิธรรม โดยจะจำแนกรูปทั้งหมดออกเป็น 28 ประเภท เพื่อให้เห็นความจริงของร่างกายและโลกภายนอกว่าเป็นเพียงการประชุมกันของรูปธรรมต่างๆ เท่านั้น',
+                    body: '<p>รูปธรรมทั้ง ๒๘ แบ่งเป็น ๒ กลุ่มใหญ่คือ ๑) มหาภูตรูป ๔ ได้แก่ ดิน น้ำ ไฟ ลม ซึ่งเป็นรูปแท้และเป็นประธานของรูปทั้งปวง และ ๒) อุปาทายรูป ๒๔ คือรูปที่ต้องอาศัยมหาภูตรูปเกิด เช่น ตา หู จมูก ลิ้น กาย เป็นต้น การเข้าใจเรื่องรูปโดยละเอียดจะช่วยให้คลายความยึดมั่นถือมั่นในร่างกายและวัตถุต่างๆ ได้...</p>',
+                    prev: '4',
+                    next: '6'
+                },
+                '6': {
+                    title: 'นิกเขปกัณฑ์',
+                    tags: ['#สังคหะ', '#วิภังค์', '#สรุปธรรม', '#ถาม-ตอบ', '#จัดหมวดหมู่'],
+                    intro: 'นิกเขปกัณฑ์เป็นเหมือนบทสรุปที่รวบรวมและจัดระเบียบธรรมะทั้งหมดที่ได้อธิบายมาแล้วในบทก่อนๆ อีกครั้งหนึ่ง โดยนำหัวข้อธรรมจากมาติกามาอธิบายในรูปแบบที่แตกต่างออกไป เพื่อให้เกิดความเข้าใจที่สมบูรณ์และครอบคลุมทุกแง่มุม',
+                    body: '<p>ลักษณะการอธิบายในบทนี้มักเป็นรูปแบบการถาม-ตอบ หรือการจัดกลุ่มธรรมะลงในหมวดต่างๆ ที่ซับซ้อนขึ้น เป็นการทดสอบความเข้าใจและช่วยให้ผู้ศึกษาสามารถเชื่อมโยงความรู้จากแต่ละบทเข้าด้วยกันได้อย่างเป็นระบบ ทำให้เห็นความสัมพันธ์ของสภาวธรรมทั้งหมดในภาพรวม...</p>',
+                    prev: '5',
+                    next: '7'
+                },
+                '7': {
+                    title: 'อรรถกถาโยชนา',
+                    tags: ['#สรุป', '#อานิสงส์', '#ผู้แต่ง', '#อรรถกถา', '#ธัมมสังคณี'],
+                    intro: 'อรรถกถาโยชนาคือบทสุดท้ายของคัมภีร์อัฏฐสาลินี ซึ่งเป็นการกล่าวสรุปปิดท้าย กล่าวถึงชื่อผู้รจนาคัมภีร์ คือพระพุทธโฆสาจารย์ และกล่าวถึงอานิสงส์หรือประโยชน์ที่ผู้ศึกษาจะได้รับจากการศึกษาพระอภิธรรมและคัมภีร์นี้',
+                    body: '<p>ในบทสุดท้ายนี้ พระอรรถกถาจารย์ได้กล่าวสรุปเนื้อหาทั้งหมดโดยย่อ และชี้ให้เห็นถึงประโยชน์อันยิ่งใหญ่ของการศึกษาพระอภิธรรมว่า เป็นไปเพื่อความเข้าใจในสภาวธรรมตามความเป็นจริง อันจะนำไปสู่การเจริญปัญญาเพื่อความสิ้นไปแห่งอาสวกิเลสในที่สุด เป็นการให้กำลังใจแก่ผู้ศึกษาให้มุ่งมั่นปฏิบัติต่อไป...</p>',
+                    prev: '6',
+                    next: null
+                }
+            };
+            
+            const glossaryData = [
+                { term: 'กุศล', reading: 'กุ-สน', definition: 'สภาพธรรมที่ดีงาม, ฉลาด, ไม่มีโทษ, ให้ผลเป็นสุข' },
+                { term: 'จิต', reading: 'จิด', definition: 'ธรรมชาติที่รู้อารมณ์, สภาพที่คิด นึก' },
+                { term: 'เจตสิก', reading: 'เจ-ตะ-สิก', definition: 'ธรรมชาติที่ประกอบกับจิต เกิดพร้อมจิต ดับพร้อมจิต มีอารมณ์และวัตถุที่อาศัยเดียวกับจิต' },
+                { term: 'ผัสสะ', reading: 'ผัด-สะ', definition: 'ธรรมชาติที่กระทบอารมณ์ เป็นปัจจัยให้เกิดเวทนา' },
+                { term: 'รูป', reading: 'รูบ', definition: 'สภาพธรรมที่แตกสลายได้ด้วยปัจจัยต่างๆ ที่เป็นปฏิปักษ์ต่อกัน เช่น ความร้อน ความเย็น' },
+                { term: 'เวทนา', reading: 'เว-ทะ-นา', definition: 'ธรรมชาติที่เสวยอารมณ์ คือการรับรู้ความรู้สึก สุข ทุกข์ หรือเฉยๆ' },
+                { term: 'สัญญา', reading: 'สัน-ยา', definition: 'ธรรมชาติที่จดจำอารมณ์ได้ หมายรู้ในอารมณ์นั้นๆ' },
+                { term: 'สังขาร', reading: 'สัง-ขาน', definition: 'ธรรมชาติที่ปรุงแต่งจิตให้เป็นไปในภาวะต่างๆ ทั้งดีและชั่ว ในที่นี้หมายถึงเจตสิก 50 ดวง (เว้นเวทนาและสัญญา)' },
+                { term: 'วิญญาณ', reading: 'วิน-ยาน', definition: 'ธรรมชาติที่รู้แจ้งในอารมณ์ เป็นไวพจน์ (คำพ้องความหมาย) ของจิต' },
+                { term: 'มหาภูตรูป', reading: 'มะ-หา-พู-ตะ-รูบ', definition: 'รูปที่เป็นใหญ่เป็นประธานของรูปทั้งปวง มี 4 อย่างคือ ปฐวี (ดิน), อาโป (น้ำ), เตโช (ไฟ), วาโย (ลม)' },
+                { term: 'อุปาทายรูป', reading: 'อุ-ปา-ทา-ยะ-รูบ', definition: 'รูปที่ต้องอาศัยมหาภูตรูปเกิด มี 24 อย่าง เช่น จักขุปสาท (ประสาทตา)' },
+                { term: 'อารมณ์', reading: 'อา-รม', definition: 'สิ่งที่ถูกจิตรู้, สิ่งที่เป็นที่มายึดหน่วงของจิต' },
+            ];
+
+            function showPage(pageId) {
+                // Fade out all pages first
+                pages.forEach(p => {
+                    p.style.opacity = '0';
+                });
+                
+                setTimeout(() => {
+                    pages.forEach(p => p.classList.add('hidden'));
+
+                    if (pageId > 1 && pageId < 8) {
+                        const data = contentData[pageId];
+                        document.getElementById('content-title').textContent = data.title;
+                        
+                        const tagsContainer = document.getElementById('content-tags');
+                        tagsContainer.innerHTML = '';
+                        data.tags.forEach(tag => {
+                            const tagEl = document.createElement('span');
+                            tagEl.className = 'bg-[#EAE4E0] text-[#6A5A53] text-sm font-medium mr-2 px-2.5 py-0.5 rounded-full';
+                            tagEl.textContent = tag;
+                            tagsContainer.appendChild(tagEl);
+                        });
+                        
+                        document.getElementById('content-intro').innerHTML = `<p>${data.intro}</p>`;
+                        document.getElementById('content-body').innerHTML = data.body;
+                        
+                        const navContainer = document.getElementById('content-nav');
+                        navContainer.innerHTML = '';
+                        if (data.prev) {
+                            const prevLink = document.createElement('a');
+                            prevLink.href = `#page-${data.prev}`;
+                            prevLink.dataset.page = data.prev;
+                            prevLink.className = 'nav-link nav-button bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow';
+                            prevLink.innerHTML = `‹ ${contentData[data.prev].title}`;
+                            navContainer.appendChild(prevLink);
+                        } else {
+                            navContainer.appendChild(document.createElement('div'));
+                        }
+
+                        if (data.next) {
+                            const nextLink = document.createElement('a');
+                            nextLink.href = `#page-${data.next}`;
+                            nextLink.dataset.page = data.next;
+                            nextLink.className = 'nav-link nav-button bg-[#A9988D] hover:bg-[#8E7C72] text-white font-bold py-2 px-4 rounded shadow';
+                            nextLink.innerHTML = `${contentData[data.next].title} ›`;
+                            navContainer.appendChild(nextLink);
+                        }
+                        
+                        // Add event listeners to newly created nav links
+                        navContainer.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', handleNavClick));
+
+                        contentTemplate.classList.remove('hidden');
+                        setTimeout(() => contentTemplate.style.opacity = '1', 50);
+
+                    } else {
+                        const targetPage = document.getElementById(`page-${pageId}`);
+                        if (targetPage) {
+                           targetPage.classList.remove('hidden');
+                           setTimeout(() => targetPage.style.opacity = '1', 50);
+                        }
+                    }
+                    window.scrollTo(0, 0);
+                }, 250); // Match timeout with transition duration
+            }
+
+            function handleNavClick(e) {
+                e.preventDefault();
+                const pageId = e.currentTarget.dataset.page;
+                if (pageId) {
+                    showPage(pageId);
+                }
+            }
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', handleNavClick);
+            });
+            
+            const glossaryList = document.getElementById('glossary-list');
+            const glossarySearch = document.getElementById('glossary-search');
+
+            function renderGlossary(filter = '') {
+                glossaryList.innerHTML = '';
+                const lowerCaseFilter = filter.toLowerCase();
+                const filteredData = glossaryData.filter(item => 
+                    item.term.toLowerCase().includes(lowerCaseFilter) || 
+                    item.definition.toLowerCase().includes(lowerCaseFilter)
+                );
+
+                if (filteredData.length === 0) {
+                    glossaryList.innerHTML = `<p class="text-gray-500 text-center">ไม่พบคำศัพท์ที่ตรงกัน</p>`;
+                    return;
+                }
+
+                filteredData.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'border-b border-gray-200 pb-3';
+                    div.innerHTML = `
+                        <h4 class="font-bold text-lg text-[#4A3C35]">${item.term}</h4>
+                        <p class="text-sm text-gray-500 mb-1">(คำอ่าน: ${item.reading})</p>
+                        <p class="text-gray-700">${item.definition}</p>
+                    `;
+                    glossaryList.appendChild(div);
+                });
+            }
+
+            glossarySearch.addEventListener('input', (e) => {
+                renderGlossary(e.target.value);
+            });
+
+            // Initial setup
+            showPage('1');
+            renderGlossary();
+
+        });
+    </script>
+</body>
+</html>
