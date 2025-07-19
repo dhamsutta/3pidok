@@ -492,7 +492,7 @@
         </div>
 
 
-
+<button id="backToTopBtn" title="เลื่อนขึ้นบน⬆">⬆</button>
 
 
 
@@ -638,7 +638,25 @@
 
 
 
+<script>
+// เมื่อเลื่อนหน้าจอลง ให้แสดงปุ่ม
+window.onscroll = function() {
+  let btn = document.getElementById("backToTopBtn");
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
 
+// เมื่อคลิกปุ่ม ให้เลื่อนกลับไปด้านบนแบบ smooth
+document.getElementById("backToTopBtn").onclick = function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+</script>
 
 
 
