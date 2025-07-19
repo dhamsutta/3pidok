@@ -99,9 +99,104 @@
         }
 
     </style>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-568JJVLV44');
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://dhamma-sutta.com/abhidhamma/ex/index.html"
+  },
+  "headline": "ธรรมสังคณีปกรณ์: อธิบายความหมาย",
+  "description": "อธิบายความหมายจากคัมภีร์ธรรมสังคณีปกรณ์ พระอภิธรรมปิฎกเล่ม ๑",
+  "author": {
+    "@type": "Organization",
+    "name": "ธรรมสุตตะ"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "ธรรมสุตตะ",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://dhamma-sutta.com/images/logo.png"
+    }
+  },
+  "datePublished": "2025-07-19",
+  "inLanguage": "th",
+  "about": {
+    "@type": "Book",
+    "name": "ธรรมสังคณีปกรณ์",
+    "isPartOf": {
+        "@type": "BookSeries",
+        "name": "พระอภิธรรมปิฎก"
+    }
+  }
+}
+</script>
+
+
+
+
+
+    
 </head>
 <body>
+<header class="site-header">
+        <div class="header-container">
+            <a href="/" class="logo-link">
+                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+                <span class="site-title">ธรรมสุตตะ</span>
+            </a>
+            <nav class="navbar" id="desktopNavbar">
+                <a href="/">หน้าแรก</a>
+                <a href=" /pages/vinaya.html">พระวินัย</a>
+                <a href=" /pages/sutta.html">พระสูตร</a>
+                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
+                <a href=" /pages/katha.html">อรรถกถา</a>
+                <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
+                
+            </nav>
+            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </header>
 
+ <nav class="sidebar-menu" id="sidebarMenu">
+        <a href="/">🏠หน้าแรก</a>
+        <a href=" /pages/vinaya.html">🔹พระวินัย</a>
+        <a href=" /pages/sutta.html">🔹พระสูตร</a>
+        <a href=" /pages/abhidhamma.html">🔹พระอภิธรรม</a>
+        <a href=" /pages/katha.html">🔹อรรถกถา</a>
+        <a href=" /pages/pakinnaka.html">🔹ปกิณกะ</a>
+        <a href=" /tags/index.html">🔹รวมป้ายกำกับ</a>
+        <a href=" /audio/index.html">📻 ฟังธรรมบรรยาย</a>
+        <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
+    </nav>
+
+
+
+
+
+
+
+
+
+
+    
     <div class="page-container">
         
         <header class="page-header">
@@ -158,5 +253,64 @@
 
     </div>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ <script>
+        // Script สำหรับ Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        const mainContainer = document.querySelector('main.container');
+
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+    </script>
+ <script>
+        // รอให้หน้าเว็บโหลดเสร็จก่อน
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. เลือก Sidebar ของเรา
+            const sidebar = document.getElementById('sidebarMenu');
+
+            // 2. เลือกลิงก์ทั้งหมดที่อยู่ใน Sidebar
+            const sidebarLinks = document.querySelectorAll('#sidebarMenu a');
+
+            // 3. สร้างฟังก์ชันที่จะทำงานเมื่อมีการคลิก
+            function resetSidebarScroll() {
+                // คำสั่งสำคัญ: ตั้งค่าให้แถบเลื่อนของ sidebar กลับไปที่จุดบนสุด (0)
+                sidebar.scrollTop = 0;
+            }
+
+            // 4. สั่งให้ลิงก์ทุกตัวใน sidebar เรียกใช้ฟังก์ชันนี้เมื่อถูกคลิก
+            sidebarLinks.forEach(function(link) {
+                link.addEventListener('click', resetSidebarScroll);
+            });
+        });
+    </script>
+
+    
 </body>
 </html>
