@@ -133,26 +133,32 @@
     </style>
 
 
- <style>
+<style>
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Sarabun', sans-serif;
             background-color: #f3f4f6; /* Light gray background for the page */
             display: flex;
             justify-content: center;
-            align-items: center;
+            align-items: flex-start; /* Align to start to prevent vertical centering issues on short content */
             min-height: 100vh;
             padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-x: auto; /* Allow horizontal scrolling for table on small screens if necessary */
         }
         table {
             border-collapse: collapse;
             width: 100%;
-            max-width: 1200px; /* Max width for larger screens */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-width: 600px; /* Ensure table has a minimum width to prevent squishing on very small screens */
         }
         th, td {
             border: 1px solid #e5e7eb; /* Light gray border */
             padding: 12px 15px;
             text-align: left;
+            vertical-align: top; /* Align content to the top */
         }
         th {
             background-color: #4f46e5; /* Indigo for header */
@@ -178,45 +184,57 @@
             padding: 10px;
             background-color: #d1d5db; /* Light gray background for caption */
             border-radius: 8px 8px 0 0; /* Rounded top corners for caption */
+            text-align: center;
         }
-        /* Responsive adjustments */
+
+        /* Responsive adjustments for mobile (screens up to 768px) */
         @media (max-width: 768px) {
-            table, thead, tbody, th, td, tr {
-                display: block;
+            table {
+                border: 0;
+                min-width: unset; /* Remove min-width on mobile */
             }
-            thead tr {
-                position: absolute;
-                top: -9999px;
-                left: -9999px;
+            thead {
+                display: none; /* Hide table header on mobile */
             }
             tr {
+                display: block; /* Make table rows behave like block elements */
                 margin-bottom: 15px;
                 border: 1px solid #e5e7eb;
                 border-radius: 8px;
                 overflow: hidden;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Subtle shadow for each card-like row */
             }
             td {
-                border: none;
-                border-bottom: 1px solid #e5e7eb;
+                border: none; /* Remove individual cell borders */
+                border-bottom: 1px solid #e5e7eb; /* Add bottom border to separate data */
                 position: relative;
-                padding-left: 50%;
-                text-align: right;
+                padding-left: 50%; /* Make space for the data-label */
+                text-align: right; /* Align actual data to the right */
+                display: flex; /* Use flexbox for label and content */
+                align-items: flex-start; /* Align items to the top */
+                justify-content: space-between; /* Space out label and content */
+                word-wrap: break-word; /* Ensure long words break */
             }
             td:before {
-                content: attr(data-label);
-                position: absolute;
+                content: attr(data-label); /* Use data-label for the pseudo-element */
+                position: absolute; /* Position the label absolutely */
                 left: 0;
-                width: 45%;
+                width: 45%; /* Give label enough width */
                 padding-left: 15px;
                 font-weight: 600;
-                text-align: left;
+                text-align: left; /* Align label text to the left */
                 color: #4b5563;
+                box-sizing: border-box; /* Include padding in width calculation */
             }
             td:last-child {
-                border-bottom: 0;
+                border-bottom: 0; /* No border on the last cell of a row */
             }
             caption {
-                font-size: 1.25rem;
+                font-size: 1.25rem; /* Slightly smaller caption on mobile */
+                border-radius: 8px; /* Rounded corners for caption on mobile */
+            }
+            .container {
+                padding: 10px; /* Reduce container padding on mobile */
             }
         }
     </style>
