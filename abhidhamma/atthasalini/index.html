@@ -129,8 +129,32 @@
     .references li { margin-bottom: 15px; }
   </style>
 
+    
+  <style>
+#backToTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  display: none;
+  z-index: 999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+}
 
+#backToTopBtn:hover {
+  background-color: #555;
+}
+  </style>
 
+    
     </head>
 <body>
  <div class="page-wrapper">
@@ -368,7 +392,27 @@ document.getElementById("backToTopBtn").onclick = function() {
 
 
 <button id="backToTopBtn" title="เลื่อนขึ้นบน">⬆</button>
-            
+
+        
+     <script>
+// เมื่อเลื่อนหน้าจอลง ให้แสดงปุ่ม
+window.onscroll = function() {
+  let btn = document.getElementById("backToTopBtn");
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
+  }
+};
+
+// เมื่อคลิกปุ่ม ให้เลื่อนกลับไปด้านบนแบบ smooth
+document.getElementById("backToTopBtn").onclick = function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
+</script>       
 
 </body>
 </html>
