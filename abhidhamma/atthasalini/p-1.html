@@ -131,6 +131,101 @@
             background-color: #555;
         }
     </style>
+
+
+ <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* Light gray background for the page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            max-width: 1200px; /* Max width for larger screens */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #e5e7eb; /* Light gray border */
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #4f46e5; /* Indigo for header */
+            color: white;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        tbody tr:nth-child(odd) {
+            background-color: #f9fafb; /* Lighter gray for odd rows */
+        }
+        tbody tr:nth-child(even) {
+            background-color: #ffffff; /* White for even rows */
+        }
+        tbody tr:hover {
+            background-color: #e0e7ff; /* Light blue on hover */
+            transition: background-color 0.3s ease;
+        }
+        caption {
+            font-size: 1.5rem; /* Larger caption font size */
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #1f2937; /* Darker text for caption */
+            padding: 10px;
+            background-color: #d1d5db; /* Light gray background for caption */
+            border-radius: 8px 8px 0 0; /* Rounded top corners for caption */
+        }
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            table, thead, tbody, th, td, tr {
+                display: block;
+            }
+            thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+            tr {
+                margin-bottom: 15px;
+                border: 1px solid #e5e7eb;
+                border-radius: 8px;
+                overflow: hidden;
+            }
+            td {
+                border: none;
+                border-bottom: 1px solid #e5e7eb;
+                position: relative;
+                padding-left: 50%;
+                text-align: right;
+            }
+            td:before {
+                content: attr(data-label);
+                position: absolute;
+                left: 0;
+                width: 45%;
+                padding-left: 15px;
+                font-weight: 600;
+                text-align: left;
+                color: #4b5563;
+            }
+            td:last-child {
+                border-bottom: 0;
+            }
+            caption {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+
+
+
+
+
+    
 </head>
 <body>
     <div class="page-wrapper">
