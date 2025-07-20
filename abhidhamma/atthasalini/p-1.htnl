@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO Meta Tags -->
+    <title>บทที่ ๑: ปฐมเหตุแห่งพระอภิธรรม - คัมภีร์อัฏฐสาลินี</title>
+    <meta name="description" content="เรื่องราวปฐมเหตุแห่งการแสดงพระอภิธรรม หลังจากที่พระพุทธองค์ทรงกระทำยมกปาฏิหาริย์ และเสด็จขึ้นไปโปรดพุทธมารดาบนสวรรค์ชั้นดาวดึงส์">
+    <meta name="keywords" content="ยมกปาฏิหาริย์, ดาวดึงส์, พุทธมารดา, พระอภิธรรม, เทวโลก, ปฐมเหตุ, อัฏฐสาลินี">
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
+
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "บทที่ ๑: ปฐมเหตุแห่งพระอภิธรรม",
+      "image": "https://storage.googleapis.com/generativeai-assets/images/223797c5885c478a/buddha_preaching_in_tavatimsa.jpeg",
+      "author": { "@type": "Organization", "name": "ผู้จัดทำเว็บไซต์เพื่อการศึกษาธรรมะ" },
+      "publisher": { "@type": "Organization", "name": "ผู้จัดทำเว็บไซต์เพื่อการศึกษาธรรมะ" },
+      "datePublished": "2025-07-20",
+      "dateModified": "2025-07-20",
+      "description": "เรื่องราวปฐมเหตุแห่งการแสดงพระอภิธรรม หลังจากที่พระพุทธองค์ทรงกระทำยมกปาฏิหาริย์ และเสด็จขึ้นไปโปรดพุทธมารดาบนสวรรค์ชั้นดาวดึงส์",
+      "keywords": "ยมกปาฏิหาริย์, ดาวดึงส์, พุทธมารดา, พระอภิธรรม, เทวโลก, ปฐมเหตุ, อัฏฐสาลินี",
+      "inLanguage": "th",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://dhamma-sutta.com/abhidhamma/atthasalini/p-1.html" },
+      "isPartOf": {
+        "@type": "Article",
+        "headline": "คัมภีร์อัฏฐสาลินี",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://dhamma-sutta.com/abhidhamma/atthasalini/index.html"
+        }
+      },
+      "articleSection": "นิทานกถา"
+    }
+    </script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-568JJVLV44');
+    </script>
+    
+    <!-- External CSS & Fonts -->
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <!-- Consolidated Styles -->
+    <style>
+        body {
+            font-family: 'Sarabun', sans-serif;
+            line-height: 1.7;
+            background-color: #f8f9fa;
+        }
+        .page-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .breadcrumb {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .breadcrumb a {
+            color: #0000bf;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #2980b9;
+        }
+        .references {
+            background-color: #FFFAF0;
+            border-left: 6px solid #FFDEAD;
+            padding: 15px 20px;
+            margin-top: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        .references h2 {
+            margin-top: 0;
+            color: #8B4513;
+        }
+        .references ul {
+            padding-left: 20px;
+            list-style: none;
+        }
+        .references li {
+            margin-bottom: 20px;
+        }
+        .tags-container {
+            margin-top: 2rem;
+            padding: 1rem;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+        }
+        .tag {
+            display: inline-block;
+            background-color: #e9ecef;
+            color: #495057;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.9rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        #backToTopBtn {
+            position: fixed;
+            bottom: 40px;
+            right: 30px;
+            display: none;
+            z-index: 999;
+            font-size: 18px;
+            border: none;
+            outline: none;
+            background-color: #333;
+            color: white;
+            cursor: pointer;
+            padding: 12px 16px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            transition: background-color 0.3s;
+        }
+        #backToTopBtn:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="site-header">
+            <div class="header-container">
+                <a href="/" class="logo-link">
+                    <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
+                    <span class="site-title">ธรรมสุตตะ</span>
+                </a>
+                <nav class="navbar" id="desktopNavbar">
+                    <a href="/">หน้าแรก</a>
+                    <a href="/pages/vinaya.html">พระวินัย</a>
+                    <a href="/pages/sutta.html">พระสูตร</a>
+                    <a href="/pages/abhidhamma.html">พระอภิธรรม</a>
+                    <a href="/pages/katha.html">อรรถกถา</a>
+                    <a href="/search/index.html">🔍ค้นหา/อภิธานศัพท์</a>
+                </nav>
+                <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
+                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+                </button>
+            </div>
+        </header>
+
+        <nav class="sidebar-menu" id="sidebarMenu">
+            <a href="/">🏠หน้าแรก</a>
+            <a href="/pages/vinaya.html">🔹พระวินัย</a>
+            <a href="/pages/sutta.html">🔹พระสูตร</a>
+            <a href="/pages/abhidhamma.html">🔹พระอภิธรรม</a>
+            <a href="/pages/katha.html">🔹อรรถกถา</a>
+            <a href="/pages/pakinnaka.html">🔹ปกิณกะ</a>
+            <a href="/tags/index.html">🔹รวมป้ายกำกับ</a>
+            <a href="/audio/index.html">🔹ธรรมบรรยาย</a>
+            <a href="/search/index.html">🔍ค้นหาจากในเว็บ</a>
+        </nav>
+
+        <main>
+            <header class="page-header">
+                <h1>บทที่ ๑: ปฐมเหตุแห่งพระอภิธรรม</h1>
+            </header>
+
+            <nav class="breadcrumb">
+                <a href="/">หน้าแรก</a> &gt; 
+                <a href="/pages/abhidhamma.html">พระอภิธรรมปิฎก</a> &gt; 
+                <a href="/abhidhamma/ap1.html">ธรรมสังคณีปกรณ์</a> &gt; 
+                <a href="/abhidhamma/atthasalini/index.html">คัมภีร์อัฏฐสาลินี</a> &gt; 
+                <span>นิทานกถา: ปฐมเหตุ</span>
+            </nav>
+
+            <p>
+                <img src="https://storage.googleapis.com/generativeai-assets/images/223797c5885c478a/buddha_preaching_in_tavatimsa.jpeg" alt="พระพุทธองค์ทรงแสดงธรรมโปรดพุทธมารดาบนสวรรค์ชั้นดาวดึงส์" style="float: right; width: 200px; margin-left: 15px; border-radius: 8px;">
+                เรื่องราวอันเป็นจุดเริ่มต้นของพระอภิธรรมนั้น เกิดขึ้นภายหลังจากที่องค์สมเด็จพระสัมมาสัมพุทธเจ้าได้ทรงกระทำ **ยมกปาฏิหาริย์** ณ กรุงสาวัตถี เพื่อทรงทรมานเหล่าเดียรถีย์ผู้มีทิฏฐิอันวิปลาสให้สิ้นพยศ การแสดงอิทธิฤทธิ์ครั้งใหญ่นั้นทำให้พุทธานุภาพของพระองค์เป็นที่ประจักษ์แก่คนทุกหมู่เหล่า
+            </p>
+            <p>
+                ตามพุทธประเพณี หลังจากทรงแสดงยมกปาฏิหาริย์แล้ว พระพุทธเจ้าทุกพระองค์จะเสด็จขึ้นไปยัง **สวรรค์ชั้นดาวดึงส์** เพื่อจำพรรษาและแสดงพระอภิธรรมโปรดพุทธมารดา เป็นการสนองพระคุณอันยิ่งใหญ่ที่ได้ให้กำเนิดพระวรกายแห่งพระบรมโพธิสัตว์
+            </p>
+
+            <div class="references">
+                <h2>การตัดสินพระทัยแสดงธรรมอันยิ่งใหญ่</h2>
+                <ul>
+                    <li>
+                        <strong>🔅 การเสด็จสู่เทวโลกและพระประสงค์อันสูงสุด</strong>
+                        <p>ด้วยเหตุนี้ พระพุทธองค์จึงได้เสด็จขึ้นไปยังเทวโลก ประทับจำพรรษา ณ บัณฑุกัมพลศิลาอาสน์ เพื่อทรงแสดงพระสัทธรรมที่ลึกซึ้งที่สุด นั่นคือ **พระอภิธรรม ๗ คัมภีร์** โดยมีเหล่าทวยเทพจากทั่วทุกหมื่นโลกธาตุมาชุมนุมกันเพื่อสดับรับฟัง ในการนี้ พระนางสิริมหามายาซึ่งได้บังเกิดเป็น **ท้าวสันดุสิตเทวบุตร** ในสวรรค์ชั้นดุสิต ก็ได้เสด็จมายังสวรรค์ชั้นดาวดึงส์เพื่อเป็นประธานในการฟังธรรมครั้งนี้ด้วย</p>
+                        <p>การที่พระพุทธองค์ทรงเลือกแสดงพระอภิธรรมอันเป็นธรรมะชั้นสูงแก่เหล่าทวยเทพและพุทธมารดาในครั้งนั้น จึงถือเป็น **"ปฐมเหตุ"** หรือจุดกำเนิดที่ทำให้เนื้อหาของพระอภิธรรมได้ถูกเปิดเผยขึ้นในโลก เป็นการประกาศถึงสภาวธรรมอันเป็นปรมัตถ์ที่อยู่เหนือบัญญัติทั้งปวง</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="tags-container">
+                <strong>คำสำคัญ (Tags):</strong><br>
+                <span class="tag">ยมกปาฏิหาริย์</span>
+                <span class="tag">ดาวดึงส์</span>
+                <span class="tag">พุทธมารดา</span>
+                <span class="tag">พระอภิธรรม</span>
+                <span class="tag">เทวโลก</span>
+            </div>
+        </main>
+
+        <footer class="site-footer" style="text-align: center; margin-top: 2rem;">
+            <nav class="breadcrumb">
+                <a href="/">หน้าแรก</a> &gt; 
+                <a href="/pages/abhidhamma.html">พระอภิธรรมปิฎก</a> &gt; 
+                <a href="/abhidhamma/ap1.html">ธรรมสังคณีปกรณ์</a> &gt; 
+                <a href="/abhidhamma/atthasalini/index.html">คัมภีร์อัฏฐสาลินี</a> &gt; 
+                <span>นิทานกถา: ปฐมเหตุ</span>
+            </nav>
+            <br>
+            🛞 ธรรมสุตตะ
+        </footer>
+    </div>
+
+    <button id="backToTopBtn" title="เลื่อนขึ้นบน">⬆</button>
+
+    <script>
+        // Script for Hamburger Menu
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+
+        // Script for Back to Top Button
+        const backToTopBtn = document.getElementById("backToTopBtn");
+        window.onscroll = function() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.style.display = "block";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+        backToTopBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+    </script>
+</body>
+</html>
