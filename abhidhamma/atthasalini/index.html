@@ -66,9 +66,28 @@
   box-sizing: border-box;
 }
 </style>
-
-
-
+    
+ <script>
+ /* --- Breadcrumb --- */
+   
+        .breadcrumb {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .breadcrumb a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .breadcrumb a:hover {
+            color: #2980b9;
+        }
+</script>
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
 <script>
@@ -290,66 +309,52 @@
             });
         }
 
-        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
-        fetch('/assets/data/quotes.json')
-            .then(res => res.json())
-            .then(data => {
-                const quote = data[Math.floor(Math.random() * data.length)];
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
-                }
-            })
-            .catch(() => {
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
-                }
-            });
-
-        let paliDict = [];
-        fetch('/assets/data/pali.json')
-            .then(res => res.json())
-            .then(data => { paliDict = data; })
-            .catch(() => {
-                const paliResult = document.getElementById('paliResult');
-                if(paliResult) {
-                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
-                }
-            });
-
-        const paliInput = document.getElementById('paliInput');
-        if (paliInput) {
-            paliInput.addEventListener('input', function () {
-                const input = this.value.trim().toLowerCase();
-                const resultBox = document.getElementById('paliResult');
-                if (!input) {
-                    resultBox.innerHTML = '';
-                    resultBox.style.display = 'none';
-                    return;
-                }
-                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = matches.length
-                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
-                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
-            });
-        }
-    </script>
 
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const input = document.getElementById("paliInput");
-  const section = document.querySelector(".dictionary-section");
-
-  if (input && section) {
-    input.addEventListener("input", function () {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
+// เมื่อเลื่อนหน้าจอลง ให้แสดงปุ่ม
+window.onscroll = function() {
+  let btn = document.getElementById("backToTopBtn");
+  if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+    btn.style.display = "block";
+  } else {
+    btn.style.display = "none";
   }
-});
+};
+
+// เมื่อคลิกปุ่ม ให้เลื่อนกลับไปด้านบนแบบ smooth
+document.getElementById("backToTopBtn").onclick = function() {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth"
+  });
+};
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
 
 </body>
 </html>
