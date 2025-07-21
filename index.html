@@ -227,130 +227,110 @@
     </head>
 <body>
 
-    <header class="site-header">
-        <div class="header-container">
-            <a href="/" class="logo-link">
-                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
-                <span class="site-title">ธรรมสุตตะ</span>
-            </a>
-            
-<div class="page-wrapper">
-<div id="nav-placeholder"></div>
-    
-    
-    <main class="container">
-        <section class="hero-section">
-        <div class="quote-box">
-                <h3><b>🔅พุทธพจน์วันนี้</h3></b>
-                <p id="random-quote">กำลังโหลด...</p>
-            </div>
+    <div class="page-wrapper">
+
+        <div id="nav-placeholder"></div>
+
+        <main class="container">
+            <section class="hero-section">
+                <div class="quote-box">
+                    <h3><b>🔅พุทธพจน์วันนี้</h3></b>
+                    <p id="random-quote">กำลังโหลด...</p>
+                </div>
             </section>
-        
-        
-        <div class="main-content">
-        <section class="scripture-explorer" id="scripture-explorer">
-            <h2 class="section-title-new">คัมภีร์ในพระไตรปิฎก</h2>
-         
 
-            <div class="vb-frame">
-<center>  <label for="bookSelect"><h3>เลือกตามชื่อคัมภีร์:</h3></label>
-  <select id="bookSelect">
-    <option value="">-- ค้นหาตามชื่อ --</option>
-  </select></center>
-<br>
-  <div id="bookOutput" class="vb-output">
-   กรุณาเลือกเพื่อดูรายละเอียดและคำอธิบายเบื้องต้น
-  </div>
-</div>
-</div>
-
-
-
-
-            
-        </section>
-        <section class="main-categories">
-            <h2 class="section-title-new">เลือกศึกษาตามปิฎก</h2>
-            
-            <div class="category-cards-new">
-                <a href="/pages/vinaya.html" class="card-new">
-                    <h4>พระวินัยปิฎก</h4>
-                    <p>ธรรมนูญแห่งคณะสงฆ์ ว่าด้วยศีล, ข้อบังคับ, และระเบียบปฏิบัติเพื่อความตั้งมั่นแห่งพระศาสนา</p>
-                </a>
-                <a href="/pages/sutta.html" class="card-new">
-                    <h4>พระสุตตันตปิฎก</h4>
-                    <p>พระธรรมเทศนาของพระพุทธองค์ในวาระต่างๆ ที่แสดงแก่บุคคลหลากหลายกลุ่ม ประกอบด้วยพระสูตรขนาดยาว, กลาง, และสั้น</p>
-                </a>
-                <a href="/pages/abhidhamma.html" class="card-new">
-                    <h4>พระอภิธรรมปิฎก</h4>
-                    <p>ปรมัตถธรรมขั้นสูง ว่าด้วยการวิเคราะห์สภาวะของจิต, เจตสิก, รูป, และนิพพานอย่างเป็นระบบและละเอียดลึกซึ้ง</p>
-                </a>
+            <div class="main-content">
+                <section class="scripture-explorer" id="scripture-explorer">
+                    <h2 class="section-title-new">คัมภีร์ในพระไตรปิฎก</h2>
+                    <div class="vb-frame">
+                        <center>
+                            <label for="bookSelect"><h3>เลือกตามชื่อคัมภีร์:</h3></label>
+                            <select id="bookSelect">
+                                <option value="">-- ค้นหาตามชื่อ --</option>
+                            </select>
+                        </center>
+                        <br>
+                        <div id="bookOutput" class="vb-output">
+                            กรุณาเลือกเพื่อดูรายละเอียดและคำอธิบายเบื้องต้น
+                        </div>
+                    </div>
+                </section>
             </div>
-        </section><br>
-    
-        <section class="dictionary-section">
-            <h3><b>💡อภิธานศัพท์</h3></b>
-<p>เป็นเครื่องมือใช้สำหรับค้นหาความหมายศัพท์ธรรม<br></p>
 
-            <input type="text" id="paliInput" placeholder="ค้นหาศัพท์ธรรมะ..." />
-            <div id="paliResult"></div>
-        </section>
+            <section class="main-categories">
+                <h2 class="section-title-new">เลือกศึกษาตามปิฎก</h2>
+                <div class="category-cards-new">
+                    <a href="/pages/vinaya.html" class="card-new">
+                        <h4>พระวินัยปิฎก</h4>
+                        <p>ธรรมนูญแห่งคณะสงฆ์ ว่าด้วยศีล, ข้อบังคับ, และระเบียบปฏิบัติเพื่อความตั้งมั่นแห่งพระศาสนา</p>
+                    </a>
+                    <a href="/pages/sutta.html" class="card-new">
+                        <h4>พระสุตตันตปิฎก</h4>
+                        <p>พระธรรมเทศนาของพระพุทธองค์ในวาระต่างๆ ที่แสดงแก่บุคคลหลากหลายกลุ่ม ประกอบด้วยพระสูตรขนาดยาว, กลาง, และสั้น</p>
+                    </a>
+                    <a href="/pages/abhidhamma.html" class="card-new">
+                        <h4>พระอภิธรรมปิฎก</h4>
+                        <p>ปรมัตถธรรมขั้นสูง ว่าด้วยการวิเคราะห์สภาวะของจิต, เจตสิก, รูป, และนิพพานอย่างเป็นระบบและละเอียดลึกซึ้ง</p>
+                    </a>
+                </div>
+            </section><br>
 
-        <center>
-            <h3>📻 ฟังธรรมบรรยาย</h3><br>
-        </center>
+            <section class="dictionary-section">
+                <h3><b>💡อภิธานศัพท์</h3></b>
+                <p>เป็นเครื่องมือใช้สำหรับค้นหาความหมายศัพท์ธรรม<br></p>
+                <input type="text" id="paliInput" placeholder="ค้นหาศัพท์ธรรมะ..." />
+                <div id="paliResult"></div>
+            </section>
 
-        <div class="content-grid">
-            <a href="#" class="grid-item">
-                <img src="/assets/images/buddha-icon.png" alt="พระวินัย">
-                <span style="color: #990000;">🎧 ชุดพระพุทธเจ้า</span>
-            </a>
-            <a href="/พระสูตร.html" class="grid-item">
-                <img src="/assets/images/dhammacakka-icon.png" alt="พระสูตร">
-                <span>🎧 ชุดพระสูตร</span>
-            </a>
-            <a href="/พระอภิธรรม.html" class="grid-item">
-                <img src="/assets/images/bell-icon.png" alt="พระอภิธรรม">
-                <span>🎧 ชุดพระปัญญา</span>
-            </a>
-            <a href="/อรรถกถา.html" class="grid-item">
-                <img src="/assets/images/bodhi-icon.png" alt="อรรถกถา">
-                <span>🎧 อรรถกถาและปกิณกะ</span>
-            </a>
-        </div>
-        <center>
-            <p>ขอกราบนอบน้อมแด่ <span style="color: #990000;">พระอาจารย์สมบัติ นันทิโก</span> ผู้ได้สาธยายธรรมอันไพเราะจับใจ
-            </p>
-        </center>
-        <div class="main-content">
-            <p>
-                <a href="/audio/jariya.html">จริยาปิฏก</a>, พุทธวงศ์, บทสรรเสริญพระรัตนตรัย, พระพุทธเจ้าผู้ทรงคุณ,
-                พระรัตนตรัยอันทรงคุณ, พุทธคุณ, ท้าวสักกะสรรเสริญพุทธคุณ, พระมหากรุณาสมาบัติญาณ,
-                พุทธอุทาน, มหาปทานสูตร, มหาปรินิพพานสูตร, สู่แดนพุทธภูมิ, พระเวสสันดร
-                อลคัททูปมสูตร, ทสุตตรสูตร, มูลปริยายสูตร, สัพพาสวสังวรสูตร, ภยเภรวสูตร, มงคลสูตร, ธนิยสูตร
-                พระอภิธรรม, สติปัฏฐาน, กายานุปัสสนาฯ, เวทนานุปัสสนาฯ, จิตตานุปัสสนาฯ, ธัมมาฯ อายตนบรรพ, โพชฌงค์บรรพ
-                ปฏิสัมภิทามรรค, เนตติปกรณ์, มิลินทปัญหา, พระปัจเจกพุทธเจ้า, พรหมวิหาร, ไตรสรณคมน์
-            </p>
-        </div>
+            <center>
+                <h3>📻 ฟังธรรมบรรยาย</h3><br>
+            </center>
 
-        <div class="main-content">
-            <h2>ยินดีต้อนรับ</h2>
-            <p>เว็บไซต์ธรรมสุตตะเป็นแหล่งรวบรวมคำสอนในพระพุทธศาสนาจากพระไตรปิฎก เพื่อให้ผู้ที่สนใจได้ศึกษาค้นคว้าหลักธรรมคำสอนได้อย่างสะดวกและครบถ้วน</p>
-             <center> <p class="warning-text">!!กราบขออภัยขณะนี้ยังอยู่ในระหว่างการพัฒนาและปรับปรุง!!</p></center>
-        </div>
+            <div class="content-grid">
+                 <a href="#" class="grid-item">
+                     <img src="/assets/images/buddha-icon.png" alt="พระพุทธเจ้า">
+                     <span style="color: #990000;">🎧 ชุดพระพุทธเจ้า</span>
+                 </a>
+                 <a href="/พระสูตร.html" class="grid-item">
+                     <img src="/assets/images/dhammacakka-icon.png" alt="พระสูตร">
+                     <span>🎧 ชุดพระสูตร</span>
+                 </a>
+                 <a href="/พระอภิธรรม.html" class="grid-item">
+                     <img src="/assets/images/bell-icon.png" alt="พระอภิธรรม">
+                     <span>🎧 ชุดพระปัญญา</span>
+                 </a>
+                 <a href="/อรรถกถา.html" class="grid-item">
+                     <img src="/assets/images/bodhi-icon.png" alt="อรรถกถา">
+                     <span>🎧 อรรถกถาและปกิณกะ</span>
+                 </a>
+            </div>
+            <center>
+                <p>ขอกราบนอบน้อมแด่ <span style="color: #990000;">พระอาจารย์สมบัติ นันทิโก</span> ผู้ได้สาธยายธรรมอันไพเราะจับใจ</p>
+            </center>
+
+            <div class="main-content">
+                <p>
+                    <a href="/audio/jariya.html">จริยาปิฏก</a>, พุทธวงศ์, บทสรรเสริญพระรัตนตรัย, พระพุทธเจ้าผู้ทรงคุณ,
+                    พระรัตนตรัยอันทรงคุณ, พุทธคุณ, ท้าวสักกะสรรเสริญพุทธคุณ, พระมหากรุณาสมาบัติญาณ,
+                    พุทธอุทาน, มหาปทานสูตร, มหาปรินิพพานสูตร, สู่แดนพุทธภูมิ, พระเวสสันดร
+                    อลคัททูปมสูตร, ทสุตตรสูตร, มูลปริยายสูตร, สัพพาสวสังวรสูตร, ภยเภรวสูตร, มงคลสูตร, ธนิยสูตร
+                    พระอภิธรรม, สติปัฏฐาน, กายานุปัสสนาฯ, เวทนานุปัสสนาฯ, จิตตานุปัสสนาฯ, ธัมมาฯ อายตนบรรพ, โพชฌงค์บรรพ
+                    ปฏิสัมภิทามรรค, เนตติปกรณ์, มิลินทปัญหา, พระปัจเจกพุทธเจ้า, พรหมวิหาร, ไตรสรณคมน์
+                </p>
+            </div>
+
+            <div class="main-content">
+                <h2>ยินดีต้อนรับ</h2>
+                <p>เว็บไซต์ธรรมสุตตะเป็นแหล่งรวบรวมคำสอนในพระพุทธศาสนาจากพระไตรปิฎก เพื่อให้ผู้ที่สนใจได้ศึกษาค้นคว้าหลักธรรมคำสอนได้อย่างสะดวกและครบถ้วน</p>
+                <center><p class="warning-text">!!กราบขออภัยขณะนี้ยังอยู่ในระหว่างการพัฒนาและปรับปรุง!!</p></center>
+            </div>
         </main>
 
-    <footer class="site-footer">
-        <p>๒๕๖๑ - ปัจจุบัน, ธรรมสุตตะ</p>
-      
-    </footer>
+        <footer class="site-footer">
+            <p>๒๕๖๑ - ปัจจุบัน, ธรรมสุตตะ</p>
+        </footer>
 
-    
-<script src="/assets/js/main.js"></script>
+    </div> <script src="/assets/js/main.js"></script>
 
-
-
-
-    
-    </body>
+</body>
 </html>
