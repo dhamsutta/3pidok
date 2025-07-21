@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (bookSelect && bookOutput) {
             let allBooksData = []; 
-            fetch('/assets/data/books.json')
+            fetch('assets/data/books.json')
                 .then(response => response.json())
                 .then(data => {
                     allBooksData = data;
