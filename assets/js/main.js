@@ -57,47 +57,65 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // --- 2. ฟังก์ชันสำหรับสคริปต์ที่ต้องรอให้โหลดเมนูเสร็จก่อน ---
-    function initializeMenuScripts() {
-        // ... (โค้ดส่วนนี้เหมือนเดิมทุกอย่าง) ...
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        if (hamburgerIcon && sidebarMenu) {
-            hamburgerIcon.addEventListener('click', () => {
-                hamburgerIcon.classList.toggle('open');
-                sidebarMenu.classList.toggle('open');
-            });
-        }
-        let paliDict = [];
-        const paliResult = document.getElementById('paliResult');
-        const paliInput = document.getElementById('paliInput');
-        if (paliResult || paliInput) {
-            fetch('/assets/data/pali.json')
-                .then(res => res.json())
-                .then(data => { paliDict = data; })
-                .catch(() => {
-                    if (paliResult) {
-                        paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
-                    }
-                });
-        }
-        if (paliInput) {
-            paliInput.addEventListener('input', function() {
-                const input = this.value.trim().toLowerCase();
-                const resultBox = document.getElementById('paliResult');
-                if (!resultBox) return;
-                if (!input) {
-                    resultBox.innerHTML = '';
-                    resultBox.style.display = 'none';
-                    return;
-                }
-                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = matches.length ?
-                    matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('') :
-                    `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
-            });
-        }
+function initializeMenuScripts() {
+    // ---- Script สำหรับ Hamburger Menu ----
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    
+    if (hamburgerIcon && sidebarMenu) {
+        // โค้ดเดิมสำหรับกดที่ไอคอนเพื่อเปิด/ปิด
+        hamburgerIcon.addEventListener('click', () => {
+            hamburgerIcon.classList.toggle('open');
+            sidebarMenu.classList.toggle('open');
+        });
+
+        // --- START: เพิ่มโค้ดสำหรับปิดเมนูเมื่อคลิกข้างนอก ---
+        document.addEventListener('click', function(event) {
+            const isMenuOpen = sidebarMenu.classList.contains('open');
+            const isClickInsideIcon = hamburgerIcon.contains(event.target);
+            const isClickInsideMenu = sidebarMenu.contains(event.target);
+
+            if (isMenuOpen && !isClickInsideIcon && !isClickInsideMenu) {
+                sidebarMenu.classList.remove('open');
+                hamburgerIcon.classList.remove('open');
+            }
+        });
+        // --- END: สิ้นสุดโค้ดที่เพิ่ม ---
     }
+
+    // ---- โค้ดสำหรับ Pali Dictionary ที่อยู่ใน Sidebar ----
+    // ... (โค้ดส่วนนี้เหมือนเดิมทุกอย่าง) ...
+    let paliDict = [];
+    const paliResult = document.getElementById('paliResult');
+    const paliInput = document.getElementById('paliInput');
+    if (paliResult || paliInput) {
+        fetch('/assets/data/pali.json')
+            .then(res => res.json())
+            .then(data => { paliDict = data; })
+            .catch(() => {
+                if (paliResult) {
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
+                }
+            });
+    }
+    if (paliInput) {
+        paliInput.addEventListener('input', function() {
+            const input = this.value.trim().toLowerCase();
+            const resultBox = document.getElementById('paliResult');
+            if (!resultBox) return;
+            if (!input) {
+                resultBox.innerHTML = '';
+                resultBox.style.display = 'none';
+                return;
+            }
+            const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
+            resultBox.style.display = 'block';
+            resultBox.innerHTML = matches.length ?
+                matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('') :
+                `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
+        });
+    }
+}
 
     // --- 3. ฟังก์ชันหลักสำหรับโหลด Navigation Bar ---
     function loadNavigation() {
