@@ -1,28 +1,16 @@
 /* --- 1. การตั้งค่าพื้นฐานและตัวแปร (Variables) --- */
 :root {
   --font-family-base: 'Sarabun', 'Segoe UI', 'Tahoma', sans-serif;
-
-  /* พื้นหลังและกล่อง */
   --bg-color: #f4f4f2;
   --card-bg-color: #ffffff;
-
-  /* สีข้อความ */
   --primary-text-color: #000000;
   --secondary-text-color: #555555;
-
-  /* ลิงก์ */
   --accent-color: #0000ee;
   --accent-hover-color: #551a8b;
-
-  /* Header และ Footer */
   --header-bg-color: #e6e6e6;
   --footer-bg-color: #e0e0e0;
-
-  /* เส้นขอบและเงา */
   --border-color: #cccccc;
   --shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-
-  /* องค์ประกอบทั่วไป */
   --header-height: 70px;
   --border-radius: 6px;
 }
@@ -47,152 +35,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
-#sidebarMenu {
-  position: sticky;
-  top: 100;
-  width: 250px;
-  height: 100vh;
-  background-color: #e9ecef;
-  padding: 10px;
-  overflow-y: auto; /* ถ้าเมนูยาว ให้มี scrollbar */
-}
-
-.main-content {
-  flex-grow: 1; /* ทำให้เนื้อหาหลักขยายเต็มพื้นที่ที่เหลือ */
-  padding: 20px;
-}
-
-.about-project {
-    padding: 40px 20px; /* เพิ่ม padding เพื่อให้มีพื้นที่รอบข้อความ */
-    border-radius: 8px; /* Optional: ถ้าต้องการขอบมน */
-    margin-bottom: 30px; /* Optional: ระยะห่างจาก section ถัดไป */
-    
-    /* START: คุณสมบัติสำหรับรูปภาพพื้นหลัง */
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/ai2.jpg');
-    /* อธิบาย:
-       - linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)) คือการสร้างชั้นสีดำโปร่งแสง (opacity 0.6 = 60%) ทับบนรูปภาพ
-         เพื่อให้ข้อความสีขาวอ่านง่ายขึ้น หากรูปของคุณมืดอยู่แล้ว อาจลดค่า 0.6 ลง
-       - url('/assets/images/ai.jpg') คือการระบุตำแหน่งของรูปภาพที่คุณอัปโหลดไว้
-    */
-    background-size: cover;      /* ทำให้รูปภาพขยายเต็มพื้นที่ของ section โดยไม่บิดเบี้ยว */
-    background-position: center; /* จัดให้รูปภาพอยู่ตรงกลาง */
-    background-repeat: no-repeat;/* ป้องกันไม่ให้รูปภาพซ้ำ */
-    color: white; /* เปลี่ยนสีข้อความทั้งหมดใน section นี้เป็นสีขาว เพื่อให้อ่านง่ายบนพื้นหลังรูปภาพ */
-    /* END: คุณสมบัติสำหรับรูปภาพพื้นหลัง */
-}
-
-/* ตรวจสอบว่า h2 ภายใน about-project เป็นสีขาวด้วย */
-.about-project h2 {
-    color: white;
-}
-
-/* และ p ภายใน about-project ก็ควรเป็นสีขาวด้วย (ปกติจะสืบทอดมาจาก color: white ด้านบน) */
-.about-project p {
-    color: white;
-}
-
-/* 1. สร้าง counter style ชื่อ thai-numerals */
-@counter-style thai-numerals {
-  system: numeric;
-  symbols: ๐ ๑ ๒ ๓ ๔ ๕ ๖ ๗ ๘ ๙;  /* กำหนดชุดตัวเลขไทย */
-  suffix: '. ';                     /* ใส่จุดและเว้นวรรคหลังตัวเลข */
-}
-
-/* 1. สร้าง counter style ชื่อ thai-numerals */
-@counter-style thai-numerals {
-  system: numeric;
-  symbols: ๐ ๑ ๒ ๓ ๔ ๕ ๖ ๗ ๘ ๙;
-  suffix: ". ";    /* ใส่จุดและเว้นวรรค ตามปกติของ ol */
-}
-
-/* 2. สั่งให้ ol ใช้ list-style-type เป็น thai-numerals */
-ol.thai {
-  list-style-type: thai-numerals;
-  padding-left: 1.5em;  /* เว้นซ้าย ให้เห็นเลขชัดๆ */
-}
-
-/* 3. ถ้าอยากใช้กับ ul ก็ต้อง reset bullet แล้วใช้ counter */
-ul.thai {
-  counter-reset: item;             /* เริ่มนับจาก 0 */
-  list-style: none;                /* ปิด bullet เดิม */
-  padding-left: 1.5em;
-}
-ul.thai li {
-  counter-increment: item;         /* เพิ่ม counter ทีละ 1 */
-}
-ul.thai li::before {
-  content: counter(item, thai-numerals);
-  position: absolute;
-  margin-left: -1.5em;             /* จัดตำแหน่งเลขให้อยู่ซ้ายของ li */
-}
-
-
-.table-responsive {
-  width: 100%;
-  overflow-x: auto;
-}
-.table-responsive table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 600px; /* กำหนดความกว้างขั้นต่ำของตาราง */
-}
-.table-responsive th, .table-responsive td {
-  border: 1px solid #999;
-  padding: 8px;
-  text-align: left;
-}
-.table-responsive th {
-  background-color: #f5f5f5;
-}
-.table-responsive td {
-  background-color: #fafafa;
-}
-
-#backToTopBtn {
-  position: fixed;
-  bottom: 40px;
-  right: 30px;
-  display: none;
-  z-index: 999;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color: #333;
-  color: white;
-  cursor: pointer;
-  padding: 12px 16px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: background-color 0.3s;
-}
-
-#backToTopBtn:hover {
-  background-color: #555;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .container {
   width: 100%;
@@ -223,6 +65,13 @@ img {
   height: auto;
 }
 
+hr.separator {
+  border: 0;
+  height: 1px;
+  background-color: var(--border-color);
+  margin: 30px 0;
+}
+
 /* --- 3. Header และ Navigation --- */
 .site-header {
   background-color: var(--header-bg-color);
@@ -240,12 +89,11 @@ img {
   max-width: 750px;
   height: 100%;
   margin: 0 auto;
-  padding: 10 15px; /* เพิ่มระยะห่างซ้าย-ขวา */
-  box-sizing: border-box; /* ป้องกันล้น */
+  padding: 0 15px;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;  /* ให้แสดงดีแม้หน้าจอแคบ */
 }
 
 .logo-link {
@@ -326,34 +174,122 @@ img {
 }
 
 .sidebar-menu a {
-  padding: 10px 10px;
+  padding: 10px 15px;
   display: block;
   font-size: 16px;
   border-bottom: 1px solid var(--border-color);
 }
 
 /* --- 4. Main Content Sections --- */
+.main-content,
 .quote-box,
 .dictionary-section,
 .content-grid,
-.main-content {
+.about-project,
+.scripture-explorer,
+.category-cards-new {
   background-color: var(--card-bg-color);
   border: 1px solid var(--border-color);
   border-radius: var(--border-radius);
-  padding: 12px;
-  margin-bottom: 15px;
+  padding: 20px;
+  margin-bottom: 25px;
   box-shadow: var(--shadow);
-  line-height: 1.4;
+  line-height: 1.6;
 }
 
+.main-content h2,
 .quote-box h3,
 .quote-box p,
 .quote-box small,
-.dictionary-section h2,
-.main-content h2 {
-  margin: 0 0 6px;
+.dictionary-section h2 {
+  margin: 0 0 10px;
 }
 
+/* --- Hero Section & Background Image Section --- */
+.hero-section, .about-project {
+  text-align: center;
+  padding: 40px 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.hero-section {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/assets/images/Animals_and_the_Buddha_636x268px.jpg');
+}
+
+.about-project {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/images/ai2.jpg');
+}
+
+.hero-section h2, .about-project h2 {
+  color: white;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.hero-section h3, .about-project h3 {
+  color: #f0f0f0;
+  font-size: 1.5em;
+  margin-top: 0;
+}
+
+.hero-section .quote-box {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  margin-top: 20px;
+  width: 100%;
+  color: #333; /* เปลี่ยนสีตัวอักษรใน quote-box ให้เข้มขึ้น */
+}
+
+/* --- Scripture Explorer & Categories --- */
+.section-title-new {
+  text-align: center;
+  color: #2e8b57;
+  margin-bottom: 25px;
+  font-size: 2em;
+}
+
+.category-cards-new {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.card-new {
+  background-color: #f0f8ff;
+  border: 1px solid #add8e6;
+  border-radius: 8px;
+  padding: 20px;
+  width: calc(33% - 20px);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  text-decoration: none;
+  color: #333;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-new:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+}
+
+.card-new h4 {
+  color: #2e8b57;
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+/* --- Pali Dictionary --- */
 #paliInput {
   width: 100%;
   padding: 10px 12px;
@@ -377,7 +313,6 @@ img {
   max-height: 250px;
   overflow-y: auto;
   display: none;
-  line-height: 1.4;
 }
 
 #paliResult p {
@@ -392,39 +327,27 @@ img {
   border-bottom: none;
 }
 
-.no-match {
-  color: var(--secondary-text-color);
-}
-
-hr.separator {
-  border: 0;
-  height: 1px;
-  background-color: var(--border-color);
-  margin: 30px 0;
-}
-
-/* --- 5. Content Grid --- */
+/* --- Content Grid --- */
 .content-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 4px;
-  padding: 4px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  padding: 15px;
 }
 
 .grid-item {
   background-color: var(--bg-color);
   border: 1px solid transparent;
   border-radius: var(--border-radius);
-  padding: 4px 6px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  gap: 0px;
+  gap: 5px;
   font-weight: 600;
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  margin: 0;
 }
 
 .grid-item:hover {
@@ -438,64 +361,70 @@ hr.separator {
   max-width: 60px;
 }
 
-/* --- 6. Footer --- */
-footer.site-footer {
+/* --- Footer --- */
+.site-footer {
   background-color: var(--footer-bg-color);
   color: var(--secondary-text-color);
   text-align: center;
   padding: 20px 15px;
   border-top: 1px solid var(--border-color);
   font-size: 0.9em;
+  margin-top: auto; /* ดัน footer ให้อยู่ล่างสุด */
 }
 
-footer .warning-text {
-  color: #856404;
-  font-size: 0.85em;
-}
+/* --- Components & Utilities --- */
 
-/* กำหนด layout กลางจอใน Desktop */
-.content-grid {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 10px;
-  box-sizing: border-box;
-}
-
-
-#menu.hidden {
+/* Back to Top Button */
+#backToTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
   display: none;
-}
-#menu {
-  position: absolute;
-  background: #eee;
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-
-.sidebar-menu {
-  display: none;
-  position: absolute;
-  top: 60px;
-  left: 0;
-  background-color: #eee;
-  padding: 10px;
   z-index: 999;
-  width: 220px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  font-size: 18px;
+  border: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-.sidebar-menu.open {
-  display: block;
+#backToTopBtn:hover {
+  background-color: #555;
 }
 
+/* Responsive Table */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table-responsive table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+
+.table-responsive th, .table-responsive td {
+  border: 1px solid #999;
+  padding: 8px;
+  text-align: left;
+}
+
+.table-responsive th {
+  background-color: #f5f5f5;
+}
+
+/* Tag style */
 .tag {
   display: inline-block;
   padding: 2px 8px;
   margin: 2px 4px 0 0;
-  background-color: #fff3cd;  /* เหลืองอ่อน */
-  color: #856404;             /* น้ำตาลเข้ม */
-  border: 1px solid #000000;  /* เส้นขอบสีดำ */
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #000000;
   font-size: 0.8em;
   border-radius: 4px;
 }
@@ -503,47 +432,25 @@ footer .warning-text {
   background-color: #ffe08a;
 }
 
+/* Thai Numerals for Lists */
+@counter-style thai-numerals {
+  system: numeric;
+  symbols: ๐ ๑ ๒ ๓ ๔ ๕ ๖ ๗ ๘ ๙;
+  suffix: ". ";
+}
 
+ol.thai {
+  list-style-type: thai-numerals;
+  padding-left: 1.5em;
+}
 
-
-
-
-
-
-/* --- ปรับเฉพาะบนจอคอม (ไม่แตะมือถือ) --- */
+/* --- 7. Responsive Design --- */
 @media (min-width: 768px) {
-  main {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    box-sizing: border-box;
-  }
-
-  .main-content,
-  .content-description {
-    max-width: 900px;
-    margin: 0 auto 40px;
-    padding: 20px 30px;
-    box-sizing: border-box;
-  }
-
-  .audio-list {
-    max-width: 850px;
-    margin: 0 auto;
-    padding-left: 0;
-  }
-
-  .audio-item {
-    width: 100%;
-    margin: 0 auto 15px;
+  .site-title {
+    display: block;
   }
 }
 
-
-
-
-
-/* --- 7. Responsive Design --- */
 @media (max-width: 992px) {
   .navbar {
     display: none;
@@ -551,11 +458,20 @@ footer .warning-text {
   .hamburger-icon {
     display: flex;
   }
-  .site-title {
-    display: block;
+}
+
+@media (min-width: 993px) {
+  .navbar {
+    display: flex;
   }
-  .content-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .hamburger-icon {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .card-new {
+    width: calc(50% - 20px);
   }
 }
 
@@ -566,10 +482,10 @@ footer .warning-text {
   .container {
     padding: 2px;
   }
+  .main-content,
   .quote-box,
   .dictionary-section,
-  .content-grid,
-  .main-content {
+  .content-grid {
     padding: 12px;
   }
   .content-grid {
@@ -584,14 +500,7 @@ footer .warning-text {
   .grid-item img {
     max-width: 40px;
   }
-}
-
-@media (min-width: 993px) {
-  .navbar {
-    display: flex;
-  }
-  .hamburger-icon {
-    display: none;
+  .card-new {
+    width: 100%;
   }
 }
-
