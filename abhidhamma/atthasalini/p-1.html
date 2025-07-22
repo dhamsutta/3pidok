@@ -1,49 +1,52 @@
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เครื่องมือวิจัย: ปฐมเหตุแห่งพระอภิธรรม</title>
-    <!-- Chosen Palette: Scholarly Calm -->
-    <!-- Application Structure Plan: ออกแบบเป็น Single-Page Application ในรูปแบบ Dashboard เพื่อการวิจัยโดยเฉพาะ ผู้ใช้สามารถเลือก "มุมมองการค้นคว้า" (เช่น ชนวนเหตุ, เหตุผล) จากแถบด้านซ้าย เนื้อหาการวิเคราะห์จะปรากฏตรงกลาง พร้อมไทม์ไลน์ของเหตุการณ์ที่สัมพันธ์กัน นอกจากนี้ยังมี "การ์ดแนวคิด" ด้านขวาที่คลิกแล้วจะไฮไลท์คำสำคัญในบทความทันที โครงสร้างนี้ถูกเลือกเพื่อเปลี่ยนการอ่านแบบปกติให้เป็นการสำรวจและวิจัยข้อมูลแบบ Interactive ทำให้ผู้ใช้สามารถเห็นความเชื่อมโยงของข้อมูลในหลายมิติได้ในหน้าเดียว -->
-    <!-- Visualization & Content Choices: 1. Textual Analysis: เนื้อหาหลักถูกแบ่งเป็นหัวข้อวิจัยที่ชัดเจน 2. Interactive Timeline: ใช้ HTML/CSS/JS สร้างไทม์ไลน์ของเหตุการณ์ ผู้ใช้สามารถคลิกเพื่อเปลี่ยนเนื้อหาที่แสดงผลได้ เป็นการแสดงข้อมูล "Change over Time" 3. Interactive Concept Cards: ใช้ HTML/CSS/JS สร้างการ์ดแนวคิด เมื่อคลิกจะใช้ JS ค้นหาและไฮไลท์คำนั้นๆ ในบทความ ช่วยให้เห็น "Relationships" ระหว่างแนวคิดกับเนื้อหา ทั้งหมดนี้ไม่มีการใช้ SVG/Mermaid -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Sarabun', sans-serif;
-            background-color: #f4f4f7;
-            color: #333;
-        }
-        .highlight {
-            background-color: #fde68a; /* Tailwind yellow-200 */
-            padding: 2px 4px;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-        .nav-item.active {
-            background-color: #e0e7ff; /* Tailwind indigo-100 */
-            border-left-color: #4f46e5; /* Tailwind indigo-600 */
-            color: #1e3a8a; /* Tailwind blue-900 */
-        }
-        .timeline-item.active .timeline-dot {
-            background-color: #4f46e5;
-            transform: scale(1.2);
-        }
-        .timeline-item.active .timeline-content {
-            font-weight: 600;
-        }
-        .concept-card.active {
-            background-color: #d1fae5; /* Tailwind green-100 */
-            border-color: #059669; /* Tailwind green-600 */
-        }
-        .prose h2 { margin-top: 1.5em; padding-bottom: 0.25em; border-bottom: 1px solid #e5e7eb; }
-        .prose h3 { margin-top: 1em; }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ธรรมสุตตะ | ศึกษาพระธรรมตามพระไตรปิฎก</title>
+    <meta name="description" content="คลังธรรมะออนไลน์ ศึกษาพระธรรมตามพระไตรปิฎก ทั้งพระวินัย พระสูตร และพระอภิธรรม พร้อมพุทธวจนะและอรรถกถา เพื่อการเข้าถึงคำสอนของพระพุทธเจ้าที่เรียบง่ายแต่ครบถ้วน" />
+    <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์, พระสูตร, พระอภิธรรม, ศึกษาธรรมะ, ฟังธรรม" />
+    <meta name="author" content="ธรรมสุตตะ" />
+
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-568JJVLV44');
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ธรรมสุตตะ",
+      "url": "https://dhamma-sutta.com/",
+      "description": "คลังธรรมะออนไลน์ ศึกษาพระธรรมตามพระไตรปิฎก พระวินัย พระสูตร และพระอภิธรรม พร้อมพุทธวจนะและอรรถกถา เพื่อการเข้าถึงคำสอนของพระพุทธเจ้าที่เรียบง่ายแต่ครบถ้วน",
+      "keywords": "ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์, พระสูตร, พระอภิธรรม, ศึกษาธรรมะ, ฟังธรรม",
+      "author": {
+        "@type": "Organization",
+        "name": "ธรรมสุตตะ"
+      },
+      "inLanguage": "th",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://dhamma-sutta.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
+
+<body>
+    <div class="page-wrapper">
+
+        <div id="nav-placeholder"></div>
 <body class="p-4 md:p-8">
 
     <div class="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
