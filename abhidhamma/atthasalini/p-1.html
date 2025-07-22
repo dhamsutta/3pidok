@@ -3,229 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO Meta Tags -->
-    <title>บทที่ ๑: ชนวนเหตุแห่งยมกปาฏิหาริย์ - คัมภีร์อัฏฐสาลินี</title>
-    <meta name="description" content="เรื่องราวการท้าทายจากเหล่าเดียรถีย์ และบาตรไม้จันทน์ของเศรษฐีแห่งกรุงราชคฤห์ ที่กลายเป็นจุดเริ่มต้นของเหตุการณ์ยมกปาฏิหาริย์">
-    <meta name="keywords" content="บาตรไม้จันทน์, ราชคฤห์, ปูรณกัสสปะ, เดียรถีย์, ชนวนเหตุ, ยมกปาฏิหาริย์, อัฏฐสาลินี">
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png">
-
-    <!-- Schema.org Structured Data -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "บทที่ ๑: ชนวนเหตุแห่งยมกปาฏิหาริย์",
-      "image": "https://storage.googleapis.com/generativeai-assets/images/e88383e895420377/sandalwood_bowl_challenge.jpeg",
-      "author": { "@type": "Organization", "name": "ผู้จัดทำเว็บไซต์เพื่อการศึกษาธรรมะ" },
-      "publisher": { "@type": "Organization", "name": "ผู้จัดทำเว็บไซต์เพื่อการศึกษาธรรมะ" },
-      "datePublished": "2025-07-20",
-      "dateModified": "2025-07-20",
-      "description": "เรื่องราวการท้าทายจากเหล่าเดียรถีย์ และบาตรไม้จันทน์ของเศรษฐีแห่งกรุงราชคฤห์ ที่กลายเป็นจุดเริ่มต้นของเหตุการณ์ยมกปาฏิหาริย์",
-      "keywords": "บาตรไม้จันทน์, ราชคฤห์, ปูรณกัสสปะ, เดียรถีย์, ชนวนเหตุ, ยมกปาฏิหาริย์, อัฏฐสาลินี",
-      "inLanguage": "th",
-      "mainEntityOfPage": { "@type": "WebPage", "@id": "https://dhamma-sutta.com/abhidhamma/atthasalini/p-1.html" },
-      "isPartOf": {
-        "@type": "Article",
-        "headline": "คัมภีร์อัฏฐสาลินี",
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://dhamma-sutta.com/abhidhamma/atthasalini/index.html"
-        }
-      },
-      "articleSection": "นิทานกถา"
-    }
-    </script>
-    
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-568JJVLV44');
-    </script>
-    
-    <!-- External CSS & Fonts -->
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
-
-    <!-- Consolidated Styles -->
+    <title>เครื่องมือวิจัย: ปฐมเหตุแห่งพระอภิธรรม</title>
+    <!-- Chosen Palette: Scholarly Calm -->
+    <!-- Application Structure Plan: ออกแบบเป็น Single-Page Application ในรูปแบบ Dashboard เพื่อการวิจัยโดยเฉพาะ ผู้ใช้สามารถเลือก "มุมมองการค้นคว้า" (เช่น ชนวนเหตุ, เหตุผล) จากแถบด้านซ้าย เนื้อหาการวิเคราะห์จะปรากฏตรงกลาง พร้อมไทม์ไลน์ของเหตุการณ์ที่สัมพันธ์กัน นอกจากนี้ยังมี "การ์ดแนวคิด" ด้านขวาที่คลิกแล้วจะไฮไลท์คำสำคัญในบทความทันที โครงสร้างนี้ถูกเลือกเพื่อเปลี่ยนการอ่านแบบปกติให้เป็นการสำรวจและวิจัยข้อมูลแบบ Interactive ทำให้ผู้ใช้สามารถเห็นความเชื่อมโยงของข้อมูลในหลายมิติได้ในหน้าเดียว -->
+    <!-- Visualization & Content Choices: 1. Textual Analysis: เนื้อหาหลักถูกแบ่งเป็นหัวข้อวิจัยที่ชัดเจน 2. Interactive Timeline: ใช้ HTML/CSS/JS สร้างไทม์ไลน์ของเหตุการณ์ ผู้ใช้สามารถคลิกเพื่อเปลี่ยนเนื้อหาที่แสดงผลได้ เป็นการแสดงข้อมูล "Change over Time" 3. Interactive Concept Cards: ใช้ HTML/CSS/JS สร้างการ์ดแนวคิด เมื่อคลิกจะใช้ JS ค้นหาและไฮไลท์คำนั้นๆ ในบทความ ช่วยให้เห็น "Relationships" ระหว่างแนวคิดกับเนื้อหา ทั้งหมดนี้ไม่มีการใช้ SVG/Mermaid -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Sarabun', sans-serif;
-            line-height: 1.8;
-            background-color: #f8f9fa;
+            background-color: #f4f4f7;
+            color: #333;
         }
-        .page-wrapper {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .breadcrumb {
-            font-size: 0.9em;
-            color: #7f8c8d;
-            margin-bottom: 25px;
-            padding: 10px 20px;
-            background-color: #ffffff;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .breadcrumb a {
-            color: #0000bf;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .breadcrumb a:hover {
-            color: #2980b9;
-        }
-        .references {
-            background-color: #FFFAF0;
-            border-left: 6px solid #FFDEAD;
-            padding: 15px 20px;
-            margin-top: 30px;
-            margin-bottom: 30px;
-            border-radius: 8px;
-        }
-        .references h2 {
-            margin-top: 0;
-            color: #8B4513;
-        }
-        .references ul {
-            padding-left: 20px;
-            list-style: none;
-        }
-        .references li {
-            margin-bottom: 20px;
-        }
-        #backToTopBtn {
-            position: fixed;
-            bottom: 40px;
-            right: 30px;
-            display: none;
-            z-index: 999;
-            font-size: 18px;
-            border: none;
-            outline: none;
-            background-color: #333;
-            color: white;
-            cursor: pointer;
-            padding: 12px 16px;
-            border-radius: 50%;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        .highlight {
+            background-color: #fde68a; /* Tailwind yellow-200 */
+            padding: 2px 4px;
+            border-radius: 4px;
             transition: background-color 0.3s;
         }
-        #backToTopBtn:hover {
-            background-color: #555;
+        .nav-item.active {
+            background-color: #e0e7ff; /* Tailwind indigo-100 */
+            border-left-color: #4f46e5; /* Tailwind indigo-600 */
+            color: #1e3a8a; /* Tailwind blue-900 */
         }
+        .timeline-item.active .timeline-dot {
+            background-color: #4f46e5;
+            transform: scale(1.2);
+        }
+        .timeline-item.active .timeline-content {
+            font-weight: 600;
+        }
+        .concept-card.active {
+            background-color: #d1fae5; /* Tailwind green-100 */
+            border-color: #059669; /* Tailwind green-600 */
+        }
+        .prose h2 { margin-top: 1.5em; padding-bottom: 0.25em; border-bottom: 1px solid #e5e7eb; }
+        .prose h3 { margin-top: 1em; }
     </style>
 </head>
-<body>
-    <div class="page-wrapper">
-        <header class="site-header">
-            <div class="header-container">
-                <a href="/" class="logo-link">
-                    <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
-                    <span class="site-title">ธรรมสุตตะ</span>
-                </a>
-                <nav class="navbar" id="desktopNavbar">
-                    <a href="/">หน้าแรก</a>
-                    <a href="/pages/vinaya.html">พระวินัย</a>
-                    <a href="/pages/sutta.html">พระสูตร</a>
-                    <a href="/pages/abhidhamma.html">พระอภิธรรม</a>
-                    <a href="/pages/katha.html">อรรถกถา</a>
-                    <a href="/search/index.html">🔍ค้นหา/อภิธานศัพท์</a>
-                </nav>
-                <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
-                    <span class="bar"></span><span class="bar"></span><span class="bar"></span>
-                </button>
-            </div>
+<body class="p-4 md:p-8">
+
+    <div class="max-w-7xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8">
+        <!-- Header -->
+        <header class="border-b pb-4 mb-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800">เครื่องมือวิจัย: ปฐมเหตุแห่งพระอภิธรรม</h1>
+            <p class="mt-2 text-gray-600">วิเคราะห์เรื่องราวในคัมภีร์อัฏฐสาลินี (นิทานกถา) ผ่านมุมมองและไทม์ไลน์ของเหตุการณ์</p>
         </header>
 
-        <nav class="sidebar-menu" id="sidebarMenu">
-            <a href="/">🏠หน้าแรก</a>
-            <a href="/pages/vinaya.html">🔹พระวินัย</a>
-            <a href="/pages/sutta.html">🔹พระสูตร</a>
-            <a href="/pages/abhidhamma.html">🔹พระอภิธรรม</a>
-            <a href="/pages/katha.html">🔹อรรถกถา</a>
-            <a href="/pages/pakinnaka.html">🔹ปกิณกะ</a>
-            <a href="/tags/index.html">🔹รวมป้ายกำกับ</a>
-            <a href="/audio/index.html">🔹ธรรมบรรยาย</a>
-            <a href="/search/index.html">🔍ค้นหาจากในเว็บ</a>
-        </nav>
+        <!-- Main Research Dashboard -->
+        <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            
+            <!-- Left Panel: Research Perspectives -->
+            <aside class="lg:col-span-1">
+                <h2 class="text-lg font-semibold mb-4 text-gray-700">มุมมองการค้นคว้า</h2>
+                <nav id="research-nav" class="space-y-2">
+                    <a href="#" data-topic="spark" class="nav-item active text-left w-full p-3 rounded-lg border-l-4 border-transparent transition hover:bg-gray-100 block">
+                        <span class="font-semibold">ประกายเหตุ</span>
+                        <span class="block text-sm text-gray-500">การท้าทายเรื่องบาตรไม้จันทน์</span>
+                    </a>
+                    <a href="#" data-topic="miracle" class="nav-item text-left w-full p-3 rounded-lg border-l-4 border-transparent transition hover:bg-gray-100 block">
+                        <span class="font-semibold">ปาฏิหาริย์</span>
+                        <span class="block text-sm text-gray-500">การแสดงยมกปาฏิหาริย์ ณ กรุงสาวัตถี</span>
+                    </a>
+                    <a href="#" data-topic="ascent" class="nav-item text-left w-full p-3 rounded-lg border-l-4 border-transparent transition hover:bg-gray-100 block">
+                        <span class="font-semibold">สู่เทวโลก</span>
+                        <span class="block text-sm text-gray-500">การโปรดพุทธมารดาตามพุทธประเพณี</span>
+                    </a>
+                    <a href="#" data-topic="reason" class="nav-item text-left w-full p-3 rounded-lg border-l-4 border-transparent transition hover:bg-gray-100 block">
+                        <span class="font-semibold">เหตุผลแห่งการรอ</span>
+                        <span class="block text-sm text-gray-500">ทำไมจึงทรงรอ ๗ ปีเพื่อแสดงพระอภิธรรม</span>
+                    </a>
+                </nav>
+            </aside>
 
-        <main>
-            <header class="page-header">
-                <h1>บทที่ ๑: ชนวนเหตุแห่งยมกปาฏิหาริย์</h1>
-            </header>
+            <!-- Center Panel: Analysis and Timeline -->
+            <main class="lg:col-span-2">
+                <div id="analysis-content" class="prose max-w-none text-gray-700 leading-relaxed">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
 
-            <nav class="breadcrumb">
-                <a href="/">หน้าแรก</a> &gt; 
-                <a href="/pages/abhidhamma.html">พระอภิธรรมปิฎก</a> &gt; 
-                <a href="/abhidhamma/atthasalini/index.html">คัมภีร์อัฏฐสาลินี</a> &gt; 
-                <span>นิทานกถา: ชนวนเหตุ</span>
-            </nav>
+                <!-- Timeline -->
+                <div class="mt-10">
+                    <h2 class="text-lg font-semibold mb-6 text-gray-700">ลำดับเหตุการณ์ (Timeline)</h2>
+                    <div id="timeline-container" class="relative pl-6">
+                        <!-- Timeline Line -->
+                        <div class="absolute left-[30px] top-2 bottom-2 w-0.5 bg-gray-200"></div>
+                        
+                        <div data-topic="spark" class="timeline-item active flex items-start gap-4 mb-8 cursor-pointer">
+                            <div class="timeline-dot relative z-10 w-4 h-4 mt-1 bg-gray-400 rounded-full border-2 border-white transition-all"></div>
+                            <div class="timeline-content">
+                                <h3 class="font-medium text-gray-800">การท้าทาย ณ กรุงราชคฤห์</h3>
+                                <p class="text-sm text-gray-500">เศรษฐีประกาศท้าให้ผู้มีฤทธิ์เหาะมาเอาบาตรไม้จันทน์</p>
+                            </div>
+                        </div>
 
-            <p>
-                <img src="https://storage.googleapis.com/generativeai-assets/images/e88383e895420377/sandalwood_bowl_challenge.jpeg" alt="ภาพเหล่าเดียรถีย์ท้าทายเรื่องบาตรไม้จันทน์ ณ กรุงราชคฤห์" style="float: right; width: 250px; margin-left: 15px; border-radius: 8px;">
-                เรื่องราวทั้งหมดไม่ได้เริ่มต้นที่การแสดงปาฏิหาริย์ แต่เริ่มต้นที่ **"การท้าทาย"** ณ กรุงราชคฤห์ ในเวลานั้น มีเศรษฐีผู้หนึ่งได้บาตรที่ทำจากแก่นไม้จันทน์แดงอันมีค่ามหาศาลมาไว้ในครอบครอง ด้วยความเลื่อมใสในผู้ทรงศีล เขาจึงเกิดความคิดที่จะถวายบาตรนี้แก่พระอรหันต์ที่แท้จริงในโลก
-            </p>
-            <p>
-                เศรษฐีได้นำบาตรไปผูกไว้บนยอดเสาไม้ไผ่สูง แล้วประกาศท้าทายไปทั่วเมืองว่า "หากมีสมณะหรือพราหมณ์ท่านใดเป็นพระอรหันต์ผู้มีฤทธิ์จริง ขอจงเหาะขึ้นมาเอาบาตรใบนี้ไปเถิด ข้าพเจ้าพร้อมจะมอบให้เป็นทาน"
-            </p>
+                        <div data-topic="miracle" class="timeline-item flex items-start gap-4 mb-8 cursor-pointer">
+                            <div class="timeline-dot relative z-10 w-4 h-4 mt-1 bg-gray-400 rounded-full border-2 border-white transition-all"></div>
+                            <div class="timeline-content">
+                                <h3 class="font-medium text-gray-800">แสดงยมกปาฏิหาริย์</h3>
+                                <p class="text-sm text-gray-500">ณ กรุงสาวัตถี เพื่อทำลายทิฏฐิของเหล่าเดียรถีย์</p>
+                            </div>
+                        </div>
 
-            <div class="references">
-                <h2>การท้าทายของเหล่าเดียรถีย์</h2>
-                <ul>
-                    <li>
-                        <strong>🔅 การแสดงฤทธิ์เพื่อพิทักษ์พระศาสนา</strong>
-                        <p>ข่าวนี้แพร่สะพัดไปอย่างรวดเร็ว บรรดาเจ้าลัทธิทั้ง ๖ โดยเฉพาะ **ครูปูรณกัสสปะ** ได้พยายามใช้เล่ห์กลต่างๆ เพื่อหลอกลวงให้ศิษย์ของตนยกตนขึ้นไปเอาบาตร แต่ก็ไม่มีผู้ใดทำได้ เวลาผ่านไป ๖ วัน เหล่าเดียรถีย์จึงวางแผนหลอกลวงเศรษฐีว่าจะช่วยกันทำบันไดขึ้นไปเอาบาตรเอง ทำให้ชาวเมืองเริ่มคลางแคลงในความสามารถของเจ้าลัทธิเหล่านี้</p>
-                        <p>ในเช้าวันที่เจ็ด ขณะที่ **พระมหาโมคคัลลานะ** และ **พระปิณโฑลภารทวาชะ** กำลังบิณฑบาตอยู่นั้น ได้ยินชาวเมืองสนทนากันถึงเรื่องนี้ด้วยความสิ้นหวังว่า "ดูเหมือนว่าในโลกนี้จะไม่มีพระอรหันต์ผู้ทรงฤทธิ์อยู่จริงเสียแล้ว" พระเถระทั้งสองเมื่อได้ฟังดังนั้น จึงเกิดความสลดใจและปรารภกันถึงเหตุการณ์นี้</p>
-                        <p>พระมหาโมคคัลลานะได้กระตุ้นให้พระปิณโฑลภารทวาชะแสดงฤทธิ์ เพราะท่านเป็นผู้ที่พระพุทธองค์ทรงยกย่องว่าเป็นเอตทัคคะในด้าน "ผู้บันลือสีหนาท" พระปิณโฑลภารทวาชะจึงเข้าสมาบัติ เหาะขึ้นไปบนอากาศพร้อมกับแผ่นศิลาที่ท่านยืนอยู่ แล้วโคจรรอบกรุงราชคฤห์ถึง ๗ รอบ ก่อนจะคว้าเอาบาตรไม้จันทน์ลงมาท่ามกลางความยินดีของมหาชน</p>
-                        <p>เหตุการณ์นี้ทำให้พระพุทธศาสนาเป็นที่เลื่อมใสอย่างยิ่ง แต่ในขณะเดียวกัน ก็กลายเป็น **"ชนวนเหตุ"** ที่ทำให้เหล่าเดียรถีย์เสียหน้าและโกรธแค้น พวกเขาจึงได้ไปทูลยุยงพระเจ้าพิมพิสารและท้าทายพระพุทธองค์ให้ทรงแสดงปาฏิหาริย์แข่งขันกันโดยตรง ซึ่งนำไปสู่การประกาศแสดง **ยมกปาฏิหาริย์** ในอีก ๔ เดือนข้างหน้า ณ กรุงสาวัตถี</p>
-                    </li>
-                </ul>
-            </div>
-        </main>
+                        <div data-topic="ascent" class="timeline-item flex items-start gap-4 mb-8 cursor-pointer">
+                            <div class="timeline-dot relative z-10 w-4 h-4 mt-1 bg-gray-400 rounded-full border-2 border-white transition-all"></div>
+                            <div class="timeline-content">
+                                <h3 class="font-medium text-gray-800">เสด็จสู่สวรรค์ชั้นดาวดึงส์</h3>
+                                <p class="text-sm text-gray-500">จำพรรษาเพื่อแสดงธรรมโปรดพุทธมารดา</p>
+                            </div>
+                        </div>
+                        
+                         <div data-topic="reason" class="timeline-item flex items-start gap-4 cursor-pointer">
+                            <div class="timeline-dot relative z-10 w-4 h-4 mt-1 bg-gray-400 rounded-full border-2 border-white transition-all"></div>
+                            <div class="timeline-content">
+                                <h3 class="font-medium text-gray-800">การแสดงพระอภิธรรม</h3>
+                                <p class="text-sm text-gray-500">เริ่มต้นแสดงธรรมอันลึกซึ้งในพรรษาที่ ๗</p>
+                            </div>
+                        </div>
 
-        <footer class="site-footer" style="text-align: center; margin-top: 2rem;">
-            <nav class="breadcrumb">
-                <a href="/">หน้าแรก</a> &gt; 
-                <a href="/pages/abhidhamma.html">พระอภิธรรมปิฎก</a> &gt; 
-                <a href="/abhidhamma/atthasalini/index.html">คัมภีร์อัฏฐสาลินี</a> &gt; 
-                <span>นิทานกถา: ชนวนเหตุ</span>
-            </nav>
-            <br>
-            🛞 ธรรมสุตตะ
-        </footer>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Right Panel: Related Concepts -->
+            <aside class="lg:col-span-1">
+                <h2 class="text-lg font-semibold mb-4 text-gray-700">แนวคิดและธรรมะที่เกี่ยวข้อง</h2>
+                <div id="concept-cards" class="space-y-3">
+                    <button class="concept-card text-left w-full p-3 bg-white border rounded-lg hover:bg-gray-50 transition">
+                        <h4 class="font-semibold text-gray-800">ยมกปาฏิหาริย์</h4>
+                        <p class="text-sm text-gray-500">การแสดงฤทธิ์เป็นคู่ๆ</p>
+                    </button>
+                    <button class="concept-card text-left w-full p-3 bg-white border rounded-lg hover:bg-gray-50 transition">
+                        <h4 class="font-semibold text-gray-800">ปรมัตถธรรม</h4>
+                        <p class="text-sm text-gray-500">สภาวะที่มีอยู่จริงโดยแท้</p>
+                    </button>
+                    <button class="concept-card text-left w-full p-3 bg-white border rounded-lg hover:bg-gray-50 transition">
+                        <h4 class="font-semibold text-gray-800">พุทธประเพณี</h4>
+                        <p class="text-sm text-gray-500">ธรรมเนียมของพระพุทธเจ้าทุกพระองค์</p>
+                    </button>
+                     <button class="concept-card text-left w-full p-3 bg-white border rounded-lg hover:bg-gray-50 transition">
+                        <h4 class="font-semibold text-gray-800">อนุปุพพิกถา</h4>
+                        <p class="text-sm text-gray-500">การแสดงธรรมไปตามลำดับขั้น</p>
+                    </button>
+                </div>
+            </aside>
+        </div>
     </div>
 
-    <button id="backToTopBtn" title="เลื่อนขึ้นบน">⬆</button>
-
     <script>
-        // Script for Hamburger Menu
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        if (hamburgerIcon && sidebarMenu) {
-            hamburgerIcon.addEventListener('click', () => {
-                hamburgerIcon.classList.toggle('open');
-                sidebarMenu.classList.toggle('open');
-            });
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            const researchNav = document.getElementById('research-nav');
+            const timelineContainer = document.getElementById('timeline-container');
+            const analysisContent = document.getElementById('analysis-content');
+            const conceptCards = document.getElementById('concept-cards');
 
-        // Script for Back to Top Button
-        const backToTopBtn = document.getElementById("backToTopBtn");
-        window.onscroll = function() {
-            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-                backToTopBtn.style.display = "block";
-            } else {
-                backToTopBtn.style.display = "none";
+            const researchData = {
+                spark: {
+                    title: "ประกายเหตุ: การท้าทายเรื่องบาตรไม้จันทน์",
+                    content: `<h2>จุดเริ่มต้น ณ กรุงราชคฤห์</h2>
+                    <p>เรื่องราวทั้งหมดไม่ได้เริ่มต้นที่การแสดงปาฏิหาริย์โดยตรง แต่มีชนวนมาจากเหตุการณ์ ณ กรุงราชคฤห์ เมื่อเศรษฐีท่านหนึ่งได้บาตรไม้จันทน์แดงอันล้ำค่ามา และต้องการถวายแก่พระอรหันต์ที่แท้จริงเท่านั้น เขาจึงนำบาตรไปแขวนไว้บนยอดไม้ไผ่แล้วประกาศท้าทายว่า "หากมีพระอรหันต์ผู้ทรงฤทธิ์อยู่จริง ขอจงเหาะขึ้นมาเอาบาตรใบนี้ไปเถิด"</p>
+                    <h3>การท้าทายของเหล่าเดียรถีย์</h3>
+                    <p>ข่าวนี้สร้างความปั่นป่วนแก่เหล่าเจ้าลัทธิ โดยเฉพาะครูทั้ง ๖ ที่พยายามใช้เล่ห์กลต่างๆ นานา แต่ก็ไม่มีใครสามารถทำได้ จนกระทั่งวันที่เจ็ด พระมหาโมคคัลลานะและพระปิณโฑลภารทวาชะได้ยินชาวเมืองสิ้นหวังว่า "โลกนี้คงว่างจากพระอรหันต์เสียแล้ว" ด้วยความต้องการจะพิทักษ์พระศาสนา พระปิณโฑลภารทวาชะจึงแสดงฤทธิ์เหาะขึ้นไปนำบาตรลงมา</p>
+                    <p>เหตุการณ์นี้แม้จะทำให้พระพุทธศาสนาเป็นที่เลื่อมใส แต่ก็สร้างความโกรธแค้นให้แก่เหล่าเดียรถีย์ที่เสียหน้า พวกเขาจึงเริ่มการท้าทายพระพุทธองค์โดยตรง กลายเป็นประกายเหตุที่นำไปสู่การแสดง <strong>ยมกปาฏิหาริย์</strong> ในที่สุด</p>`
+                },
+                miracle: {
+                    title: "ปาฏิหาริย์: การแสดงยมกปาฏิหาริย์ ณ กรุงสาวัตถี",
+                    content: `<h2>การทำลายทิฏฐิอันวิปลาส</h2>
+                    <p>เมื่อถึงกำหนดเวลา ณ ควงไม้มะม่วง กรุงสาวัตถี พระพุทธองค์ได้ทรงแสดง <strong>ยมกปาฏิหาริย์</strong> ซึ่งเป็นปาฏิหาริย์ที่สงวนไว้สำหรับพระพุทธเจ้าเท่านั้น การแสดงฤทธิ์ครั้งนี้เป็นการสำแดงท่อไฟและท่อน้ำพุ่งออกจากพระวรกายสลับกันเป็นคู่ๆ อย่างน่าอัศจรรย์ พร้อมทั้งเนรมิตพระพุทธนิมิตที่เหมือนพระองค์ทุกประการเพื่อแสดงธรรมโต้ตอบกัน</p>
+                    <h3>ผลลัพธ์แห่งปาฏิหาริย์</h3>
+                    <p>ความยิ่งใหญ่และอัศจรรย์ของปาฏิหาริย์ครั้งนี้ ได้ทำลายทิฏฐิมานะของเหล่าเดียรถีย์และผู้ที่ยังมีความสงสัยให้หมดสิ้นไป มหาชนจำนวนมากที่ได้เห็นต่างเกิดความเลื่อมใสอย่างท่วมท้น และบรรลุธรรมกันเป็นจำนวนมาก นี่ไม่ใช่เพียงการแสดงฤทธิ์เพื่อเอาชนะ แต่เป็นการเปิดใจผู้คนเพื่อรองรับธรรมะอันประเสริฐที่จะตามมา</p>`
+                },
+                ascent: {
+                    title: "สู่เทวโลก: การโปรดพุทธมารดาตามพุทธประเพณี",
+                    content: `<h2>การรำลึกถึงพุทธประเพณี</h2>
+                    <p>ภายหลังการแสดงยมกปาฏิหาริย์ พระพุทธองค์ทรงพิจารณาถึงธรรมเนียมของพระพุทธเจ้าในอดีต หรือที่เรียกว่า <strong>พุทธประเพณี</strong> ว่าหลังจากเหตุการณ์เช่นนี้ พระพุทธเจ้าทุกพระองค์จะเสด็จไปจำพรรษา ณ ที่ใด</p>
+                    <p>ด้วยพระสัพพัญญุตญาณ พระองค์ทรงทราบว่าทุกพระองค์ล้วนเสด็จขึ้นไปยังสวรรค์ชั้นดาวดึงส์ เพื่อแสดงธรรมโปรดพุทธมารดา เป็นการแสดงความกตัญญูอันสูงสุด การกระทำนี้จึงเป็นวาระสำคัญที่กำหนดไว้แล้ว</p>
+                    <h3>เป้าหมายสูงสุดแห่งการเสด็จ</h3>
+                    <p>พระองค์ทรงตรวจดูด้วยทิพยจักษุ พบว่าพระนางสิริมหามายาได้บังเกิดเป็นท้าวสันดุสิตเทวบุตร ณ สวรรค์ชั้นดุสิต การเสด็จขึ้นไปจำพรรษา ณ บัณฑุกัมพลศิลาอาสน์ จึงมีเป้าหมายเพื่อแสดงธรรมที่ลึกซึ้งที่สุด นั่นคือ พระอภิธรรม ๗ คัมภีร์ แก่พุทธมารดาและเหล่าทวยเทพ นี่คือจุดเริ่มต้นที่แท้จริงของการแสดงพระอภิธรรม</p>`
+                },
+                reason: {
+                    title: "เหตุผลแห่งการรอ: ทำไมจึงทรงรอ ๗ ปีเพื่อแสดงพระอภิธรรม?",
+                    content: `<h2>การวิเคราะห์เชิงลึก</h2>
+                    <p>คำถามที่น่าสนใจคือ เหตุใดพระองค์จึงไม่ทรงแสดงพระอภิธรรมตั้งแต่ปีแรกๆ แต่ทรงรอถึงพรรษาที่ ๗ คำตอบนั้นสะท้อนถึงพุทธปัญญาและพระมหากรุณาธิคุณอย่างยิ่ง</p>
+                    <h3>๑. ความลึกซึ้งแห่งปรมัตถธรรม</h3>
+                    <p>พระอภิธรรมเป็นเรื่องของ <strong>ปรมัตถธรรม</strong> ล้วนๆ ซึ่งเป็นนามธรรมที่ซับซ้อนและยากต่อการเข้าใจสำหรับผู้ที่อินทรีย์ยังไม่แก่กล้า การแสดงธรรมนี้ก่อนเวลาอันควรอาจไม่เกิดประโยชน์</p>
+                    <h3>๒. หลักการสอนตามลำดับ (อนุปุพพิกถา)</h3>
+                    <p>พระองค์ทรงยึดหลัก <strong>อนุปุพพิกถา</strong> คือการสอนจากง่ายไปหายาก ในช่วง ๗ ปีแรก พระองค์ทรงมุ่งเน้นการวางรากฐานทางศีล สมาธิ และปัญญาเบื้องต้น เพื่อเตรียมความพร้อมให้แก่เหล่าสาวกเสียก่อน</p>
+                    <h3>๓. การรอคอยผู้ฟังและผู้สืบทอดที่เหมาะสม</h3>
+                    <p>การแสดงธรรมครั้งนี้ต้องการผู้ฟังที่มีศักยภาพสูงสุด คือเหล่าทวยเทพและพุทธมารดา และที่สำคัญที่สุดคือ ทรงรอให้ **พระสารีบุตร** ผู้เป็นเอตทัคคะด้านปัญญามีบารมีแก่กล้าเต็มที่ เพื่อให้สามารถรับการถ่ายทอดพระอภิธรรมแล้วนำมาขยายความแก่มนุษย์โลกต่อไปได้อย่างสมบูรณ์</p>
+                    <h3>๔. การสร้างความมั่นคงให้พระศาสนา</h3>
+                    <p>ในช่วงแรก พระองค์ทรงมุ่งเน้นการก่อตั้งและวางระบบของคณะสงฆ์ให้เป็นปึกแผ่นเสียก่อน เมื่อรากฐานของพระศาสนามั่นคงดีแล้ว จึงถึงเวลาที่จะเปิดเผยธรรมะอันเป็นยอดมงกุฎ คือพระอภิธรรมปิฎก</p>`
+                }
+            };
+            
+            let currentTopic = 'spark';
+            let currentTerm = null;
+
+            function displayContent(topicId) {
+                const data = researchData[topicId];
+                if (!data) return;
+
+                let contentHTML = `<h2>${data.title}</h2>${data.content}`;
+                analysisContent.innerHTML = contentHTML;
+                currentTopic = topicId;
+
+                // Update nav active state
+                researchNav.querySelectorAll('.nav-item').forEach(el => {
+                    el.classList.toggle('active', el.dataset.topic === topicId);
+                });
+
+                // Update timeline active state
+                timelineContainer.querySelectorAll('.timeline-item').forEach(el => {
+                    el.classList.toggle('active', el.dataset.topic === topicId);
+                });
+
+                // Re-apply highlight if a term is active
+                if (currentTerm) {
+                    highlightTerm(currentTerm, false); // false to not toggle off
+                }
             }
-        };
-        backToTopBtn.onclick = function() {
-            window.scrollTo({ top: 0, behavior: "smooth" });
-        };
+            
+            function highlightTerm(term, toggle = true) {
+                // Clear previous highlight
+                const content = analysisContent.innerHTML;
+                const cleanedContent = content.replace(/<span class="highlight"[^>]*>|<\/span>/g, '');
+                analysisContent.innerHTML = cleanedContent;
+
+                const cardButtons = conceptCards.querySelectorAll('.concept-card');
+                let termToHighlight = term;
+                
+                // If the same term is clicked again, toggle it off
+                if (toggle && currentTerm === term) {
+                    cardButtons.forEach(btn => btn.classList.remove('active'));
+                    currentTerm = null;
+                    return;
+                }
+                
+                currentTerm = termToHighlight;
+                const regex = new RegExp(termToHighlight, 'g');
+                const newContent = analysisContent.innerHTML.replace(regex, `<span class="highlight">${termToHighlight}</span>`);
+                analysisContent.innerHTML = newContent;
+
+                // Update card active state
+                cardButtons.forEach(btn => {
+                    btn.classList.toggle('active', btn.querySelector('h4').textContent.trim() === term);
+                });
+            }
+
+            researchNav.addEventListener('click', (e) => {
+                e.preventDefault();
+                const navItem = e.target.closest('.nav-item');
+                if (navItem && navItem.dataset.topic) {
+                    displayContent(navItem.dataset.topic);
+                }
+            });
+
+            timelineContainer.addEventListener('click', (e) => {
+                const timelineItem = e.target.closest('.timeline-item');
+                if (timelineItem && timelineItem.dataset.topic) {
+                    displayContent(timelineItem.dataset.topic);
+                }
+            });
+
+            conceptCards.addEventListener('click', (e) => {
+                const card = e.target.closest('.concept-card');
+                if(card) {
+                    const term = card.querySelector('h4').textContent.trim();
+                    highlightTerm(term);
+                }
+            });
+
+            // Initial load
+            displayContent('spark');
+        });
     </script>
 </body>
 </html>
