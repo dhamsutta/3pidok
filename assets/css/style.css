@@ -1,12 +1,12 @@
 /* --- 1. การตั้งค่าพื้นฐานและตัวแปร (Variables) --- */
 :root {
-  --font-family-base: 'Sarabun', 'Segoe UI', 'Tahoma', sans-serif;
-  --bg-color: #f4f4f2;
+  --font-family-base: 'Sarabun', sans-serif; /* อัปเดตฟอนต์หลัก */
+  --bg-color: #f8f9fa; /* อัปเดตสีพื้นหลังหลัก */
   --card-bg-color: #ffffff;
   --primary-text-color: #000000;
   --secondary-text-color: #555555;
-  --accent-color: #0000ee;
-  --accent-hover-color: #551a8b;
+  --accent-color: #0000bf; /* อัปเดตสีลิงก์เพื่อให้เข้ากับ breadcrumb */
+  --accent-hover-color: #2980b9; /* อัปเดตสีลิงก์เมื่อ hover */
   --header-bg-color: #e6e6e6;
   --footer-bg-color: #e0e0e0;
   --border-color: #cccccc;
@@ -28,7 +28,7 @@ body {
   font-family: var(--font-family-base);
   background-color: var(--bg-color);
   color: var(--primary-text-color);
-  line-height: 1.4;
+  line-height: 1.7; /* อัปเดต line-height */
   margin: 0;
   padding-top: var(--header-height);
   display: flex;
@@ -42,6 +42,14 @@ body {
   margin: 0 auto;
   padding: 6px;
   flex-grow: 1;
+}
+
+/* --- จัดระเบียบ .page-wrapper ให้อยู่ในกลุ่ม container หลัก --- */
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 h1, h2, h3 {
@@ -248,7 +256,7 @@ hr.separator {
   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   margin-top: 20px;
   width: 100%;
-  color: #333; /* เปลี่ยนสีตัวอักษรใน quote-box ให้เข้มขึ้น */
+  color: #333;
 }
 
 /* --- Scripture Explorer & Categories --- */
@@ -361,7 +369,7 @@ hr.separator {
   max-width: 60px;
 }
 
-/* --- Footer --- */
+/* --- 5. Footer --- */
 .site-footer {
   background-color: var(--footer-bg-color);
   color: var(--secondary-text-color);
@@ -372,9 +380,9 @@ hr.separator {
   margin-top: auto; /* ดัน footer ให้อยู่ล่างสุด */
 }
 
-/* --- Components & Utilities --- */
+/* --- 6. Components & Utilities --- */
 
-/* Back to Top Button */
+/* Back to Top Button (รวมโค้ดและจัดระเบียบใหม่) */
 #backToTopBtn {
   position: fixed;
   bottom: 40px;
@@ -383,16 +391,63 @@ hr.separator {
   z-index: 999;
   font-size: 18px;
   border: none;
+  outline: none; /* เพิ่มเข้ามา */
   background-color: #333;
   color: white;
   cursor: pointer;
   padding: 12px 16px;
   border-radius: 50%;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s; /* เพิ่มเข้ามา */
 }
 
 #backToTopBtn:hover {
   background-color: #555;
+}
+
+/* Breadcrumb (สไตล์ใหม่) */
+.breadcrumb {
+  font-size: 0.9em;
+  color: #7f8c8d;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.breadcrumb a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.breadcrumb a:hover {
+  color: var(--accent-hover-color);
+}
+
+/* References Box (สไตล์ใหม่) */
+.references {
+  background-color: #FFFAF0;
+  border-left: 6px solid #FFDEAD;
+  padding: 15px 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+
+.references h2 {
+  margin-top: 0;
+  color: #8B4513;
+}
+
+.references ul {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.references li {
+  margin-bottom: 20px;
 }
 
 /* Responsive Table */
