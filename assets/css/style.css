@@ -15,6 +15,13 @@
   --border-radius: 6px;
 }
 
+.content-grid .grid-item {
+background-color: #e0ffe0; /* สีเขียวอ่อน */
+}
+
+
+
+
 /* --- 2. Global Styles --- */
 *, *::before, *::after {
   box-sizing: border-box;
