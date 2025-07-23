@@ -117,6 +117,9 @@ function initializeMenuScripts() {
     }
 }
 
+
+
+
     // --- 3. ฟังก์ชันหลักสำหรับโหลด Navigation Bar ---
     function loadNavigation() {
         fetch('/templates/main-nav.html')
@@ -140,4 +143,26 @@ function initializeMenuScripts() {
     loadNavigation();
     initializeIndependentScripts();
 
+});
+
+
+// ฟังก์ชันแปลงเลขอารบิกเป็นเลขไทย
+function toThaiNumber(num) {
+    const thaiDigits = ['๐','๑','๒','๓','๔','๕','๖','๗','๘','๙'];
+    return String(num).split('').map(d => thaiDigits[d] || d).join('');
+}
+
+// แปลงทุก <ol> ให้ใช้เลขไทย
+document.addEventListener("DOMContentLoaded", function() {
+    const allOl = document.querySelectorAll("ol");
+    allOl.forEach(ol => {
+        const items = ol.querySelectorAll("li");
+        items.forEach((li, idx) => {
+            // ล้างเลขลำดับเดิมออก (ถ้ามี)
+            li.style.listStyleType = "none";
+            // ใส่เลขไทยนำหน้า
+            const thaiNum = toThaiNumber(idx + 1);
+            li.insertAdjacentHTML("afterbegin", `<span style="margin-right: 0.5em;">${thaiNum}.</span>`);
+        });
+    });
 });
