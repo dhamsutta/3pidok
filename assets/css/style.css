@@ -15,9 +15,7 @@
   --border-radius: 6px;
 }
 
-.content-grid .grid-item {
-background-color: #e0ffe0; /* สีเขียวอ่อน */
-}
+
 
 
 
@@ -350,6 +348,7 @@ hr.separator {
   padding: 15px;
 }
 
+
 .grid-item {
   background-color: var(--bg-color);
   border: 1px solid transparent;
@@ -376,6 +375,9 @@ hr.separator {
   max-width: 60px;
 }
 
+.content-grid .grid-item {
+background-color: #e0ffe0; /* สีเขียวอ่อน */
+}
 /* --- 5. Footer --- */
 .site-footer {
   background-color: var(--footer-bg-color);
