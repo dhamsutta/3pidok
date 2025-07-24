@@ -186,3 +186,24 @@ document.addEventListener("DOMContentLoaded", function() {
     convertAllOlToThai();
 
 });
+
+// --- Back to Top Button Logic ---
+const backToTopButton = document.getElementById("back-to-top");
+
+if (backToTopButton) {
+    window.addEventListener("scroll", () => {
+        if (window.pageYOffset > 300) { // แสดงปุ่มเมื่อเลื่อนลงมา 300px
+            backToTopButton.classList.add("show");
+        } else {
+            backToTopButton.classList.remove("show");
+        }
+    });
+
+    backToTopButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    });
+}
