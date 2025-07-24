@@ -568,3 +568,83 @@ ol.thai {
     width: 100%;
   }
 }
+
+/* --- Footer Styles --- */
+.site-footer {
+    background-color: #f8f9fa; /* สีพื้นหลังเทาอ่อน */
+    color: #555; /* สีตัวอักษร */
+    padding-top: 40px;
+    font-family: 'Sarabun', sans-serif;
+    border-top: 1px solid #e7e7e7;
+    margin-top: 40px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap; /* ทำให้ขึ้นบรรทัดใหม่บนจอมือถือ */
+    justify-content: space-between;
+    gap: 30px; /* ระยะห่างระหว่างคอลัมน์ */
+}
+
+.footer-column {
+    flex: 1; /* ทำให้คอลัมน์ขยายเท่ากัน */
+    min-width: 220px; /* ความกว้างขั้นต่ำของแต่ละคอลัมน์ */
+}
+
+.footer-column h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 8px;
+}
+
+.footer-column.about-us p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.footer-nav a {
+    display: block;
+    color: #555;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-nav a:hover {
+    color: #0056b3; /* สีเมื่อเมาส์ชี้ */
+    text-decoration: underline;
+}
+
+.footer-bottom-bar {
+    text-align: center;
+    padding: 15px 20px;
+    margin-top: 30px;
+    border-top: 1px solid #e7e7e7;
+    background-color: #efefef;
+}
+
+.footer-bottom-bar p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+/* --- ทำให้ยืดหยุ่นบนมือถือ --- */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง */
+        text-align: center;
+    }
+
+    .footer-column h4 {
+       border-bottom: none;
+       padding-bottom: 5px;
+    }
+}
