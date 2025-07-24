@@ -1,64 +1,27 @@
-/* --- 1. การตั้งค่าพื้นฐานและตัวแปร (Variables) --- */
+/* ==========================================================================
+   1. การตั้งค่าพื้นฐานและตัวแปร (Variables & Basic Setup)
+   ========================================================================== */
+/* ส่วนนี้ใช้สำหรับประกาศตัวแปรกลางที่ใช้ในไฟล์ทั้งหมด เช่น สี, ฟอนต์, ขนาด */
 :root {
-  --font-family-base: 'Sarabun', sans-serif; /* อัปเดตฟอนต์หลัก */
-  --bg-color: #f8f9fa; /* อัปเดตสีพื้นหลังหลัก */
+  --font-family-base: 'Sarabun', sans-serif;
+  --bg-color: #f8f9fa;
   --card-bg-color: #ffffff;
   --primary-text-color: #000000;
   --secondary-text-color: #555555;
-  --accent-color: #0000bf; /* อัปเดตสีลิงก์เพื่อให้เข้ากับ breadcrumb */
-  --accent-hover-color: #2980b9; /* อัปเดตสีลิงก์เมื่อ hover */
+  --accent-color: #0000bf;
+  --accent-hover-color: #2980b9;
   --header-bg-color: #e6e6e6;
-  --footer-bg-color: #e0e0e0;
+  --footer-bg-color: #f8f9fa; /* อัปเดตให้ตรงกับ footer ด้านล่าง */
   --border-color: #cccccc;
   --shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
   --header-height: 70px;
   --border-radius: 6px;
 }
 
-
-/* Back to Top Button Styles */
-.footer-column.back-to-top-container {
-    display: flex;
-    justify-content: flex-end; /* จัดปุ่มไปทางขวา */
-    align-items: center; /* จัดให้อยู่กลางแนวตั้ง */
-}
-
-.back-to-top-button {
-    display: none; /* ซ่อนปุ่มไว้ก่อน */
-    position: fixed; /* ทำให้ปุ่มลอยอยู่กับที่ */
-    bottom: 20px;
-    right: 20px;
-    background-color: #555;
-    color: white;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    text-align: center;
-    line-height: 50px; /* สำหรับจัดไอคอนให้อยู่กลางแนวตั้ง */
-    z-index: 1000;
-    transition: opacity 0.3s, visibility 0.3s;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.back-to-top-button svg {
-    vertical-align: middle;
-}
-
-.back-to-top-button.show {
-    display: block;
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top-button:hover {
-    background-color: #0056b3;
-}
-
-
-
-
-/* --- 2. Global Styles --- */
+/* ==========================================================================
+   2. สไตล์กลาง (Global Styles)
+   ========================================================================== */
+/* ส่วนนี้เป็นการกำหนดสไตล์พื้นฐานให้กับแท็ก HTML ทั่วไป เช่น body, h1, a, img */
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -71,7 +34,7 @@ body {
   font-family: var(--font-family-base);
   background-color: var(--bg-color);
   color: var(--primary-text-color);
-  line-height: 1.7; /* อัปเดต line-height */
+  line-height: 1.7;
   margin: 0;
   padding-top: var(--header-height);
   display: flex;
@@ -85,14 +48,6 @@ body {
   margin: 0 auto;
   padding: 6px;
   flex-grow: 1;
-}
-
-/* --- จัดระเบียบ .page-wrapper ให้อยู่ในกลุ่ม container หลัก --- */
-.page-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  box-sizing: border-box;
 }
 
 h1, h2, h3 {
@@ -123,7 +78,10 @@ hr.separator {
   margin: 30px 0;
 }
 
-/* --- 3. Header และ Navigation --- */
+/* ==========================================================================
+   3. ส่วนหัวและเมนูนำทาง (Header & Navigation)
+   ========================================================================== */
+/* ส่วนนี้ควบคุมการแสดงผลของ Header, โลโก้, เมนูหลัก, และเมนู Sidebar */
 .site-header {
   background-color: var(--header-bg-color);
   border-bottom: 1px solid var(--border-color);
@@ -231,7 +189,17 @@ hr.separator {
   border-bottom: 1px solid var(--border-color);
 }
 
-/* --- 4. Main Content Sections --- */
+/* ==========================================================================
+   4. ส่วนเนื้อหาหลัก (Main Content Sections)
+   ========================================================================== */
+/* ส่วนนี้คือสไตล์ของกล่องเนื้อหาหลัก, กล่องข้อความ, ภาพ Hero และการ์ดต่างๆ */
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 .main-content,
 .quote-box,
 .dictionary-section,
@@ -256,7 +224,7 @@ hr.separator {
   margin: 0 0 10px;
 }
 
-/* --- Hero Section & Background Image Section --- */
+/* Hero Section & Background Image Section */
 .hero-section, .about-project {
   text-align: center;
   padding: 40px 20px;
@@ -302,7 +270,7 @@ hr.separator {
   color: #333;
 }
 
-/* --- Scripture Explorer & Categories --- */
+/* Scripture Explorer & Categories */
 .section-title-new {
   text-align: center;
   color: #2e8b57;
@@ -340,7 +308,115 @@ hr.separator {
   font-size: 1.2em;
 }
 
-/* --- Pali Dictionary --- */
+/* Content Grid */
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+  padding: 15px;
+}
+
+.grid-item {
+  background-color: #e0ffe0; /* สีเขียวอ่อน */
+  border: 1px solid transparent;
+  border-radius: var(--border-radius);
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 5px;
+  font-weight: 600;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.grid-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: var(--accent-color);
+  color: var(--accent-hover-color);
+}
+
+.grid-item img {
+  max-width: 60px;
+}
+
+/* ==========================================================================
+   5. ส่วนประกอบย่อย (Components)
+   ========================================================================== */
+/* ส่วนนี้คือสไตล์ขององค์ประกอบที่นำไปใช้ซ้ำๆ ได้ เช่น ปุ่ม, Breadcrumb, ตาราง, แท็ก */
+
+/* -- ปุ่ม Back to Top (รวมโค้ดเหลือชุดเดียว) -- */
+#backToTopBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 30px;
+  display: none; /* เริ่มต้นด้วยการซ่อน */
+  z-index: 999;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: #333;
+  color: white;
+  cursor: pointer;
+  padding: 12px 16px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background-color 0.3s, opacity 0.3s, visibility 0.3s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+#backToTopBtn.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
+#backToTopBtn:hover {
+  background-color: #555;
+}
+
+/* -- Breadcrumb -- */
+.breadcrumb {
+  font-size: 0.9em;
+  color: #7f8c8d;
+  margin-bottom: 25px;
+  padding: 10px 20px;
+  background-color: var(--card-bg-color);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.breadcrumb a {
+  color: var(--accent-color);
+}
+
+/* -- กล่องอ้างอิง (References Box) -- */
+.references {
+  background-color: #FFFAF0;
+  border-left: 6px solid #FFDEAD;
+  padding: 15px 20px;
+  margin: 30px 0;
+  border-radius: 8px;
+}
+
+.references h2 {
+  margin-top: 0;
+  color: #8B4513;
+}
+
+.references ul {
+  padding-left: 20px;
+  list-style: none;
+}
+
+.references li {
+  margin-bottom: 20px;
+}
+
+/* -- พจนานุกรมบาลี (Pali Dictionary) -- */
 #paliInput {
   width: 100%;
   padding: 10px 12px;
@@ -378,126 +454,7 @@ hr.separator {
   border-bottom: none;
 }
 
-/* --- Content Grid --- */
-.content-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 15px;
-  padding: 15px;
-}
-
-
-.grid-item {
-  background-color: var(--bg-color);
-  border: 1px solid transparent;
-  border-radius: var(--border-radius);
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 5px;
-  font-weight: 600;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-}
-
-.grid-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  border-color: var(--accent-color);
-  color: var(--accent-hover-color);
-}
-
-.grid-item img {
-  max-width: 60px;
-}
-
-.content-grid .grid-item {
-background-color: #e0ffe0; /* สีเขียวอ่อน */
-}
-/* --- 5. Footer --- */
-.site-footer {
-  background-color: var(--footer-bg-color);
-  color: var(--secondary-text-color);
-  text-align: center;
-  padding: 20px 15px;
-  border-top: 1px solid var(--border-color);
-  font-size: 0.9em;
-  margin-top: auto; /* ดัน footer ให้อยู่ล่างสุด */
-}
-
-/* --- 6. Components & Utilities --- */
-
-/* Back to Top Button (รวมโค้ดและจัดระเบียบใหม่) */
-#backToTopBtn {
-  position: fixed;
-  bottom: 40px;
-  right: 30px;
-  display: none;
-  z-index: 999;
-  font-size: 18px;
-  border: none;
-  outline: none; /* เพิ่มเข้ามา */
-  background-color: #333;
-  color: white;
-  cursor: pointer;
-  padding: 12px 16px;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  transition: background-color 0.3s; /* เพิ่มเข้ามา */
-}
-
-#backToTopBtn:hover {
-  background-color: #555;
-}
-
-/* Breadcrumb (สไตล์ใหม่) */
-.breadcrumb {
-  font-size: 0.9em;
-  color: #7f8c8d;
-  margin-bottom: 25px;
-  padding: 10px 20px;
-  background-color: var(--card-bg-color);
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-}
-
-.breadcrumb a {
-  color: var(--accent-color);
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.breadcrumb a:hover {
-  color: var(--accent-hover-color);
-}
-
-/* References Box (สไตล์ใหม่) */
-.references {
-  background-color: #FFFAF0;
-  border-left: 6px solid #FFDEAD;
-  padding: 15px 20px;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  border-radius: 8px;
-}
-
-.references h2 {
-  margin-top: 0;
-  color: #8B4513;
-}
-
-.references ul {
-  padding-left: 20px;
-  list-style: none;
-}
-
-.references li {
-  margin-bottom: 20px;
-}
-
-/* Responsive Table */
+/* -- ตาราง (Responsive Table) -- */
 .table-responsive {
   width: 100%;
   overflow-x: auto;
@@ -519,7 +476,7 @@ background-color: #e0ffe0; /* สีเขียวอ่อน */
   background-color: #f5f5f5;
 }
 
-/* Tag style */
+/* -- แท็ก (Tag) -- */
 .tag {
   display: inline-block;
   padding: 2px 8px;
@@ -534,7 +491,7 @@ background-color: #e0ffe0; /* สีเขียวอ่อน */
   background-color: #ffe08a;
 }
 
-/* Thai Numerals for Lists */
+/* -- เลขไทยสำหรับ Ordered List -- */
 @counter-style thai-numerals {
   system: numeric;
   symbols: ๐ ๑ ๒ ๓ ๔ ๕ ๖ ๗ ๘ ๙;
@@ -546,73 +503,16 @@ ol.thai {
   padding-left: 1.5em;
 }
 
-/* --- 7. Responsive Design --- */
-@media (min-width: 768px) {
-  .site-title {
-    display: block;
-  }
-}
 
-@media (max-width: 992px) {
-  .navbar {
-    display: none;
-  }
-  .hamburger-icon {
-    display: flex;
-  }
-}
-
-@media (min-width: 993px) {
-  .navbar {
-    display: flex;
-  }
-  .hamburger-icon {
-    display: none;
-  }
-}
-
-@media (max-width: 768px) {
-  .card-new {
-    width: calc(50% - 20px);
-  }
-}
-
-@media (max-width: 576px) {
-  .site-title {
-    font-size: 18px;
-  }
-  .container {
-    padding: 2px;
-  }
-  .main-content,
-  .quote-box,
-  .dictionary-section,
-  .content-grid {
-    padding: 12px;
-  }
-  .content-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-  .grid-item {
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 10px;
-  }
-  .grid-item img {
-    max-width: 40px;
-  }
-  .card-new {
-    width: 100%;
-  }
-}
-
-/* --- Footer Styles --- */
+/* ==========================================================================
+   6. ส่วนท้าย (Footer)
+   ========================================================================== */
+/* ส่วนนี้คือสไตล์ของ Footer ทั้งหมด (รวมโค้ดที่ซ้ำซ้อนมาไว้ที่นี่) */
 .site-footer {
-    background-color: #f8f9fa; /* สีพื้นหลังเทาอ่อน */
-    color: #555; /* สีตัวอักษร */
-    padding-top: 40px;
-    font-family: 'Sarabun', sans-serif;
+    background-color: var(--footer-bg-color);
+    color: var(--secondary-text-color);
+    padding: 40px 0 0;
+    font-family: var(--font-family-base);
     border-top: 1px solid #e7e7e7;
     margin-top: 40px;
 }
@@ -622,14 +522,14 @@ ol.thai {
     margin: 0 auto;
     padding: 0 20px;
     display: flex;
-    flex-wrap: wrap; /* ทำให้ขึ้นบรรทัดใหม่บนจอมือถือ */
+    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 30px; /* ระยะห่างระหว่างคอลัมน์ */
+    gap: 30px;
 }
 
 .footer-column {
-    flex: 1; /* ทำให้คอลัมน์ขยายเท่ากัน */
-    min-width: 220px; /* ความกว้างขั้นต่ำของแต่ละคอลัมน์ */
+    flex: 1;
+    min-width: 220px;
 }
 
 .footer-column h4 {
@@ -656,7 +556,7 @@ ol.thai {
 }
 
 .footer-nav a:hover {
-    color: #0056b3; /* สีเมื่อเมาส์ชี้ */
+    color: #0056b3;
     text-decoration: underline;
 }
 
@@ -674,15 +574,69 @@ ol.thai {
     color: #666;
 }
 
-/* --- ทำให้ยืดหยุ่นบนมือถือ --- */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column; /* เปลี่ยนเป็นแนวตั้ง */
-        text-align: center;
-    }
 
-    .footer-column h4 {
-       border-bottom: none;
-       padding-bottom: 5px;
-    }
+/* ==========================================================================
+   7. การแสดงผลตามขนาดหน้าจอ (Responsive Design)
+   ========================================================================== */
+/* ส่วนนี้ใช้ @media query เพื่อปรับการแสดงผลสำหรับหน้าจอขนาดต่างๆ เช่น Desktop, Tablet, Mobile */
+
+/* -- Desktop First -- */
+@media (min-width: 993px) {
+  .navbar { display: flex; }
+  .hamburger-icon { display: none; }
+}
+
+@media (min-width: 768px) {
+  .site-title { display: block; }
+}
+
+/* -- Tablet and Mobile -- */
+@media (max-width: 992px) {
+  .navbar { display: none; }
+  .hamburger-icon { display: flex; }
+}
+
+@media (max-width: 768px) {
+  .card-new { width: calc(50% - 20px); }
+
+  .footer-container {
+      flex-direction: column;
+      text-align: center;
+  }
+  .footer-column h4 {
+     border-bottom: none;
+     padding-bottom: 5px;
+  }
+}
+
+/* -- Mobile Only -- */
+@media (max-width: 576px) {
+  .site-title { font-size: 18px; }
+  .container { padding: 2px; }
+
+  .main-content,
+  .quote-box,
+  .dictionary-section,
+  .content-grid {
+    padding: 12px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .grid-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .grid-item img {
+    max-width: 40px;
+  }
+
+  .card-new {
+    width: 100%;
+  }
 }
