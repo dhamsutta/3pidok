@@ -6,7 +6,6 @@
       <h3>💡 <span class="highlight">อภิธานศัพท์</span></h3>
       <input type="text" id="paliInput" placeholder="ค้นหาคำแปลและความหมาย...">
       <div id="paliResult"></div>
-            <div id="paliResult"></div>
         </section>
     </div>
 
@@ -31,21 +30,6 @@
 
 // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
 <script>
-        fetch('/assets/data/quotes.json')
-            .then(res => res.json())
-            .then(data => {
-                const quote = data[Math.floor(Math.random() * data.length)];
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
-                }
-            })
-            .catch(() => {
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
-                }
-            });
 
         let paliDict = [];
         fetch('/assets/data/pali.json')
