@@ -1,3 +1,4 @@
+// รอให้โครงสร้าง HTML ทั้งหมดของหน้าเว็บโหลดเสร็จก่อน จึงจะเริ่มทำงาน
 document.addEventListener("DOMContentLoaded", function() {
 
     // =================================================================
@@ -7,21 +8,23 @@ document.addEventListener("DOMContentLoaded", function() {
     // ฟังก์ชันแปลงเลขอารบิกเป็นเลขไทย
     function toThaiNumber(num) {
         const thaiDigits = ['๐', '๑', '๒', '๓', '๔', '๕', '๖', '๗', '๘', '๙'];
-        return String(num).split('').map(d => thaiDigits[d] || d).join('');
+        return String(num).toString().split('').map(d => thaiDigits[d] || d).join('');
     }
 
-    // ฟังก์ชันแปลงทุก <ol> ให้ใช้เลขไทย
+    // ฟังก์ชันแปลงทุก <ol> ในหน้าให้ใช้เลขไทย (จะถูกเรียกใช้ตอนท้าย)
     function convertAllOlToThai() {
-        const allOl = document.querySelectorAll("ol");
-        allOl.forEach(ol => {
-            const items = ol.querySelectorAll("li");
-            items.forEach((li, idx) => {
-                // ป้องกันการใส่เลขซ้ำ
+        const allOlElements = document.querySelectorAll("ol.thai, .main-content ol"); // เลือก ol ที่มีคลาส thai หรืออยู่ใน main-content
+        allOlElements.forEach(ol => {
+            const listItems = ol.querySelectorAll("li");
+            const startValue = ol.hasAttribute('start') ? parseInt(ol.getAttribute('start')) : 1;
+            
+            listItems.forEach((li, index) => {
+                // ป้องกันการใส่เลขซ้ำซ้อน
                 if (li.querySelector('.thai-list-number')) return;
 
                 li.style.listStyleType = "none";
-                const thaiNum = toThaiNumber(idx + 1);
-                li.insertAdjacentHTML("afterbegin", `<span class="thai-list-number" style="margin-right: 0.5em;">${thaiNum}.</span>`);
+                const itemNumber = toThaiNumber(startValue + index);
+                li.insertAdjacentHTML("afterbegin", `<span class="thai-list-number" style="margin-right: 0.5em; display: inline-block; min-width: 2em;">${itemNumber}.</span>`);
             });
         });
     }
@@ -31,13 +34,17 @@ document.addEventListener("DOMContentLoaded", function() {
     //  2. Main Logic Functions (ฟังก์ชันหลัก)
     // =================================================================
 
-    // --- ฟังก์ชันสำหรับสคริปต์ที่ไม่เกี่ยวกับเมนู (ทำงานได้เลย) ---
+    // --- ฟังก์ชันสำหรับสคริปต์ที่ไม่ขึ้นกับเมนู (ทำงานได้ทันที) ---
     function initializeIndependentScripts() {
+        
         // ---- โค้ดสำหรับ Quote (พุทธพจน์สุ่ม) ----
         const quoteElement = document.getElementById('random-quote');
         if (quoteElement) {
             fetch('/assets/data/quotes.json')
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) throw new Error('Network response was not ok');
+                    return res.json();
+                })
                 .then(data => {
                     const quote = data[Math.floor(Math.random() * data.length)];
                     quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
@@ -52,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const bookSelect = document.getElementById('bookSelect');
         const bookOutput = document.getElementById('bookOutput');
         if (bookSelect && bookOutput) {
-            let allBooksData = []; 
+            let allBooksData = [];
             fetch('/assets/data/books.json')
                 .then(response => response.json())
                 .then(data => {
@@ -77,55 +84,71 @@ document.addEventListener("DOMContentLoaded", function() {
                         bookOutput.innerHTML = `
                             <h3>${selectedBook.title}</h3>
                             <p>${selectedBook.description}</p>
+                            <a href="${selectedBook.link}" class="read-more-btn">อ่านเพิ่มเติม →</a>
                         `;
                     }
                 } else {
-                    bookOutput.innerHTML = 'กรุณาเลือกเพื่อดูรายละเอียดและคำอธิบายเบื้องต้น';
+                    bookOutput.innerHTML = '<p>กรุณาเลือกเพื่อดูรายละเอียดและคำอธิบายเบื้องต้น</p>';
                 }
+            });
+        }
+
+        // --- Back to Top Button Logic ---
+        const backToTopButton = document.getElementById("backToTopBtn");
+        if (backToTopButton) {
+            window.addEventListener("scroll", () => {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.style.display = "block";
+                } else {
+                    backToTopButton.style.display = "none";
+                }
+            });
+
+            backToTopButton.addEventListener("click", (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: "smooth" });
             });
         }
     }
 
-    // --- ฟังก์ชันสำหรับสคริปต์ที่ต้องรอให้โหลดเมนูเสร็จก่อน ---
-    function initializeMenuScripts() {
+    // --- ฟังก์ชันสำหรับสคริปต์ที่ต้องรอให้โหลดเมนู/Footer เสร็จก่อน ---
+    function initializeDependentScripts() {
+        
         // ---- Script สำหรับ Hamburger Menu ----
         const hamburgerIcon = document.getElementById('hamburgerIcon');
         const sidebarMenu = document.getElementById('sidebarMenu');
         if (hamburgerIcon && sidebarMenu) {
-            hamburgerIcon.addEventListener('click', () => {
+            hamburgerIcon.addEventListener('click', (e) => {
+                e.stopPropagation(); // หยุดไม่ให้ event click ลามไปถึง document
                 hamburgerIcon.classList.toggle('open');
                 sidebarMenu.classList.toggle('open');
             });
 
             document.addEventListener('click', function(event) {
-                const isMenuOpen = sidebarMenu.classList.contains('open');
-                const isClickInsideIcon = hamburgerIcon.contains(event.target);
                 const isClickInsideMenu = sidebarMenu.contains(event.target);
-                if (isMenuOpen && !isClickInsideIcon && !isClickInsideMenu) {
+                const isClickOnIcon = hamburgerIcon.contains(event.target);
+                if (sidebarMenu.classList.contains('open') && !isClickInsideMenu && !isClickOnIcon) {
                     sidebarMenu.classList.remove('open');
                     hamburgerIcon.classList.remove('open');
                 }
             });
         }
 
-        // ---- โค้ดสำหรับ Pali Dictionary ที่อยู่ใน Sidebar ----
+        // ---- โค้ดสำหรับ Pali Dictionary ที่อยู่ใน Footer ----
         let paliDict = [];
-        const paliResult = document.getElementById('paliResult');
         const paliInput = document.getElementById('paliInput');
-        if (paliInput) { // เช็คแค่ Input ก็พอ
+        const paliResult = document.getElementById('paliResult');
+        if (paliInput && paliResult) {
             fetch('/assets/data/pali.json')
                 .then(res => res.json())
                 .then(data => { paliDict = data; })
                 .catch(error => {
                     console.error('Pali Dictionary Error:', error);
-                    if (paliResult) {
-                        paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
-                    }
+                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
                 });
             
             paliInput.addEventListener('input', function() {
                 const input = this.value.trim().toLowerCase();
-                if (!paliResult) return;
                 if (!input) {
                     paliResult.innerHTML = '';
                     paliResult.style.display = 'none';
@@ -133,46 +156,39 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
                 paliResult.style.display = 'block';
-                resultBox.innerHTML = matches.length ?
+                paliResult.innerHTML = matches.length ?
                     matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('') :
                     `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
             });
         }
     }
 
-    // --- ฟังก์ชันสำหรับโหลด Navigation Bar ---
-    function loadNavigation() {
+    // --- ฟังก์ชันสำหรับโหลด Navigation และ Footer (Templates) ---
+    function loadTemplates() {
+        // โหลด Nav
         fetch('/templates/main-nav.html')
-            .then(response => { if (!response.ok) throw new Error('Nav Load Error'); return response.text(); })
+            .then(response => response.ok ? response.text() : Promise.reject('Nav Load Error'))
             .then(data => {
                 const navPlaceholder = document.getElementById('nav-placeholder');
-                if (navPlaceholder) {
-                    navPlaceholder.innerHTML = data;
-                }
-                initializeMenuScripts(); // <-- เรียกใช้สคริปต์เมนูหลังโหลดเสร็จ
+                if (navPlaceholder) navPlaceholder.innerHTML = data;
+                // ไม่มีสคริปต์ที่ต้องรอ Nav โดยตรงแล้ว จึงเอาออกจากตรงนี้
             })
-            .catch(error => {
-                console.error('ไม่สามารถโหลดไฟล์เมนูได้:', error);
-            });
-    }
-    
-    // --- ฟังก์ชันสำหรับโหลด Footer ---
-    function loadFooter() {
+            .catch(error => console.error('ไม่สามารถโหลดไฟล์เมนูได้:', error));
+
+        // โหลด Footer
         fetch('/templates/main-footer.html')
-            .then(response => { if (!response.ok) throw new Error('Footer Load Error'); return response.text(); })
+            .then(response => response.ok ? response.text() : Promise.reject('Footer Load Error'))
             .then(data => {
                 const footerPlaceholder = document.getElementById('footer-placeholder');
                 if (footerPlaceholder) {
                     footerPlaceholder.innerHTML = data;
                     const yearSpan = document.getElementById('current-year');
-                    if (yearSpan) {
-                        yearSpan.textContent = new Date().getFullYear() + 543; // พ.ศ.
-                    }
+                    if (yearSpan) yearSpan.textContent = new Date().getFullYear() + 543; // พ.ศ.
                 }
+                // สคริปต์ที่ต้องรอให้ Nav และ Footer โหลดเสร็จจะถูกเรียกใช้จากที่นี่
+                initializeDependentScripts();
             })
-            .catch(error => {
-                console.error('ไม่สามารถโหลดไฟล์ footer ได้:', error);
-            });
+            .catch(error => console.error('ไม่สามารถโหลดไฟล์ footer ได้:', error));
     }
 
 
@@ -180,33 +196,8 @@ document.addEventListener("DOMContentLoaded", function() {
     //  3. Start Execution (เริ่มการทำงานทั้งหมด)
     // =================================================================
     
-    loadNavigation();
-    loadFooter();
-    initializeIndependentScripts();
-    convertAllOlToThai();
+    loadTemplates(); // เริ่มจากโหลด Templates (Nav, Footer) ก่อน
+    initializeIndependentScripts(); // เรียกใช้สคริปต์ที่ไม่เกี่ยวข้องกับ Templates ได้เลย
+    convertAllOlToThai(); // แปลง list เป็นเลขไทย
 
 });
-
-
-// --- Back to Top Button Logic ---
-const backToTopButton = document.getElementById("back-to-top");
-
-if (backToTopButton) {
-    window.addEventListener("scroll", () => {
-        if (window.pageYOffset > 300) { // แสดงปุ่มเมื่อเลื่อนลงมา 300px
-            backToTopButton.classList.add("show");
-        } else {
-            backToTopButton.classList.remove("show");
-        }
-    });
-
-    backToTopButton.addEventListener("click", (e) => {
-        e.preventDefault();
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-    });
-}
-
-
