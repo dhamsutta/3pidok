@@ -639,4 +639,60 @@ ol.thai {
   .card-new {
     width: 100%;
   }
+
+
+/* =================================== */
+/* Styles for Tag Page               */
+/* =================================== */
+
+/* จัดการ Container ของกลุ่มแท็ก */
+.tag-group {
+    margin-bottom: 2em; /* เพิ่มระยะห่างด้านล่างของแต่ละกลุ่มพยัญชนะ */
+}
+
+.tag-group-header {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.5em;
+    margin-bottom: 1em;
+    font-size: 1.8rem;
+}
+
+/* ทำให้กล่องแท็กแสดงผลแบบยืดหยุ่นและตัดบรรทัดได้ */
+.tag-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75em; /* ระยะห่างระหว่างแท็ก */
+}
+
+/* ✨ สไตล์หลักของกล่องแท็กแต่ละอัน */
+.tag-item {
+    display: inline-block;
+    background-color: #f0f0f0; /* สีพื้นหลังของแท็ก */
+    color: #333;               /* สีตัวอักษร */
+    padding: 0.4em 1em;         /* ระยะขอบภายใน (แนวตั้ง แนวนอน) */
+    border-radius: 1em;         /* ทำให้ขอบโค้งมน */
+    font-size: 0.95rem;           /* ขนาดตัวอักษร */
+    text-decoration: none;      /* เอาเส้นใต้ลิงก์ออก */
+    transition: all 0.2s ease-in-out; /* เพิ่ม Animation ตอน hover */
+    border: 1px solid #ddd;     /* เพิ่มเส้นขอบบางๆ */
+}
+
+/* สไตล์เมื่อนำเมาส์ไปวางบนแท็ก */
+.tag-item:hover {
+    background-color: #e0e0e0; /* เปลี่ยนสีพื้นหลัง */
+    color: #000;               /* เปลี่ยนสีตัวอักษร */
+    transform: translateY(-2px); /* ทำให้แท็กลอยขึ้นเล็กน้อย */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* เพิ่มเงา */
+}
+
+
+
+
+
+
+
+
+
+
+   
 }
