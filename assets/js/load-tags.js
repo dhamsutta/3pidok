@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ถ้าไม่เจอ element นี้ในหน้า ให้หยุดทำงานทันที (เพื่อไม่ให้เกิด error ในหน้าอื่น)
     if (!container) return; 
 
-    const dataUrl = '/assets/data/tags.json';
+    const dataUrl = '../assets/data/tags.json';
 
     fetch(dataUrl)
         .then(response => {
