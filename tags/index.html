@@ -82,7 +82,7 @@
         background-color: #ecf0f1; /* สีพื้นหลังแท็ก */
         color: #34495e; /* สีตัวอักษร */
         padding: 8px 16px;
-        border-radius: 20px; /* ทำให้ขอบมนสวย */
+        border-radius: 10px; /* ทำให้ขอบมนสวย */
         font-size: 1rem;
         font-weight: 500;
         text-decoration: none;
@@ -109,35 +109,11 @@
 </head>
 <body>
 
-  <div class="page-wrapper">
-    <header class="site-header">
-        <div class="header-container">
-            <a href="/" class="logo-link">
-                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
-                <span class="site-title">ธรรมสุตตะ</span>
-            </a>
-            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </div>
-    </header>
-
-    <nav class="sidebar-menu" id="sidebarMenu">
-          <a href="/">🏠หน้าแรก</a>
-        <a href=" /pages/vinaya.html">🔹พระวินัย</a>
-        <a href=" /pages/sutta.html">🔹พระสูตร</a>
-        <a href=" /pages/abhidhamma.html">🔹พระอภิธรรม</a>
-        <a href=" /pages/katha.html">🔹อรรถกถา</a>
-        <a href=" /pages/pakinnaka.html">🔹ปกิณกะ</a>
-        <a href=" /tags/index.html">🔹รวมป้ายกำกับ</a>
-        <a href=" /audio/index.html">📻 ฟังธรรมบรรยาย</a>
-        <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
-    </nav>
+ <div class="page-wrapper">
+<div id="nav-placeholder"></div>
     
-    <main class="content-wrapper">
-        <h1>รวมป้ายกำกับ (Tags)</h1>
+
+        <h1>รวมป้ายกำกับ</h1>
         <p style="text-align: center; color: #555;">เลือกป้ายกำกับที่สนใจ เพื่อค้นหาบทความที่เกี่ยวข้องทั้งหมด</p>
         <hr>
 
@@ -146,15 +122,10 @@
         </div>
     </main>
 
-    <footer class="site-footer">
-        <center>
-            <p style="margin-bottom: 10px;">
-                <a href="/">หน้าแรก</a> &gt; <a href="/tags/index.html">รวมป้ายกำกับ</a>
-            </p>
-            <a href="/">🛞 ธรรมสุตตะ</a>
-        </center>
-    </footer>
-  </div>
+   <div id="footer-placeholder"></div>
+
+   <script src="/assets/js/main.js"></script>
+ 
 
   <script>
     // Script สำหรับ Hamburger Menu (เหมือนเดิม)
