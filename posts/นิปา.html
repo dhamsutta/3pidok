@@ -8,16 +8,17 @@
   <meta name="keywords" content="นิสสัคคิยปาจิตตีย์, พระวินัย, วินัยสงฆ์, พระไตรปิฎก, วินัยปิฎก, สิกขาบท, สงฆ์, ธรรมวินัย, ศีลภิกษุ">
   <meta name="author" content="ธรรมสุตตะ" />
 
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="140x140">
-    <link rel="stylesheet" href="/assets/css/style.css" /> <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
-<style>
-.page-wrapper {
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 10px;
-  box-sizing: border-box;
-}
-</style>
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-568JJVLV44');
+    </script>
   
   
   <script type="application/ld+json">
@@ -57,43 +58,20 @@
   
   
   
-  
+
   
     </head>
+	
+	 <nav class="breadcrumb">
+                <a href="/">หน้าแรก</a> &gt; 
+                <a href="/pages/vinaya.html">พระวินัย</a> > 
+นิสสัคคิยปาจิตตีย์:จีวรวรรค ๑๐
+            </nav>
+	
+	
+	
 <body>
- <div class="page-wrapper">
-    <header class="site-header">
-        <div class="header-container">
-            <a href="/" class="logo-link">
-                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
-                <span class="site-title">ธรรมสุตตะ</span>
-            </a>
-            <nav class="navbar" id="desktopNavbar">
-                <a href="/">หน้าแรก</a>
-                <a href=" /pages/vinaya.html">พระวินัย</a>
-                <a href=" /pages/sutta.html">พระสูตร</a>
-                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
-                <a href=" /pages/katha.html">อรรถกถา</a>
-                <a href=" /search/index.html">🔍ค้นหา/อภิธานศัพท์</a>
-                </nav>
-            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </div>
-    </header>
-
-   <nav class="sidebar-menu" id="sidebarMenu">
-        <a href="/">🏠หน้าแรก</a>
-        <a href=" /pages/vinaya.html">🔹พระวินัย</a>
-        <a href=" /pages/sutta.html">🔹พระสูตร</a>
-        <a href=" /pages/abhidhamma.html">🔹พระอภิธรรม</a>
-        <a href=" /pages/katha.html">🔹อรรถกถา</a>
-        <a href=" /pages/pakinnaka.html">🔹ปกิณกะ</a>
-        <a href=" /tags/index.html">🔹รวมป้ายกำกับ</a>
-        <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
-    </nav>
+ 
 
 
 <main>
@@ -234,98 +212,21 @@
           
     </main>
 
-<!-- ย้ายข้อความออกมานอก grid -->
-<div class="post-tags">
+		
+					<div class="post-tags">
   <span>ป้ายกำกับ: </span>
-  <a href="/tags/นิสสัคคิยปาจิตตีย์.html" class="tag">นิสสัคคิยปาจิตตีย์</a>
-  <a href="/tags/พระวินัยปิฎก.html" class="tag">พระวินัยปิฎก</a>
- <a href="/tags/จีวรวรรค.html" class="tag">จีวรวรรค</a>
- 
+  <a href="/tags/วินัย.html" class="tag">............</a>
+  <a href="/tags/สังฆาทิเสส.html" class="tag">..................</a>
+ <a href="/tags/ปริวาสกรรม.html" class="tag">......................</a>
+ <a href="/tags/มานัต.html" class="tag">....................</a>
 </div>
-
-    <footer class="site-footer">
-      
-       <center> <i> <a href="/">หน้าแรก</a> > <a href="/pages/vinaya.html">พระวินัย</a> > นิสสัคคิยปาจิตตีย์ - จีวรวรรค ๑๐
-    <hr>
- </i><br>
+		
+		
+<div id="footer-placeholder"></div>
     
-      🛞 ธรรมสุตตะ</center>
 
-    </footer>
-
-    <script>
-        // Script สำหรับ Hamburger Menu
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const mainContainer = document.querySelector('main.container');
-
-        if (hamburgerIcon && sidebarMenu) {
-            hamburgerIcon.addEventListener('click', () => {
-                hamburgerIcon.classList.toggle('open');
-                sidebarMenu.classList.toggle('open');
-            });
-        }
-
-        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
-        fetch('/assets/data/quotes.json')
-            .then(res => res.json())
-            .then(data => {
-                const quote = data[Math.floor(Math.random() * data.length)];
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
-                }
-            })
-            .catch(() => {
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
-                }
-            });
-
-        let paliDict = [];
-        fetch('/assets/data/pali.json')
-            .then(res => res.json())
-            .then(data => { paliDict = data; })
-            .catch(() => {
-                const paliResult = document.getElementById('paliResult');
-                if(paliResult) {
-                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
-                }
-            });
-
-        const paliInput = document.getElementById('paliInput');
-        if (paliInput) {
-            paliInput.addEventListener('input', function () {
-                const input = this.value.trim().toLowerCase();
-                const resultBox = document.getElementById('paliResult');
-                if (!input) {
-                    resultBox.innerHTML = '';
-                    resultBox.style.display = 'none';
-                    return;
-                }
-                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = matches.length
-                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
-                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
-            });
-        }
-    </script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const input = document.getElementById("paliInput");
-  const section = document.querySelector(".dictionary-section");
-
-  if (input && section) {
-    input.addEventListener("input", function () {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }
-});
-</script>
+    <script src="/assets/js/main.js"></script>
 
 </body>
+
 </html>
