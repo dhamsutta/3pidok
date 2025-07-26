@@ -55,53 +55,20 @@
   gtag('config', 'G-568JJVLV44');
 </script>
   
-  
-  
-  
-  
-    </head>
+</head>
 <body>
- <div class="page-wrapper">
-    <header class="site-header">
-        <div class="header-container">
-            <a href="/" class="logo-link">
-                <img src="/assets/images/logo.png" alt="ธรรมสุตตะ" class="site-logo">
-                <span class="site-title">ธรรมสุตตะ</span>
-            </a>
-            <nav class="navbar" id="desktopNavbar">
-                <a href="/">หน้าแรก</a>
-                <a href=" /pages/vinaya.html">พระวินัย</a>
-                <a href=" /pages/sutta.html">พระสูตร</a>
-                <a href=" /pages/abhidhamma.html">พระอภิธรรม</a>
-                <a href=" /pages/katha.html">อรรถกถา</a>
-                <a href=" /search/index.html">🔍ค้นหา/อภิธานศัพท์</a>
-                </nav>
-            <button class="hamburger-icon" id="hamburgerIcon" aria-label="เมนู">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-        </div>
-    </header>
-
-<nav class="sidebar-menu" id="sidebarMenu">
-        <a href="/">🏠หน้าแรก</a>
-        <a href=" /pages/vinaya.html">🔹พระวินัย</a>
-        <a href=" /pages/sutta.html">🔹พระสูตร</a>
-        <a href=" /pages/abhidhamma.html">🔹พระอภิธรรม</a>
-        <a href=" /pages/katha.html">🔹อรรถกถา</a>
-        <a href=" /pages/pakinnaka.html">🔹ปกิณกะ</a>
-        <a href=" /tags/index.html">🔹รวมป้ายกำกับ</a>
-        <a href=" /search/index.html">🔍ค้นหาจากในเว็บ</a>
-    </nav>
-
+<div class="page-wrapper">
+<div id="nav-placeholder"></div>
+<main>
+      <h1>นิสสัคคิยปาจิตตีย์:โกสิยวรรค</h1>
+    <nav class="breadcrumb">
+                <a href="/">หน้าแรก</a> &gt; 
+                <a href="/pages/vinaya.html">พระวินัย</a> > 
+นิสสัคคิยปาจิตตีย์:โกสิยวรรค ๑๐
+            </nav>
 
 <main>
-      <h1>โกสิยวรรค</h1>
-     <a href="/">หน้าแรก</a> > <a href="/pages/vinaya.html">พระวินัย</a> > <a href="/pages/นิปา.html">
-         นิสสัคคิยปาจิตตีย์-จีวรวรรค ๑๐</a> > โกสิยวรรค ๑๐
-    <hr>
- 
+     
         <h2>โกสิยวรรค ๑๐ สิกขาบท</h2>
    
 วรรคนี้มุ่งควบคุมพฤติกรรมของภิกษุเกี่ยวกับ: 
@@ -261,110 +228,32 @@
 
 
 
-
-    
-    
-    
     <center>จบ<b>โกสิยวรรค ๑๐</b> สิกขาบท เท่านี้</center><br>
+    
+    <div class="references">
+
+<h3>วรรคอื่น</h3>    
 <a href=" /posts/นิปา.html">🔹จีวรวรรค ๑๐</a><br>
 <a href=" /posts/ปัตตวรรค.html">🔹ปัตตวรรค ๑๐</a><br>
-      
+    </div>  
    
-          
-    </main>
-<div class="post-tags">
+		
+					<div class="post-tags">
   <span>ป้ายกำกับ: </span>
   <a href="/tags/นิสสัคคิยปาจิตตีย์.html" class="tag">นิสสัคคิยปาจิตตีย์</a>
   <a href="/tags/พระวินัยปิฎก.html" class="tag">พระวินัยปิฎก</a>
  <a href="/tags/โกสิยวรรค.html" class="tag">โกสิยวรรค</a>
- 
+
 </div>
-<!-- ย้ายข้อความออกมานอก grid -->
-
-
-    <footer class="site-footer">
-      
-      <a href="/">หน้าแรก</a> > <a href="/pages/vinaya.html">พระวินัย</a> > <a href="/pages/นิปา.html">
-         นิสสัคคิยปาจิตตีย์-จีวรวรรค ๑๐</a> > โกสิยวรรค ๑๐<hr>
- </i><br>
+		
+		
+<div id="footer-placeholder"></div>
     
-      🛞 ธรรมสุตตะ</center>
 
-    </footer>
-
-    <script>
-        // Script สำหรับ Hamburger Menu
-        const hamburgerIcon = document.getElementById('hamburgerIcon');
-        const sidebarMenu = document.getElementById('sidebarMenu');
-        const mainContainer = document.querySelector('main.container');
-
-        if (hamburgerIcon && sidebarMenu) {
-            hamburgerIcon.addEventListener('click', () => {
-                hamburgerIcon.classList.toggle('open');
-                sidebarMenu.classList.toggle('open');
-            });
-        }
-
-        // --- โค้ดสำหรับ Quote และ Pali Dictionary (เหมือนเดิม) ---
-        fetch('/assets/data/quotes.json')
-            .then(res => res.json())
-            .then(data => {
-                const quote = data[Math.floor(Math.random() * data.length)];
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
-                }
-            })
-            .catch(() => {
-                const quoteElement = document.getElementById('random-quote');
-                if(quoteElement) {
-                    quoteElement.innerText = "ไม่สามารถโหลดพุทธพจน์ได้";
-                }
-            });
-
-        let paliDict = [];
-        fetch('/assets/data/pali.json')
-            .then(res => res.json())
-            .then(data => { paliDict = data; })
-            .catch(() => {
-                const paliResult = document.getElementById('paliResult');
-                if(paliResult) {
-                    paliResult.innerText = "❌ โหลดพจนานุกรมไม่สำเร็จ";
-                }
-            });
-
-        const paliInput = document.getElementById('paliInput');
-        if (paliInput) {
-            paliInput.addEventListener('input', function () {
-                const input = this.value.trim().toLowerCase();
-                const resultBox = document.getElementById('paliResult');
-                if (!input) {
-                    resultBox.innerHTML = '';
-                    resultBox.style.display = 'none';
-                    return;
-                }
-                const matches = paliDict.filter(entry => entry.headword.toLowerCase().includes(input));
-                resultBox.style.display = 'block';
-                resultBox.innerHTML = matches.length
-                    ? matches.slice(0, 10).map(entry => `<p><strong>${entry.headword}</strong>: ${entry.content}</p>`).join('')
-                    : `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
-            });
-        }
-    </script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  const input = document.getElementById("paliInput");
-  const section = document.querySelector(".dictionary-section");
-
-  if (input && section) {
-    input.addEventListener("input", function () {
-      section.scrollIntoView({ behavior: "smooth", block: "start" });
-    });
-  }
-});
-</script>
+    <script src="/assets/js/main.js"></script>
 
 </body>
+
 </html>
+
+    
