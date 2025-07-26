@@ -11,16 +11,15 @@ document.addEventListener("DOMContentLoaded", function() {
         return String(num).toString().split('').map(d => thaiDigits[d] || d).join('');
     }
 
-    // ฟังก์ชันแปลงทุก <ol> ในหน้าให้ใช้เลขไทย (จะถูกเรียกใช้ตอนท้าย)
+    // ฟังก์ชันแปลงทุก <ol> ในหน้าให้ใช้เลขไทย
     function convertAllOlToThai() {
-        const allOlElements = document.querySelectorAll("ol.thai, .main-content ol"); // เลือก ol ที่มีคลาส thai หรืออยู่ใน main-content
+        const allOlElements = document.querySelectorAll("ol.thai, .main-content ol");
         allOlElements.forEach(ol => {
             const listItems = ol.querySelectorAll("li");
             const startValue = ol.hasAttribute('start') ? parseInt(ol.getAttribute('start')) : 1;
             
             listItems.forEach((li, index) => {
-                // ป้องกันการใส่เลขซ้ำซ้อน
-                if (li.querySelector('.thai-list-number')) return;
+                if (li.querySelector('.thai-list-number')) return; // ป้องกันการใส่เลขซ้ำ
 
                 li.style.listStyleType = "none";
                 const itemNumber = toThaiNumber(startValue + index);
@@ -29,22 +28,18 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
-
     // =================================================================
     //  2. Main Logic Functions (ฟังก์ชันหลัก)
     // =================================================================
 
-    // --- ฟังก์ชันสำหรับสคริปต์ที่ไม่ขึ้นกับเมนู (ทำงานได้ทันที) ---
+    // --- ฟังก์ชันสำหรับสคริปต์ที่ไม่ขึ้นกับเมนู/footer (ทำงานได้ทันที) ---
     function initializeIndependentScripts() {
         
         // ---- โค้ดสำหรับ Quote (พุทธพจน์สุ่ม) ----
         const quoteElement = document.getElementById('random-quote');
         if (quoteElement) {
             fetch('/assets/data/quotes.json')
-                .then(res => {
-                    if (!res.ok) throw new Error('Network response was not ok');
-                    return res.json();
-                })
+                .then(res => res.ok ? res.json() : Promise.reject('Network response was not ok'))
                 .then(data => {
                     const quote = data[Math.floor(Math.random() * data.length)];
                     quoteElement.innerHTML = `“${quote.quote}” <br><small>— ${quote.source}</small>`;
@@ -97,13 +92,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const backToTopButton = document.getElementById("backToTopBtn");
         if (backToTopButton) {
             window.addEventListener("scroll", () => {
-                if (window.pageYOffset > 300) {
-                    backToTopButton.style.display = "block";
-                } else {
-                    backToTopButton.style.display = "none";
-                }
+                backToTopButton.style.display = (window.pageYOffset > 300) ? "block" : "none";
             });
-
             backToTopButton.addEventListener("click", (e) => {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: "smooth" });
@@ -119,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const sidebarMenu = document.getElementById('sidebarMenu');
         if (hamburgerIcon && sidebarMenu) {
             hamburgerIcon.addEventListener('click', (e) => {
-                e.stopPropagation(); // หยุดไม่ให้ event click ลามไปถึง document
+                e.stopPropagation();
                 hamburgerIcon.classList.toggle('open');
                 sidebarMenu.classList.toggle('open');
             });
@@ -161,131 +151,48 @@ document.addEventListener("DOMContentLoaded", function() {
                     `<p class="no-match">ไม่พบคำว่า "<strong>${input}</strong>"</p>`;
             });
         }
+        
+        // ---- อัปเดตปี พ.ศ. ใน Footer ----
+        const yearSpan = document.getElementById('current-year');
+        if (yearSpan) {
+            yearSpan.textContent = new Date().getFullYear() + 543; // แปลงเป็น พ.ศ.
+        }
     }
 
     // --- ฟังก์ชันสำหรับโหลด Navigation และ Footer (Templates) ---
     function loadTemplates() {
-        // โหลด Nav
-        fetch('/templates/main-nav.html')
-            .then(response => response.ok ? response.text() : Promise.reject('Nav Load Error'))
-            .then(data => {
-                const navPlaceholder = document.getElementById('nav-placeholder');
-                if (navPlaceholder) navPlaceholder.innerHTML = data;
-                // ไม่มีสคริปต์ที่ต้องรอ Nav โดยตรงแล้ว จึงเอาออกจากตรงนี้
-            })
-            .catch(error => console.error('ไม่สามารถโหลดไฟล์เมนูได้:', error));
+        const navPromise = fetch('/templates/main-nav.html').then(res => res.ok ? res.text() : Promise.reject('Nav Load Error'));
+        const footerPromise = fetch('/templates/main-footer.html').then(res => res.ok ? res.text() : Promise.reject('Footer Load Error'));
 
-        // โหลด Footer
-        fetch('/templates/main-footer.html')
-            .then(response => response.ok ? response.text() : Promise.reject('Footer Load Error'))
-            .then(data => {
+        // ใช้ Promise.all เพื่อรอให้โหลดทั้ง 2 ไฟล์เสร็จก่อน แล้วค่อยทำงานต่อ
+        Promise.all([navPromise, footerPromise])
+            .then(([navHtml, footerHtml]) => {
+                const navPlaceholder = document.getElementById('nav-placeholder');
                 const footerPlaceholder = document.getElementById('footer-placeholder');
-                if (footerPlaceholder) {
-                    footerPlaceholder.innerHTML = data;
-                    const yearSpan = document.getElementById('current-year');
-                    if (yearSpan) yearSpan.textContent = new Date().getFullYear() + 543; // พ.ศ.
-                }
-                // สคริปต์ที่ต้องรอให้ Nav และ Footer โหลดเสร็จจะถูกเรียกใช้จากที่นี่
+
+                if (navPlaceholder) navPlaceholder.innerHTML = navHtml;
+                if (footerPlaceholder) footerPlaceholder.innerHTML = footerHtml;
+
+                // หลังจากใส่ HTML ของ Nav/Footer ลงในหน้าเว็บแล้ว
+                // จึงเรียกใช้สคริปต์ที่ต้องพึ่งพา element จากไฟล์เหล่านั้น
                 initializeDependentScripts();
             })
-            .catch(error => console.error('ไม่สามารถโหลดไฟล์ footer ได้:', error));
+            .catch(error => {
+                console.error('ไม่สามารถโหลดไฟล์ template (nav/footer) ได้:', error);
+            });
     }
-
 
     // =================================================================
     //  3. Start Execution (เริ่มการทำงานทั้งหมด)
     // =================================================================
     
-    loadTemplates(); // เริ่มจากโหลด Templates (Nav, Footer) ก่อน
-    initializeIndependentScripts(); // เรียกใช้สคริปต์ที่ไม่เกี่ยวข้องกับ Templates ได้เลย
-    convertAllOlToThai(); // แปลง list เป็นเลขไทย
+    // 1. เรียกใช้สคริปต์ที่ไม่ต้องรอ template ก่อนได้เลย
+    initializeIndependentScripts(); 
 
+    // 2. เริ่มโหลด Templates (Nav, Footer) ซึ่งจะเรียกใช้ dependent scripts เองเมื่อโหลดเสร็จ
+    loadTemplates();
 
-<script>
-    // --- 🔷 สคริปต์หลักสำหรับสร้างหน้ารวมป้ายกำกับ (Tag) ---
-    document.addEventListener('DOMContentLoaded', () => {
-        const container = document.getElementById('alphabetical-tag-container');
-        
-        // สมมติว่าไฟล์ tags.json มีโครงสร้างเป็น Array ของ Object 
-        // ที่แต่ละ Object คือ "บทความ" ซึ่งมี key ชื่อ "tags" เป็น Array ของ string
-        // เช่น: [{ "title": "...", "url": "...", "tags": ["กรรม", "กิเลส"] }, ...]
-        const dataUrl = '/assets/data/tags.json';
+    // 3. แปลง list เป็นเลขไทย (สามารถทำงานได้เลย ไม่ต้องรอ template)
+    convertAllOlToThai();
 
-        fetch(dataUrl)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(posts => {
-                // 1. รวบรวม Tag ทั้งหมดที่ไม่ซ้ำกัน
-                const allTags = new Set();
-                posts.forEach(post => {
-                    if (post.tags && Array.isArray(post.tags)) {
-                        post.tags.forEach(tag => allTags.add(tag.trim()));
-                    }
-                });
-
-                // 2. แปลง Set เป็น Array และเรียงลำดับตามตัวอักษรไทย
-                const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b, 'th'));
-
-                if (sortedTags.length === 0) {
-                    container.innerHTML = '<p class="loading-message">ยังไม่มีป้ายกำกับในระบบ</p>';
-                    return;
-                }
-                
-                // 3. จัดกลุ่ม Tag ตามพยัญชนะตัวแรก
-                const groupedTags = sortedTags.reduce((acc, tag) => {
-                    const firstLetter = tag[0];
-                    if (!acc[firstLetter]) {
-                        acc[firstLetter] = [];
-                    }
-                    acc[firstLetter].push(tag);
-                    return acc;
-                }, {});
-
-                // 4. สร้าง HTML แล้วนำไปแสดงผล
-                container.innerHTML = ''; // เคลียร์ข้อความ "กำลังโหลด..." ออก
-                
-                for (const letter in groupedTags) {
-                    // สร้าง Section ของแต่ละตัวอักษร
-                    const groupSection = document.createElement('section');
-                    groupSection.className = 'tag-group';
-
-                    // สร้างหัวข้อตัวอักษร (เช่น ก, ข, ค)
-                    const header = document.createElement('h2');
-                    header.className = 'tag-group-header';
-                    header.textContent = letter;
-                    groupSection.appendChild(header);
-
-                    // สร้าง Container สำหรับเก็บลิงก์แท็ก
-                    const linksDiv = document.createElement('div');
-                    linksDiv.className = 'tag-links';
-                    
-                    // สร้างลิงก์สำหรับแต่ละแท็กในกลุ่ม
-                    groupedTags[letter].forEach(tag => {
-                        const link = document.createElement('a');
-                        link.className = 'tag-item';
-                        link.href = `/tags/${encodeURIComponent(tag)}.html`; // สร้าง URL แบบ δυναμικά
-                        link.textContent = tag;
-                        linksDiv.appendChild(link);
-                    });
-
-                    groupSection.appendChild(linksDiv);
-                    container.appendChild(groupSection);
-                }
-            })
-            .catch(error => {
-                console.error('Error fetching or processing tags:', error);
-                container.innerHTML = '<p class="error-message">เกิดข้อผิดพลาดในการโหลดข้อมูลป้ายกำกับ</p>';
-            });
-    });
-  </script>
-
-
-
-
-
-    
 });
