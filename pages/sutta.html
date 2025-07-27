@@ -38,57 +38,66 @@
             margin-bottom: 1.5rem;
         }
 
-        /* 🔷 Grid Layout สำหรับ 5 นิกาย 🔷 */
-        .nikaya-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive Grid */
-            gap: 1.5rem; /* ระยะห่างระหว่างการ์ด */
+        /* 🔷 List Layout สำหรับ 5 นิกาย (แทน Grid) 🔷 */
+        .nikaya-list {
+            list-style: none;
+            padding: 0;
             margin-top: 2rem;
         }
 
-        .nikaya-card {
-            display: block;
+        .nikaya-list > li {
             background-color: #ffffff;
             border-radius: 8px;
             padding: 1.5rem;
-            text-decoration: none;
-            color: inherit;
+            margin-bottom: 1.5rem;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
             border: 1px solid #e0e0e0;
         }
-
-        .nikaya-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-        }
-
-        .nikaya-card h3 {
-            font-size: 1.5rem;
+        
+        .nikaya-list h3 {
+            font-size: 1.6rem;
             font-weight: 700;
-            color: #4e1818; /* สีเดียวกับหัวข้อในตัวอย่าง */
-            margin-bottom: 0.25rem;
+            margin-bottom: 0.5rem;
         }
 
-        .nikaya-card .pali-name {
-            font-size: 1rem;
+        .nikaya-list h3 a {
+            color: #4e1818; 
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .nikaya-list h3 a:hover {
+            color: #3498db;
+        }
+
+        .nikaya-list .meta-info {
+            font-size: 0.95rem;
             color: #666;
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #f0f0f0;
         }
 
-        .nikaya-card .description {
+        .nikaya-list .description {
             font-size: 1rem;
             color: #333;
-            margin-bottom: 1rem;
-            min-height: 4.5em; /* ทำให้การ์ดสูงเท่าๆ กัน */
+            line-height: 1.7;
         }
-
-        .nikaya-card .volume-info {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #3498db;
-            border-top: 1px solid #f0f0f0;
-            padding-top: 1rem;
+        
+        /* สไตล์สำหรับลิงก์ย่อยที่จะเพิ่มในอนาคต */
+        .sub-links {
+            list-style: '›  '; /* ใช้ '›' เป็น bullet point */
+            padding-left: 20px;
+            margin-top: 1rem;
+        }
+        
+        .sub-links li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sub-links a {
+            font-size: 1rem;
+            font-weight: 500;
         }
     </style>
 </head>
@@ -107,46 +116,47 @@
                 <div class="hero-image-placeholder">
                     <img src="/assets/images/sutta1.jpg" alt="พระสุตตันตปิฎก">
                 </div>
-            <b>พระสุตตันตปิฎก</b> คือหมวดที่สองของพระไตรปิฎก เป็นที่รวบรวมพระธรรมเทศนาที่พระพุทธเจ้าทรงแสดงแก่บุคคลต่างๆ ในสถานที่และโอกาสที่แตกต่างกัน 
-เนื้อหาส่วนใหญ่เป็นร้อยแก้ว มีลักษณะเป็นเรื่องเล่า บทสนทนา และคำบรรยายธรรม โดยแบ่งออกเป็น ๕ หมวดหลัก เรียกว่า <b>นิกาย</b>
                 
-                <div class="nikaya-grid">
+                <p><b>พระสุตตันตปิฎก</b> คือหมวดที่สองของพระไตรปิฎก เป็นที่รวบรวมพระธรรมเทศนาที่พระพุทธเจ้าทรงแสดงแก่บุคคลต่างๆ ในสถานที่และโอกาสที่แตกต่างกัน เนื้อหาส่วนใหญ่เป็นร้อยแก้ว มีลักษณะเป็นเรื่องเล่า บทสนทนา และคำบรรยายธรรม โดยแบ่งออกเป็น ๕ หมวดหลัก เรียกว่า <b>นิกาย</b></p>
+                
+                <ul class="nikaya-list">
                     
-                    <a href="/sutta/digha-nikaya/" class="nikaya-card">
-                        <h3>ทีฆนิกาย</h3>
+                    <li>
+                        <h3><a href="/sutta/digha-nikaya/">🔹 ทีฆนิกาย</a></h3>
+                        <p class="meta-info">Dīgha Nikāya | พระไตรปิฎก เล่มที่ ๙ - ๑๑</p>
                         <p class="description">หมวดรวบรวมพระสูตรขนาดยาว (Long Discourses) ว่าด้วยเรื่องกำเนิดโลก, ลักษณะมหาบุรุษ, และมหาปรินิพพาน เป็นต้น</p>
-                        <p class="volume-info">พระไตรปิฎก เล่มที่ ๙ - ๑๑</p>
-                    </a>
+                        <ul class="sub-links">
+                            <li><a href="#">สีลขันธวรรค (๑๓ พระสูตร)</a></li>
+                            <li><a href="#">มหาวรรค (๑๐ พระสูตร)</a></li>
+                            <li><a href="#">ปาฏิกวรรค (๑๑ พระสูตร)</a></li>
+                        </ul>
+                    </li>
 
-                    <a href="/sutta/majjhima-nikaya/" class="nikaya-card">
-                        <h3>มัชฌิมนิกาย</h3>
-                        <p class="pali-name">Majjhima Nikāya</p>
+                    <li>
+                        <h3><a href="/sutta/majjhima-nikaya/">🔹 มัชฌิมนิกาย</a></h3>
+                        <p class="meta-info">Majjhima Nikāya | พระไตรปิฎก เล่มที่ ๑๒ - ๑๔</p>
                         <p class="description">หมวดรวบรวมพระสูตรขนาดกลาง (Middle-Length Discourses) อธิบายหลักธรรมสำคัญ เช่น อริยมรรค, ปฏิจจสมุปบาท</p>
-                        <p class="volume-info">พระไตรปิฎก เล่มที่ ๑๒ - ๑๔</p>
-                    </a>
+                    </li>
 
-                    <a href="/sutta/samyutta-nikaya/" class="nikaya-card">
-                        <h3>สังยุตตนิกาย</h3>
-                        <p class="pali-name">Saṃyutta Nikāya</p>
+                    <li>
+                        <h3><a href="/sutta/samyutta-nikaya/">🔹 สังยุตตนิกาย</a></h3>
+                        <p class="meta-info">Saṃyutta Nikāya | พระไตรปิฎก เล่มที่ ๑๕ - ๑๙</p>
                         <p class="description">หมวดที่จัดกลุ่มพระสูตรตามหัวข้อธรรมที่เกี่ยวข้องกัน (Connected Discourses) เช่น เรื่องขันธ์ ๕, อายตนะ, และอริยสัจ ๔</p>
-                        <p class="volume-info">พระไตรปิฎก เล่มที่ ๑๕ - ๑๙</p>
-                    </a>
+                    </li>
 
-                    <a href="/sutta/anguttara-nikaya/" class="nikaya-card">
-                        <h3>อังคุตตรนิกาย</h3>
-                        <p class="pali-name">Aṅguttara Nikāya</p>
+                    <li>
+                        <h3><a href="/sutta/anguttara-nikaya/">🔹 อังคุตตรนิกาย</a></h3>
+                        <p class="meta-info">Aṅguttara Nikāya | พระไตรปิฎก เล่มที่ ๒๐ - ๒๔</p>
                         <p class="description">หมวดที่จัดกลุ่มพระสูตรตามจำนวนหัวข้อธรรม (Numerical Discourses) จาก ๑ ถึง ๑๑ เพื่อให้ง่ายต่อการจดจำ</p>
-                        <p class="volume-info">พระไตรปิฎก เล่มที่ ๒๐ - ๒๔</p>
-                    </a>
+                    </li>
 
-                    <a href="/sutta/khuddaka-nikaya/" class="nikaya-card">
-                        <h3>ขุททกนิกาย</h3>
-                        <p class="pali-name">Khuddaka Nikāya</p>
+                    <li>
+                        <h3><a href="/sutta/khuddaka-nikaya/">🔹 ขุททกนิกาย</a></h3>
+                        <p class="meta-info">Khuddaka Nikāya | พระไตรปิฎก เล่มที่ ๒๕ - ๓๓</p>
                         <p class="description">หมวดรวบรวมธรรมะเบ็ดเตล็ด (Minor Collection) มีทั้งร้อยแก้วและร้อยกรอง เช่น ธรรมบท, ชาดก, และเถรคาถา</p>
-                        <p class="volume-info">พระไตรปิฎก เล่มที่ ๒๕ - ๓๓</p>
-                    </a>
+                    </li>
 
-                </div>
+                </ul>
 
             </main>
 
