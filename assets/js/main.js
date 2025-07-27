@@ -196,3 +196,21 @@ document.addEventListener("DOMContentLoaded", function() {
     convertAllOlToThai();
 
 });
+
+
+<script>
+  // แปลงเลขอารบิกเป็นเลขไทย
+  document.querySelectorAll('.thai-counter li').forEach((li, index) => {
+    const arabic = index + 1;
+    const thaiDigits = arabic.toString().replace(/\d/g, d =>
+      '๐๑๒๓๔๕๖๗๘๙'[parseInt(d)]
+    );
+    li.querySelector('::before'); // pseudo-element ไม่สามารถเข้าถึงได้จาก JS
+    // ดังนั้นควรใช้โค้ดนี้แทน CSS ::before:
+    li.insertAdjacentHTML('afterbegin', `<span style="position:absolute; left:-1.5em; width:1.5em; text-align:right;">${thaiDigits}</span> `);
+  });
+</script>
+
+
+
+
