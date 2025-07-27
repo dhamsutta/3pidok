@@ -10,18 +10,21 @@
         .section-title-new { text-align: center; color: #2e8b57; }
         select { width: 100%; padding: 10px; font-size: 1em; margin-bottom: 15px; }
         .vb-output { border: 1px solid #eee; background-color: #f9f9f9; padding: 15px; min-height: 100px; border-radius: 5px;}
+    </style>
 
-        /* --- CSS ที่แก้ไขแล้วสำหรับเลขไทย --- */
+    <style>
+        /* สร้างรูปแบบการนับเลขไทยชื่อ 'thai' */
         @counter-style thai {
             system: numeric;
             symbols: '๐' '๑' '๒' '๓' '๔' '๕' '๖' '๗' '๘' '๙';
-            suffix: ". "; /* เพิ่มจุดและเว้นวรรคท้ายตัวเลข */
+            suffix: ". "; /* เพิ่ม . ต่อท้ายตัวเลข */
         }
 
+        /* นำรูปแบบ 'thai' มาใช้กับรายการ */
         .thai-counter {
-            /* ไม่ต้องใช้ ::before อีกต่อไป ใช้ list-style ได้โดยตรง */
             list-style: thai;
-            padding-left: 2em; /* อาจจะต้องปรับ padding เพื่อความสวยงาม */
+            /* ปรับระยะห่างด้านซ้ายให้พอดี */
+            padding-left: 2.5em; 
         }
     </style>
 </head>
@@ -61,57 +64,84 @@
             <li><strong>อรรถกถาพระอภิธรรมปิฎก</strong>: อธิบายเนื้อหาในพระอภิธรรมซึ่งเป็นหลักปรมัตถธรรมที่ลึกซึ้งและเข้าใจได้ยาก</li>
         </ol>
     </div>
+    <div class="main-content">
+        <h2>ศึกษาคัมภีร์อรรถกถาสำคัญ</h2>
+        อรรถกถา สมันตปาสาทิกา (Samantapāsādikā)<br>
+        สุมังคลวิลาสินี (Sumaṅgalavilāsinī)<br>
+        ปปัญจสูทนี (Papañcasūdanī)<br>
+        สารัตถปกาสินี (Sāratthappakāsinī)<br>
+        มโนรถปูรณี (Manorathapūraṇī)<br>
+        ธัมมสังคณี: อัฏฐสาลินี (Aṭṭhasālinī)<br>
+        วิภังค์: สัมโมหวิโนทนี (Sammohavinodanī)<br>
+        ธาตุกถา, ปุคคลบัญญัติ, กถาวัตถุ, ยมก, ปัฏฐาน: ปัญจปกรณัฏฐกถา<br>
+        ปรมัตถทีปนี (Paramatthadīpanī)<br>
+        <hr>
+        <h3>🔹<a href="/texts/visuddhimagga/">วิสุทฺธิ - วิสุทธิมคฺค</a></h3>
+        สังกัด: คัมภีร์ปกรณ์พิเศษ (ไม่จัดอยู่ในพระไตรปิฎกโดยตรง แต่เป็นที่ยอมรับอย่างสูง)<br>
+        ผู้รจนา<strong>พระพุทธโฆษาจารย์</strong> (พระพุทธโฆสเถระ) 
+        <hr>
+        <br>
+        <br> 
+        <div id="footer-placeholder"></div>
     </div>
 
-<script>
-// --- Script สำหรับ Dropdown ยังคงเดิม ---
-document.addEventListener("DOMContentLoaded", function() {
-    const bookSelect = document.getElementById('bookSelect');
-    const bookOutput = document.getElementById('bookOutput');
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const bookSelect = document.getElementById('bookSelect');
+        const bookOutput = document.getElementById('bookOutput');
 
-    if (bookSelect && bookOutput) {
-        let allBooksData = [];
-        fetch('../assets/data/books.json') // **ตรวจสอบ Path นี้ให้ถูกต้อง**
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok ' + response.statusText);
-                }
-                return response.json();
-            })
-            .then(data => {
-                allBooksData = data;
-                allBooksData.forEach(book => {
-                    const option = document.createElement('option');
-                    option.value = book.id;
-                    option.textContent = book.name;
-                    bookSelect.appendChild(option);
+        // ตรวจสอบว่ามี element นี้ในหน้าเว็บหรือไม่
+        if (bookSelect && bookOutput) {
+            let allBooksData = []; // สร้างตัวแปรเพื่อเก็บข้อมูลหนังสือทั้งหมด
+
+            // 1. โหลดข้อมูลจากไฟล์ books.json
+            // *** จุดสำคัญ: เปลี่ยน Path เป็น ../ เพื่อถอยออกจากโฟลเดอร์ templates ก่อน ***
+            fetch('../assets/data/books.json')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok ' + response.statusText);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    allBooksData = data; // เก็บข้อมูลไว้ในตัวแปร
+                    
+                    // 2. สร้างตัวเลือก <option> ใน dropdown
+                    allBooksData.forEach(book => {
+                        const option = document.createElement('option');
+                        option.value = book.id;
+                        option.textContent = book.name; // ใช้ 'name' ตามไฟล์ JSON ของคุณ
+                        bookSelect.appendChild(option);
+                    });
+                })
+                .catch(error => {
+                    console.error('ไม่สามารถโหลดข้อมูลคัมภีร์ได้:', error);
+                    bookOutput.innerHTML = `<p style="color:red;"><strong>เกิดข้อผิดพลาด:</strong> ไม่สามารถโหลดไฟล์ข้อมูลได้ กรุณาตรวจสอบว่าที่อยู่ไฟล์ '../assets/data/books.json' ถูกต้อง</p>`;
                 });
-            })
-            .catch(error => {
-                console.error('ไม่สามารถโหลดข้อมูลคัมภีร์ได้:', error);
-                bookOutput.innerHTML = `<p style="color:red;"><strong>เกิดข้อผิดพลาด:</strong> ไม่สามารถโหลดไฟล์ข้อมูลได้ กรุณาตรวจสอบว่าที่อยู่ไฟล์ '../assets/data/books.json' ถูกต้อง</p>`;
-            });
 
-        bookSelect.addEventListener('change', function() {
-            const selectedId = this.value;
-            if (selectedId) {
-                const selectedBook = allBooksData.find(book => book.id === selectedId);
-                if (selectedBook) {
-                    bookOutput.innerHTML = `
-                        <h3>${selectedBook.name} (${selectedBook.label})</h3>
-                        <div>${selectedBook.desc}</div>
-                    `;
+            // 3. เพิ่ม Event Listener เพื่อรอรับการเลือกจากผู้ใช้
+            bookSelect.addEventListener('change', function() {
+                const selectedId = this.value; // ดึงค่า value ของ option ที่ถูกเลือก
+
+                if (selectedId) {
+                    // ค้นหาข้อมูลหนังสือจาก id ที่เลือก
+                    const selectedBook = allBooksData.find(book => book.id === selectedId);
+                    
+                    if (selectedBook) {
+                        // แสดงผลในกล่อง bookOutput
+                        bookOutput.innerHTML = `
+                            <h3>${selectedBook.name} (${selectedBook.label})</h3>
+                            <div>${selectedBook.desc}</div>
+                        `;
+                    }
+                } else {
+                    // ถ้าผู้ใช้เลือก "-- ค้นหาตามชื่อ --" ให้กลับเป็นข้อความเริ่มต้น
+                    bookOutput.innerHTML = 'กรุณาเลือกเพื่อดูรายละเอียดและคำอธิบายเบื้องต้น';
                 }
-            } else {
-                bookOutput.innerHTML = 'กรุณาเลือกเพื่อดูรายละเอียดและคำอธิบายเบื้องต้น';
-            }
-        });
-    }
-});
-
-// --- ไม่ต้องใช้สคริปต์แปลงเลขไทยแล้ว ---
-
-</script>
-
-</body>
+            });
+        }
+    });
+    </script>
+    
+    </body>
 </html>
