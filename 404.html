@@ -1,43 +1,30 @@
-<!-- 404.html -->
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>ไม่พบหน้านี้ | ธรรมสุตตะ</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
-  <link rel="stylesheet" href="assets/css/style.css">
-
-<style>
-.page-wrapper {
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 10px;
-  box-sizing: border-box;
-}
-</style>
-
-  
+    <meta charset="UTF-8">
+    <title>ไม่พบหน้า - กำลังนำทาง...</title>
+    <script type="text/javascript">
+        // ดึง path ของ URL ปัจจุบัน (เช่น /2020/12/blog-post_0)
+        var path = window.location.pathname;
+        
+        // สร้าง URL ใหม่และสั่งให้ redirect ทันที
+        window.location.href = "https://dhammasuttas.blogspot.com" + path + window.location.search;
+    </script>
 </head>
 <body>
-  
-  <main>
-<div class="page-wrapper">
-<div class="main-content">
-  <h1>ไม่พบหน้านี้ (404)</h1>
-    <p>ขณะนี้เว็บ ธรรมสุตตะ กำลังทำการแก้ไขปรับปรุง</p>
-    <p>ระบบจะนำคุณกลับไปหน้าแรกภายใน 5 วินาที...</p>
-    <p><a href="/">คลิกที่นี่หากไม่เปลี่ยนหน้าอัตโนมัติ</a></p>
-  </main>
-</div>
-  <script>
-    setTimeout(() => {
-      location.href = "/";
-    }, 5000);
-  </script>
+    <p>ไม่พบหน้าที่คุณต้องการ กำลังนำท่านไปยังเว็บไซต์เดิม...</p>
+    <p>หากเบราว์เซอร์ไม่นำทางไปอัตโนมัติ กรุณาคลิกที่นี่: 
+        <a id="redirect-link" href="#">ไปยังเว็บไซต์เดิม</a>
+    </p>
+    <script>
+        // สร้างลิงก์สำรองให้ผู้ใช้คลิกเองได้
+        var path = window.location.pathname;
+        var search = window.location.search;
+        document.getElementById('redirect-link').href = "https://dhammasuttas.blogspot.com" + path + search;
+    </script>
 </body>
 </html>
-
 <div class="page-wrapper">
 <!-- sitemap.xml -->
 <?xml version="1.0" encoding="UTF-8"?>
@@ -51,3 +38,8 @@
   <url><loc>https://dhamma-sutta.com/%E0%B8%98%E0%B8%A3%E0%B8%A3%E0%B8%A1%E0%B8%9A%E0%B8%97.html</loc></url>
 </urlset>
 </div>
+
+
+
+
+
