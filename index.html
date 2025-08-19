@@ -41,6 +41,98 @@
       }
     }
     </script>
+<style>
+    /* 1. CSS Reset & Base Styles (โค้ดเดิม) */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Sarabun', sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      line-height: 1.6; /* ปรับปรุงให้อ่านง่ายขึ้น */
+    }
+    .page-wrapper {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+    .content-wrapper {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    h1 {
+      text-align: center;
+      color: #000000;
+      font-weight: 700;
+      margin-bottom: 0.5rem; /* ลดระยะห่างเล็กน้อย */
+    }
+    hr {
+        border: none;
+        border-top: 1px solid #ecf0f1;
+        margin: 1.5rem 0;
+    }
+
+    /* --- 🔷 CSS สำหรับหน้ารวมป้ายกำกับ (Tag) ที่ออกแบบใหม่ --- */
+    #alphabetical-tag-container {
+        margin-top: 1.5rem;
+    }
+
+    .tag-group {
+        margin-bottom: 2rem; /* ระยะห่างระหว่างหมวดตัวอักษร */
+    }
+
+    .tag-group-header {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #4e1818;
+        border-bottom: 2px solid #ecf0f1;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .tag-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px; /* ระยะห่างระหว่างแท็ก */
+    }
+
+    .tag-item {
+        display: inline-block;
+        background-color: #b9ced4; /* สีพื้นหลังแท็ก */
+        color: #000000; /* สีตัวอักษร */
+        padding: 8px 16px;
+        border-radius: 10px; /* ทำให้ขอบมนสวย */
+        font-size: 1rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s ease-in-out;
+        border: 1px solid transparent;
+    }
+
+    .tag-item:hover {
+        background-color: #3498db; /* สีพื้นหลังเมื่อเมาส์ชี้ */
+        color: #ffffff; /* สีตัวอักษรเมื่อเมาส์ชี้ */
+        transform: translateY(-2px);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
+    }
+
+    .loading-message, .error-message {
+        text-align: center;
+        padding: 3rem 0;
+        color: #7f8c8d;
+        font-size: 1.1rem;
+    }
+
+  </style>
 </head>
 
 <body>
@@ -56,85 +148,121 @@
                     <p id="random-quote">กำลังโหลด...</p>
                 </div>
             </section>
-            
-            <p>ย้ายมาจาก https://dhammasuttas.blogspot.com/</p>
-            <h2 class="section-title-new">ยังอยู่ระหว่างการพัฒนา</h2>
 
-            <div class="references">
-                <h2><span style="color: #990000;">เตือนความจำ</span></h2>
+  
+<body>
 
-
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 15/8/68 <a href="/abhidhamma/atthasalini/p-14.html">การจำแนกสภาวะแห่งรูปธรรม</a></li>
-  <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 14/8/68 <a href="/tags/ปาณาติบาต.html">ปาณาติบาต</a><span style="color: green;"> ป้ายกำกับใหม่</span></li>              
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 14/8/68 <a href="/abhidhamma/atthasalini/p-13-2.html">จิตในการทำปาณาติบาต ๑ ดวง</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 13/8/68 <a href="/tags/ทาน.html">ทาน</a><span style="color: green;"> ป้ายกำกับใหม่</span></li>
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 13/8/68 <a href="/abhidhamma/atthasalini/p-13-1.html">จิตในการให้ทาน ๑ ดวง</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 13/8/68 <a href="/abhidhamma/atthasalini/p-13.html">การจำแนกธรรมตามมาติกา+หน้าtags</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
+ <div class="page-wrapper">
+<div id="nav-placeholder"></div>
 
 
+        <h1></h1>
+        <p style="text-align: center; color: #555;"></p>
+        <hr>
 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 3/8/68 <a href="/abhidhamma/atthasalini/p-12-1.html">ทำไมโลกุตรจิตถึงนับเป็น 40 ดวงได้</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
+        <div id="alphabetical-tag-container">
+            <p class="loading-message">กำลังโหลดรายการป้ายกำกับ...</p>
+        </div>
+    </main>
+
+   <div id="footer-placeholder"></div>
+
+   <script src="/assets/js/main.js"></script>
 
 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 3/8/68 <a href="/abhidhamma/atthasalini/p-12.html">โลกุตรจิต</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
+  <script>
+    // Script สำหรับ Hamburger Menu (เหมือนเดิม)
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    if (hamburgerIcon && sidebarMenu) {
+        hamburgerIcon.addEventListener('click', () => {
+            hamburgerIcon.classList.toggle('open');
+            sidebarMenu.classList.toggle('open');
+        });
+    }
+  </script>
 
+  <script>
+    // --- 🔷 สคริปต์หลักสำหรับสร้างหน้ารวมป้ายกำกับ (Tag) ---
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('alphabetical-tag-container');
 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 2/8/68 <a href="/abhidhamma/atthasalini/p-11.html">อรูปาวจรจิต</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
+        // สมมติว่าไฟล์ tags.json มีโครงสร้างเป็น Array ของ Object 
+        // ที่แต่ละ Object คือ "บทความ" ซึ่งมี key ชื่อ "tags" เป็น Array ของ string
+        // เช่น: [{ "title": "...", "url": "...", "tags": ["กรรม", "กิเลส"] }, ...]
+        const dataUrl = '/assets/data/tags.json';
 
+        fetch(dataUrl)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(posts => {
+                // 1. รวบรวม Tag ทั้งหมดที่ไม่ซ้ำกัน
+                const allTags = new Set();
+                posts.forEach(post => {
+                    if (post.tags && Array.isArray(post.tags)) {
+                        post.tags.forEach(tag => allTags.add(tag.trim()));
+                    }
+                });
 
+                // 2. แปลง Set เป็น Array และเรียงลำดับตามตัวอักษรไทย
+                const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b, 'th'));
 
+                if (sortedTags.length === 0) {
+                    container.innerHTML = '<p class="loading-message">ยังไม่มีป้ายกำกับในระบบ</p>';
+                    return;
+                }
 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 1/8/68 <a href="/abhidhamma/atthasalini/p-10.html">รูปาวจรจิต</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
- <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 31/7/68 <a href="/abhidhamma/atthasalini/p-9.html">กามาวจรจิต</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>               
-                
- <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 31/7/68 <a href="/abhidhamma/atthasalini/p-8.html">จิตตุปปาทกัณฑ์</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 30/7/68 <a href="/abhidhamma/atthasalini/p-7.html">สุตตันติกทุกมาติกา</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
+                // 3. จัดกลุ่ม Tag ตามพยัญชนะตัวแรก
+                const groupedTags = sortedTags.reduce((acc, tag) => {
+                    const firstLetter = tag[0];
+                    if (!acc[firstLetter]) {
+                        acc[firstLetter] = [];
+                    }
+                    acc[firstLetter].push(tag);
+                    return acc;
+                }, {});
 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 29/7/68 <a href="/abhidhamma/atthasalini/p-6.html">อภิธรรมทุกมาติกา</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
+                // 4. สร้าง HTML แล้วนำไปแสดงผล
+                container.innerHTML = ''; // เคลียร์ข้อความ "กำลังโหลด..." ออก
 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 28/7/68 <a href="/abhidhamma/atthasalini/p-5.html">อัฎฐสาลินี ติกมาติกา</a> <span style="color: green;"> เรียบร้อยแล้ว</span></li>                
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 28/7/68 หน้าแรก <a href="/pages/sutta.html">พระสูตร<span style="color: green;"> เรียบร้อยแล้ว</span></li>  
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 28/7/68 ปรับปรุง หน้า error404<span style="color: green;"> เรียบร้อยแล้ว</span></li>               
- <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 28/7/68 <a href="/abhidhamma/atthasalini/p-4.html">การสังคายนาพระอภิธรรมครั้งแรก</a> <span style="color: green;"> เรียบร้อยแล้ว</span></li>                
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 28/7/68 แก้ไขอัฎฐสาลินี ตอนแรก <span style="color: green;"> เรียบร้อยแล้ว</span></li>           
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 27/7/68 แก้ไขหน้า<a href="/texts/visuddhimagga/index.html">วิสุทธิมรรค</a> (มีตกค้างบางส่วนเล็กน้อย)
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 27/7/68 แก้ไขหน้า Tags <span style="color: green;"> เรียบร้อยแล้ว</span></li> 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 26/7/68 เตรียม /books/เอกนิบาต.htm ใส่หน้าพระสูตร/ <span style="color: #FF00FF;">(ยังไม่ได้ทำพระสูตร index)</span>
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"> 25/7/2568 ปรับปรุง อภิธานศัพท์ input ที่ footer ในคอม </a> Ham/mobile ดึงจาก /pali.js
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">25/7/2568 อัฎฐสาลินี<a href="/abhidhamma/atthasalini/p-3.html"> ๓. การถ่ายทอดพระอภิธรรมสู่โลกมนุษย์</a><span style="color: green;"> เรียบร้อยแล้ว</span></li> 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">24/7/2568 อัฎฐสาลินี<a href="/abhidhamma/atthasalini/p-2.html">การเสด็จสู่สวรรค์ชั้นดาวดึงส์</a><span style="color: green;"> เรียบร้อยแล้ว</span></li> 
+                for (const letter in groupedTags) {
+                    // สร้าง Section ของแต่ละตัวอักษร
+                    const groupSection = document.createElement('section');
+                    groupSection.className = 'tag-group';
 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">24/7/2568 อัฎฐสาลินี<a href="/abhidhamma/atthasalini/p-1.html">ปฐมเหตุแห่งพระอภิธรรม</a><span style="color: green;"> เรียบร้อยแล้ว</span></li> 
-<li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">23/7/2568 <a href="/pages/vinaya.html">หน้าแรก พระวินัย </a><span style="color: #FF0000;"> รออัพเดท</span> (สมณวิสัย รอทำลิ้งค์เชื่อมวิสุทธิมรรค อ.อาจ)<br>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"><a href="/posts/ปาราชิก.html">รอแก้ nav ปาราชิก ๔</a></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"><a href="/posts/นิปา.html">นิสสัคคิยปาจิตตีย์</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"><a href="/posts/ปัตตวรรค.html">ปัตตวรรค</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"><a href="/posts/ปาจิตตีย์.html">ปาจิตตีย์</a> <span style="color: green;">มุสาวรรค เรียบร้อย</span> 
-<span style="color: #FF0000;">รอทำ ภูตคามวรรค/ ภิกขุโนวาทวรรค/ โภชนวรรค/ อเจลกวรรค/ สุราปานวรรค/ สัปปาณวรรค/ สหธัมมิกวรรค/ ราชวรรค</span>
-</li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"><a href="/posts/สังฆาทิเสส.html">สังฆาทิเสส</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"><a href="/posts/อนิยต.html">รอแก้ nav อนิยต</a></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"><a href="/posts/โกสิยวรรค.html">โกสิยวรรค</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">จัดรูปแบบหน้าหลัก</li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">หน้า <a href="/search/index.html">ค้นหา (ยังมี link เสีย)</a></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">เพิ่ม script อภิธานคำศัพท์<span style="color: green;"> เรียบร้อยแล้ว</span></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">หน้า <a href="/pages/katha.html">อรรถกถา เอาไว้ดูอ้างอิง</a> จากภาษาบาลี อังกฤษ</li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">หน้า <a href="/texts/visuddhimagga/index.html">วิสุทธิมรรค</a> รอแก้ หลายอย่าง</li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">หน้า <a href="/audio/index.html">เสียง ออดิโอ้</a> ปรับปรุงใช้วิธีดึง จาก Json<span style="color: green;"> เรียบร้อยแล้ว</span></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;">เพิ่ม script หน้าสวดมคธ <a href="/abhidhamma/ap1.html">ธรรมสังคณีปกรณ์</a><span style="color: green;"> เรียบร้อยแล้ว</span></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"><a href="/abhidhamma/atthasalini/index.html">คัมภีร์อัฏฐสาลินี หน้าแรก<span style="color: green;"> เรียบร้อยแล้ว</span></a></li>
-                    <li style="margin-bottom: 0; padding-bottom: 0; line-height: 1.4;"><a href="/pages/abhidhamma.html">หน้าแรก อภิธรรม<span style="color: green;"> เรียบร้อยแล้ว</span></a></li>
-                </ul>
-            </div>
+                    // สร้างหัวข้อตัวอักษร (เช่น ก, ข, ค)
+                    const header = document.createElement('h2');
+                    header.className = 'tag-group-header';
+                    header.textContent = letter;
+                    groupSection.appendChild(header);
 
-        </main>
+                    // สร้าง Container สำหรับเก็บลิงก์แท็ก
+                    const linksDiv = document.createElement('div');
+                    linksDiv.className = 'tag-links';
 
-        <div id="footer-placeholder"></div>
+                    // สร้างลิงก์สำหรับแต่ละแท็กในกลุ่ม
+                    groupedTags[letter].forEach(tag => {
+                        const link = document.createElement('a');
+                        link.className = 'tag-item';
+                        link.href = `/tags/${encodeURIComponent(tag)}.html`; // สร้าง URL แบบ δυναμικά
+                        link.textContent = tag;
+                        linksDiv.appendChild(link);
+                    });
 
-   
-
-<script src="/assets/js/main.js"></script>
+                    groupSection.appendChild(linksDiv);
+                    container.appendChild(groupSection);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching or processing tags:', error);
+                container.innerHTML = '<p class="error-message">เกิดข้อผิดพลาดในการโหลดข้อมูลป้ายกำกับ</p>';
+            });
+    });
+  </script>
 
 </body>
-
 </html>
