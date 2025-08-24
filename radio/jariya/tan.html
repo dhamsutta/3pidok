@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>จริยาปิฎก | การสร้างทานบารมีของพระมหาโพธิสัตว์ ๑๐ ชาติ</title>
+  <meta name="description" content="ฟังธรรมบรรยายชุดจริยาปิฎก กลุ่มทานบารมี ๑๐ ชาติ ๘ ตอน โดยพระอาจารย์สมบัติ">
+  <meta property="og:title" content="จริยาปิฎก | กลุ่มทานบารมี ๑๐ ชาติ ๘ ตอน">
+  <meta property="og:description" content="ฟังธรรมบรรยายชุดจริยาปิฎก กลุ่มทานบารมี ๑๐ ชาติ ๘ ตอน โดยพระอาจารย์สมบัติ">
+  <meta property="og:image" content="https://dhammasutta.github.io/images/dhamma-logo-512.png">
+  <link rel="icon" href="https://dhammasutta.github.io/images/dhamma-logo-512.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #fffdf6;
+      color: #222;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #6b4c2f;
+    }
+    ul#audioList {
+      list-style: none;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-left: 0;
+    }
+    ul#audioList li {
+      margin: 10px 0;
+      display: flex;
+      align-items: center;
+    }
+    ul#audioList button {
+      margin-right: 10px;
+      padding: 5px 12px;
+      background: #6b4c2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    audio {
+      display: block;
+      margin: 20px auto;
+      width: 100%;
+      max-width: 700px;
+    }
+  </style>
+</head>
+<body>
+
+<div style="max-width: 800px; margin: 0 auto 20px auto; padding: 20px; background-color: #f9f3e7; border-left: 5px solid #6b4c2f; border-radius: 8px; font-family: 'Sarabun', sans-serif; font-size: 18px; line-height: 1.7; color: #333;">
+  <strong>จริยาปิฎก</strong> เป็นคัมภีร์หนึ่งในชุด <strong>ขุททกนิกาย</strong> ของพระไตรปิฎกฝ่ายเถรวาท ว่าด้วยการประพฤติ (จริยา) ของพระมหาโพธิสัตว์  
+  เนื้อหาในคัมภีร์นี้เป็นเรื่องราวการบำเพ็ญบารมีก่อนการตรัสรู้เป็นพระสัมมาสัมพุทธเจ้า
+</div>
+
+  <h1>📚 จริยาปิฎก</h1>
+  <h2>การสร้างทานบารมีของพระมหาโพธิสัตว์ ๑๐ ชาติ</h2>
+
+  <ul id="audioList"></ul>
+
+  <audio id="audioPlayer" controls>
+    <source src="">
+    เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+  </audio>
+
+ <script>
+  const episodes = [
+    { title: "ตอนที่ ๑ เหตุแสดงจริยาปิฏก", url: "https://archive.org/download/jariya-7/Jariya1.mp3" },
+    { title: "ตอนที่ ๒ อกิตติดาบส จริยาที่ ๑", url: "https://archive.org/download/jariya-7/Jariya2.mp3" },
+    { title: "ตอนที่ ๓ สังขพราหมณ์ จริยาที่ ๒", url: "https://archive.org/download/jariya-7/Jariya3.mp3" },
+    { title: "ตอนที่ ๔ จริยาที่ ๓ พระเจ้าธนญชัย และ จริยาที่ ๔ มหาสุทัศน", url: "https://archive.org/download/jariya-7/Jariya4.mp3" },
+    { title: "ตอนที่ ๕ จริยาที่ ๕ มหาโควินทพราหมณ์ และ จริยาที่ ๖ พระเจ้าเนมิราช", url: "https://archive.org/download/jariya-7/Jariya5.mp3" },
+    { title: "ตอนที่ ๖ จริยาที่ ๗ พระจันทกุมาร และ จริยาที่ ๘ พระเจ้าสิวิราช", url: "https://archive.org/download/jariya-7/Jariya6.mp3.mp3" },
+    { title: "ตอนที่ ๗ พระเวสสันดร จริยาที่ ๙", url: "https://archive.org/download/jariya-7/Jariya7.mp3" },
+    { title: "ตอนที่ ๘ สสบัณฑิต จริยาที่ ๑๐ และ บทสรุป", url: "https://archive.org/download/jariya-7/Jariya8.mp3" }
+  ];
+
+  const listContainer = document.getElementById("audioList");
+  const audioPlayer = document.getElementById("audioPlayer");
+
+  // โหลดไฟล์ล่าสุดจาก localStorage (URL เท่านั้น)
+  const lastPlayed = localStorage.getItem("lastAudio");
+  if (lastPlayed) {
+    audioPlayer.src = lastPlayed;
+  }
+
+  // สร้างรายการเล่น
+  episodes.forEach(item => {
+    const li = document.createElement("li");
+    li.style.margin = "10px 0";
+
+    const button = document.createElement("button");
+    button.textContent = "▶️ ฟัง";
+    button.style.marginRight = "10px";
+    button.style.padding = "5px 12px";
+    button.style.background = "#6b4c2f";
+    button.style.color = "white";
+    button.style.border = "none";
+    button.style.borderRadius = "5px";
+
+    button.onclick = () => {
+      audioPlayer.src = item.url;
+      audioPlayer.play();
+      localStorage.setItem("lastAudio", item.url);         // 🔁 URL
+      localStorage.setItem("lastAudioTitle", item.title);  // ✅ ชื่ออ่านง่าย
+    };
+
+    const label = document.createElement("span");
+    label.textContent = item.title;
+    label.style.fontSize = "18px";
+
+    li.appendChild(button);
+    li.appendChild(label);
+    listContainer.appendChild(li);
+  });
+</script>
+
+</body>
+</html>
