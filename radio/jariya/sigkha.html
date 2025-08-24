@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>จริยาปิฎก | ศีลบารมี ๑๐ ชาติ</title>
+  <meta name="description" content="ฟังธรรมบรรยายชุดจริยาปิฎก ศีลบารมี ๑๐ ชาติ โดยพระอาจารย์สมบัติ">
+  <meta property="og:title" content="จริยาปิฎก | ศีลบารมี ๑๐ ชาติ">
+  <meta property="og:description" content="ฟังธรรมบรรยายชุดจริยาปิฎก ศีลบารมี ๑๐ ชาติ โดยพระอาจารย์สมบัติ">
+  <meta property="og:image" content="https://dhammasutta.github.io/images/dhamma-logo-512.png">
+  <link rel="icon" href="https://dhammasutta.github.io/images/dhamma-logo-512.png" type="image/png">
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #fffdf6;
+      color: #222;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #6b4c2f;
+    }
+    ul#audioList {
+      list-style: none;
+      max-width: 700px;
+      margin: 0 auto;
+      padding-left: 0;
+    }
+    ul#audioList li {
+      margin: 15px 0;
+      display: flex;
+      align-items: flex-start;
+      background-color: #f3e9db;
+      padding: 10px;
+      border-radius: 8px;
+    }
+    ul#audioList button {
+      margin-right: 12px;
+      padding: 5px 12px;
+      background: #6b4c2f;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+    ul#audioList span {
+      font-size: 18px;
+      white-space: pre-wrap;
+      line-height: 1.6;
+    }
+    audio {
+      display: block;
+      margin: 30px auto 10px auto;
+      width: 100%;
+      max-width: 700px;
+    }
+  </style>
+</head>
+<body>
+
+<div style="max-width: 800px; margin: 0 auto 20px auto; padding: 20px; background-color: #f9f3e7; border-left: 5px solid #6b4c2f; border-radius: 8px; font-family: 'Sarabun', sans-serif; font-size: 18px; line-height: 1.7; color: #333;">
+  <strong>จริยาปิฎก</strong> เป็นคัมภีร์หนึ่งในชุด <strong>ขุททกนิกาย</strong> ของพระไตรปิฎกฝ่ายเถรวาท ว่าด้วยการประพฤติ (จริยา) ของพระมหาโพธิสัตว์  
+  เนื้อหาในคัมภีร์นี้เป็นเรื่องราวการบำเพ็ญบารมีก่อนการตรัสรู้เป็นพระสัมมาสัมพุทธเจ้า
+</div>
+
+<h1>📚 จริยาปิฎก</h1>
+<h2>การสร้างศีลบารมีของพระมหาโพธิสัตว์ ๑๐ ชาติ</h2>
+
+<ul id="audioList"></ul>
+
+<audio id="audioPlayer" controls>
+  <source src="">
+  เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+</audio>
+
+<script>
+  const episodes = [
+    {
+      title: "จริยาที่ ๑ ว่าด้วยจริยาวัตรของพระยาช้างสีลว\nจริยาที่ ๒ ว่าด้วยจริยาวัตรของภูริทัตตนาคราช\nจริยาที่ ๓ ว่าด้วยจริยาวัตรของจัมเปยยกนาครา",
+      url: "https://archive.org/download/sigkha1/sigkha1.mp3"
+    },
+    {
+      title: "จริยาที่ ๔ ว่าด้วยจริยาวัตรของจูฬโพธิปริพาชก\nจริยาที่ ๕ ว่าด้วยจริยาวัตรของพระยากระบือ",
+      url: "https://archive.org/download/sigkha1/sigkha2.mp3"
+    },
+    {
+      title: "จริยาที่ ๖ ว่าด้วยจริยาวัตรของพระยาเนื้อ\nจริยาที่ ๗ ว่าด้วยจริยาวัตรของมาตังคชฎิล\nจริยาที่ ๘ ว่าด้วยจริยาวัตรของธรรมเทวปุตต",
+      url: "https://archive.org/download/sigkha1/sigkha3.mp3"
+    },
+    {
+      title: "ศรัทธาเพื่อออกจากวัฏฏทุกข์\nจริยาที่ ๙ ว่าด้วยจริยาวัตรของพระเจ้าชยทิส\nจริยาที่ ๑๐ ว่าด้วยจริยาวัตรของสังขปาลนาคราช",
+      url: "https://archive.org/download/sigkha1/sigkha4.mp3"
+    }
+  ];
+
+  const listContainer = document.getElementById("audioList");
+  const audioPlayer = document.getElementById("audioPlayer");
+
+  // โหลดเสียงล่าสุดที่เล่น
+  const lastPlayed = localStorage.getItem("lastAudio");
+  if (lastPlayed) {
+    audioPlayer.src = lastPlayed;
+  }
+
+  // สร้างรายการ
+  episodes.forEach(item => {
+    const li = document.createElement("li");
+
+    const button = document.createElement("button");
+    button.textContent = "▶️ ฟัง";
+    button.onclick = () => {
+      audioPlayer.src = item.url;
+      audioPlayer.play();
+      localStorage.setItem("lastAudio", item.url);
+      localStorage.setItem("lastAudioTitle", item.title);
+    };
+
+    const label = document.createElement("span");
+    label.innerHTML = item.title.replace(/\n/g, "<br>");
+
+    li.appendChild(button);
+    li.appendChild(label);
+    listContainer.appendChild(li);
+  });
+</script>
+
+</body>
+</html>
