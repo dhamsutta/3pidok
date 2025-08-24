@@ -2,411 +2,387 @@
 <html lang="th">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>สถานีธรรม|ธรรมสุตตะ</title>
-    <meta name="description" content="สถานีฟังธรรมออนไลน์ รวมเสียงธรรมะบรรยายตามพระไตรปิฎก" />
-    <meta name="keywords" content="ธรรม, ฟังธรรม, เสียงธรรม, สถานีธรรมะ" />
-    <meta name="author" content="ธรรมสุตตะ" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>สถานีธรรม|ธรรมสุตตะ</title>
+    <meta name="description" content="สถานีฟังธรรมออนไลน์ รวมเสียงธรรมะบรรยายตามพระไตรปิฎก" />
+    <meta name="keywords" content="ธรรม, ฟังธรรม, เสียงธรรม, สถานีธรรมะ" />
+    <meta name="author" content="ธรรมสุตตะ" />
 
-    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
-    <link rel="stylesheet" href="/assets/css/style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-568JJVLV44');
-    </script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-568JJVLV44');
+    </script>
 
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "สถานีธรรม | ธรรมสุตตะ",
-      "url": "https://www.dhamma-sutta.com/radio/index.html",
-      "description": "สถานีฟังธรรมออนไลน์ รวมเสียงธรรมะบรรยายตามพระไตรปิฎก",
-      "keywords": "ธรรม, ฟังธรรม, เสียงธรรม, สถานีธรรมะ",
-      "author": {
-        "@type": "Organization",
-        "name": "ธรรมสุตตะ"
-      },
-      "inLanguage": "th",
-        "mainEntityOfPage": {
-          "@type": "WebPage",
-          "@id": "https://www.dhamma-sutta.com/radio/index.html"
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": "https://dhamma-sutta.com/?q={search_term_string}",
-        "query-input": "required name=search_term_string"
-      }
-    }
-    </script>
-  <style>
-    body {
-      font-family: "TH Sarabun New", "Sarabun", Tahoma, sans-serif;
-      background: #fffaf0;
-      color: #5a3e1b;
-      padding: 20px;
-      line-height: 1.6;
-      /* เพิ่ม padding-bottom เพื่อไม่ให้เนื้อหาถูกบังโดย fixed player + history */
-      /* ปรับค่าตามความสูงโดยประมาณของ fixed player และ history box ที่อาจแสดง */
-      padding-bottom: 280px; /* <<<<<<< อาจจะต้องปรับค่านี้ */
-    }
-    .container {
-      max-width: 700px;
-      margin: auto;
-      background: #fffef7;
-      padding: 25px;
-      border: 1px solid #d2b48c;
-      border-radius: 12px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    h1, h2 {
-      text-align: center;
-      color: #8B0000;
-    }
-    .search-input {
-      font-size: 18px;
-      width: 50%;
-      padding: 10px 14px;
-      border-radius: 24px;
-      border: 1px solid #4285F4;
-      background-color: #f0f7ff;
-      margin: 0 0 15px;
-      display: block;
-      color: #333;
-    }
-    .playlist-select {
-      font-size: 18px;
-      width: 100%;
-      padding: 8px;
-      border-radius: 8px;
-      border: 1px solid #c9a77d;
-      margin-bottom: 15px;
-    }
-    .stat-info {
-      text-align: center;
-      font-size: 14px;
-      color: #888;
-      margin-bottom: 20px;
-    }
-    /* .history-box จะถูกย้ายไปอยู่ใน fixed player */
-    /* สไตล์เดิมของ history-box จะยังคงใช้ได้ แต่ context การแสดงผลเปลี่ยน */
-    .history-box {
-      font-size: 16px;
-      color: #444;
-      background: #f5f3eb;
-      border: 1px dashed #bbb;
-      border-radius: 10px;
-      padding: 15px;
-      margin-top: 10px; /* ระยะห่างจาก audio player */
-      /* margin-bottom: 20px; /* ไม่จำเป็นแล้วเมื่ออยู่ใน fixed player */
-    }
-    .track-list {
-      list-style: none;
-      padding: 0;
-      margin-top: 20px;
-    }
-    .track-item {
-      margin: 8px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .track-button {
-      flex: 1;
-      padding: 10px;
-      background: #fdf6e3;
-      border: 1px solid #d5b48c;
-      border-radius: 8px;
-      text-align: left;
-      font-size: 18px;
-      color: #5a3e1b;
-      cursor: pointer;
-      margin-right: 10px;
-    }
-    .track-button:hover {
-      background: #f7eacc;
-    }
-    .share-button {
-      font-size: 16px;
-      padding: 6px 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
-      background: #f5f5f5;
-      cursor: pointer;
-    }
-    .footer-link {
-      text-align: center;
-      font-size: 14px;
-      color: #999;
-      margin-top: 40px;
-    }
-    .footer-link a {
-      color: #999;
-      text-decoration: none;
-    }
-    .footer-link a:hover {
-      text-decoration: underline;
-    }
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebPage",
+      "name": "สถานีธรรม | ธรรมสุตตะ",
+      "url": "https://www.dhamma-sutta.com/radio/index.html",
+      "description": "สถานีฟังธรรมออนไลน์ รวมเสียงธรรมะบรรยายตามพระไตรปิฎก",
+      "keywords": "ธรรม, ฟังธรรม, เสียงธรรม, สถานีธรรมะ",
+      "author": {
+        "@type": "Organization",
+        "name": "ธรรมสุตตะ"
+      },
+      "inLanguage": "th",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://www.dhamma-sutta.com/radio/index.html"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://dhamma-sutta.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+  <style>
+    body {
+      font-family: "TH Sarabun New", "Sarabun", Tahoma, sans-serif;
+      background: #fffaf0;
+      color: #5a3e1b;
+      padding: 20px;
+      line-height: 1.6;
+      /* เพิ่ม padding-bottom เพื่อไม่ให้เนื้อหาถูกบังโดย fixed player + history */
+      /* ปรับค่าตามความสูงโดยประมาณของ fixed player และ history box ที่อาจแสดง */
+      padding-bottom: 280px; /* <<<<<<< อาจจะต้องปรับค่านี้ */
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fffef7;
+      padding: 25px;
+      border: 1px solid #d2b48c;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #8B0000;
+    }
+    .search-input {
+      font-size: 18px;
+      width: 50%;
+      padding: 10px 14px;
+      border-radius: 24px;
+      border: 1px solid #4285F4;
+      background-color: #f0f7ff;
+      margin: 0 0 15px;
+      display: block;
+      color: #333;
+    }
+    .playlist-select {
+      font-size: 18px;
+      width: 100%;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #c9a77d;
+      margin-bottom: 15px;
+    }
+    .stat-info {
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      margin-bottom: 20px;
+    }
+    /* .history-box จะถูกย้ายไปอยู่ใน fixed player */
+    /* สไตล์เดิมของ history-box จะยังคงใช้ได้ แต่ context การแสดงผลเปลี่ยน */
+    .history-box {
+      font-size: 16px;
+      color: #444;
+      background: #f5f3eb;
+      border: 1px dashed #bbb;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 10px; /* ระยะห่างจาก audio player */
+      /* margin-bottom: 20px; /* ไม่จำเป็นแล้วเมื่ออยู่ใน fixed player */
+    }
+    .track-list {
+      list-style: none;
+      padding: 0;
+      margin-top: 20px;
+    }
+    .track-item {
+      margin: 8px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .track-button {
+      flex: 1;
+      padding: 10px;
+      background: #fdf6e3;
+      border: 1px solid #d5b48c;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 18px;
+      color: #5a3e1b;
+      cursor: pointer;
+      margin-right: 10px;
+    }
+    .track-button:hover {
+      background: #f7eacc;
+    }
 
-    /* --- START: CSS สำหรับ Fixed Bottom Player --- */
-    .fixed-bottom-player-wrapper {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: #fffef7; /* สีพื้นหลังคล้ายกับ container */
-      padding: 15px 20px; /* ลด padding-bottom ลงเล็กน้อย เพราะ history box จะมี margin/padding ของตัวเอง */
-      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
-      z-index: 1000; /* ให้อยู่เหนือองค์ประกอบอื่น */
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-sizing: border-box;
-    }
+    .footer-link {
+      text-align: center;
+      font-size: 14px;
+      color: #999;
+      margin-top: 40px;
+    }
+    .footer-link a {
+      color: #999;
+      text-decoration: none;
+    }
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
 
-    .fixed-bottom-player-wrapper .resume-button {
-      margin-bottom: 10px;
-      padding: 8px 14px;
-      border-radius: 6px;
-      background: #fef2cc;
-      border: 1px solid #e0c76f;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .fixed-bottom-player-wrapper .resume-button:hover {
-      background: #fce7aa;
-    }
+    /* --- START: CSS สำหรับ Fixed Bottom Player --- */
+    .fixed-bottom-player-wrapper {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: #fffef7; /* สีพื้นหลังคล้ายกับ container */
+      padding: 15px 20px; /* ลด padding-bottom ลงเล็กน้อย เพราะ history box จะมี margin/padding ของตัวเอง */
+      box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+      z-index: 1000; /* ให้อยู่เหนือองค์ประกอบอื่น */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-sizing: border-box;
+    }
 
-    .fixed-bottom-player-wrapper audio {
-      width: 100%;
-      max-width: 700px;
-    }
+    .fixed-bottom-player-wrapper .resume-button {
+      margin-bottom: 10px;
+      padding: 8px 14px;
+      border-radius: 6px;
+      background: #fef2cc;
+      border: 1px solid #e0c76f;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .fixed-bottom-player-wrapper .resume-button:hover {
+      background: #fce7aa;
+    }
 
-    /* สไตล์เพิ่มเติมสำหรับ historyBox เมื่ออยู่ใน fixed player */
-    .fixed-bottom-player-wrapper .history-box {
-        max-width: 700px; /* ทำให้ความกว้างสอดคล้องกับ audio player */
-        width: 100%;     /* ให้เต็มความกว้างของ max-width */
-        box-sizing: border-box; /* ป้องกัน padding ทำให้เกิน max-width */
-        margin-bottom: 0; /* ถ้าไม่ต้องการให้มีช่องว่างด้านล่างสุดของ fixed wrapper */
-    }
-    /* --- END: CSS สำหรับ Fixed Bottom Player --- */
+    .fixed-bottom-player-wrapper audio {
+      width: 100%;
+      max-width: 700px;
+    }
 
-  </style>
+    /* สไตล์เพิ่มเติมสำหรับ historyBox เมื่ออยู่ใน fixed player */
+    .fixed-bottom-player-wrapper .history-box {
+        max-width: 700px; /* ทำให้ความกว้างสอดคล้องกับ audio player */
+        width: 100%;     /* ให้เต็มความกว้างของ max-width */
+        box-sizing: border-box; /* ป้องกัน padding ทำให้เกิน max-width */
+        margin-bottom: 0; /* ถ้าไม่ต้องการให้มีช่องว่างด้านล่างสุดของ fixed wrapper */
+    }
+    /* --- END: CSS สำหรับ Fixed Bottom Player --- */
+
+  </style>
 </head>
 <body>
-  <div id="nav-placeholder"></div>
+  <div id="nav-placeholder"></div>
 
 
-  <div class="container">
-    <h1></h1> <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาชื่อตอน..." />
+  <div class="container">
+    <h1></h1> <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาชื่อตอน..." />
 
-    <select id="playlistSelect" class="playlist-select">
-      <option value="">เลือกชุดธรรมะ...</option>
-    </select>
+    <select id="playlistSelect" class="playlist-select">
+      <option value="">เลือกชุดธรรมะ...</option>
+    </select>
 
-    <div id="statInfo" class="stat-info">กำลังโหลดรายการ...</div>
+    <div id="statInfo" class="stat-info">กำลังโหลดรายการ...</div>
 
-    <ul id="trackList" class="track-list"></ul>
+    <ul id="trackList" class="track-list"></ul>
 
-    <div class="footer-link">
-      <a href="/" target="_blank">กลับ หน้าแรก</a>
-    </div>
-  </div>
+    <div class="footer-link">
+      <a href="/" target="_blank">กลับ หน้าแรก</a>
+    </div>
+  </div>
 
- <div class="fixed-bottom-player-wrapper" style="display: none;">
-    <div>
-        <button class="resume-button" onclick="resumeLastTrack()">▶️ เล่นตอนล่าสุดอีกครั้ง</button>
-    </div>
+ <div class="fixed-bottom-player-wrapper" style="display: none;">
+    <div>
+        <button class="resume-button" onclick="resumeLastTrack()">▶️ เล่นตอนล่าสุดอีกครั้ง</button>
+    </div>
 </div>
 
-   <!-- ✅ Player ติดด้านล่าง รองรับมือถือทุกรุ่น -->
-<div id="bottomAudioPlayer">
-  <audio id="audioPlayer" controls>
-    <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
-    เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
-  </audio>
+   <div id="bottomAudioPlayer">
+  <audio id="audioPlayer" controls>
+    <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
+    เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+  </audio>
 </div>
 
 <style>
-  #bottomAudioPlayer {
-    position: fixed;
-    bottom: 10px; /* ขยับขึ้นนิดนึง ไม่ติดขอบล่างเกินไป */
-    left: 0;
-    width: 100%;
-    background: #f5f5f5;
-    padding: 10px;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 9999;
-  }
+  #bottomAudioPlayer {
+    position: fixed;
+    bottom: 10px; /* ขยับขึ้นนิดนึง ไม่ติดขอบล่างเกินไป */
+    left: 0;
+    width: 100%;
+    background: #f5f5f5;
+    padding: 10px;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+  }
 
-  #bottomAudioPlayer audio {
-    width: 100%;
-  }
+  #bottomAudioPlayer audio {
+    width: 100%;
+  }
 
-  body {
-    padding-bottom: 100px; /* เพิ่มระยะรองรับ UI iPhone */
-  }
+  body {
+    padding-bottom: 100px; /* เพิ่มระยะรองรับ UI iPhone */
+  }
 </style>
 
 
 
-    <div id="historyBox" class="history-box" style="display: none;"></div>
+    <div id="historyBox" class="history-box" style="display: none;"></div>
 
-  </div>
-  
-  
-  
-  
-  
-  
+  </div>
+  
+  
+  
+  
+  
+  
 <div class="page-wrapper">
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
-      });
-    }
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js');
+      });
+    }
 
-    let playlists;
-    let currentTracks = [];
+    let playlists;
+    let currentTracks = [];
 
-    const audio = document.getElementById("audioPlayer");
-    const trackList = document.getElementById("trackList");
-    const playlistSelect = document.getElementById("playlistSelect");
-    const searchInput = document.getElementById("searchInput");
-    const statInfo = document.getElementById("statInfo");
-    const historyBox = document.getElementById("historyBox"); // ยังคงใช้ ID เดิม
+    const audio = document.getElementById("audioPlayer");
+    const trackList = document.getElementById("trackList");
+    const playlistSelect = document.getElementById("playlistSelect");
+    const searchInput = document.getElementById("searchInput");
+    const statInfo = document.getElementById("statInfo");
+    const historyBox = document.getElementById("historyBox");
 
-    fetch("playlists.json")
-      .then(response => response.json())
-      .then(data => {
-        playlists = data;
-        let totalTracks = 0;
-        Object.keys(playlists).forEach(name => {
-          const option = document.createElement("option");
-          option.value = name;
-          option.textContent = name;
-          playlistSelect.appendChild(option);
-          totalTracks += playlists[name].length;
-        });
+    fetch("playlists.json")
+      .then(response => response.json())
+      .then(data => {
+        playlists = data;
+        let totalTracks = 0;
+        Object.keys(playlists).forEach(name => {
+          const option = document.createElement("option");
+          option.value = name;
+          option.textContent = name;
+          playlistSelect.appendChild(option);
+          totalTracks += playlists[name].length;
+        });
 
-        statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks} ตอนใน ${Object.keys(playlists).length} ชุด 🙏`;
+        statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks} ตอนใน ${Object.keys(playlists).length} ชุด 🙏`;
 
-        const lastTrack = localStorage.getItem("lastTrackUrl");
-        if (lastTrack) {
-          // audio.src = lastTrack; // ไม่ preload
-        }
+        const lastTrack = localStorage.getItem("lastTrackUrl");
+        if (lastTrack) {
+          // audio.src = lastTrack; // ไม่ preload
+        }
 
-        showHistory(); // เรียก showHistory หลังจากโหลด playlists
-      });
+        showHistory();
+      });
 
-    playlistSelect.addEventListener("change", function () {
-      const selected = this.value;
-      // trackList.innerHTML = ""; // ย้ายไปทำใน showFilteredTracks
-      currentTracks = playlists[selected] || [];
-      searchInput.value = ""; // Clear search input when playlist changes
-      showFilteredTracks(""); // แสดง tracks ทั้งหมดใน playlist ใหม่
-    });
+    playlistSelect.addEventListener("change", function () {
+      const selected = this.value;
+      currentTracks = playlists[selected] || [];
+      searchInput.value = "";
+      showFilteredTracks("");
+    });
 
-    searchInput.addEventListener("input", () => {
-      showFilteredTracks(searchInput.value);
-    });
+    searchInput.addEventListener("input", () => {
+      showFilteredTracks(searchInput.value);
+    });
 
-    function showFilteredTracks(keyword) {
-      trackList.innerHTML = ""; // Clear list before filtering
-      const filtered = (currentTracks || []).filter(track => // เพิ่ม (currentTracks || []) เพื่อป้องกัน error ถ้า currentTracks เป็น undefined
-        track.title.toLowerCase().includes(keyword.toLowerCase())
-      );
-      filtered.forEach(track => {
-        const li = document.createElement("li");
-        li.className = "track-item";
+    function showFilteredTracks(keyword) {
+      trackList.innerHTML = "";
+      const filtered = (currentTracks || []).filter(track =>
+        track.title.toLowerCase().includes(keyword.toLowerCase())
+      );
+      filtered.forEach(track => {
+        const li = document.createElement("li");
+        li.className = "track-item";
 
-        const btn = document.createElement("button");
-        btn.className = "track-button";
-        btn.textContent = `▶️ ${track.title}`;
-        btn.onclick = () => {
-          audio.src = track.url;
-          audio.play();
-          localStorage.setItem("lastTrackUrl", track.url);
-          saveHistory(track);
-          showHistory();
-        };
+        const btn = document.createElement("button");
+        btn.className = "track-button";
+        btn.textContent = `▶️ ${track.title}`;
+        btn.onclick = () => {
+          audio.src = track.url;
+          audio.play();
+          localStorage.setItem("lastTrackUrl", track.url);
+          saveHistory(track);
+          showHistory();
+        };
 
-        const shareBtn = document.createElement("button");
-        shareBtn.className = "share-button";
-        shareBtn.textContent = "🔗 แชร์";
-        shareBtn.onclick = () => {
-          navigator.clipboard.writeText(track.url);
-          alert("คัดลอกลิงก์แล้ว: " + track.url);
-        };
+        li.appendChild(btn);
+        trackList.appendChild(li);
+      });
+    }
 
-        li.appendChild(btn);
-        li.appendChild(shareBtn);
-        trackList.appendChild(li);
-      });
-    }
+    function saveHistory(track) {
+      let history = JSON.parse(localStorage.getItem("history")) || [];
+      history = history.filter(t => t.url !== track.url);
+      history.unshift({ title: track.title, url: track.url });
+      if (history.length > 3) history.pop();
+      localStorage.setItem("history", JSON.stringify(history));
+    }
 
-    function saveHistory(track) {
-      let history = JSON.parse(localStorage.getItem("history")) || [];
-      history = history.filter(t => t.url !== track.url);
-      history.unshift({ title: track.title, url: track.url });
-      if (history.length > 3) history.pop();
-      localStorage.setItem("history", JSON.stringify(history));
-    }
+    function showHistory() {
+      const history = JSON.parse(localStorage.getItem("history")) || [];
+      if (history.length === 0) {
+        historyBox.style.display = "none";
+        return;
+      }
+      historyBox.style.display = "block";
+      historyBox.innerHTML = "<strong>🕒 ฟังล่าสุด:</strong><ul style='padding-left: 20px; margin-top: 5px; margin-bottom: 0;'>" +
+        history.map(item => `<li><a href="#" onclick="event.preventDefault(); playFromHistory('${item.url}', '${item.title.replace(/'/g, "\\'")}')">${item.title}</a></li>`).join('') +
+        "</ul>";
+    }
 
-    function showHistory() {
-      const history = JSON.parse(localStorage.getItem("history")) || [];
-      if (history.length === 0) {
-        historyBox.style.display = "none";
-        return;
-      }
-      historyBox.style.display = "block";
-      historyBox.innerHTML = "<strong>🕒 ฟังล่าสุด:</strong><ul style='padding-left: 20px; margin-top: 5px; margin-bottom: 0;'>" + // ปรับ style ของ ul เล็กน้อย
-        history.map(item => `<li><a href="#" onclick="event.preventDefault(); playFromHistory('${item.url}', '${item.title.replace(/'/g, "\\'")}')">${item.title}</a></li>`).join('') +
-        "</ul>";
-    }
+    function playFromHistory(url, title) {
+        audio.src = url;
+        audio.play();
+        localStorage.setItem("lastTrackUrl", url);
+    }
 
-    function playFromHistory(url, title) {
-        audio.src = url;
-        audio.play();
-        localStorage.setItem("lastTrackUrl", url);
-        // ไม่จำเป็นต้อง saveHistory ซ้ำที่นี่ เว้นแต่ต้องการดันขึ้นบนสุดอีกครั้ง
-        // showHistory(); // อาจจะไม่จำเป็นต้องเรียกซ้ำ ถ้า UI ไม่ได้เปลี่ยนจากการกระทำนี้โดยตรง
-    }
-
-    function resumeLastTrack() {
-      const lastTrack = localStorage.getItem("lastTrackUrl");
-      if (lastTrack) {
-        audio.src = lastTrack;
-        audio.play();
-      } else {
-        alert("ยังไม่มีรายการที่ฟังล่าสุด");
-      }
-    }
-  </script>
+    function resumeLastTrack() {
+      const lastTrack = localStorage.getItem("lastTrackUrl");
+      if (lastTrack) {
+        audio.src = lastTrack;
+        audio.play();
+      } else {
+        alert("ยังไม่มีรายการที่ฟังล่าสุด");
+      }
+    }
+  </script>
 
 <script>
 if ('mediaSession' in navigator) {
-  navigator.mediaSession.metadata = new MediaMetadata({
-    artwork: [
-      {
-        src: 'https://raw.githubusercontent.com/Dhammasutta/dhamma-radio/refs/heads/main/images/dhamma-logo-512.png',
-        sizes: '512x512',
-        type: 'image/png'
-      }
-    ]
-  });
+  navigator.mediaSession.metadata = new MediaMetadata({
+    artwork: [
+      {
+        src: 'https://raw.githubusercontent.com/Dhammasutta/dhamma-radio/refs/heads/main/images/dhamma-logo-512.png',
+        sizes: '512x512',
+        type: 'image/png'
+      }
+    ]
+  });
 }
 </script>
-
-
-
-  
 </body>
 </html>
