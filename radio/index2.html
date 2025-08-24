@@ -331,7 +331,13 @@
           showHistory();
         };
 
-        
+        const shareBtn = document.createElement("button");
+        shareBtn.className = "share-button";
+        shareBtn.textContent = "🔗 แชร์";
+        shareBtn.onclick = () => {
+          navigator.clipboard.writeText(track.url);
+          alert("คัดลอกลิงก์แล้ว: " + track.url);
+        };
 
         li.appendChild(btn);
         li.appendChild(shareBtn);
