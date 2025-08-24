@@ -1,284 +1,128 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>เครื่องเล่นไฟล์เสียง</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;700&display=swap" rel="stylesheet">
-
-    <style>
-        /* --- 🎨 CSS Styles --- */
-        :root {
-            --primary-color: #4CAF50; /* สีเขียวหลัก */
-            --light-gray: #f4f4f9;
-            --dark-text: #333;
-            --light-text: #666;
-            --border-color: #e0e0e0;
-            --active-bg: #e8f5e9;
-        }
-
-        body {
-            font-family: 'Sarabun', sans-serif;
-            background-color: var(--light-gray);
-            margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .player-container {
-            max-width: 700px;
-            width: 100%;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .header {
-            text-align: center;
-            padding: 20px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        .header h1 {
-            margin: 0 0 5px 0;
-            color: var(--dark-text);
-            font-size: 1.8em;
-        }
-        .header p {
-            margin: 0;
-            color: var(--light-text);
-        }
-
-        .now-playing {
-            display: flex;
-            align-items: center;
-            padding: 20px;
-            background-color: #fafafa;
-        }
-
-        #track-artwork {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-            margin-right: 20px;
-            object-fit: cover;
-        }
-
-        .track-details {
-            flex-grow: 1;
-        }
-
-        #track-title {
-            font-size: 1.2em;
-            font-weight: 700;
-            margin: 0 0 5px 0;
-            color: var(--dark-text);
-        }
-
-        #track-artist {
-            font-size: 0.9em;
-            color: var(--light-text);
-            margin: 0;
-        }
-
-        #audio-player {
-            width: 100%;
-            margin-top: 10px;
-        }
-
-        /* Playlist Styles */
-        .playlist-container {
-            max-height: 350px;
-            overflow-y: auto;
-        }
-
-        .playlist {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .playlist li {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            border-bottom: 1px solid var(--border-color);
-            cursor: pointer;
-            transition: background-color 0.2s;
-        }
-        .playlist li:last-child {
-            border-bottom: none;
-        }
-
-        .playlist li:hover {
-            background-color: #f9f9f9;
-        }
-
-        .playlist li.active {
-            background-color: var(--active-bg);
-            border-left: 4px solid var(--primary-color);
-            padding-left: 16px;
-        }
-        
-        .playlist .track-name {
-            color: var(--dark-text);
-        }
-        .playlist li.active .track-name {
-            color: var(--primary-color);
-            font-weight: 700;
-        }
-
-        .playlist .track-duration {
-            color: var(--light-text);
-            font-size: 0.9em;
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ธรรมสุตตะ - Audio Playlist</title>
+  <style>
+    body {
+      font-family: Tahoma, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    /* เฟรม */
+    #player-frame {
+      flex: 1;
+      background: #ffffff;
+      text-align: center;
+      padding: 15px;
+      border-bottom: 2px solid #ddd;
+    }
+    #playlist-frame {
+      flex: 2;
+      background: #eef7ef;
+      padding: 15px;
+      overflow-y: auto;
+      border-bottom: 2px solid #ddd;
+    }
+    #menu-frame {
+      flex: 1;
+      background: #ffffff;
+      padding: 15px;
+      text-align: center;
+    }
+    /* ปุ่ม */
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 8px 15px;
+      margin: 5px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #45a049;
+    }
+    .track {
+      padding: 10px;
+      margin: 5px 0;
+      background: #fff;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .track:hover {
+      background: #c8e6c9;
+    }
+  </style>
 </head>
 <body>
 
-    <div class="player-container">
-        <header class="header">
-            <h1>สถานีวิทยุพระสูตร</h1>
-            <p>กระจายเสียงธรรม โดยพระอาจารย์คึกฤทธิ์ โสตฺถิผโล</p>
-        </header>
+  <!-- เฟรม 3: Player -->
+  <div id="player-frame">
+    <h2 id="current-title">เลือกหัวข้อเพื่อเล่น</h2>
+    <audio id="audio-player" controls>
+      <source src="" type="audio/mpeg">
+      เบราว์เซอร์ของคุณไม่รองรับ audio player
+    </audio>
+  </div>
 
-        <div class="now-playing">
-            <img id="track-artwork" src="https://f4.bcbits.com/img/a3146403332_10.jpg" alt="Artwork">
-            <div class="track-details">
-                <h3 id="track-title">เลือกไฟล์เสียงที่ท่านต้องการ</h3>
-                <p id="track-artist">จากรายการด้านล่าง</p>
-                <audio id="audio-player" controls></audio>
-            </div>
-        </div>
+  <!-- เฟรม 2: Playlist -->
+  <div id="playlist-frame">
+    <h3>Playlist</h3>
+    <div id="playlist"></div>
+  </div>
 
-        <div class="playlist-container">
-            <ol id="playlist" class="playlist">
-                </ol>
-        </div>
-    </div>
+  <!-- เฟรม 1: เลือกหัวข้อ -->
+  <div id="menu-frame">
+    <h3>เลือกหมวดหัวข้อ</h3>
+    <button onclick="loadPlaylist('ชุดพระพุทธเจ้า')">ชุดพระพุทธเจ้า</button>
+    <button onclick="loadPlaylist('ชุดพระสูตร')">ชุดพระสูตร</button>
+    <button onclick="loadPlaylist('ชุดพระวินัย')">ชุดพระวินัย</button>
+  </div>
 
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
+  <script>
+    // ตัวอย่างข้อมูล playlist
+    const playlists = {
+      "ชุดพระพุทธเจ้า": [
+        { title: "พระพุทธเจ้าผู้ทรงคุณ", src: "audio/buddha1.mp3" },
+        { title: "พุทธวงศ์", src: "audio/buddha2.mp3" }
+      ],
+      "ชุดพระสูตร": [
+        { title: "ธัมมจักกัปปวัตนสูตร", src: "audio/sutta1.mp3" },
+        { title: "อนัตตลักขณสูตร", src: "audio/sutta2.mp3" }
+      ],
+      "ชุดพระวินัย": [
+        { title: "ปาราชิก ๔", src: "audio/vinaya1.mp3" },
+        { title: "สังฆาทิเสส ๑๓", src: "audio/vinaya2.mp3" }
+      ]
+    };
 
-        // --- 🎵 1. แก้ไขข้อมูลไฟล์เสียงของคุณที่นี่ ---
-        // เพิ่มข้อมูลไฟล์เสียงของคุณในรูปแบบนี้
-        // title: ชื่อไฟล์
-        // artist: ชื่อผู้บรรยาย
-        // src: URL ไฟล์เสียงจาก Archive.org
-        // artwork: URL รูปภาพปก
-        // duration: ความยาวไฟล์เสียง (แสดงผลเฉยๆ)
-        const playlistData = [
-            {
-                title: 'พระพุทธเจ้าผู้ทรงคุณ',
-                artist: 'อ.คึกฤทธิ์ โสตฺถิผโล',
-                src: 'https://archive.org/download/DhammaSutta-AudioBook/001.mp3',
-                artwork: 'https://i1.sndcdn.com/artworks-000108600851-q52u0j-t500x500.jpg',
-                duration: '58:12'
-            },
-            {
-                title: 'พุทธวจน',
-                artist: 'อ.คึกฤทธิ์ โสตฺถิผโล',
-                src: 'https://archive.org/download/DhammaSutta-AudioBook/002.mp3',
-                artwork: 'https://f4.bcbits.com/img/a3146403332_10.jpg',
-                duration: '45:30'
-            },
-            {
-                title: 'อานาปานสติ',
-                artist: 'อ.คึกฤทธิ์ โสตฺถิผโล',
-                src: 'https://archive.org/download/DhammaSutta-AudioBook/003.mp3',
-                artwork: 'https://i1.sndcdn.com/artworks-000108600851-q52u0j-t500x500.jpg',
-                duration: '1:02:15'
-            },
-            {
-                title: 'อริยสัจจากพระโอษฐ์',
-                artist: 'อ.คึกฤทธิ์ โสตฺถิผโล',
-                src: 'https://archive.org/download/DhammaSutta-AudioBook/004.mp3',
-                artwork: 'https://f4.bcbits.com/img/a3146403332_10.jpg',
-                duration: '33:40'
-            },
-            // --- เพิ่มไฟล์เสียงอื่นๆ ต่อที่นี่ ---
-        ];
-        
-        // --- ⚙️ 2. ส่วนควบคุมการทำงาน (ไม่ต้องแก้ไข) ---
-        const audioPlayer = document.getElementById('audio-player');
-        const playlistElement = document.getElementById('playlist');
-        const trackArtwork = document.getElementById('track-artwork');
-        const trackTitle = document.getElementById('track-title');
-        const trackArtist = document.getElementById('track-artist');
+    const playlistDiv = document.getElementById("playlist");
+    const audioPlayer = document.getElementById("audio-player");
+    const currentTitle = document.getElementById("current-title");
 
-        let currentTrackIndex = 0;
+    function loadPlaylist(name) {
+      playlistDiv.innerHTML = "";
+      playlists[name].forEach(track => {
+        const div = document.createElement("div");
+        div.className = "track";
+        div.textContent = track.title;
+        div.onclick = () => playTrack(track);
+        playlistDiv.appendChild(div);
+      });
+    }
 
-        // ฟังก์ชันสร้างรายการ Playlist
-        function renderPlaylist() {
-            playlistElement.innerHTML = ''; // ล้างรายการเก่า
-            playlistData.forEach((track, index) => {
-                const li = document.createElement('li');
-                li.dataset.index = index;
+    function playTrack(track) {
+      audioPlayer.src = track.src;
+      currentTitle.textContent = track.title;
+      audioPlayer.play();
+    }
+  </script>
 
-                const trackName = document.createElement('span');
-                trackName.className = 'track-name';
-                trackName.textContent = `${index + 1}. ${track.title}`;
-
-                const trackDuration = document.createElement('span');
-                trackDuration.className = 'track-duration';
-                trackDuration.textContent = track.duration;
-                
-                li.appendChild(trackName);
-                li.appendChild(trackDuration);
-                
-                playlistElement.appendChild(li);
-            });
-        }
-
-        // ฟังก์ชันโหลดและเล่นไฟล์เสียง
-        function loadTrack(index, autoplay = false) {
-            if (index < 0 || index >= playlistData.length) return;
-            
-            const track = playlistData[index];
-            trackArtwork.src = track.artwork;
-            trackTitle.textContent = track.title;
-            trackArtist.textContent = track.artist;
-            audioPlayer.src = track.src;
-            
-            currentTrackIndex = index;
-
-            // อัปเดต css class 'active'
-            document.querySelectorAll('.playlist li').forEach(item => {
-                item.classList.remove('active');
-            });
-            document.querySelector(`.playlist li[data-index='${index}']`).classList.add('active');
-
-            if (autoplay) {
-                audioPlayer.play();
-            }
-        }
-
-        // เมื่อคลิกเลือกไฟล์จากรายการ
-        playlistElement.addEventListener('click', function(e) {
-            const listItem = e.target.closest('li');
-            if (listItem) {
-                const trackIndex = parseInt(listItem.dataset.index);
-                loadTrack(trackIndex, true); // โหลดและเล่นทันที
-            }
-        });
-
-        // เล่นไฟล์ถัดไปอัตโนมัติเมื่อจบ
-        audioPlayer.addEventListener('ended', function() {
-            const nextTrackIndex = (currentTrackIndex + 1) % playlistData.length;
-            loadTrack(nextTrackIndex, true);
-        });
-        
-        // --- 🚀 3. เริ่มต้นการทำงาน ---
-        renderPlaylist();
-        loadTrack(0); // โหลดไฟล์แรกเมื่อเปิดหน้าเว็บ (แต่ยังไม่เล่น)
-    });
-    </script>
 </body>
 </html>
