@@ -179,12 +179,15 @@
         <div id="nav-placeholder"></div>
 
     
-          <p id="random-quote">กำลังโหลด...</p> 
-        
+           
                
             
             
           <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาชื่อตอน..." />
+
+
+<h3>ฟังธรรมออนไลน์</h3>
+
                 
                 <select id="playlistSelect" class="playlist-select">
                     <option value="">เลือกชุดธรรมะ...</option>
@@ -194,6 +197,14 @@
                 
                 </div>
             </div>
+
+
+
+ <p id="random-quote">กำลังโหลด...</p> 
+      
+
+
+
         </main>
         
         
@@ -317,7 +328,7 @@
                 return;
             }
             historyBox.style.display = "block";
-            historyBox.innerHTML = "<strong>🕒 ฟังล่าสุด:</strong><ul style='padding-left: 20px; margin-top: 5px; margin-bottom: 0;'>" +
+            historyBox.innerHTML = "<strong>🕒 ประวัติการฟัง:</strong><ul style='padding-left: 20px; margin-top: 5px; margin-bottom: 0;'>" +
                 history.map(item => `<li><a href="#" onclick="event.preventDefault(); playFromHistory('${item.url}', '${item.title.replace(/'/g, "\\'")}')">${item.title}</a></li>`).join('') +
                 "</ul>";
         }
