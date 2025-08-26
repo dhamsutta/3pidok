@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule ^$ /radio/index.html [L,R=301]
