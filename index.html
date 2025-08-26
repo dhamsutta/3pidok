@@ -299,14 +299,10 @@
                     fixedPlayerWrapper.style.display = 'flex';
                 };
     
-                const shareBtn = document.createElement("button");
-shareBtn.className = "share-button disabled";
-shareBtn.textContent = "🔗 แชร์ (ปิดใช้งาน)";
-shareBtn.disabled = true; // ปิดการคลิก
-
+                
 li.appendChild(btn);
-// li.appendChild(shareBtn);  // ถ้าไม่อยากให้แสดงเลย
-                li.appendChild(shareBtn);
+
+                
                 trackList.appendChild(li);
             });
         }
