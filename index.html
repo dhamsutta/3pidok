@@ -256,7 +256,7 @@
                     totalTracks += playlists[name].length;
                 });
     
-                statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks} ตอนใน ${Object.keys(playlists).length} ชุด `;
+                statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks} ตอน ${Object.keys(playlists).length} ชุด `;
     
                 const lastTrack = localStorage.getItem("lastTrackUrl");
                 if (lastTrack) {
