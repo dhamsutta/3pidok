@@ -278,29 +278,16 @@
 
 function showFilteredTracks(keyword) {
     trackList.innerHTML = "";
-    if (!keyword.trim()) return;
-
-    let allTracks = [];
-    Object.keys(playlists || {}).forEach(name => {
-        playlists[name].forEach(track => {
-            allTracks.push({
-                ...track,
-                playlist: name  // เก็บชื่อ playlist ไว้ด้วย
-            });
-        });
-    });
-
-    const filtered = allTracks.filter(track =>
+    const filtered = (currentTracks || []).filter(track =>
         track.title.toLowerCase().includes(keyword.toLowerCase())
     );
-
     filtered.forEach(track => {
         const li = document.createElement("li");
         li.className = "track-item";
 
         const btn = document.createElement("button");
         btn.className = "track-button";
-        btn.textContent = `▶️ [${track.playlist}] ${track.title}`;
+        btn.textContent = `▶️ ${track.title}`;
         btn.onclick = () => {
             audio.src = track.url;
             audio.play();
@@ -314,6 +301,7 @@ function showFilteredTracks(keyword) {
         trackList.appendChild(li);
     });
 }
+
 
     
         function saveHistory(track) {
