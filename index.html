@@ -175,32 +175,56 @@
     </style>
 </head>
 <body>
-    <div id="nav-placeholder"></div>
+  
+        <div id="nav-placeholder"></div>
 
-    <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาชื่อตอน..." />
+    
+           
+               
+            
+            
+          <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาชื่อตอน..." />
 
-    <h3>ฟังธรรมออนไลน์</h3>
 
-    <select id="playlistSelect" class="playlist-select">
-        <option value="">เลือกชุดธรรมะ...</option>
-    </select>
-    <div id="statInfo" class="stat-info">กำลังโหลดรายการ...</div>
-    <ul id="trackList" class="track-list"></ul>
+<h3>ฟังธรรมออนไลน์</h3>
 
-    <p id="random-quote">กำลังโหลด...</p>
+                
+                <select id="playlistSelect" class="playlist-select">
+                    <option value="">เลือกชุดธรรมะ...</option>
+                </select>
+                <div id="statInfo" class="stat-info">กำลังโหลดรายการ...</div>
+                <ul id="trackList" class="track-list"></ul>
+                
+                </div>
+            </div>
 
-    </main>
 
+
+ <p id="random-quote">กำลังโหลด...</p> 
+      
+
+
+
+        </main>
+        
+        
+    
+    
     <div class="fixed-bottom-player-wrapper" style="display: none;">
+      
+
+
+
+
+
         <audio id="audioPlayer" controls>
-            <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
-            เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+             <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
+             เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
         </audio>
         <div id="historyBox" class="history-box" style="display: none;"></div>
     </div>
 
     <script src="/assets/js/main.js"></script>
-    
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
@@ -209,6 +233,7 @@
         }
     
         let playlists;
+        let currentTracks = [];
     
         const audio = document.getElementById("audioPlayer");
         const trackList = document.getElementById("trackList");
@@ -222,8 +247,7 @@
             .then(response => response.json())
             .then(data => {
                 playlists = data;
-                let totalTracks = ๐;
-                // สร้างตัวเลือกใน Dropdown เหมือนเดิม
+                let totalTracks = 0;
                 Object.keys(playlists).forEach(name => {
                     const option = document.createElement("option");
                     option.value = name;
@@ -243,66 +267,23 @@
                 showHistory();
             });
     
-        // เมื่อมีการเลือกจาก Dropdown
         playlistSelect.addEventListener("change", function () {
-            const selectedPlaylistName = this.value;
-            searchInput.value = ""; // ล้างช่องค้นหา
-    
-            if (selectedPlaylistName) {
-                // ถ้ามีการเลือก playlist ให้แสดงรายการเพลงของ playlist นั้น
-                const tracksToShow = playlists[selectedPlaylistName];
-                displayTracks(tracksToShow);
-            } else {
-                // ถ้าเลือก "เลือกชุดธรรมะ..." ให้ล้างรายการเพลง
-                trackList.innerHTML = "";
-            }
+            const selected = this.value;
+            currentTracks = playlists[selected] || [];
+            searchInput.value = "";
+            showFilteredTracks("");
         });
     
-        // เมื่อมีการพิมพ์ในช่องค้นหา
-        searchInput.addEventListener("input", function() {
-            const keyword = this.value;
-
-            if (keyword.trim() === '') {
-                // ถ้าช่องค้นหาว่าง ให้กลับไปแสดงตาม Dropdown ที่เลือกไว้
-                playlistSelect.dispatchEvent(new Event('change'));
-            } else {
-                // ถ้ามีคำค้นหา ให้ค้นหาจากทุก playlist
-                playlistSelect.value = ""; // รีเซ็ต Dropdown
-                searchAllAndDisplay(keyword);
-            }
+        searchInput.addEventListener("input", () => {
+            showFilteredTracks(searchInput.value);
         });
-        
-        // ฟังก์ชันใหม่: ค้นหาในทุก playlist
-        function searchAllAndDisplay(keyword) {
-            let allFoundTracks = [];
-            
-            // วนลูปเข้าไปในทุก key (ชื่อชุดธรรมะ) ของ playlists
-            for (const playlistName in playlists) {
-                const tracks = playlists[playlistName];
-                
-                // ค้นหาเพลงในแต่ละชุด
-                const foundInPlaylist = tracks.filter(track => 
-                    track.title.toLowerCase().includes(keyword.toLowerCase())
-                );
-                
-                // เอารายการที่เจอทั้งหมดมารวมกัน
-                allFoundTracks = allFoundTracks.concat(foundInPlaylist);
-            }
-            
-            // ส่งผลลัพธ์ทั้งหมดไปแสดงผล
-            displayTracks(allFoundTracks);
-        }
-
-        // ฟังก์ชันสำหรับแสดงรายการเพลง (ใช้ได้ทั้งการค้นหาและเลือก playlist)
-        function displayTracks(tracks) {
-            trackList.innerHTML = ""; // ล้างรายการเก่าทิ้งก่อน
-            
-            if (!tracks || tracks.length === ๐) {
-                 trackList.innerHTML = "<li>ไม่พบรายการที่ค้นหา</li>";
-                 return;
-            }
-
-            tracks.forEach(track => {
+    
+        function showFilteredTracks(keyword) {
+            trackList.innerHTML = "";
+            const filtered = (currentTracks || []).filter(track =>
+                track.title.toLowerCase().includes(keyword.toLowerCase())
+            );
+            filtered.forEach(track => {
                 const li = document.createElement("li");
                 li.className = "track-item";
     
@@ -318,23 +299,25 @@
                     fixedPlayerWrapper.style.display = 'flex';
                 };
     
-                li.appendChild(btn);
+                
+li.appendChild(btn);
+
+                
                 trackList.appendChild(li);
             });
         }
     
-        // --- ฟังก์ชันเดิม (ไม่ต้องแก้ไข) ---
         function saveHistory(track) {
             let history = JSON.parse(localStorage.getItem("history")) || [];
             history = history.filter(t => t.url !== track.url);
             history.unshift({ title: track.title, url: track.url });
-            if (history.length > ๓) history.pop();
+            if (history.length > 3) history.pop();
             localStorage.setItem("history", JSON.stringify(history));
         }
     
         function showHistory() {
             const history = JSON.parse(localStorage.getItem("history")) || [];
-            if (history.length === ๐) {
+            if (history.length === 0) {
                 historyBox.style.display = "none";
                 return;
             }
@@ -413,7 +396,7 @@
     
                     const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b, 'th'));
     
-                    if (sortedTags.length === ๐) {
+                    if (sortedTags.length === 0) {
                         if (container) {
                             container.innerHTML = '<p class="loading-message">ยังไม่มีป้ายกำกับในระบบ</p>';
                         }
