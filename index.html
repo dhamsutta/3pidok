@@ -181,12 +181,10 @@
     
            
                
-            
+            <h3>ฟังธรรมออนไลน์</h3><h3>ฟังธรรมออนไลน์</h3><h3>ฟังธรรมออนไลน์</h3><h3>ฟังธรรมออนไลน์</h3>
             
           <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาชื่อตอน..." />
 
-
-<h3>ฟังธรรมออนไลน์</h3>
 
                 
                 <select id="playlistSelect" class="playlist-select">
@@ -275,37 +273,48 @@
         });
     
         searchInput.addEventListener("input", () => {
-            showFilteredTracks(searchInput.value);
-        });
-    
-        function showFilteredTracks(keyword) {
-            trackList.innerHTML = "";
-            const filtered = (currentTracks || []).filter(track =>
-                track.title.toLowerCase().includes(keyword.toLowerCase())
-            );
-            filtered.forEach(track => {
-                const li = document.createElement("li");
-                li.className = "track-item";
-    
-                const btn = document.createElement("button");
-                btn.className = "track-button";
-                btn.textContent = `▶️ ${track.title}`;
-                btn.onclick = () => {
-                    audio.src = track.url;
-                    audio.play();
-                    localStorage.setItem("lastTrackUrl", track.url);
-                    saveHistory(track);
-                    showHistory();
-                    fixedPlayerWrapper.style.display = 'flex';
-                };
-    
-                
-li.appendChild(btn);
+    showFilteredTracks(searchInput.value);
+});
 
-                
-                trackList.appendChild(li);
+function showFilteredTracks(keyword) {
+    trackList.innerHTML = "";
+    if (!keyword.trim()) return;
+
+    let allTracks = [];
+    Object.keys(playlists || {}).forEach(name => {
+        playlists[name].forEach(track => {
+            allTracks.push({
+                ...track,
+                playlist: name  // เก็บชื่อ playlist ไว้ด้วย
             });
-        }
+        });
+    });
+
+    const filtered = allTracks.filter(track =>
+        track.title.toLowerCase().includes(keyword.toLowerCase())
+    );
+
+    filtered.forEach(track => {
+        const li = document.createElement("li");
+        li.className = "track-item";
+
+        const btn = document.createElement("button");
+        btn.className = "track-button";
+        btn.textContent = `▶️ [${track.playlist}] ${track.title}`;
+        btn.onclick = () => {
+            audio.src = track.url;
+            audio.play();
+            localStorage.setItem("lastTrackUrl", track.url);
+            saveHistory(track);
+            showHistory();
+            fixedPlayerWrapper.style.display = 'flex';
+        };
+
+        li.appendChild(btn);
+        trackList.appendChild(li);
+    });
+}
+
     
         function saveHistory(track) {
             let history = JSON.parse(localStorage.getItem("history")) || [];
