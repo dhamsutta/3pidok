@@ -175,51 +175,32 @@
     </style>
 </head>
 <body>
-  
-        <div id="nav-placeholder"></div>
-
+    <div id="nav-placeholder"></div>
     
-           
-               
-            
-            
-          <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาชื่อตอน..." />
+    <div class="container">
+        <h1>ธรรมสุตตะ</h1>
+        <h2>ศึกษาพระธรรมตามพระไตรปิฎก</h2>
+        
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาชื่อตอน..." />
 
-
-<h3>ฟังธรรมออนไลน์</h3>
-
-                
-                <select id="playlistSelect" class="playlist-select">
-                    <option value="">เลือกชุดธรรมะ...</option>
-                </select>
-                <div id="statInfo" class="stat-info">กำลังโหลดรายการ...</div>
-                <ul id="trackList" class="track-list"></ul>
-                
-                </div>
-            </div>
-
-
-
- <p id="random-quote">กำลังโหลด...</p> 
-      
-
-
-
+        <h3>ฟังธรรมออนไลน์</h3>
+        
+        <select id="playlistSelect" class="playlist-select">
+            <option value="">เลือกชุดธรรมะ...</option>
+        </select>
+        <div id="statInfo" class="stat-info">กำลังโหลดรายการ...</div>
+        <ul id="trackList" class="track-list"></ul>
+    </div>
+    
+    <p id="random-quote">กำลังโหลด...</p>
+    
+    <main>
         </main>
-        
-        
-    
     
     <div class="fixed-bottom-player-wrapper" style="display: none;">
-      
-
-
-
-
-
         <audio id="audioPlayer" controls>
-             <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
-             เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+            <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
+            เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
         </audio>
         <div id="historyBox" class="history-box" style="display: none;"></div>
     </div>
@@ -233,6 +214,7 @@
         }
     
         let playlists;
+        let allTracks = [];
         let currentTracks = [];
     
         const audio = document.getElementById("audioPlayer");
@@ -248,13 +230,21 @@
             .then(data => {
                 playlists = data;
                 let totalTracks = 0;
+    
+                // Populate dropdown and create allTracks array
                 Object.keys(playlists).forEach(name => {
                     const option = document.createElement("option");
                     option.value = name;
                     option.textContent = name;
                     playlistSelect.appendChild(option);
-                    totalTracks += playlists[name].length;
+                    
+                    const tracksInPlaylist = playlists[name];
+                    allTracks = allTracks.concat(tracksInPlaylist);
+                    totalTracks += tracksInPlaylist.length;
                 });
+                
+                // Set initial context to all tracks for global search
+                currentTracks = allTracks;
     
                 statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks} ตอน ${Object.keys(playlists).length} ชุด `;
     
@@ -269,9 +259,15 @@
     
         playlistSelect.addEventListener("change", function () {
             const selected = this.value;
-            currentTracks = playlists[selected] || [];
-            searchInput.value = "";
-            showFilteredTracks("");
+            if (selected) {
+                // If a specific playlist is selected, filter within it
+                currentTracks = playlists[selected] || [];
+            } else {
+                // If the default option is selected, search all tracks
+                currentTracks = allTracks;
+            }
+            searchInput.value = ""; // Clear search input
+            showFilteredTracks(""); // Display all tracks from the new context
         });
     
         searchInput.addEventListener("input", () => {
@@ -283,7 +279,12 @@
             const filtered = (currentTracks || []).filter(track =>
                 track.title.toLowerCase().includes(keyword.toLowerCase())
             );
-            filtered.forEach(track => {
+            
+            // Limit the number of results displayed for performance if searching globally
+            const displayLimit = (playlistSelect.value === "" && keyword) ? 100 : filtered.length;
+            const tracksToDisplay = filtered.slice(0, displayLimit);
+
+            tracksToDisplay.forEach(track => {
                 const li = document.createElement("li");
                 li.className = "track-item";
     
@@ -299,12 +300,18 @@
                     fixedPlayerWrapper.style.display = 'flex';
                 };
     
-                
-li.appendChild(btn);
-
-                
+                li.appendChild(btn);
                 trackList.appendChild(li);
             });
+            
+            if (filtered.length > displayLimit) {
+                const moreResultsLi = document.createElement("li");
+                moreResultsLi.textContent = `และอีก ${filtered.length - displayLimit} ผลลัพธ์... กรุณาเจาะจงคำค้นหาเพิ่มเติม`;
+                moreResultsLi.style.textAlign = "center";
+                moreResultsLi.style.color = "#888";
+                moreResultsLi.style.marginTop = "10px";
+                trackList.appendChild(moreResultsLi);
+            }
         }
     
         function saveHistory(track) {
@@ -347,7 +354,7 @@ li.appendChild(btn);
     </script>
     
     <script>
-        // Media Session API สำหรับควบคุมเพลงจากหน้าจอล็อคหรือแถบแจ้งเตือน
+        // Media Session API for lock screen controls
         if ('mediaSession' in navigator) {
             navigator.mediaSession.metadata = new MediaMetadata({
                 artwork: [
@@ -362,7 +369,7 @@ li.appendChild(btn);
     </script>
     
     <script>
-        // Script สำหรับ Hamburger Menu (เหมือนเดิม)
+        // Hamburger Menu Script (if needed)
         const hamburgerIcon = document.getElementById('hamburgerIcon');
         const sidebarMenu = document.getElementById('sidebarMenu');
         if (hamburgerIcon && sidebarMenu) {
@@ -374,9 +381,10 @@ li.appendChild(btn);
     </script>
     
     <script>
-        // สคริปต์หลักสำหรับสร้างหน้ารวมป้ายกำกับ (Tag)
+        // Script for tag index page generation
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('alphabetical-tag-container');
+            if (!container) return; // Only run if the container exists
             const dataUrl = '/assets/data/tags.json';
     
             fetch(dataUrl)
@@ -397,9 +405,7 @@ li.appendChild(btn);
                     const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b, 'th'));
     
                     if (sortedTags.length === 0) {
-                        if (container) {
-                            container.innerHTML = '<p class="loading-message">ยังไม่มีป้ายกำกับในระบบ</p>';
-                        }
+                        container.innerHTML = '<p class="loading-message">ยังไม่มีป้ายกำกับในระบบ</p>';
                         return;
                     }
     
@@ -412,34 +418,30 @@ li.appendChild(btn);
                         return acc;
                     }, {});
     
-                    if (container) {
-                        container.innerHTML = '';
-                        for (const letter in groupedTags) {
-                            const groupSection = document.createElement('section');
-                            groupSection.className = 'tag-group';
-                            const header = document.createElement('h2');
-                            header.className = 'tag-group-header';
-                            header.textContent = letter;
-                            groupSection.appendChild(header);
-                            const linksDiv = document.createElement('div');
-                            linksDiv.className = 'tag-links';
-                            groupedTags[letter].forEach(tag => {
-                                const link = document.createElement('a');
-                                link.className = 'tag-item';
-                                link.href = `/tags/${encodeURIComponent(tag)}.html`;
-                                link.textContent = tag;
-                                linksDiv.appendChild(link);
-                            });
-                            groupSection.appendChild(linksDiv);
-                            container.appendChild(groupSection);
-                        }
+                    container.innerHTML = '';
+                    for (const letter in groupedTags) {
+                        const groupSection = document.createElement('section');
+                        groupSection.className = 'tag-group';
+                        const header = document.createElement('h2');
+                        header.className = 'tag-group-header';
+                        header.textContent = letter;
+                        groupSection.appendChild(header);
+                        const linksDiv = document.createElement('div');
+                        linksDiv.className = 'tag-links';
+                        groupedTags[letter].forEach(tag => {
+                            const link = document.createElement('a');
+                            link.className = 'tag-item';
+                            link.href = `/tags/${encodeURIComponent(tag)}.html`;
+                            link.textContent = tag;
+                            linksDiv.appendChild(link);
+                        });
+                        groupSection.appendChild(linksDiv);
+                        container.appendChild(groupSection);
                     }
                 })
                 .catch(error => {
                     console.error('Error fetching or processing tags:', error);
-                    if (container) {
-                        container.innerHTML = '<p class="error-message">เกิดข้อผิดพลาดในการโหลดข้อมูลป้ายกำกับ</p>';
-                    }
+                    container.innerHTML = '<p class="error-message">เกิดข้อผิดพลาดในการโหลดข้อมูลป้ายกำกับ</p>';
                 });
         });
     </script>
