@@ -162,15 +162,37 @@
         .fixed-bottom-player-wrapper .resume-button:hover {
             background: #fce7aa;
         }
-        .fixed-bottom-player-wrapper audio {
-            width: 100%;
-            max-width: 700px;
-        }
         .fixed-bottom-player-wrapper .history-box {
             max-width: 700px;
             width: 100%;
             box-sizing: border-box;
             margin-bottom: 0;
+            margin-top: 10px;
+        }
+        .player-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 700px;
+            justify-content: center;
+        }
+        .control-button {
+            padding: ๘px ๑๒px;
+            font-size: ๑๘px;
+            margin: 0 ๘px;
+            cursor: pointer;
+            border-radius: ๘px;
+            background: #fdf6e3;
+            border: ๑px solid #d5b48c;
+            color: #5a3e1b;
+            flex-shrink: 0;
+        }
+        .control-button:hover {
+            background: #f7eacc;
+        }
+        .player-container audio {
+            flex-grow: 1;
+            width: 100%;
         }
     </style>
 </head>
@@ -178,9 +200,7 @@
     <div id="nav-placeholder"></div>
     
     <div class="container"><br><br>
-     <!-- <p id="random-quote">กำลังโหลด...</p>-->  
-
-        <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาตามชื่อเรื่อง..." />
+      <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาตามชื่อเรื่อง..." />
 
         <select id="playlistSelect" class="playlist-select">
             <option value="">📻 เลือกตามชื่อชุด, คัมภีร์...</option>
@@ -189,17 +209,21 @@
         <ul id="trackList" class="track-list"></ul>
 <p id="random-quote">กำลังโหลด...</p> 
     </div>
-   
+    
     
     
     <main> 
         </main>
     
     <div class="fixed-bottom-player-wrapper" style="display: none;">
-        <audio id="audioPlayer" controls>
-            <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
-            เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
-        </audio>
+        <div class="player-container">
+            <button id="rewindBtn" class="control-button" title="ถอยหลัง ๓๐ วินาที">⏪ ๓๐</button>
+            <audio id="audioPlayer" controls>
+                <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
+                เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+            </audio>
+            <button id="forwardBtn" class="control-button" title="เดินหน้า ๓๐ วินาที">๓๐ ⏩</button>
+        </div>
         <div id="historyBox" class="history-box" style="display: none;"></div>
     </div>
 
@@ -222,6 +246,16 @@
         const statInfo = document.getElementById("statInfo");
         const historyBox = document.getElementById("historyBox");
         const fixedPlayerWrapper = document.querySelector('.fixed-bottom-player-wrapper');
+        const rewindBtn = document.getElementById("rewindBtn");
+        const forwardBtn = document.getElementById("forwardBtn");
+
+        rewindBtn.addEventListener("click", () => {
+            audio.currentTime -= 30;
+        });
+
+        forwardBtn.addEventListener("click", () => {
+            audio.currentTime += 30;
+        });
     
         fetch("playlists.json")
             .then(response => response.json())
@@ -244,7 +278,7 @@
                 // Set initial context to all tracks for global search
                 currentTracks = allTracks;
     
-                statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks} ตอน ${Object.keys(playlists).length} ชุด `;
+                statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks.toLocaleString('th-TH')} ตอน ${Object.keys(playlists).length.toLocaleString('th-TH')} ชุด `;
     
                 const lastTrack = localStorage.getItem("lastTrackUrl");
                 if (lastTrack) {
