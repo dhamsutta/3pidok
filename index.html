@@ -195,6 +195,21 @@
             width: 100%;
         }
     </style>
+
+<style>
+  .controls {
+    display: flex;
+    gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+  }
+  .control-button {
+    padding: 8px 12px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+</style>
+
+
+
 </head>
 <body>
     <div id="nav-placeholder"></div>
@@ -221,8 +236,11 @@
             <audio id="audioPlayer" controls>
                 <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
                 เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
-            </audio></div><br>
-<button id="rewindBtn" class="control-button" title="ถอยหลัง ๓๐ วินาที">⏪ ถอยหลัง ๓๐ วินาที</button> - <button id="forwardBtn" class="control-button" title="เดินหน้า ๓๐ วินาที">เดินหน้า ๓๐ วินาที ⏩</button>
+            </audio></div>
+<div class="controls">
+  <button id="rewindBtn" class="control-button" title="ถอยหลัง ๓๐ วินาที">⏪ ถอยหลัง ๓๐ วินาที</button>
+  <button id="forwardBtn" class="control-button" title="เดินหน้า ๓๐ วินาที">เดินหน้า ๓๐ วินาที ⏩</button>
+</div>
         
         <div id="historyBox" class="history-box" style="display: none;"></div>
     </div>
