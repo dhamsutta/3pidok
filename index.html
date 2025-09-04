@@ -296,7 +296,7 @@
                 // Set initial context to all tracks for global search
                 currentTracks = allTracks;
     
-                statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks.toLocaleString('th-TH')} เรื่อง ${Object.keys(playlists).length.toLocaleString('th-TH')} ชุด `;
+                statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks.toLocaleString('th-TH')} เรื่อง แบ่งเป็น ${Object.keys(playlists).length.toLocaleString('th-TH')} ชุด `;
     
                 const lastTrack = localStorage.getItem("lastTrackUrl");
                 if (lastTrack) {
