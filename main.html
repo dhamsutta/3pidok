@@ -305,20 +305,19 @@
                     audio.src = lastTrack;
                 }
     
+                // โหลดประวัติการฟังทันทีเมื่อข้อมูลทั้งหมดพร้อมแล้ว
                 showHistory();
             });
     
         playlistSelect.addEventListener("change", function () {
             const selected = this.value;
             if (selected) {
-                // If a specific playlist is selected, filter within it
                 currentTracks = playlists[selected] || [];
             } else {
-                // If the default option is selected, search all tracks
                 currentTracks = allTracks;
             }
-            searchInput.value = ""; // Clear search input
-            showFilteredTracks(""); // Display all tracks from the new context
+            searchInput.value = "";
+            showFilteredTracks("");
         });
     
         searchInput.addEventListener("input", () => {
@@ -331,7 +330,6 @@
                 track.title.toLowerCase().includes(keyword.toLowerCase())
             );
             
-            // Limit the number of results displayed for performance if searching globally
             const displayLimit = (playlistSelect.value === "" && keyword) ? 100 : filtered.length;
             const tracksToDisplay = filtered.slice(0, displayLimit);
 
@@ -370,19 +368,27 @@
             const remainingSeconds = Math.floor(seconds % ๖๐);
             return `${String(minutes).padStart(๒, '๐')}:${String(remainingSeconds).padStart(๒, '๐')}`;
         }
-
+        
+        // Function to save the history with current playback time
         function saveHistory(track) {
             let history = JSON.parse(localStorage.getItem("history")) || [];
+            
+            // Remove existing entry for the same track to move it to the top
             history = history.filter(t => t.url !== track.url);
             
-            // Save time only when playback starts or is updated
-            const currentTime = audio.currentTime;
-            history.unshift({ title: track.title, url: track.url, time: currentTime });
+            // Get the time from localStorage for this track if it exists, otherwise set to 0
+            const savedTime = localStorage.getItem(`audio-time-${track.url}`) || 0;
             
+            // Add the new or updated track to the history
+            history.unshift({ title: track.title, url: track.url, time: parseFloat(savedTime) });
+            
+            // Keep only the last 3 items
             if (history.length > 3) history.pop();
+            
             localStorage.setItem("history", JSON.stringify(history));
         }
 
+        // Function to display the history
         function showHistory() {
             const history = JSON.parse(localStorage.getItem("history")) || [];
             if (history.length === 0) {
@@ -392,43 +398,40 @@
             historyBox.style.display = "block";
             historyBox.innerHTML = "<strong>🕒 ประวัติการฟัง:</strong><ul style='padding-left: 20px; margin-top: 5px; margin-bottom: 0;'>" +
                 history.map(item => {
-                    const timeText = item.time ? ` (ฟังถึง ${formatTime(item.time)} นาที)` : '';
-                    return `<li><a href="#" onclick="event.preventDefault(); playFromHistory('${item.url}', '${item.title.replace(/'/g, "\\'")}')">${item.title}</a>${timeText}</li>`;
+                    const timeText = item.time ? ` (ฟังถึง ${formatTime(item.time)})` : '';
+                    return `<li><a href="#" onclick="event.preventDefault(); playFromHistory('${item.url}', '${item.title.replace(/'/g, "\\'")}', ${item.time || 0})">${item.title}</a>${timeText}</li>`;
                 }).join('') +
                 "</ul>";
         }
     
-        function playFromHistory(url, title) {
+        function playFromHistory(url, title, time) {
             audio.src = url;
             audio.play();
+            // Wait for audio to be ready before setting currentTime
+            audio.onloadedmetadata = function() {
+                audio.currentTime = time;
+                audio.onloadedmetadata = null; // Remove the event listener to prevent issues
+            };
             localStorage.setItem("lastTrackUrl", url);
             fixedPlayerWrapper.style.display = 'flex';
         }
-    
-        function resumeLastTrack() {
-            const lastTrack = localStorage.getItem("lastTrackUrl");
-            if (lastTrack) {
-                audio.src = lastTrack;
-                audio.play();
-                fixedPlayerWrapper.style.display = 'flex';
-            } else {
-                alert("ยังไม่มีรายการที่ฟังล่าสุด");
-            }
-        }
 
-        // Event listener to save history with current time every 5 seconds
-        setInterval(() => {
+        // Add event listener to save playback position to localStorage
+        audio.addEventListener("timeupdate", () => {
             const currentTrackUrl = localStorage.getItem("lastTrackUrl");
-            if (currentTrackUrl && !audio.paused) {
-                const history = JSON.parse(localStorage.getItem("history")) || [];
-                const currentTrackIndex = history.findIndex(t => t.url === currentTrackUrl);
-                if (currentTrackIndex !== -1) {
-                    history[currentTrackIndex].time = audio.currentTime;
-                    localStorage.setItem("history", JSON.stringify(history));
-                    showHistory(); // Update the displayed history
-                }
+            if (currentTrackUrl) {
+                localStorage.setItem(`audio-time-${currentTrackUrl}`, audio.currentTime);
             }
-        }, 5000); // Update every 5 seconds
+        });
+
+        // Add event listener for when a new song starts playing
+        audio.addEventListener("play", () => {
+            // Update the history display with the current time
+            showHistory();
+        });
+
+        // Initialize the display on page load
+        // This is now handled within the fetch chain, to ensure data is loaded first.
     </script>
     <script>
     const player = document.getElementById("audioPlayer");
