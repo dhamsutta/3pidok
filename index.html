@@ -403,27 +403,26 @@
             }
         }
     </script>
-   <script>
+  <script>
   const player = document.getElementById("audioPlayer");
   const storageKey = "audio-position";
 
-  // โหลดตำแหน่งเก่าและถอยหลังเล็กน้อย
-  window.addEventListener("load", () => {
+  // ✅ แก้ไขตรงนี้: รอให้ไฟล์เสียงพร้อมก่อน แล้วค่อยกำหนดเวลา
+  player.addEventListener('loadedmetadata', () => {
     const lastPos = localStorage.getItem(storageKey);
     if (lastPos) {
-      const rewindSeconds = 20; // ⏪ กำหนดจำนวนวินาทีที่ต้องการให้ถอยหลัง
+      const rewindSeconds = 20; // ⏪ จำนวนวินาทีที่ต้องการให้ถอยหลัง
       let resumePos = parseFloat(lastPos) - rewindSeconds;
       
-      // ป้องกันไม่ให้เวลาติดลบ หากตำแหน่งที่เล่นล่าสุดอยู่น้อยกว่า 20 วินาที
       if (resumePos < 0) {
-        resumePos = 0;
+        resumePos = 0; // ป้องกันเวลาติดลบ
       }
       
       player.currentTime = resumePos;
     }
   });
 
-  // บันทึกตำแหน่งปัจจุบันทุกๆ 1 วินาที
+  // ส่วนนี้ยังเหมือนเดิม: บันทึกตำแหน่งปัจจุบันขณะเล่น
   player.addEventListener("timeupdate", () => {
     localStorage.setItem(storageKey, player.currentTime);
   });
