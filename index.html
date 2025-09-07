@@ -237,23 +237,7 @@
   <source src="your-audio.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-  const player = document.getElementById("player");
-  const storageKey = "audio-position";
 
-  // โหลดตำแหน่งเก่า
-  window.addEventListener("load", () => {
-    const lastPos = localStorage.getItem(storageKey);
-    if (lastPos) {
-      player.currentTime = parseFloat(lastPos);
-    }
-  });
-
-  // บันทึกตำแหน่งปัจจุบันทุก 1 วินาที
-  player.addEventListener("timeupdate", () => {
-    localStorage.setItem(storageKey, player.currentTime);
-  });
-</script>
 </div>
 <div class="controls">
   <button id="rewindBtn" class="control-button" title="ถอยหลัง ๓๐ วินาที">⏪ ถอยหลัง 30 วินาที</button>
@@ -420,7 +404,23 @@
             }
         }
     </script>
-    
+    <script>
+  const player = document.getElementById("player");
+  const storageKey = "audio-position";
+
+  // โหลดตำแหน่งเก่า
+  window.addEventListener("load", () => {
+    const lastPos = localStorage.getItem(storageKey);
+    if (lastPos) {
+      player.currentTime = parseFloat(lastPos);
+    }
+  });
+
+  // บันทึกตำแหน่งปัจจุบันทุก 1 วินาที
+  player.addEventListener("timeupdate", () => {
+    localStorage.setItem(storageKey, player.currentTime);
+  });
+</script>
     <script>
         // Media Session API for lock screen controls
         if ('mediaSession' in navigator) {
