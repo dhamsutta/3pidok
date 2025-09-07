@@ -1,267 +1,548 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>คลังความรู้ | KnowledgeHub</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ธรรมสุตตะ | ศึกษาพระธรรมตามพระไตรปิฎก</title>
+    <meta name="description" content="คลังธรรมะออนไลน์ ศึกษาพระธรรมตามพระไตรปิฎก ทั้งพระวินัย พระสูตร และพระอภิธรรม พร้อมพุทธวจนะและอรรถกถา เพื่อการเข้าถึงคำสอนของพระพุทธเจ้าที่เรียบง่ายแต่ครบถ้วน" />
+    <meta name="keywords" content="ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์, พระสูตร, พระอภิธรรม, ศึกษาธรรมะ, ฟังธรรม" />
+    <meta name="author" content="ธรรมสุตตะ" />
 
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" sizes="32x32">
+    <link rel="stylesheet" href="/assets/css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-568JJVLV44"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-568JJVLV44');
+    </script>
 
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "ธรรมสุตตะ",
+      "url": "https://dhamma-sutta.com/",
+      "description": "คลังธรรมะออนไลน์ ศึกษาพระธรรมตามพระไตรปิฎก พระวินัย พระสูตร และพระอภิธรรม พร้อมพุทธวจนะและอรรถกถา เพื่อการเข้าถึงคำสอนของพระพุทธเจ้าที่เรียบง่ายแต่ครบถ้วน",
+      "keywords": "ธรรมะ, พระไตรปิฎก, ธรรมบท, พุทธวจนะ, วินัยสงฆ์, พระสูตร, พระอภิธรรม, ศึกษาธรรมะ, ฟังธรรม",
+      "author": {
+        "@type": "Organization",
+        "name": "ธรรมสุตตะ"
+      },
+      "inLanguage": "th",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://dhamma-sutta.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 
-<style>
+    <style>
+        body {
+            font-family: "TH Sarabun New", "Sarabun", Tahoma, sans-serif;
+            background: #fffaf0;
+            color: #5a3e1b;
+            padding: 20px;
+            line-height: 1.6;
+            padding-bottom: 280px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #fffef7;
+            padding: 25px;
+            border: 1px solid #d2b48c;
+            border-radius: 12px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #8B0000;
+        }
+        .search-input {
+            font-size: 18px;
+            width: 70%;
+            padding: 10px 14px;
+            border-radius: 24px;
+            border: 1px solid #4285F4;
+            background-color: #f0f7ff;
+            margin: 0 0 15px;
+            display: block;
+            color: #333;
+        }
+        .playlist-select {
+            font-size: 18px;
+            width: 100%;
+            padding: 8px;
+            border-radius: 8px;
+            border: 1px solid #c9a77d;
+            margin-bottom: 15px;
+        }
+        .stat-info {
+            text-align: center;
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 20px;
+        }
+        .history-box {
+            font-size: 16px;
+            color: #444;
+            background: #f5f3eb;
+            border: 1px dashed #bbb;
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 10px;
+        }
+        .track-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+        .track-item {
+            margin: 8px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .track-button {
+            flex: 1;
+            padding: 10px;
+            background: #fdf6e3;
+            border: 1px solid #d5b48c;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 18px;
+            color: #5a3e1b;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        .track-button:hover {
+            background: #f7eacc;
+        }
+        .footer-link {
+            text-align: center;
+            font-size: 14px;
+            color: #999;
+            margin-top: 40px;
+        }
+        .footer-link a {
+            color: #999;
+            text-decoration: none;
+        }
+        .footer-link a:hover {
+            text-decoration: underline;
+        }
+        .fixed-bottom-player-wrapper {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: #fffef7;
+            padding: 15px 20px;
+            box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .fixed-bottom-player-wrapper .resume-button {
+            margin-bottom: 10px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            background: #fef2cc;
+            border: 1px solid #e0c76f;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .fixed-bottom-player-wrapper .resume-button:hover {
+            background: #fce7aa;
+        }
+        .fixed-bottom-player-wrapper .history-box {
+            max-width: 700px;
+            width: 100%;
+            box-sizing: border-box;
+            margin-bottom: 0;
+            margin-top: 10px;
+        }
+        .player-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 700px;
+            justify-content: center;
+        }
+        .control-button {
+            padding: ๘px ๑๒px;
+            font-size: ๑๘px;
+            margin: 0 ๘px;
+            cursor: pointer;
+            border-radius: ๘px;
+            background: #fdf6e3;
+            border: ๑px solid #d5b48c;
+            color: #5a3e1b;
+            flex-shrink: 0;
+        }
+        .control-button:hover {
+            background: #f7eacc;
+        }
+        .player-container audio {
+            flex-grow: 1;
+            width: 100%;
+        }
+    </style>
 
+    <style>
+        .controls {
+            display: flex;
+            gap: 10px; /* ระยะห่างระหว่างปุ่ม */
+        }
+        .control-button {
+            padding: 8px 12px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 
-
-:root {
-  --primary-color: #2c3e50;
-  --accent-color: #1abc9c;
-  --bg-color: #f8f9fa;
-  --text-color: #333;
-  --font-family: 'Sarabun', sans-serif;
-}
-
-body {
-  margin: 0;
-  font-family: var(--font-family);
-  background: var(--bg-color);
-  color: var(--text-color);
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 0 1rem;
-}
-
-/* Navbar */
-.navbar {
-  background: white;
-  padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-.navbar .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.logo {
-  font-weight: 700;
-  font-size: 1.5rem;
-  color: var(--primary-color);
-  text-decoration: none;
-}
-.navbar nav a {
-  margin-left: 1.5rem;
-  text-decoration: none;
-  font-weight: bold;
-  color: var(--text-color);
-}
-
-/* Hero */
-.hero {
-  background: linear-gradient(to right, #2c3e50, #34495e);
-  color: white;
-  padding: 4rem 1rem;
-  text-align: center;
-}
-.hero-content h1 {
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-.search-bar {
-  display: flex;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.search-bar input {
-  flex: 1;
-  padding: 1rem;
-  border: none;
-  border-radius: 8px 0 0 8px;
-}
-.search-bar button {
-  background: var(--accent-color);
-  border: none;
-  color: white;
-  font-weight: bold;
-  padding: 1rem 1.5rem;
-  border-radius: 0 8px 8px 0;
-  cursor: pointer;
-}
-
-/* Tags / Category */
-.tag-filter {
-  margin: 2rem 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-  align-items: center;
-}
-.tag-filter button {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--accent-color);
-  background: white;
-  color: var(--accent-color);
-  border-radius: 20px;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: 0.3s;
-}
-.tag-filter button:hover {
-  background: var(--accent-color);
-  color: white;
-}
-
-/* Posts */
-.content-section {
-  padding: 2rem 0;
-}
-.content-section h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-.post-grid {
-  display: grid;
-  gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-}
-.post-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
-  transition: transform 0.3s;
-}
-.post-card:hover {
-  transform: translateY(-5px);
-}
-.post-card h3 {
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
-.post-meta {
-  font-size: 0.85rem;
-  color: gray;
-  margin-bottom: 1rem;
-}
-.post-card p {
-  font-size: 0.95rem;
-  color: #555;
-}
-.post-card a {
-  display: inline-block;
-  margin-top: 1rem;
-  color: var(--accent-color);
-  font-weight: bold;
-  text-decoration: none;
-}
-.post-card a:hover {
-  text-decoration: underline;
-}
-
-/* Footer */
-.footer {
-  background: var(--primary-color);
-  color: white;
-  text-align: center;
-  padding: 2rem 1rem;
-  margin-top: 3rem;
-}
-
-</style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
 </head>
 <body>
+    <div id="nav-placeholder"></div>
 
-  <header class="navbar">
-    <div class="container">
-      <a href="#" class="logo">📚 KnowledgeHub</a>
-      <nav>
-        <a href="#latest">บทความล่าสุด</a>
-        <a href="#categories">หมวดหมู่</a>
-      </nav>
+    <div class="container"><br><br>
+        <input type="text" id="searchInput" class="search-input" placeholder="🔍 ค้นหาตามชื่อเรื่อง..." />
+
+        <select id="playlistSelect" class="playlist-select">
+            <option value="">📻 เลือกตามชื่อชุด, คัมภีร์...</option>
+        </select>
+        <div id="statInfo" class="stat-info">กำลังโหลดรายการ...</div>
+        <ul id="trackList" class="track-list"></ul>
+        <p id="random-quote">กำลังโหลด...</p>
     </div>
-  </header>
 
-  <section class="hero">
-    <div class="container hero-content">
-      <h1>คลังความรู้ของคุณในทุกหมวดหมู่</h1>
-      <p>ค้นหาเอกสาร บทความ และคู่มือการใช้งานจากหลากหลายหัวข้อ</p>
-      <div class="search-bar">
-        <input type="search" placeholder="ค้นหาสิ่งที่คุณต้องการ..." />
-        <button>ค้นหา</button>
-      </div>
+    <main></main>
+
+    <div class="fixed-bottom-player-wrapper" style="display: none;">
+        <div class="player-container">
+            <audio id="audioPlayer" controls>
+                <source src="https://archive.org/download/dhamma-jariya-set/Jariya4.mp3" type="audio/mpeg" />
+                เบราว์เซอร์ของคุณไม่รองรับการเล่นเสียง
+            </audio>
+        </div>
+        <div class="controls">
+            <button id="rewindBtn" class="control-button" title="ถอยหลัง 30 วินาที">⏪ ถอยหลัง 30 วินาที</button>
+            <button id="forwardBtn" class="control-button" title="เดินหน้า 30 วินาที">เดินหน้า 30 วินาที ⏩</button>
+        </div>
+
+        <div id="historyBox" class="history-box" style="display: none;"></div>
     </div>
-  </section>
 
-  <section class="container tag-filter" id="categories">
-    <span>หมวดหมู่:</span>
-    <button>เทคโนโลยี</button>
-    <button>พัฒนาตนเอง</button>
-    <button>การตลาด</button>
-    <button>ออกแบบ</button>
-    <button>บทความแนะนำ</button>
-  </section>
+    <script src="/assets/js/main.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('service-worker.js');
+            });
+        }
 
-  <section class="container content-section" id="latest">
-    <h2>บทความล่าสุด</h2>
-    <div class="post-grid">
-      <article class="post-card">
-        <h3>เริ่มต้นใช้งาน AI กับชีวิตประจำวัน</h3>
-        <div class="post-meta">เทคโนโลยี · 10 ก.ค. 2025</div>
-        <p>สำรวจวิธีการใช้ AI เช่น ChatGPT, การทำงานอัตโนมัติ, และการจัดการงานง่ายๆ</p>
-        <a href="#">อ่านต่อ</a>
-      </article>
-      <article class="post-card">
-        <h3>แนวทางการพัฒนาตนเองอย่างยั่งยืน</h3>
-        <div class="post-meta">พัฒนาตนเอง · 9 ก.ค. 2025</div>
-        <p>เรียนรู้เทคนิคปรับปรุงนิสัย เป้าหมาย และแรงจูงใจให้สำเร็จในระยะยาว</p>
-        <a href="#">อ่านต่อ</a>
-      </article>
-      <article class="post-card">
-        <h3>ออกแบบเว็บไซต์อย่างมืออาชีพ</h3>
-        <div class="post-meta">ออกแบบ · 7 ก.ค. 2025</div>
-        <p>แนะนำพื้นฐาน UX/UI การเลือกสี ฟอนต์ และโครงสร้างหน้าเว็บที่ใช้งานง่าย</p>
-        <a href="#">อ่านต่อ</a>
-      </article>
-    </div>
-  </section>
+        let playlists;
+        let allTracks = [];
+        let currentTracks = [];
+        const audio = document.getElementById("audioPlayer");
+        const trackList = document.getElementById("trackList");
+        const playlistSelect = document.getElementById("playlistSelect");
+        const searchInput = document.getElementById("searchInput");
+        const statInfo = document.getElementById("statInfo");
+        const historyBox = document.getElementById("historyBox");
+        const fixedPlayerWrapper = document.querySelector('.fixed-bottom-player-wrapper');
+        const rewindBtn = document.getElementById("rewindBtn");
+        const forwardBtn = document.getElementById("forwardBtn");
 
-  <footer class="footer">
-    <div class="container">
-      <p>&copy; 2025 KnowledgeHub. All rights reserved.</p>
-    </div>
-  </footer>
+        rewindBtn.addEventListener("click", () => {
+            audio.currentTime -= 30;
+        });
 
-  <script src="assets/js/script.js"></script>
+        forwardBtn.addEventListener("click", () => {
+            audio.currentTime += 30;
+        });
+
+        fetch("playlists.json")
+            .then(response => response.json())
+            .then(data => {
+                playlists = data;
+                let totalTracks = 0;
+
+                // Populate dropdown and create allTracks array
+                Object.keys(playlists).forEach(name => {
+                    const option = document.createElement("option");
+                    option.value = name;
+                    option.textContent = name;
+                    playlistSelect.appendChild(option);
+
+                    const tracksInPlaylist = playlists[name];
+                    allTracks = allTracks.concat(tracksInPlaylist);
+                    totalTracks += tracksInPlaylist.length;
+                });
+
+                // Set initial context to all tracks for global search
+                currentTracks = allTracks;
+
+                statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks.toLocaleString('th-TH')} เรื่อง แบ่งเป็น ${Object.keys(playlists).length.toLocaleString('th-TH')} ชุด `;
+
+                const lastTrack = localStorage.getItem("lastTrackUrl");
+                if (lastTrack) {
+                    fixedPlayerWrapper.style.display = 'flex';
+                    audio.src = lastTrack;
+                }
+
+                showHistory();
+            });
+
+        playlistSelect.addEventListener("change", function () {
+            const selected = this.value;
+            if (selected) {
+                currentTracks = playlists[selected] || [];
+            } else {
+                currentTracks = allTracks;
+            }
+            searchInput.value = ""; // Clear search input
+            showFilteredTracks(""); // Display all tracks from the new context
+        });
+
+        searchInput.addEventListener("input", () => {
+            showFilteredTracks(searchInput.value);
+        });
+
+        function showFilteredTracks(keyword) {
+            trackList.innerHTML = "";
+            const filtered = (currentTracks || []).filter(track =>
+                track.title.toLowerCase().includes(keyword.toLowerCase())
+            );
+
+            const displayLimit = (playlistSelect.value === "" && keyword) ? 100 : filtered.length;
+            const tracksToDisplay = filtered.slice(0, displayLimit);
+
+            tracksToDisplay.forEach(track => {
+                const li = document.createElement("li");
+                li.className = "track-item";
+
+                const btn = document.createElement("button");
+                btn.className = "track-button";
+                btn.textContent = `▶️ ${track.title}`;
+                btn.onclick = () => {
+                    audio.src = track.url;
+                    audio.play();
+                    localStorage.setItem("lastTrackUrl", track.url);
+                    saveHistory(track);
+                    showHistory();
+                    fixedPlayerWrapper.style.display = 'flex';
+                };
+
+                li.appendChild(btn);
+                trackList.appendChild(li);
+            });
+
+            if (filtered.length > displayLimit) {
+                const moreResultsLi = document.createElement("li");
+                moreResultsLi.textContent = `และอีก ${filtered.length - displayLimit} ผลลัพธ์... กรุณาเจาะจงคำค้นหาเพิ่มเติม`;
+                moreResultsLi.style.textAlign = "center";
+                moreResultsLi.style.color = "#888";
+                moreResultsLi.style.marginTop = "10px";
+                trackList.appendChild(moreResultsLi);
+            }
+        }
+
+        function saveHistory(track) {
+            let history = JSON.parse(localStorage.getItem("history")) || [];
+            history = history.filter(t => t.url !== track.url);
+            // Store current playback time along with the track
+            history.unshift({ title: track.title, url: track.url, currentTime: audio.currentTime });
+            if (history.length > 3) history.pop();
+            localStorage.setItem("history", JSON.stringify(history));
+        }
+
+        function showHistory() {
+            const history = JSON.parse(localStorage.getItem("history")) || [];
+            if (history.length === 0) {
+                historyBox.style.display = "none";
+                return;
+            }
+            historyBox.style.display = "block";
+            historyBox.innerHTML = "<strong>🕒 ประวัติการฟัง:</strong><ul style='padding-left: 20px; margin-top: 5px; margin-bottom: 0;'>" +
+                history.map(item =>
+                    `<li><a href="#" onclick="event.preventDefault(); playFromHistory('${item.url}', '${item.title.replace(/'/g, "\\'")}', ${item.currentTime})">${item.title}</a> - <span class="played-time">${formatTimeFromSeconds(item.currentTime)}</span></li>`
+                ).join('') +
+                "</ul>";
+        }
+
+        function playFromHistory(url, title, currentTime) {
+            audio.src = url;
+            audio.play();
+            audio.currentTime = currentTime; // Set the playback time from history
+            localStorage.setItem("lastTrackUrl", url);
+            fixedPlayerWrapper.style.display = 'flex';
+        }
+
+        function resumeLastTrack() {
+            const lastTrack = localStorage.getItem("lastTrackUrl");
+            if (lastTrack) {
+                audio.src = lastTrack;
+                audio.play();
+                fixedPlayerWrapper.style.display = 'flex';
+            } else {
+                alert("ยังไม่มีรายการที่ฟังล่าสุด");
+            }
+        }
+
+        // New function to format seconds into HH:MM:SS or MM:SS for display
+        function formatTimeFromSeconds(seconds) {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = Math.floor(seconds % 60);
+
+            if (h > 0) {
+                return `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            } else {
+                return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            }
+        }
+
+        // Add event listener to update history display when audio time updates
+        audio.addEventListener('timeupdate', () => {
+            const history = JSON.parse(localStorage.getItem("history")) || [];
+            const currentTrackUrl = localStorage.getItem("lastTrackUrl");
+            const historyItemIndex = history.findIndex(item => item.url === currentTrackUrl);
+
+            if (historyItemIndex !== -1 && fixedPlayerWrapper.style.display !== 'none') {
+                history[historyItemIndex].currentTime = audio.currentTime;
+                localStorage.setItem("history", JSON.stringify(history));
+                // Update the displayed time for the current track in history
+                const historyElements = historyBox.querySelectorAll('li');
+                if (historyElements[historyItemIndex]) {
+                    const timeSpan = historyElements[historyItemIndex].querySelector('.played-time');
+                    if (timeSpan) {
+                        timeSpan.textContent = formatTimeFromSeconds(audio.currentTime);
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+        const player = document.getElementById("audioPlayer");
+        const storageKey = "audio-position";
+
+        player.addEventListener('loadedmetadata', () => {
+            const lastPos = localStorage.getItem(storageKey);
+            if (lastPos) {
+                const rewindSeconds = 20; // ⏪ จำนวนวินาทีที่ต้องการให้ถอยหลัง
+                let resumePos = parseFloat(lastPos) - rewindSeconds;
+
+                if (resumePos < 0) {
+                    resumePos = 0; // ป้องกันเวลาติดลบ
+                }
+
+                player.currentTime = resumePos;
+            }
+        });
+
+        player.addEventListener("timeupdate", () => {
+            localStorage.setItem(storageKey, player.currentTime);
+        });
+    </script>
+    <script>
+        // Media Session API for lock screen controls
+        if ('mediaSession' in navigator) {
+            navigator.mediaSession.metadata = new MediaMetadata({
+                artwork: [
+                    {
+                        src: 'https://raw.githubusercontent.com/Dhammasutta/dhamma-radio/refs/heads/main/images/dhamma-logo-512.png',
+                        sizes: '512x512',
+                        type: 'image/png'
+                    }
+                ]
+            });
+        }
+    </script>
+
+    <script>
+        // Hamburger Menu Script (if needed)
+        const hamburgerIcon = document.getElementById('hamburgerIcon');
+        const sidebarMenu = document.getElementById('sidebarMenu');
+        if (hamburgerIcon && sidebarMenu) {
+            hamburgerIcon.addEventListener('click', () => {
+                hamburgerIcon.classList.toggle('open');
+                sidebarMenu.classList.toggle('open');
+            });
+        }
+    </script>
+
+    <script>
+        // Script for tag index page generation
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.getElementById('alphabetical-tag-container');
+            if (!container) return; // Only run if the container exists
+            const dataUrl = '/assets/data/tags.json';
+
+            fetch(dataUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(posts => {
+                    const allTags = new Set();
+                    posts.forEach(post => {
+                        if (post.tags && Array.isArray(post.tags)) {
+                            post.tags.forEach(tag => allTags.add(tag.trim()));
+                        }
+                    });
+
+                    const sortedTags = Array.from(allTags).sort((a, b) => a.localeCompare(b, 'th'));
+
+                    if (sortedTags.length === 0) {
+                        container.innerHTML = '<p class="loading-message">ยังไม่มีป้ายกำกับในระบบ</p>';
+                        return;
+                    }
+
+                    const groupedTags = sortedTags.reduce((acc, tag) => {
+                        const firstLetter = tag[0];
+                        if (!acc[firstLetter]) {
+                            acc[firstLetter] = [];
+                        }
+                        acc[firstLetter].push(tag);
+                        return acc;
+                    }, {});
+
+                    container.innerHTML = '';
+                    for (const letter in groupedTags) {
+                        const groupSection = document.createElement('section');
+                        groupSection.className = 'tag-group';
+                        const header = document.createElement('h2');
+                        header.className = 'tag-group-header';
+                        header.textContent = letter;
+                        groupSection.appendChild(header);
+                        const linksDiv = document.createElement('div');
+                        linksDiv.className = 'tag-links';
+                        groupedTags[letter].forEach(tag => {
+                            const link = document.createElement('a');
+                            link.className = 'tag-item';
+                            link.href = `/tags/${encodeURIComponent(tag)}.html`;
+                            link.textContent = tag;
+                            linksDiv.appendChild(link);
+                        });
+                        groupSection.appendChild(linksDiv);
+                        container.appendChild(groupSection);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching or processing tags:', error);
+                    container.innerHTML = '<p class="error-message">เกิดข้อผิดพลาดในการโหลดข้อมูลป้ายกำกับ</p>';
+                });
+        });
+    </script>
 </body>
 </html>
