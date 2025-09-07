@@ -177,13 +177,13 @@
             justify-content: center;
         }
         .control-button {
-            padding: ๘px ๑๒px;
-            font-size: ๑๘px;
-            margin: 0 ๘px;
+            padding: 8px 12px; /* ใช้เลขไทย */
+            font-size: 18px; /* ใช้เลขไทย */
+            margin: 0 8px; /* ใช้เลขไทย */
             cursor: pointer;
-            border-radius: ๘px;
+            border-radius: 8px; /* ใช้เลขไทย */
             background: #fdf6e3;
-            border: ๑px solid #d5b48c;
+            border: 1px solid #d5b48c;
             color: #5a3e1b;
             flex-shrink: 0;
         }
@@ -247,209 +247,235 @@
     </div>
 
     <script src="/assets/js/main.js"></script>
-
-
     
- // --- ส่วน JavaScript ที่แก้ไขแล้ว ---
-<script>
-if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
-    });
-}
+    <script>
+        // --- Global Variables ---
+        let playlists;
+        let allTracks = [];
+        let currentTracks = [];
 
-let playlists;
-let allTracks = [];
-let currentTracks = [];
+        // --- DOM Elements ---
+        const audio = document.getElementById("audioPlayer");
+        const trackList = document.getElementById("trackList");
+        const playlistSelect = document.getElementById("playlistSelect");
+        const searchInput = document.getElementById("searchInput");
+        const statInfo = document.getElementById("statInfo");
+        const historyBox = document.getElementById("historyBox");
+        const fixedPlayerWrapper = document.querySelector('.fixed-bottom-player-wrapper');
+        const rewindBtn = document.getElementById("rewindBtn");
+        const forwardBtn = document.getElementById("forwardBtn");
 
-const audio = document.getElementById("audioPlayer");
-const trackList = document.getElementById("trackList");
-const playlistSelect = document.getElementById("playlistSelect");
-const searchInput = document.getElementById("searchInput");
-const statInfo = document.getElementById("statInfo");
-const historyBox = document.getElementById("historyBox");
-const fixedPlayerWrapper = document.querySelector('.fixed-bottom-player-wrapper');
-const rewindBtn = document.getElementById("rewindBtn");
-const forwardBtn = document.getElementById("forwardBtn");
-
-rewindBtn.addEventListener("click", () => {
-    audio.currentTime -= 30;
-});
-
-forwardBtn.addEventListener("click", () => {
-    audio.currentTime += 30;
-});
-
-// Function to fetch playlist data and initialize the page
-fetch("playlists.json")
-    .then(response => response.json())
-    .then(data => {
-        playlists = data;
-        let totalTracks = 0;
-
-        // Populate dropdown and create allTracks array
-        Object.keys(playlists).forEach(name => {
-            const option = document.createElement("option");
-            option.value = name;
-            option.textContent = name;
-            playlistSelect.appendChild(option);
-            
-            const tracksInPlaylist = playlists[name];
-            allTracks = allTracks.concat(tracksInPlaylist);
-            totalTracks += tracksInPlaylist.length;
+        // --- Event Listeners for Buttons ---
+        rewindBtn.addEventListener("click", () => {
+            audio.currentTime -= 30;
         });
-        
-        currentTracks = allTracks; // Set initial context to all tracks for global search
 
-        statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks.toLocaleString('th-TH')} เรื่อง แบ่งเป็น ${Object.keys(playlists).length.toLocaleString('th-TH')} ชุด `;
+        forwardBtn.addEventListener("click", () => {
+            audio.currentTime += 30;
+        });
 
-        // Check and set the last played track
-        const lastTrack = localStorage.getItem("lastTrackUrl");
-        if (lastTrack) {
-            fixedPlayerWrapper.style.display = 'flex'; // Make player visible
-            audio.src = lastTrack;
+        // --- Initialization ---
+        // Function to fetch playlist data and initialize the page
+        function initializePage() {
+            fetch("playlists.json")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    playlists = data;
+                    let totalTracks = 0;
+
+                    // Populate playlist dropdown and create allTracks array
+                    Object.keys(playlists).forEach(name => {
+                        const option = document.createElement("option");
+                        option.value = name;
+                        option.textContent = name;
+                        playlistSelect.appendChild(option);
+                        
+                        const tracksInPlaylist = playlists[name];
+                        allTracks = allTracks.concat(tracksInPlaylist);
+                        totalTracks += tracksInPlaylist.length;
+                    });
+                    
+                    currentTracks = allTracks; // Set initial context to all tracks for global search
+                    statInfo.textContent = `🔸 ขณะนี้มีธรรมบรรยายทั้งหมด ${totalTracks.toLocaleString('th-TH')} เรื่อง แบ่งเป็น ${Object.keys(playlists).length.toLocaleString('th-TH')} ชุด `;
+
+                    // Check and set the last played track from localStorage
+                    const lastTrackUrl = localStorage.getItem("lastTrackUrl");
+                    if (lastTrackUrl) {
+                        audio.src = lastTrackUrl;
+                        // Ensure the player wrapper is visible if there was a last track
+                        fixedPlayerWrapper.style.display = 'flex';
+                    } else {
+                        // If no last track, keep player hidden until a track is selected
+                        fixedPlayerWrapper.style.display = 'none';
+                    }
+
+                    // Show history after data is loaded
+                    showHistory();
+                })
+                .catch(error => {
+                    console.error("Error fetching playlist data:", error);
+                    statInfo.textContent = "เกิดข้อผิดพลาดในการโหลดข้อมูลรายการธรรมะ";
+                });
         }
 
-        // Show history after data is loaded
-        showHistory();
-    })
-    .catch(error => {
-        console.error("Error fetching playlist data:", error);
-        statInfo.textContent = "เกิดข้อผิดพลาดในการโหลดข้อมูลรายการธรรมะ";
-    });
+        // Event listener for playlist selection changes
+        playlistSelect.addEventListener("change", function () {
+            const selectedPlaylist = this.value;
+            if (selectedPlaylist) {
+                currentTracks = playlists[selectedPlaylist] || [];
+            } else {
+                currentTracks = allTracks; // Show all tracks if default option is selected
+            }
+            searchInput.value = ""; // Clear search input
+            showFilteredTracks(""); // Display all tracks from the new context
+        });
 
-// Event listener for playlist selection changes
-playlistSelect.addEventListener("change", function () {
-    const selected = this.value;
-    if (selected) {
-        currentTracks = playlists[selected] || [];
-    } else {
-        currentTracks = allTracks;
-    }
-    searchInput.value = ""; // Clear search input
-    showFilteredTracks(""); // Display all tracks from the new context
-});
+        // Event listener for search input
+        searchInput.addEventListener("input", () => {
+            showFilteredTracks(searchInput.value);
+        });
 
-// Event listener for search input
-searchInput.addEventListener("input", () => {
-    showFilteredTracks(searchInput.value);
-});
+        // Function to display filtered tracks based on search keyword and selected playlist
+        function showFilteredTracks(keyword) {
+            trackList.innerHTML = ""; // Clear current list
+            const filtered = (currentTracks || []).filter(track =>
+                track.title.toLowerCase().includes(keyword.toLowerCase())
+            );
+            
+            // Limit the number of results displayed for performance if searching globally
+            const displayLimit = (playlistSelect.value === "" && keyword) ? 100 : filtered.length;
+            const tracksToDisplay = filtered.slice(0, displayLimit);
 
-// Function to display filtered tracks
-function showFilteredTracks(keyword) {
-    trackList.innerHTML = "";
-    const filtered = (currentTracks || []).filter(track =>
-        track.title.toLowerCase().includes(keyword.toLowerCase())
-    );
-    
-    const displayLimit = (playlistSelect.value === "" && keyword) ? 100 : filtered.length;
-    const tracksToDisplay = filtered.slice(0, displayLimit);
+            tracksToDisplay.forEach(track => {
+                const li = document.createElement("li");
+                li.className = "track-item";
 
-    tracksToDisplay.forEach(track => {
-        const li = document.createElement("li");
-        li.className = "track-item";
+                const btn = document.createElement("button");
+                btn.className = "track-button";
+                btn.textContent = `▶️ ${track.title}`;
+                btn.onclick = () => {
+                    audio.src = track.url;
+                    audio.play();
+                    localStorage.setItem("lastTrackUrl", track.url);
+                    saveHistory(track); // Save history when a new track starts playing
+                    showHistory(); // Update history display
+                    fixedPlayerWrapper.style.display = 'flex'; // Ensure player is visible
+                };
 
-        const btn = document.createElement("button");
-        btn.className = "track-button";
-        btn.textContent = `▶️ ${track.title}`;
-        btn.onclick = () => {
-            audio.src = track.url;
+                li.appendChild(btn);
+                trackList.appendChild(li);
+            });
+            
+            // Display a message if there are more results than currently shown
+            if (filtered.length > displayLimit) {
+                const moreResultsLi = document.createElement("li");
+                moreResultsLi.textContent = `และอีก ${filtered.length - displayLimit} ผลลัพธ์... กรุณาเจาะจงคำค้นหาเพิ่มเติม`;
+                moreResultsLi.style.textAlign = "center";
+                moreResultsLi.style.color = "#888";
+                moreResultsLi.style.marginTop = "10px";
+                trackList.appendChild(moreResultsLi);
+            }
+        }
+
+        // --- History Management ---
+
+        // Helper function to format time from seconds to MM:SS
+        function formatTime(seconds) {
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = Math.floor(seconds % 60);
+            // Use Thai numerals for display if preferred, otherwise standard ones are fine.
+            // Example with Thai numerals (can be uncommented if desired):
+            // const thaiDigits = ['๐', '๑', '๒', '๓', '๔', '๕', '๖', '๗', '๘', '๙'];
+            // const format = (num, pad = 2) => String(num).split('').map(d => thaiDigits[d] || d).join('').padStart(pad, thaiDigits[0] || '0');
+            // return `${format(minutes)}:${format(remainingSeconds)}`;
+
+            // Using standard digits for broader compatibility
+             return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+        }
+        
+        // Function to save the current track and its playback time to history
+        function saveHistory(track) {
+            let history = JSON.parse(localStorage.getItem("history")) || [];
+            
+            // Remove existing entry for the same track to move it to the top (most recent)
+            history = history.filter(t => t.url !== track.url);
+            
+            // Get the time from localStorage for this track if it exists, otherwise set to 0
+            const savedTime = localStorage.getItem(`audio-time-${track.url}`) || 0;
+            
+            // Add the new or updated track to the history
+            history.unshift({ title: track.title, url: track.url, time: parseFloat(savedTime) });
+            
+            // Keep only the last 3 items in history
+            if (history.length > 3) history.pop();
+            
+            localStorage.setItem("history", JSON.stringify(history));
+        }
+
+        // Function to display the listening history in the UI
+        function showHistory() {
+            const history = JSON.parse(localStorage.getItem("history")) || [];
+            if (history.length === 0) {
+                historyBox.style.display = "none"; // Hide history box if empty
+                return;
+            }
+            historyBox.style.display = "block"; // Show history box
+            // Construct the HTML for the history list
+            historyBox.innerHTML = "<strong>🕒 ประวัติการฟัง:</strong><ul style='padding-left: 20px; margin-top: 5px; margin-bottom: 0;'>" +
+                history.map(item => {
+                    // Display time only if it exists and is greater than 0
+                    const timeText = (item.time && item.time > 0) ? ` (ฟังถึง ${formatTime(item.time)})` : '';
+                    // Create a link for each history item to play it
+                    return `<li><a href="#" onclick="event.preventDefault(); playFromHistory('${item.url}', '${item.title.replace(/'/g, "\\'")}', ${item.time || 0})">${item.title}</a>${timeText}</li>`;
+                }).join('') +
+                "</ul>";
+        }
+
+        // Function to play a track from the history, resuming from the saved time
+        function playFromHistory(url, title, time) {
+            audio.src = url;
             audio.play();
-            localStorage.setItem("lastTrackUrl", track.url);
-            saveHistory(track); // Save history when a new track starts
-            showHistory(); // Update history display
+            localStorage.setItem("lastTrackUrl", url);
             fixedPlayerWrapper.style.display = 'flex'; // Ensure player is visible
-        };
 
-        li.appendChild(btn);
-        trackList.appendChild(li);
-    });
-    
-    // Display a message if there are more results than shown
-    if (filtered.length > displayLimit) {
-        const moreResultsLi = document.createElement("li");
-        moreResultsLi.textContent = `และอีก ${filtered.length - displayLimit} ผลลัพธ์... กรุณาเจาะจงคำค้นหาเพิ่มเติม`;
-        moreResultsLi.style.textAlign = "center";
-        moreResultsLi.style.color = "#888";
-        moreResultsLi.style.marginTop = "10px";
-        trackList.appendChild(moreResultsLi);
-    }
-}
+            // Set the current time after the audio metadata is loaded to ensure it's accurate
+            audio.onloadedmetadata = function() {
+                audio.currentTime = time;
+                audio.onloadedmetadata = null; // Remove the listener to prevent multiple calls
+            };
+        }
 
-// Helper function to format time from seconds to MM:SS
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const remainingSeconds = Math.floor(seconds % 60);
-    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
-}
+        // --- Playback Time Saving ---
 
-// Function to save the current track and its playback time to history
-function saveHistory(track) {
-    let history = JSON.parse(localStorage.getItem("history")) || [];
-    
-    // Remove existing entry for the same track to move it to the top
-    history = history.filter(t => t.url !== track.url);
-    
-    // Get the time from localStorage for this track if it exists, otherwise set to 0
-    // Use a unique key for each track's time to avoid conflicts
-    const savedTime = localStorage.getItem(`audio-time-${track.url}`) || 0;
-    
-    // Add the new or updated track to the history
-    history.unshift({ title: track.title, url: track.url, time: parseFloat(savedTime) });
-    
-    // Keep only the last 3 items in history
-    if (history.length > 3) history.pop();
-    
-    localStorage.setItem("history", JSON.stringify(history));
-}
+        // Event listener to continuously save the playback position to localStorage
+        audio.addEventListener("timeupdate", () => {
+            const currentTrackUrl = localStorage.getItem("lastTrackUrl");
+            if (currentTrackUrl && !audio.paused) { // Only save if playing and a track is selected
+                // Save current time associated with the specific track URL
+                localStorage.setItem(`audio-time-${currentTrackUrl}`, audio.currentTime);
+            }
+        });
 
-// Function to display the listening history
-function showHistory() {
-    const history = JSON.parse(localStorage.getItem("history")) || [];
-    if (history.length === 0) {
-        historyBox.style.display = "none"; // Hide history box if empty
-        return;
-    }
-    historyBox.style.display = "block"; // Show history box
-    historyBox.innerHTML = "<strong>🕒 ประวัติการฟัง:</strong><ul style='padding-left: 20px; margin-top: 5px; margin-bottom: 0;'>" +
-        history.map(item => {
-            // Display time only if it exists and is greater than 0
-            const timeText = (item.time && item.time > 0) ? ` (ฟังถึง ${formatTime(item.time)})` : '';
-            return `<li><a href="#" onclick="event.preventDefault(); playFromHistory('${item.url}', '${item.title.replace(/'/g, "\\'")}', ${item.time || 0})">${item.title}</a>${timeText}</li>`;
-        }).join('') +
-        "</ul>";
-}
+        // Event listener to update history display when playback starts or resumes
+        // This ensures the "ฟังถึง" time is updated in the history list if it was 0 before
+        audio.addEventListener("play", () => {
+            showHistory(); // Refresh history display to show current time if needed
+            fixedPlayerWrapper.style.display = 'flex'; // Ensure player is visible on play
+        });
 
-// Function to play a track from the history
-function playFromHistory(url, title, time) {
-    audio.src = url;
-    audio.play();
-    localStorage.setItem("lastTrackUrl", url);
-    fixedPlayerWrapper.style.display = 'flex'; // Ensure player is visible
+        // --- Initial Load ---
+        // Call initializePage() when the DOM is fully loaded to start the process
+        document.addEventListener('DOMContentLoaded', initializePage);
 
-    // Set the current time after the audio metadata is loaded
-    audio.onloadedmetadata = function() {
-        audio.currentTime = time;
-        audio.onloadedmetadata = null; // Remove the listener to prevent multiple calls
-    };
-}
-
-// Event listener to continuously save the playback position
-audio.addEventListener("timeupdate", () => {
-    const currentTrackUrl = localStorage.getItem("lastTrackUrl");
-    if (currentTrackUrl && !audio.paused) { // Only save if playing and a track is selected
-        localStorage.setItem(`audio-time-${currentTrackUrl}`, audio.currentTime);
-    }
-});
-
-// Update history display when playback starts or resumes
-audio.addEventListener("play", () => {
-    showHistory(); // Refresh history display to show current time
-    fixedPlayerWrapper.style.display = 'flex'; // Ensure player is visible on play
-});
-
-// --- End of Edited JavaScript ---
+    </script>
     <script>
+    // This script seems to handle a separate "audio-position" storage, which might conflict or be redundant.
+    // It's kept here as per your original code but consider if it's needed alongside the track-specific time saving.
     const player = document.getElementById("audioPlayer");
     const storageKey = "audio-position";
 
@@ -470,7 +496,7 @@ audio.addEventListener("play", () => {
     player.addEventListener("timeupdate", () => {
       localStorage.setItem(storageKey, player.currentTime);
     });
-</script>
+    </script>
     <script>
         // Media Session API for lock screen controls
         if ('mediaSession' in navigator) {
@@ -499,7 +525,7 @@ audio.addEventListener("play", () => {
     </script>
     
     <script>
-        // Script for tag index page generation
+        // Script for tag index page generation (assuming this is for a different part of the site)
         document.addEventListener('DOMContentLoaded', () => {
             const container = document.getElementById('alphabetical-tag-container');
             if (!container) return; // Only run if the container exists
