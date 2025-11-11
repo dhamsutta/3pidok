@@ -1,140 +1,137 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>รายการตำรา</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap">
-  <style>
-    body {
-      font-family: 'Sarabun', sans-serif;
-      background-color: ;
-      padding: 2rem;
-      color: black;
-    }
+  <meta charset="UTF-8">
+  <title>รายการตำรา</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sarabun&display=swap">
+  <style>
+    body {
+      font-family: 'Sarabun', sans-serif;
+      padding: ๒rem; /* ใช้เลขไทยตามที่คุณต้องการ */
+      color: black;
+    }
 
-    .vb-frame {
-      border: 0px solid ;
-      border-top-color: ;
-      border-left-color: ;
-      background-color: ;
-      padding: 1rem;
-      max-width: 500px;
-      margin: 0 auto;
-      box-shadow: inset -0px -0px , inset 0px 0px ;
-    }
+    .vb-frame {
+      border: ๐px solid;
+      /* ลบคุณสมบัติ border-color และ background-color ที่ว่างเปล่าออก */
+      padding: ๑rem;
+      max-width: ๕๐๐px;
+      margin: ๐ auto;
+      box-shadow: inset -๐px -๐px, inset ๐px ๐px;
+    }
 
-    label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: bold;
-    }
+    label {
+      display: block;
+      margin-bottom: ๐.๕rem;
+      font-weight: bold;
+    }
 
-    select {
-      width: 100%;
-      padding: 0.4em;
-      font-size: 1rem;
-      border: 1px solid ;
-      background-color: #fff;
-      color: ;
-    }
+    select {
+      width: ๑๐๐%;
+      padding: ๐.๔em;
+      font-size: ๑rem;
+      border: ๑px solid #ccc; /* เพิ่มสีเส้นขอบมาตรฐาน */
+      background-color: #fff;
+      color: #333; /* เพิ่มสีตัวอักษรมาตรฐาน */
+    }
 
-    .vb-output {
-      margin-top: 1rem;
-      padding: 1rem;
-      background: ; /* **เปลี่ยนเป็นสีเหลืองอ่อนลงอีก (Almost White)** */
-      color: black;       /* ตัวอักษรสีดำ */
-      border: 0px inset ;
-      min-height: 100px;
-      white-space: pre-line;
-      /* Add some styling for the initial text if desired, e.g., */
-      display: flex; /* เพื่อจัดข้อความให้อยู่ตรงกลางแนวตั้ง-แนวนอน */
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
+    .vb-output {
+      margin-top: ๑rem;
+      padding: ๑rem;
+      background: #fefee0; /* สีเหลืองอ่อนลง (Almost White) ตามคอมเมนต์ */
+      color: black;       
+      border: ๐px inset;
+      min-height: ๑๐๐px;
+      white-space: pre-line;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
 
-    .book-link {
-      color: ; /* **เปลี่ยนสีลิงก์เป็นน้ำเงินเข้ม (Navy Blue)** */
-      text-decoration: underline;
-    }
-  </style>
+    .book-link {
+      color: #000080; /* น้ำเงินเข้ม (Navy Blue) ตามคอมเมนต์ */
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  
+  
 <div class="main-content">
-  <label for="bookSelect">เลือกตำรา:</label>
-  <select id="bookSelect">
-    <option value="">-- คัมภีร์ในพระไตรปิฎก --</option>
-  </select>
+  <label for="bookSelect">เลือกตำรา:</label>
+  <select id="bookSelect">
+    <option value="">-- คัมภีร์ในพระไตรปิฎก --</option>
+  </select>
 
-  <div id="bookOutput" class="vb-output">
-    กรุณาเลือกตำราเพื่อดูรายละเอียด
-  </div>
+  <div id="bookOutput" class="vb-output">
+    กรุณาเลือกตำราเพื่อดูรายละเอียด
+  </div>
 </div>
-  </div>
+  </div>
 
 <script>
-  let books = [];
+  let books = [];
 
-  // โหลดข้อมูลจาก books.json
-  // ตรวจสอบให้แน่ใจว่าไฟล์ books.json อยู่ที่ /assets/data/books.json
-  fetch('/assets/data/books.json')
-    .then(res => {
-      if (!res.ok) {
-        throw new Error(`HTTP error! status: ${res.status}`);
-      }
-      return res.json();
-    })
-    .then(data => {
-      books = data;
-      const select = document.getElementById('bookSelect');
-      data.forEach(book => {
-        const option = document.createElement('option');
-        option.value = book.id; // ใช้ book.id เป็นค่าของ option
-        option.textContent = `${book.label} - ${book.name}`;
-        select.appendChild(option);
-      });
-    })
-    .catch(error => {
-      console.error("Error loading books.json:", error);
-      document.getElementById('bookOutput').innerHTML = `<span style="color:red;">❌ ไม่สามารถโหลดข้อมูลตำราได้. โปรดตรวจสอบไฟล์ books.json และ Path</span>`;
-    });
+  // โหลดข้อมูลจาก books.json
+  // ตรวจสอบให้แน่ใจว่าไฟล์ books.json อยู่ที่ /assets/data/books.json
+  fetch('/assets/data/books.json')
+    .then(res => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then(data => {
+      books = data;
+      const select = document.getElementById('bookSelect');
+      data.forEach(book => {
+        const option = document.createElement('option');
+        option.value = book.id; // ใช้ book.id เป็นค่าของ option
+        option.textContent = `${book.label} - ${book.name}`;
+        select.appendChild(option);
+      });
+    })
+    .catch(error => {
+      console.error("Error loading books.json:", error);
+      document.getElementById('bookOutput').innerHTML = `<span style="color:red;">❌ ไม่สามารถโหลดข้อมูลตำราได้. โปรดตรวจสอบไฟล์ books.json และ Path</span>`;
+    });
 
-  document.getElementById('bookSelect').addEventListener('change', function () {
-    const selectedId = this.value; // ดึงค่า id ที่เลือก
-    const output = document.getElementById('bookOutput');
+  document.getElementById('bookSelect').addEventListener('change', function () {
+    const selectedId = this.value; // ดึงค่า id ที่เลือก
+    const output = document.getElementById('bookOutput');
 
-    if (!selectedId) { // ถ้าเลือก "กรุณาเลือก" หรือค่าว่าง
-      output.innerHTML = 'กรุณาเลือกตำราเพื่อดูรายละเอียด';
-      // Reset styling if it was changed
-      output.style.display = 'flex'; // กลับไปเป็น flex เพื่อจัดกึ่งกลาง
-      output.style.justifyContent = 'center';
-      output.style.alignItems = 'center';
-      output.style.textAlign = 'center';
-      return;
-    }
+    if (!selectedId) { // ถ้าเลือก "กรุณาเลือก" หรือค่าว่าง
+      output.innerHTML = 'กรุณาเลือกตำราเพื่อดูรายละเอียด';
+      // Reset styling: กลับไปเป็น flex เพื่อจัดกึ่งกลาง
+      output.style.display = 'flex';
+      output.style.justifyContent = 'center';
+      output.style.alignItems = 'center';
+      output.style.textAlign = 'center';
+      return;
+    }
 
-    const selected = books.find(book => book.id === selectedId); // ค้นหา object ของตำราที่เลือกจาก id
+    const selected = books.find(book => book.id === selectedId); // ค้นหา object ของตำราที่เลือกจาก id
 
-    if (selected) {
-      output.innerHTML = `
-        <b>${selected.label}</b> - ${selected.name}<br>
-        ${selected.desc}<br><br>
-        <a href="${selected.link}" class="book-link" target="_blank">🔗 ศึกษารายละเอียดของเล่มนี้....</a>
-      `;
-      // Remove centering styles when content is loaded
-      output.style.display = 'block'; // เปลี่ยนเป็น block เพื่อให้เนื้อหาไหลตามปกติ
-      output.style.justifyContent = 'initial';
-      output.style.alignItems = 'initial';
-      output.style.textAlign = 'left'; // จัดข้อความไปทางซ้าย
-    } else {
-      output.innerHTML = 'ไม่พบข้อมูลสำหรับตำราที่เลือก';
-      output.style.display = 'flex';
-      output.style.justifyContent = 'center';
-      output.style.alignItems = 'center';
-      output.style.textAlign = 'center';
-    }
-  });
+    if (selected) {
+      output.innerHTML = `
+        <b>${selected.label}</b> - ${selected.name}<br>
+        ${selected.desc}<br><br>
+        <a href="${selected.link}" class="book-link" target="_blank">🔗 ศึกษารายละเอียดของเล่มนี้....</a>
+      `;
+      // Remove centering styles: เปลี่ยนเป็น block เพื่อให้เนื้อหาไหลตามปกติและจัดซ้าย
+      output.style.display = 'block';
+      output.style.justifyContent = 'initial';
+      output.style.alignItems = 'initial';
+      output.style.textAlign = 'left'; 
+    } else {
+      output.innerHTML = 'ไม่พบข้อมูลสำหรับตำราที่เลือก';
+      // Keep centering styles
+      output.style.display = 'flex';
+      output.style.justifyContent = 'center';
+      output.style.alignItems = 'center';
+      output.style.textAlign = 'center';
+    }
+  });
 </script>
 
 </body>
