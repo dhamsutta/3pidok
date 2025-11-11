@@ -7,50 +7,54 @@
   <style>
     body {
       font-family: 'Sarabun', sans-serif;
-      padding: ๒rem; /* ใช้เลขไทยตามที่คุณต้องการ */
+      background-color: ;
+      padding: 2rem;
       color: black;
     }
 
     .vb-frame {
-      border: ๐px solid;
-      /* ลบคุณสมบัติ border-color และ background-color ที่ว่างเปล่าออก */
-      padding: ๑rem;
-      max-width: ๕๐๐px;
-      margin: ๐ auto;
-      box-shadow: inset -๐px -๐px, inset ๐px ๐px;
+      border: 0px solid ;
+      border-top-color: ;
+      border-left-color: ;
+      background-color: ;
+      padding: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      box-shadow: inset -0px -0px , inset 0px 0px ;
     }
 
     label {
       display: block;
-      margin-bottom: ๐.๕rem;
+      margin-bottom: 0.5rem;
       font-weight: bold;
     }
 
     select {
-      width: ๑๐๐%;
-      padding: ๐.๔em;
-      font-size: ๑rem;
-      border: ๑px solid #ccc; /* เพิ่มสีเส้นขอบมาตรฐาน */
+      width: 100%;
+      padding: 0.4em;
+      font-size: 1rem;
+      border: 1px solid ;
       background-color: #fff;
-      color: #333; /* เพิ่มสีตัวอักษรมาตรฐาน */
+      color: ;
     }
 
     .vb-output {
-      margin-top: ๑rem;
-      padding: ๑rem;
-      background: #fefee0; /* สีเหลืองอ่อนลง (Almost White) ตามคอมเมนต์ */
-      color: black;       
-      border: ๐px inset;
-      min-height: ๑๐๐px;
+      margin-top: 1rem;
+      padding: 1rem;
+      background: ; /* **เปลี่ยนเป็นสีเหลืองอ่อนลงอีก (Almost White)** */
+      color: black;       /* ตัวอักษรสีดำ */
+      border: 0px inset ;
+      min-height: 100px;
       white-space: pre-line;
-      display: flex;
+      /* Add some styling for the initial text if desired, e.g., */
+      display: flex; /* เพื่อจัดข้อความให้อยู่ตรงกลางแนวตั้ง-แนวนอน */
       justify-content: center;
       align-items: center;
       text-align: center;
     }
 
     .book-link {
-      color: #000080; /* น้ำเงินเข้ม (Navy Blue) ตามคอมเมนต์ */
+      color: ; /* **เปลี่ยนสีลิงก์เป็นน้ำเงินเข้ม (Navy Blue)** */
       text-decoration: underline;
     }
   </style>
@@ -102,8 +106,8 @@
 
     if (!selectedId) { // ถ้าเลือก "กรุณาเลือก" หรือค่าว่าง
       output.innerHTML = 'กรุณาเลือกตำราเพื่อดูรายละเอียด';
-      // Reset styling: กลับไปเป็น flex เพื่อจัดกึ่งกลาง
-      output.style.display = 'flex';
+      // Reset styling if it was changed
+      output.style.display = 'flex'; // กลับไปเป็น flex เพื่อจัดกึ่งกลาง
       output.style.justifyContent = 'center';
       output.style.alignItems = 'center';
       output.style.textAlign = 'center';
@@ -118,14 +122,13 @@
         ${selected.desc}<br><br>
         <a href="${selected.link}" class="book-link" target="_blank">🔗 ศึกษารายละเอียดของเล่มนี้....</a>
       `;
-      // Remove centering styles: เปลี่ยนเป็น block เพื่อให้เนื้อหาไหลตามปกติและจัดซ้าย
-      output.style.display = 'block';
+      // Remove centering styles when content is loaded
+      output.style.display = 'block'; // เปลี่ยนเป็น block เพื่อให้เนื้อหาไหลตามปกติ
       output.style.justifyContent = 'initial';
       output.style.alignItems = 'initial';
-      output.style.textAlign = 'left'; 
+      output.style.textAlign = 'left'; // จัดข้อความไปทางซ้าย
     } else {
       output.innerHTML = 'ไม่พบข้อมูลสำหรับตำราที่เลือก';
-      // Keep centering styles
       output.style.display = 'flex';
       output.style.justifyContent = 'center';
       output.style.alignItems = 'center';
@@ -136,3 +139,6 @@
 
 </body>
 </html>
+
+
+มี patch ผิดไหม จะเปิดกับ รายการตำรา 
